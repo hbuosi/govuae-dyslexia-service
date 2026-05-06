@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-05-06T22:35:00.000Z" agent="5.0" version="24.0.0" type="device">
+  <diagram id="bpmn-dims-complete" name="DIMS BPMN 2.0 Complete - All 9 Stages">
+    <mxGraphModel dx="1600" dy="2200" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="2800" background="ffffff" math="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- TITLE -->
+        <mxCell id="title" value="DIMS BPMN 2.0: Dyslexia Monitoring &amp; Intervention System - 9 Stage Process" style="text;fontSize=16;fontStyle=1;textAlign=center" vertex="1" parent="1">
+          <mxGeometry x="100" y="10" width="1400" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- START -->
+        <mxCell id="start" value="START&#xa;Child Referral&#xa;Received" style="ellipse;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;strokeWidth=3;fontSize=12;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="700" y="60" width="120" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- STAGE 1 -->
+        <mxCell id="s1" value="STAGE 1&#xa;Initial ID &amp;&#xa;Registration" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1976D2;strokeColor=#0D47A1;strokeWidth=2;fontSize=11;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="680" y="200" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxEdge id="start_s1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="start" target="s1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+
+        <!-- S1 Gateway -->
+        <mxCell id="gw1" value="Data Valid?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFB300;strokeColor=#FF6D00;strokeWidth=2;fontSize=10;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="730" y="330" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxEdge id="s1_gw1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="s1" target="gw1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+
+        <!-- Error Path 1 -->
+        <mxCell id="err1" value="ERROR&#xa;Escalate ONG" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D32F2F;strokeColor=#B71C1C;strokeWidth=2;fontSize=10;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="500" y="330" width="100" height="60" as="geometry"/>
+        </mxCell>
+        <mxEdge id="gw1_err" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;label=NO" edge="1" parent="1" source="gw1" target="err1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+
+        <!-- STAGE 2 -->
+        <mxCell id="s2" value="STAGE 2&#xa;Behavioral&#xa;Screening" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1976D2;strokeColor=#0D47A1;strokeWidth=2;fontSize=11;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="680" y="440" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxEdge id="gw1_s2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;label=YES" edge="1" parent="1" source="gw1" target="s2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+        <mxEdge id="err1_s2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="err1" target="s2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+
+        <!-- S2 Gateway -->
+        <mxCell id="gw2" value="Risk Signals?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFB300;strokeColor=#FF6D00;strokeWidth=2;fontSize=10;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="730" y="570" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxEdge id="s2_gw2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="s2" target="gw2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Monitor Path -->
+        <mxCell id="monitor" value="MONITOR&#xa;Annual Retest" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F4511E;strokeColor=#D84315;strokeWidth=2;fontSize=10;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="300" y="570" width="100" height="60" as="geometry"/>
+        </mxCell>
+        <mxEdge id="gw2_monitor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;label=Low" edge="1" parent="1" source="gw2" target="monitor">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+
+        <!-- STAGE 3 -->
+        <mxCell id="s3" value="STAGE 3&#xa;Cognitive&#xa;Battery" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1976D2;strokeColor=#0D47A1;strokeWidth=2;fontSize=11;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="950" y="560" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxEdge id="gw2_s3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;label=Moderate" edge="1" parent="1" source="gw2" target="s3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+
+        <!-- STAGE 4 -->
+        <mxCell id="s4" value="STAGE 4&#xa;Automated&#xa;Scoring" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1976D2;strokeColor=#0D47A1;strokeWidth=2;fontSize=11;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="950" y="700" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxEdge id="s3_s4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="s3" target="s4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+
+        <!-- STAGE 5 -->
+        <mxCell id="s5" value="STAGE 5&#xa;Risk&#xa;Classification" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1976D2;strokeColor=#0D47A1;strokeWidth=2;fontSize=11;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="680" y="840" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxEdge id="s4_s5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="s4" target="s5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+
+        <!-- S5 Gateway - Score Classification -->
+        <mxCell id="gw5" value="Composite Score?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFB300;strokeColor=#FF6D00;strokeWidth=2;fontSize=10;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="730" y="1000" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxEdge id="s5_gw5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="s5" target="gw5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Risk Tiers -->
+        <mxCell id="tier_low" value="Low/Moderate Risk" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2E7D32;strokeColor=#1B5E20;strokeWidth=2;fontSize=10;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="450" y="1000" width="120" height="60" as="geometry"/>
+        </mxCell>
+        <mxEdge id="gw5_low" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;label=0-70" edge="1" parent="1" source="gw5" target="tier_low">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+
+        <!-- Specialist Gate -->
+        <mxCell id="tier_specialist" value="High/Critical&#xa;Risk" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#AB47BC;strokeColor=#6A1B9A;strokeWidth=2;fontSize=10;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="950" y="1000" width="120" height="60" as="geometry"/>
+        </mxCell>
+        <mxEdge id="gw5_specialist" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;label=71+" edge="1" parent="1" source="gw5" target="tier_specialist">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+
+        <!-- STAGE 6 -->
+        <mxCell id="s6" value="STAGE 6&#xa;AI-Driven Plan&#xa;Generation" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1976D2;strokeColor=#0D47A1;strokeWidth=2;fontSize=11;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="680" y="1140" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxEdge id="tier_low_s6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="tier_low" target="s6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+        <mxEdge id="tier_spec_s6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="tier_specialist" target="s6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+
+        <!-- S6 Gateway - Plan Approval -->
+        <mxCell id="gw6" value="Plan Approved?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFB300;strokeColor=#FF6D00;strokeWidth=2;fontSize=10;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="730" y="1280" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxEdge id="s6_gw6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="s6" target="gw6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Revision Path -->
+        <mxCell id="revise" value="Revise Plan" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FF9800;strokeColor=#F57C00;strokeWidth=2;fontSize=10;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="500" y="1280" width="100" height="60" as="geometry"/>
+        </mxCell>
+        <mxEdge id="gw6_revise" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;label=Revise" edge="1" parent="1" source="gw6" target="revise">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+        <mxEdge id="revise_s6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="revise" target="s6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+
+        <!-- STAGE 7 -->
+        <mxCell id="s7" value="STAGE 7&#xa;Notification&#xa;Stakeholders" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1976D2;strokeColor=#0D47A1;strokeWidth=2;fontSize=11;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="680" y="1420" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxEdge id="gw6_s7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;label=Approved" edge="1" parent="1" source="gw6" target="s7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+
+        <!-- STAGE 8 -->
+        <mxCell id="s8" value="STAGE 8&#xa;Active Monitoring&#xa;&amp; Reclassification" style="rounded=0;whiteSpace=wrap;html=1;fillColor:#1976D2;strokeColor:#0D47A1;strokeWidth=2;fontSize=11;fontColor:#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="680" y="1560" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxEdge id="s7_s8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="s7" target="s8">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+        <mxEdge id="monitor_s8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="monitor" target="s8">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+
+        <!-- S8 Gateway - Score Change -->
+        <mxCell id="gw8" value="Score Changed?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFB300;strokeColor=#FF6D00;strokeWidth=2;fontSize=10;fontColor:#000000;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="730" y="1700" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxEdge id="s8_gw8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="s8" target="gw8">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+
+        <!-- Loop back to S5 -->
+        <mxCell id="loop_back" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="gw8" target="s5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1100" y="1880" as="sourcePoint"/>
+            <mxPoint x="1100" y="880" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- S8 Gateway 2 - Time Check -->
+        <mxCell id="gw8_time" value="6 Months Done?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFB300;strokeColor=#FF6D00;strokeWidth=2;fontSize=10;fontColor:#000000;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="730" y="1820" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxEdge id="gw8_time_continue" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;label=No" edge="1" parent="1" source="gw8_time" target="s8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="760" y="1760"/>
+            <mxPoint x="760" y="1640"/>
+          </mxGeometry>
+        </mxEdge>
+
+        <!-- STAGE 9 -->
+        <mxCell id="s9" value="STAGE 9&#xa;Exit Evaluation&#xa;&amp; Impact" style="rounded=0;whiteSpace=wrap;html=1;fillColor:#1976D2;strokeColor:#0D47A1;strokeWidth=2;fontSize=11;fontColor:#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="950" y="1820" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxEdge id="gw8_time_s9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;label=Yes" edge="1" parent="1" source="gw8_time" target="s9">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+
+        <!-- Final Gateway -->
+        <mxCell id="gw_final" value="Goal Achieved?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFB300;strokeColor=#FF6D00;strokeWidth=2;fontSize=10;fontColor=#000000;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1000" y="1960" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxEdge id="s9_final" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="s9" target="gw_final">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+
+        <!-- Final Report -->
+        <mxCell id="report" value="FINAL REPORT&#xa;Impact Assessment" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2E7D32;strokeColor=#1B5E20;strokeWidth=2;fontSize=10;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="1200" y="1970" width="120" height="60" as="geometry"/>
+        </mxCell>
+        <mxEdge id="final_report" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;label=Exit" edge="1" parent="1" source="gw_final" target="report">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+
+        <!-- END -->
+        <mxCell id="end" value="END&#xa;Program&#xa;Complete" style="ellipse;whiteSpace=wrap;html=1;fillColor=#4CAF50;strokeColor=#2E7D32;strokeWidth=3;fontSize=12;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1200" y="2080" width="120" height="100" as="geometry"/>
+        </mxCell>
+        <mxEdge id="report_end" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="report" target="end">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxEdge>
+
+        <!-- LEGEND -->
+        <mxCell id="legend" value="Legend: Green=Events | Blue=Tasks | Yellow=Gateways | Red=Errors | Purple=Specialist | Orange=Monitor | Dark Green=Outcomes" style="text;fontSize=10;textAlign=center" vertex="1" parent="1">
+          <mxGeometry x="100" y="2220" width="1400" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
