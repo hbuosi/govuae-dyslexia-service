@@ -260,34 +260,84 @@
             <div class="diagram-container" style="background-color: #ffffff; border: 2px solid #667eea; border-radius: 8px; padding: 15px; min-height: 900px;">
                 <div class="mermaid">
 flowchart TD
-    Start([Child Identified<br/>Age 6-17]):::startEvent
-    Start --> S1[Stage 1: Initial Identification<br/>Symptoms Collection]:::task
-    S1 --> S2[Stage 2: Screening<br/>Standardized Questionnaire]:::task
-    S2 --> G1{Risk Level<br/>Detected?}:::gateway
-    G1 -->|Low Risk| Monitor[Periodic Monitoring<br/>Every 6 Months]:::task
-    G1 -->|Medium/High Risk| S3[Stage 3: Cognitive Assessment<br/>Phonological + WPM Tests]:::task
-    Monitor --> EndLow([End: No Intervention<br/>Required]):::endEvent
-    S3 --> S4[Stage 4: Diagnosis Generation<br/>Multidimensional Scoring]:::task
-    S4 --> G2{Dyslexia<br/>Confirmed?}:::gateway
-    G2 -->|No| FalsePos[Reassessment<br/>3 Months]:::task
-    G2 -->|Yes| S5[Stage 5: Profile Creation<br/>Strengths and Weaknesses]:::task
-    FalsePos --> EndFP([End: Monitoring<br/>Continues]):::endEvent
-    S5 --> S6[Stage 6: Intervention Planning<br/>Personalized Plan]:::task
-    S6 --> S7[Stage 7: Active Intervention<br/>Therapy Sessions]:::task
-    S7 --> S8[Stage 8: Continuous Monitoring<br/>Weekly Progress Tracking]:::task
-    S8 --> G3{Progress<br/>Achieved?}:::gateway
-    G3 -->|No - Decline| Reclassify[Reclassification<br/>Increase Intensity]:::task
-    G3 -->|Yes - Improving| S9[Stage 9: Outcome Evaluation<br/>Week 24-28]:::task
-    Reclassify --> S7
-    S9 --> G4{Continue<br/>Treatment?}:::gateway
-    G4 -->|Yes| Continue[Continue Program<br/>Reduced Intensity]:::task
-    G4 -->|No - Discharge| EndSuccess([End: Successful<br/>Discharge]):::endEvent
-    Continue --> S8
+    Start(["START<br/>Child Referral<br/>Received"]):::startEnd
     
-    classDef startEvent fill:#90EE90,stroke:#2E7D32,stroke-width:3px,color:#000
-    classDef endEvent fill:#FFB6B6,stroke:#C62828,stroke-width:4px,color:#000
-    classDef task fill:#B3D9FF,stroke:#1565C0,stroke-width:2px,color:#000
-    classDef gateway fill:#FFE082,stroke:#F57C00,stroke-width:2px,color:#000
+    Start -->|Create Profile| S1["TASK: Stage 1<br/>Initial Identification<br/>and Registration"]:::task
+
+    S1 -->|Verify Data Quality| ValidCheck{"GATEWAY<br/>Data Valid?<br/>All required fields?"}:::gateway
+    ValidCheck -->|NO| RetryData{"GATEWAY<br/>Retry Available?<br/>Count less than 3?"}:::gateway
+    RetryData -->|Failed| Esc1["ERROR<br/>Escalate to ONG<br/>Manual Review"]:::error
+    RetryData -->|Success| S2
+    ValidCheck -->|YES| S2["TASK: Stage 2<br/>Behavioral Screening<br/>and Alert Detection"]:::task
+
+    Esc1 -->|Manual Resolution| S2
+
+    S2 -->|Assess Risk Indicators| S2Gate{"GATEWAY<br/>Risk Signals?<br/>0-1: Low<br/>2-3: Moderate<br/>4+: High"}:::gateway
+    S2Gate -->|Low/None| Monitor["MONITOR<br/>Annual Retest<br/>12 months"]:::monitor
+    S2Gate -->|Moderate or High| S3["TASK: Stage 3<br/>Multidimensional<br/>Cognitive Battery<br/>3 Parallel Sessions"]:::task
+
+    S3 -->|Phonological Fluency Comprehension| S3Sessions["Session 1: Phonology<br/>Session 2: Fluency<br/>Session 3: Comprehension"]:::activity
+    S3Sessions -->|Quality Validation| QualityGate{"GATEWAY<br/>Data Quality OK?<br/>Audio at least 0.7<br/>Missing less than 5%"}:::gateway
+    QualityGate -->|Issues Found| Retry3x{"GATEWAY<br/>Retry Count<br/>Less than 3?"}:::gateway
+    Retry3x -->|Failed| Esc3["ERROR<br/>Escalate to Specialist<br/>In-person Eval"]:::error
+    Retry3x -->|Success| S4
+    QualityGate -->|OK| S4["TASK: Stage 4<br/>Automated Scoring<br/>and Analysis"]:::task
+
+    Esc3 -->|Specialist Review| S5
+
+    S4 -->|Calculate Subscores| CalcScores["Phonological: 0-100<br/>Fluency/WPM: 0-100<br/>Comprehension: 0-100<br/>Visual: 0-100<br/>Composite Calc:<br/>0.40 Phon + 0.35 Fluency<br/>+ 0.15 Comp + 0.10 Visual"]:::activity
+    CalcScores --> S5["TASK: Stage 5<br/>Risk Classification<br/>and Decision Gating"]:::task
+
+    S5 -->|Classify by Score| ScoreGate{"GATEWAY<br/>Composite Score?<br/>0-30: No Risk<br/>31-50: Low Risk<br/>51-70: Moderate<br/>71-85: High Risk<br/>85+: Critical"}:::gateway
+
+    ScoreGate -->|0-30| Tier1["OUTCOME: No Risk<br/>Annual Monitoring<br/>Preventive Plan"]:::outcome
+    ScoreGate -->|31-50| Tier2["OUTCOME: Low Risk<br/>Preventive/Monitoring<br/>Plan Generation"]:::outcome
+    ScoreGate -->|51-70| Tier3["OUTCOME: Moderate Risk<br/>Intervention Plan<br/>Generation"]:::outcome
+    ScoreGate -->|71-85| Tier4["SPECIALIST GATE<br/>High Risk<br/>Specialist Review<br/>SLA: 48 hours"]:::specialist
+    ScoreGate -->|85 or higher| Tier5["SPECIALIST GATE<br/>Critical Risk<br/>Urgent Escalation<br/>SLA: 24 hours"]:::specialist
+
+    Tier1 -->|Auto Path| S6
+    Tier2 -->|Auto Path| S6
+    Tier3 -->|Auto Path| S6
+    Tier4 -->|Specialist Gate| SpecReview["SPECIALIST REVIEW<br/>Psychopedagogue<br/>Assessment<br/>SLA: 48 hours"]:::specialist
+    Tier5 -->|Urgent Gate| SpecReviewUrgent["URGENT SPECIALIST REVIEW<br/>Multi-disciplinary Team<br/>SLA: 24 hours"]:::specialist
+    SpecReview -->|Approved| S6["TASK: Stage 6<br/>AI-Driven Plan<br/>Generation"]:::task
+    SpecReviewUrgent -->|Approved| S6
+
+    S6 -->|Generate Plan| GenPlan["Hermes Agent:<br/>Personalized<br/>Intervention Plan<br/>Based on Profile"]:::activity
+    GenPlan -->|Expert Review| PsychReview["Psychopedagogue<br/>Review and Approval"]:::activity
+    PsychReview -->|Validate| ApprovalGate{"GATEWAY<br/>Plan Approved?<br/>Specialist OK?"}:::gateway
+    ApprovalGate -->|Needs Revision| Revise["Revise Plan<br/>Address Feedback"]:::activity
+    Revise -->|Resubmit| PsychReview
+    ApprovalGate -->|Approved| S7["TASK: Stage 7<br/>Multi-Channel<br/>Communication"]:::task
+
+    S7 -->|Notify Stakeholders| NotifyAll["SMS Parent<br/>Email Educator<br/>Email Specialist<br/>Alert ONG<br/>Create Tasks"]:::activity
+    NotifyAll --> S8
+    Monitor -->|Link to Monitoring| S8["TASK: Stage 8<br/>Active Monitoring<br/>and Progress Tracking"]:::task
+
+    S8 -->|Weekly/Bi-weekly| Collect["Progress Collection:<br/>WPM Assessment<br/>Adherence Check<br/>Behavioral Obs"]:::monitor
+    Collect -->|Test| WPMTest["WPM Re-test<br/>Same Protocol"]:::monitor
+    WPMTest -->|Analyze| ReClassGate{"GATEWAY<br/>Score Change?<br/>10+ points<br/>improvement/decline?"}:::gateway
+    ReClassGate -->|Yes: Major Change| S5
+    ReClassGate -->|No: Continue| TimeGate{"GATEWAY<br/>6 Months Complete?<br/>weeks at least 26"}:::gateway
+    TimeGate -->|No: Continue| Collect
+    TimeGate -->|Yes: Exit| S9["TASK: Stage 9<br/>Exit Evaluation<br/>and Impact Assessment"]:::task
+
+    S9 -->|Reassess| FullBattery["Full Re-assessment<br/>Same Cognitive<br/>Battery as Stage 3"]:::activity
+    FullBattery -->|Calculate| Impact["Score Delta<br/>WPM Change<br/>ROI Calculation<br/>Effectiveness Index"]:::activity
+    Impact -->|Decide| ExitGate{"GATEWAY<br/>Outcome?<br/>Goal achieved?"}:::gateway
+    ExitGate -->|Continue Needed| Collect
+    ExitGate -->|Exit| Report["FINAL REPORT<br/>Impact Assessment<br/>Recommendations<br/>Transition Plan"]:::activity
+    Report --> End(["END<br/>Program<br/>Completion"]):::startEnd
+
+    classDef startEnd fill:#4CAF50,stroke:#2E7D32,stroke-width:3px,color:#fff,font-weight:bold
+    classDef task fill:#1976D2,stroke:#0D47A1,stroke-width:2px,color:#fff,font-weight:bold
+    classDef gateway fill:#FFB300,stroke:#FF6D00,stroke-width:2px,color:#000,font-weight:bold
+    classDef error fill:#D32F2F,stroke:#B71C1C,stroke-width:2px,color:#fff,font-weight:bold
+    classDef specialist fill:#AB47BC,stroke:#6A1B9A,stroke-width:2px,color:#fff,font-weight:bold
+    classDef monitor fill:#F4511E,stroke:#D84315,stroke-width:2px,color:#fff,font-weight:bold
+    classDef activity fill:#0097A7,stroke:#006064,stroke-width:2px,color:#fff
+    classDef outcome fill:#2E7D32,stroke:#1B5E20,stroke-width:2px,color:#fff,font-weight:bold
 </div>
                 <p style="margin-top: 15px; padding: 10px; background: #f0f4ff; border-radius: 4px; font-size: 12px; color: #333;">
                     <strong>BPMN 2.0 Interactive Diagram:</strong> This diagram shows the complete 9-stage Dyslexia Monitoring &amp; Intervention System (DIMS) flow.
