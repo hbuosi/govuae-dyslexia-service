@@ -273,7 +273,7 @@ graph TD
 
     Esc3 -->|Specialist<br>Review| S5
 
-    S4 -->|Calculate<br>Subscores| CalcScores["Phonological: 0-100<br>Fluency/WPM: 0-100<br>Comprehension: 0-100<br>Visual: 0-100<br>Composite Calc:<br>0.40*Phon + 0.35*Fluency<br>+ 0.15*Comp + 0.10*Visual"]
+    S4 -->|Calculate<br>Subscores| CalcScores["Phonological: 0-100<br>Fluency/WPM: 0-100<br>Comprehension: 0-100<br>Visual: 0-100<br>Composite Calc:<br>0.40×Phon + 0.35×Fluency<br>+ 0.15×Comp + 0.10×Visual"]
     CalcScores --> S5["TASK: Stage 5<br>Risk Classification<br>&amp; Decision Gating"]
 
     S5 -->|Classify<br>by Score| ScoreGate{GATEWAY<br>Composite Score?<br>0-30: No Risk<br>31-50: Low Risk<br>51-70: Moderate<br>71-85: High Risk<br>85 plus: Critical}
@@ -308,7 +308,7 @@ graph TD
     ReClassGate -->|Yes: Major<br>Change| S5
     ReClassGate -->|No: Continue| TimeGate{GATEWAY<br>6 Months<br>Complete?<br>Condition:<br>weeks greater 26}
     TimeGate -->|No: Continue| Collect
-    TimeGate -->|Yes: Exit| S9["TASK: Stage 9<br>Exit Evaluation<br>& Impact Assessment"]
+    TimeGate -->|Yes: Exit| S9["TASK: Stage 9<br>Exit Evaluation<br>&amp; Impact Assessment"]
 
     S9 -->|Reassess| FullBattery["Full Re-assessment<br>Same Cognitive<br>Battery as Stage 3"]
     FullBattery -->|Calculate| Impact["Score Delta<br>WPM Change<br>ROI Calculation<br>Effectiveness Index"]
