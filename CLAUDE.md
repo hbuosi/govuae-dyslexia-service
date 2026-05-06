@@ -114,5 +114,14 @@ grep -o "word" file.html | wc -l
 
 ### Contacts & Resources
 - **Repository:** https://github.com/hbuosi/govuae-dyslexia-service
-- **Vercel:** https://govuae-dyslexia-service.vercel.app/
-- **GitHub Pages:** https://hbuosi.github.io/govuae-dyslexia-service/
+- **Production URL (Vercel only):** https://govuae-dyslexia-service.vercel.app/
+- **GitHub Pages:** ❌ DISABLED - Do not use. Use Vercel only.
+
+### BPMN Diagram Standard
+- **Tool:** Mermaid.js v10.6.1 (NOT draw.io - draw.io is blocked in some environments)
+- **Standard:** BPMN 2.0 (ISO 19510:2013)
+- **Colors:**
+  - Start Event: `#90EE90` (Light Green) with `#2E7D32` border
+  - End Event: `#FFB6B6` (Light Red) with `#C62828` border
+  - Tasks/Activities: `#B3D9FF` (Light Blue) with `#1565C0` border
+  - Gateways/Decisions: `#FFE082` (Light Yellow/Amber) with `#F57C00` border

@@ -189,7 +189,20 @@
             .header h1 { font-size: 1.8em; }
             .legend { grid-template-columns: 1fr; }
         }
+    
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            min-height: 600px;
+            overflow-x: auto;
+        }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -245,16 +258,40 @@
             <!-- MAIN BPMN DIAGRAM - Draw.io Version -->
             <h3 style="color: #1b3a6b; margin-top: 30px; margin-bottom: 15px;">Comprehensive BPMN 2.0 Diagram: Complete 9-Stage Process</h3>
             <div class="diagram-container" style="background-color: #ffffff; border: 2px solid #667eea; border-radius: 8px; padding: 15px; min-height: 900px;">
-                <iframe
-                    src="https://app.diagrams.net/?embed=1&edit=_blank&url=https://raw.githubusercontent.com/hbuosi/govuae-dyslexia-service/main/DIMS_BPMN_DrawIO.drawio#%7B%22pageId%22:%220%7D"
-                    style="width:100%;height:900px;border:none;background-color:white;border-radius:4px;"
-                    allowfullscreen="true"
-                    frameborder="0"
-                    loading="lazy">
-                </iframe>
+                <div class="mermaid">
+flowchart TD
+    Start([Child Identified<br/>Age 6-17]):::startEvent
+    Start --> S1[Stage 1: Initial Identification<br/>Symptoms Collection]:::task
+    S1 --> S2[Stage 2: Screening<br/>Standardized Questionnaire]:::task
+    S2 --> G1{Risk Level<br/>Detected?}:::gateway
+    G1 -->|Low Risk| Monitor[Periodic Monitoring<br/>Every 6 Months]:::task
+    G1 -->|Medium/High Risk| S3[Stage 3: Cognitive Assessment<br/>Phonological + WPM Tests]:::task
+    Monitor --> EndLow([End: No Intervention<br/>Required]):::endEvent
+    S3 --> S4[Stage 4: Diagnosis Generation<br/>Multidimensional Scoring]:::task
+    S4 --> G2{Dyslexia<br/>Confirmed?}:::gateway
+    G2 -->|No| FalsePos[Reassessment<br/>3 Months]:::task
+    G2 -->|Yes| S5[Stage 5: Profile Creation<br/>Strengths and Weaknesses]:::task
+    FalsePos --> EndFP([End: Monitoring<br/>Continues]):::endEvent
+    S5 --> S6[Stage 6: Intervention Planning<br/>Personalized Plan]:::task
+    S6 --> S7[Stage 7: Active Intervention<br/>Therapy Sessions]:::task
+    S7 --> S8[Stage 8: Continuous Monitoring<br/>Weekly Progress Tracking]:::task
+    S8 --> G3{Progress<br/>Achieved?}:::gateway
+    G3 -->|No - Decline| Reclassify[Reclassification<br/>Increase Intensity]:::task
+    G3 -->|Yes - Improving| S9[Stage 9: Outcome Evaluation<br/>Week 24-28]:::task
+    Reclassify --> S7
+    S9 --> G4{Continue<br/>Treatment?}:::gateway
+    G4 -->|Yes| Continue[Continue Program<br/>Reduced Intensity]:::task
+    G4 -->|No - Discharge| EndSuccess([End: Successful<br/>Discharge]):::endEvent
+    Continue --> S8
+    
+    classDef startEvent fill:#90EE90,stroke:#2E7D32,stroke-width:3px,color:#000
+    classDef endEvent fill:#FFB6B6,stroke:#C62828,stroke-width:4px,color:#000
+    classDef task fill:#B3D9FF,stroke:#1565C0,stroke-width:2px,color:#000
+    classDef gateway fill:#FFE082,stroke:#F57C00,stroke-width:2px,color:#000
+</div>
                 <p style="margin-top: 15px; padding: 10px; background: #f0f4ff; border-radius: 4px; font-size: 12px; color: #333;">
                     <strong>BPMN 2.0 Interactive Diagram:</strong> This diagram shows the complete 9-stage Dyslexia Monitoring &amp; Intervention System (DIMS) flow.
-                    Use your mouse to pan and zoom. Source file: <a href="https://github.com/hbuosi/govuae-dyslexia-service/blob/main/DIMS_BPMN_DrawIO.drawio" target="_blank" style="color: #667eea; text-decoration: underline;">DIMS_BPMN_DrawIO.drawio</a>
+                    The diagram is rendered with Mermaid.js following BPMN 2.0 standards (ISO 19510:2013).
                 </p>
             </div>
 
@@ -922,5 +959,19 @@
             </p>
         </div>
     </div>
+<script>
+    mermaid.initialize({ 
+        startOnLoad: true, 
+        theme: 'default',
+        flowchart: { 
+            useMaxWidth: true, 
+            htmlLabels: true,
+            curve: 'basis'
+        },
+        themeVariables: {
+            fontSize: '14px'
+        }
+    });
+</script>
 </body>
 </html>
