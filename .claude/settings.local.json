@@ -23,7 +23,15 @@
       "Bash(git add *)",
       "Bash(awk '{print \"  - \" $9 \" \\(\" $5 \"\\)\"}')",
       "Bash(gh repo *)",
-      "Bash(git commit -m 'Remove Design System and fix broken links *)"
+      "Bash(git commit -m 'Remove Design System and fix broken links *)",
+      "Bash(cat)",
+      "Read(//tmp/**)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "mcp__plugin_everything-claude-code_playwright__browser_navigate",
+      "WebFetch(domain:hbuosi.github.io)",
+      "Bash(curl -s \"https://hbuosi.github.io/govuae-dyslexia-service/01-Service-Card-Dyslexia.html\")",
+      "Bash(curl -s --insecure \"https://hbuosi.github.io/govuae-dyslexia-service/01-Service-Card-Dyslexia.html\")"
     ]
   }
 }
