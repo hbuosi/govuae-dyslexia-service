@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GovUAE Documentation Portal - Dyslexia Service</title>
+    <style>
+        :root {
+            --color-primary: #0066cc;
+            --color-secondary: #0088ff;
+            --color-success: #00aa44;
+            --color-warning: #ff6600;
+            --color-danger: #cc0000;
+            --color-dark: #1a1a1a;
+            --color-medium: #666666;
+            --color-light: #f5f5f5;
+            --color-white: #ffffff;
+
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--color-dark);
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: var(--color-white);
+            padding: var(--spacing-md) var(--spacing-lg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        .navbar a {
+            color: var(--color-white);
+            text-decoration: none;
+            transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-sm);
+        }
+
+        .navbar a:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0066cc 0%, #0088ff 50%, #00aa44 100%);
+            color: var(--color-white);
+            padding: 80px var(--spacing-lg);
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.95;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat-box {
+            background-color: rgba(255,255,255,0.15);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: var(--spacing-3xl);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 3px solid var(--color-primary);
+        }
+
+        /* Grid Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .card {
+            background-color: var(--color-white);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
+            transition: all 300ms ease-in-out;
+            border: 1px solid var(--color-light);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .card-description {
+            color: var(--color-medium);
+            font-size: 0.95rem;
+            margin-bottom: var(--spacing-lg);
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--color-medium);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--color-light);
+        }
+
+        .card-badge {
+            display: inline-block;
+            background-color: var(--color-light);
+            color: var(--color-primary);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        .card a, .btn {
+            display: inline-block;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 200ms ease-in-out;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .card a:hover, .btn:hover {
+            background-color: var(--color-secondary);
+            transform: scale(1.05);
+        }
+
+        /* Category Section */
+        .category-section {
+            background-color: var(--color-white);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .category-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .doc-item {
+            padding: var(--spacing-md);
+            border-radius: var(--radius-sm);
+            background-color: var(--color-light);
+            transition: all 200ms ease-in-out;
+        }
+
+        .doc-item:hover {
+            background-color: rgba(0,102,204,0.1);
+            transform: translateX(4px);
+        }
+
+        .doc-item a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .doc-item a:hover {
+            color: var(--color-secondary);
+        }
+
+        .doc-arrow {
+            display: inline-block;
+            transition: transform 200ms ease-in-out;
+        }
+
+        .doc-item:hover .doc-arrow {
+            transform: translateX(4px);
+        }
+
+        /* Search Box */
+        .search-box {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: var(--spacing-md);
+            border: 2px solid var(--color-light);
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            transition: border-color 200ms ease-in-out;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .search-box button {
+            padding: var(--spacing-md) var(--spacing-lg);
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 200ms ease-in-out;
+        }
+
+        .search-box button:hover {
+            background-color: var(--color-secondary);
+        }
+
+        /* Quick Links */
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .quick-link {
+            background: linear-gradient(135deg, rgba(0,102,204,0.1), rgba(0,170,68,0.1));
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            text-align: center;
+            cursor: pointer;
+            transition: all 200ms ease-in-out;
+            border: 2px solid transparent;
+        }
+
+        .quick-link:hover {
+            border-color: var(--color-primary);
+            transform: scale(1.05);
+        }
+
+        .quick-link-title {
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .quick-link-description {
+            font-size: 0.9rem;
+            color: var(--color-medium);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-dark);
+            color: var(--color-white);
+            padding: var(--spacing-xl) var(--spacing-lg);
+            margin-top: var(--spacing-3xl);
+            border-top: 3px solid var(--color-primary);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .footer-section h4 {
+            color: var(--color-secondary);
+            font-size: 1rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-section a {
+            color: var(--color-white);
+            text-decoration: none;
+            display: block;
+            padding: var(--spacing-sm) 0;
+            transition: color 200ms ease-in-out;
+        }
+
+        .footer-section a:hover {
+            color: var(--color-secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--color-medium);
+            font-size: 0.9rem;
+            color: var(--color-medium);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: var(--spacing-lg);
+            right: var(--spacing-lg);
+            width: 50px;
+            height: 50px;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+            pointer-events: none;
+            font-size: 1.5rem;
+            z-index: 99;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+            background-color: var(--color-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+
+            .navbar-links {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-content {
+                grid-template-columns: 1fr;
+            }
+
+            .back-to-top {
+                bottom: var(--spacing-md);
+                right: var(--spacing-md);
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            🏛️ GovUAE Portal
+        </div>
+        <div class="navbar-links">
+            <a href="#governance">Governance</a>
+            <a href="#operations">Operations</a>
+            <a href="#technology">Technology</a>
+            <a href="#documents">Documents</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>🧠 Dyslexia Service Transformation</h1>
+        <p>Comprehensive documentation for GovUAE's child monitoring and intervention platform</p>
+        <div class="hero-stats">
+            <div class="stat-box">
+                <span class="stat-number">12</span>
+                <span class="stat-label">Documents</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">166</span>
+                <span class="stat-label">Activities</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">31</span>
+                <span class="stat-label">Risks</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">15</span>
+                <span class="stat-label">Roles</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Quick Links Section -->
+        <div class="section">
+            <h2 class="section-title">⚡ Quick Access by Role</h2>
+            <div class="quick-links">
+                <div class="quick-link" onclick="location.href='#governance'">
+                    <div class="quick-link-title">👔 Executive</div>
+                    <div class="quick-link-description">Strategy & Governance Overview</div>
+                </div>
+                <div class="quick-link" onclick="location.href='#operations'">
+                    <div class="quick-link-title">⚙️ Operations</div>
+                    <div class="quick-link-description">Process & Implementation</div>
+                </div>
+                <div class="quick-link" onclick="location.href='#technology'">
+                    <div class="quick-link-title">💻 Technology</div>
+                    <div class="quick-link-description">Systems & Architecture</div>
+                </div>
+                <div class="quick-link" onclick="location.href='#design'">
+                    <div class="quick-link-title">🎨 Design</div>
+                    <div class="quick-link-description">Visual System & Guidelines</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Strategic Documents Section -->
+        <div class="section" id="governance">
+            <div class="category-section">
+                <div class="category-title">📊 Strategic & Governance</div>
+                <div class="category-content">
+                    <div class="doc-item">
+                        <a href="AS-IS_TO-BE_Analysis.html">
+                            <span>📈 AS-IS / TO-BE Analysis</span>
+                            <span class="doc-arrow">→</span>
+                        </a>
+                    </div>
+                    <div class="doc-item">
+                        <a href="Target_Operating_Model.html">
+                            <span>🏗️ Target Operating Model</span>
+                            <span class="doc-arrow">→</span>
+                        </a>
+                    </div>
+                    <div class="doc-item">
+                        <a href="RACI_Governance_Matrix.html">
+                            <span>⚙️ RACI Governance Matrix</span>
+                            <span class="doc-arrow">→</span>
+                        </a>
+                    </div>
+                    <div class="doc-item">
+                        <a href="Risk_Register.html">
+                            <span>🚨 Risk Register</span>
+                            <span class="doc-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Operations & Process Section -->
+        <div class="section" id="operations">
+            <div class="category-section">
+                <div class="category-title">🔄 Operations & Process</div>
+                <div class="category-content">
+                    <div class="doc-item">
+                        <a href="Child_Monitoring_Service_Card_Dyslexia_ENHANCED.html">
+                            <span>📋 Service Card</span>
+                            <span class="doc-arrow">→</span>
+                        </a>
+                    </div>
+                    <div class="doc-item">
+                        <a href="spec-process-dyslexia-monitoring.html">
+                            <span>📝 Process Specification</span>
+                            <span class="doc-arrow">→</span>
+                        </a>
+                    </div>
+                    <div class="doc-item">
+                        <a href="Child_Monitoring_Dyslexia_BPMN_Detailed.html">
+                            <span>🔀 BPMN Diagram</span>
+                            <span class="doc-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technology Section -->
+        <div class="section" id="technology">
+            <div class="category-section">
+                <div class="category-title">💻 Technology & Architecture</div>
+                <div class="category-content">
+                    <div class="doc-item">
+                        <a href="Technology_Stack_Mapping.html">
+                            <span>🏛️ Technology Stack</span>
+                            <span class="doc-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Design Section -->
+        <div class="section" id="design">
+            <div class="category-section">
+                <div class="category-title">🎨 Design System & Guidelines</div>
+                <div class="category-content">
+                    <div class="doc-item">
+                        <a href="Design_System.html">
+                            <span>🎨 Design System</span>
+                            <span class="doc-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Metrics Section -->
+        <div class="section">
+            <h2 class="section-title">📊 Key Metrics Summary</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">📈</div>
+                    <div class="card-title">Intake to Assessment</div>
+                    <div class="card-description">70% faster transformation from 28-35 days to 7-10 days through automated triage and real-time routing</div>
+                    <div class="card-meta">
+                        <span class="card-badge">Performance</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">⚙️</div>
+                    <div class="card-title">Operational Efficiency</div>
+                    <div class="card-description">87% reduction in manual data entry (40h to 5h/month) through API automation and integrated systems</div>
+                    <div class="card-meta">
+                        <span class="card-badge">Efficiency</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🔄</div>
+                    <div class="card-title">Data Comparability</div>
+                    <div class="card-description">Complete cross-ONG data visibility with standardized taxonomy enabling 10x reporting efficiency improvement</div>
+                    <div class="card-meta">
+                        <span class="card-badge">Analytics</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">✅</div>
+                    <div class="card-title">SLA Compliance</div>
+                    <div class="card-description">35-point improvement: from 60% to 95%+ SLA compliance through automated tracking and escalation</div>
+                    <div class="card-meta">
+                        <span class="card-badge">Governance</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <div class="card-title">Specialist Access</div>
+                    <div class="card-description">85% faster specialist availability: 7-14 days reduced to 1-2 days through automated routing</div>
+                    <div class="card-meta">
+                        <span class="card-badge">Service Quality</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">😊</div>
+                    <div class="card-title">User Satisfaction</div>
+                    <div class="card-description">NPS improvement from 55 to 80+, reflecting parent confidence and engagement through transparency</div>
+                    <div class="card-meta">
+                        <span class="card-badge">Experience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Document Overview -->
+        <div class="section" id="documents">
+            <h2 class="section-title">📚 Complete Document Library</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <div class="card-title">AS-IS TO-BE Analysis</div>
+                    <div class="card-description">Comprehensive current-state pain points and future-state vision, including transformation impact summary aligned with government excellence principles</div>
+                    <div class="card-meta">
+                        <span class="card-badge">Strategy</span>
+                        <span>~15 min</span>
+                    </div>
+                    <a href="AS-IS_TO-BE_Analysis.html">View Document</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🏗️</div>
+                    <div class="card-title">Target Operating Model</div>
+                    <div class="card-description">Future-state operational structure including organizational design, governance board composition, process flows, and capability maturity model</div>
+                    <div class="card-meta">
+                        <span class="card-badge">Operations</span>
+                        <span>~20 min</span>
+                    </div>
+                    <a href="Target_Operating_Model.html">View Document</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">⚙️</div>
+                    <div class="card-title">RACI Governance Matrix</div>
+                    <div class="card-description">Complete role-responsibility mapping across 13 process areas, 166 activities, 15 roles with clear accountability, escalation paths and SLAs</div>
+                    <div class="card-meta">
+                        <span class="card-badge">Governance</span>
+                        <span>~18 min</span>
+                    </div>
+                    <a href="RACI_Governance_Matrix.html">View Document</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🚨</div>
+                    <div class="card-title">Risk Register</div>
+                    <div class="card-description">Comprehensive risk assessment with 31 identified risks, mitigation strategies, ownership and monitoring approach across operational, compliance and technology domains</div>
+                    <div class="card-meta">
+                        <span class="card-badge">Risk Mgmt</span>
+                        <span>~15 min</span>
+                    </div>
+                    <a href="Risk_Register.html">View Document</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">💻</div>
+                    <div class="card-title">Technology Stack</div>
+                    <div class="card-description">Enterprise technology architecture mapping (Oracle, ServiceNow, Microsoft Azure) with integration patterns, data flows, security architecture and implementation roadmap</div>
+                    <div class="card-meta">
+                        <span class="card-badge">Technology</span>
+                        <span>~20 min</span>
+                    </div>
+                    <a href="Technology_Stack_Mapping.html">View Document</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📋</div>
+                    <div class="card-title">Service Card</div>
+                    <div class="card-description">Service canvas showing value proposition, customer journey, stakeholder roles, key processes, metrics and critical success factors for dyslexia monitoring</div>
+                    <div class="card-meta">
+                        <span class="card-badge">Service Design</span>
+                        <span>~10 min</span>
+                    </div>
+                    <a href="Child_Monitoring_Service_Card_Dyslexia_ENHANCED.html">View Document</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📝</div>
+                    <div class="card-title">Process Specification</div>
+                    <div class="card-description">Detailed BPMN 2.0 process specification for dyslexia monitoring workflow with requirements, constraints, interfaces and acceptance criteria</div>
+                    <div class="card-meta">
+                        <span class="card-badge">Process</span>
+                        <span>~22 min</span>
+                    </div>
+                    <a href="spec-process-dyslexia-monitoring.html">View Document</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🔀</div>
+                    <div class="card-title">BPMN Diagram</div>
+                    <div class="card-description">Visual representation of complete end-to-end process flow with swimlanes showing all stakeholders, decision gates, automation points and service touchpoints</div>
+                    <div class="card-meta">
+                        <span class="card-badge">Visualization</span>
+                        <span>~8 min</span>
+                    </div>
+                    <a href="Child_Monitoring_Dyslexia_BPMN_Detailed.html">View Document</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <div class="card-title">Design System</div>
+                    <div class="card-description">Complete design language covering visual identity, components, patterns, accessibility standards (WCAG 2.1 AA), responsive design and implementation guidelines</div>
+                    <div class="card-meta">
+                        <span class="card-badge">Design</span>
+                        <span>~25 min</span>
+                    </div>
+                    <a href="Design_System.html">View Document</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Implementation Roadmap -->
+        <div class="section">
+            <h2 class="section-title">🚀 Implementation Roadmap</h2>
+            <div class="card">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-lg);">
+                    <div style="padding: var(--spacing-lg); background-color: var(--color-light); border-radius: var(--radius-md);">
+                        <h4 style="color: var(--color-primary); margin-bottom: var(--spacing-sm);">Phase 1: Foundation (Weeks 1-2)</h4>
+                        <p style="font-size: 0.9rem; color: var(--color-medium);">Platform setup, data migration, initial training</p>
+                    </div>
+                    <div style="padding: var(--spacing-lg); background-color: var(--color-light); border-radius: var(--radius-md);">
+                        <h4 style="color: var(--color-primary); margin-bottom: var(--spacing-sm);">Phase 2: Integration (Weeks 3-4)</h4>
+                        <p style="font-size: 0.9rem; color: var(--color-medium);">System integration, automation enablement, pilot testing</p>
+                    </div>
+                    <div style="padding: var(--spacing-lg); background-color: var(--color-light); border-radius: var(--radius-md);">
+                        <h4 style="color: var(--color-primary); margin-bottom: var(--spacing-sm);">Phase 3: Optimization (Weeks 5-6)</h4>
+                        <p style="font-size: 0.9rem; color: var(--color-medium);">Performance tuning, compliance validation, scaling</p>
+                    </div>
+                    <div style="padding: var(--spacing-lg); background-color: var(--color-light); border-radius: var(--radius-md);">
+                        <h4 style="color: var(--color-primary); margin-bottom: var(--spacing-sm);">Phase 4: Launch (Weeks 7-8)</h4>
+                        <p style="font-size: 0.9rem; color: var(--color-medium);">Full rollout, user support, continuous improvement</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Documentation</h4>
+                <a href="Design_System.html">Design System</a>
+                <a href="AS-IS_TO-BE_Analysis.html">AS-IS TO-BE Analysis</a>
+                <a href="RACI_Governance_Matrix.html">RACI Matrix</a>
+            </div>
+            <div class="footer-section">
+                <h4>Governance</h4>
+                <a href="Target_Operating_Model.html">Operating Model</a>
+                <a href="Risk_Register.html">Risk Register</a>
+                <a href="Technology_Stack_Mapping.html">Technology Stack</a>
+            </div>
+            <div class="footer-section">
+                <h4>Process</h4>
+                <a href="Child_Monitoring_Service_Card_Dyslexia_ENHANCED.html">Service Card</a>
+                <a href="spec-process-dyslexia-monitoring.html">Process Spec</a>
+                <a href="Child_Monitoring_Dyslexia_BPMN_Detailed.html">BPMN Diagram</a>
+            </div>
+            <div class="footer-section">
+                <h4>About</h4>
+                <a href="#">GovUAE Portal</a>
+                <a href="#">Contact</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Generated on 2026-05-06 | GovUAE Dyslexia Service Documentation Platform</p>
+            <p style="font-size: 0.85rem; color: var(--color-medium); margin-top: var(--spacing-sm);">Classification: Internal Use | © 2026 Government of UAE | All rights reserved</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop()">↑</div>
+
+    <script>
+        // Back to Top functionality
+        const backToTopButton = document.querySelector('.back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Search functionality (placeholder)
+        const searchButton = document.querySelector('.search-box button');
+        if (searchButton) {
+            searchButton.addEventListener('click', function() {
+                const query = document.querySelector('.search-box input').value;
+                if (query.trim() !== '') {
+                    alert('Search for: ' + query + '\n(Full search functionality to be implemented)');
+                }
+            });
+        }
+
+        // Add keyboard shortcut for back to top (Ctrl+Home)
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'Home') {
+                scrollToTop();
+            }
+        });
+    </script>
+</body>
+</html>

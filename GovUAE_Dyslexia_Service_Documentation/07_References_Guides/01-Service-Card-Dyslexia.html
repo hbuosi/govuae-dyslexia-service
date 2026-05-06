@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child_Monitoring_Service_Card_Dyslexia_ENHANCED.md</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 { color: #0066cc; border-bottom: 3px solid #0066cc; padding-bottom: 10px; margin-top: 30px; }
+        h2 { color: #0088ff; margin-top: 25px; }
+        h3 { color: #0088ff; margin-top: 20px; }
+        h4, h5, h6 { color: #333; }
+        table { border-collapse: collapse; width: 100%; margin: 15px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f0f0f0; font-weight: bold; }
+        pre { background-color: #f5f5f5; border: 1px solid #ddd; padding: 12px; overflow-x: auto; }
+        code { background-color: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+        blockquote { border-left: 4px solid #0066cc; margin-left: 0; padding-left: 15px; color: #666; }
+        ul, ol { margin: 10px 0; padding-left: 30px; }
+        li { margin: 5px 0; }
+        .toc { background-color: #f9f9f9; padding: 20px; border-radius: 5px; margin: 20px 0; }
+        @media print {
+            body { max-width: 100%; }
+            page-break-inside: avoid;
+        }
+    </style>
+</head>
+<body>
+# 🎯 SERVICE CARD: Intelligent Dyslexia Monitoring & Intervention System
+
+**Versão:** 2.0 | **Data:** Maio 2026 | **Status:** Pronto para Implementação | **Foco:** Dislexia Infantil
+
+---
+
+## 📋 INFORMAÇÕES BÁSICAS DO SERVIÇO
+
+### Nome do Serviço
+**Dyslexia Intelligence Monitoring System (DIMS) — Sistema Inteligente de Monitoramento e Intervenção em Dislexia**
+
+### Objetivo Principal
+Identificar, monitorar e intervir em crianças (6-17 anos) com dislexia de desenvolvimento através de um sistema automatizado de diagnóstico contínuo, testes cognitivos especializados e geração de planos de intervenção personalizados baseados em inteligência artificial, garantindo detecção precoce, acompanhamento longitudinal e conformidade com LGPD.
+
+### Descrição Executiva
+O DIMS é uma plataforma de 9 estágios que automatiza o ciclo completo de acompanhamento em dislexia:
+
+1. **Identificação Inicial** → Coleta de sinais de alerta (feedback de educadores)
+2. **Screening Comportamental** → Questionário de dislexia (DSM-5 aligned)
+3. **Avaliação Cognitiva Assistida** → Baterias de testes automatizadas (WPM, fluência, compreensão)
+4. **Análise de Processamento Fonológico** → Detecção de déficit específico
+5. **Geração de Diagnóstico Preliminar** → Scores multidimensionais com IA
+6. **Elaboração de Plano Individualizado** → Recomendações pedagógicas por Hermes Agent
+7. **Notificação Multicanal** → Comunicação com todos os stakeholders
+8. **Monitoramento Contínuo** → Testes periódicos com análise de progresso
+9. **Avaliação de Saída** → Impacto da intervenção e recomendações futuras
+
+---
+
+## 👥 STAKEHOLDERS E USUÁRIOS
+
+### Público-alvo / Usuários Finais
+
+| Persona | Perfil | Necessidade |
+|---------|--------|-------------|
+| **Criança com Dislexia** | 6-17 anos com suspeita ou diagnóstico confirmado | Receber apoio personalizado sem estigma; progressão clara em leitura |
+| **Pais/Responsável** | Que suspeitam ou confirmam dislexia | Entender o diagnóstico; acesso a recursos educacionais; monitoramento do progresso |
+| **Educador/Professor** | Docente que refere ou trabalha com criança | Estratégias de ensino diferenciado; dados objetivos de progresso; feedback sobre eficácia de intervenções |
+| **Psicopedagogo/Especialista em Leitura** | Profissional de avaliação | Análise detalhada de padrões cognitivos; validação diagnóstica; recomendações clínicas |
+| **Assistente Social** | Case manager da ONG | Coordenação de recursos; encaminhamento a serviços de saúde; monitoramento de progresso |
+| **Coordenador de ONG** | Gerente de programa | Relatórios de impacto; gestão de casos; alocação de recursos |
+
+### Stakeholders Internos
+- **Product & Design** → Interface acessível, inclusiva para neurodiversidade
+- **Engineering/Backend** → Integração de testes cognitivos, processamento de voz/leitura
+- **Data & Analytics** → Modelos preditivos de dislexia, análise longitudinal
+- **Safety & Compliance** → LGPD, sigilo profissional, consentimento informado
+- **Operations** → Gestão de casos, encaminhamento a especialistas
+- **Medical/Clinical Advisory** → Validação diagnóstica, alinhamento com DSM-5
+
+### Stakeholders Externos
+- **Autoridades Regulatórias** → LGPD, Ministério da Educação, CFP (Conselho Federal de Psicologia)
+- **Especialistas em Dislexia** → Validação de algoritmos, consultoria clínica
+- **Twilio & SendGrid** → Comunicação multicanal
+- **Claude API (Anthropic)** → Análise semântica, geração de recomendações
+- **Escolas/Instituições Parceiras** → Feedback em tempo real, dados contextuais
+- **Sociedades Médicas** → IDA (International Dyslexia Association), ABTD (Associação Brasileira de Dislexia)
+
+---
+
+## 📥 INPUTS (O QUE INICIA O PROCESSO)
+
+### Acionadores / Eventos de Início
+
+1. **Referência de Educador** → Professor observa sinais de alerta (dificuldade recorrente em leitura, confusão de letras, lentidão)
+2. **Suspeita Parental** → Pais preocupados com desenvolvimento de leitura
+3. **Avaliação Escolar Preventiva** → Screening em massa em escola parceira
+4. **Encaminhamento Clínico** → Diagnóstico prévio que requer monitoramento contínuo
+5. **Reavaliação Periódica** → Criança em programa solicita reavaliação (trimestral/semestral)
+6. **Detecção de Regressão** → Sistema flageia piora significativa de scores
+
+### Dados de Entrada Obrigatórios (STAGE 1 & 2)
+
+```
+DADOS DEMOGRÁFICOS E HISTÓRICO
+├─ Nome completo e data de nascimento (6-17 anos)
+├─ Gênero e lateralidade (destro/canhoto/ambidestro)
+├─ Histórico familiar de dislexia (primeira/segunda geração)
+├─ Idioma(s) nativo(s) e secundário(s)
+├─ Histórico de otite média (relevante para processamento fonológico)
+├─ Escolaridade atual e série
+├─ Histórico de repetência escolar
+└─ Avaliações prévias (psicopedagógicas, fonoaudiológicas, psicológicas)
+
+SINAIS DE ALERTA OBSERVADOS (STAGE 2 - Questionário)
+├─ Dificuldade em reconhecer rimas
+├─ Lentidão na leitura (WPM anormalmente baixo para idade)
+├─ Inversão de letras ou palavras (b/d, sequências)
+├─ Dificuldade em soletração
+├─ Compreensão leitura vs. compreensão auditiva discrepante
+├─ Histórico de atraso na fala (early indicator)
+├─ Dificuldade em divisão silábica
+└─ Relutância para ler ou evitação de tarefas de leitura
+
+DADOS DO RESPONSÁVEL E CONSENTIMENTO
+├─ Nome e contato do responsável legal
+├─ Email e WhatsApp para notificações
+├─ Consentimento LGPD explícito para coleta e análise
+├─ Permissão para compartilhamento com educadores/especialistas
+└─ Autorização para armazenamento de dados de leitura/áudio
+
+CONTEXTO EDUCACIONAL
+├─ Nome da escola/ONG
+├─ Educador responsável pela referência
+├─ Método de ensino de leitura utilizado (fônico, global, etc.)
+├─ Recursos pedagógicos já utilizados
+└─ Resultado de testes escolares prévios (se disponível)
+```
+
+### Testes Específicos (STAGE 3 - Avaliação Cognitiva Assistida)
+
+```
+BATERIA DE TESTES MULTIDIMENSIONAL PARA DISLEXIA
+
+1. PROCESSAMENTO FONOLÓGICO (Peso 40%)
+   ├─ Tarefa de Consciência Fonêmica
+   │  └─ Identificar, isolar, manipular fonemas iniciais/finais
+   ├─ Teste de Rima Implícita
+   │  └─ Reconhecer padrões de rima (estimado vs. real)
+   ├─ Segmentação Silábica
+   │  └─ Dividir palavras em sílabas (produção + identificação)
+   └─ Reversão de Sílabas
+      └─ Reorganizar sílabas em sequência reversa
+
+2. VELOCIDADE E FLUÊNCIA DE LEITURA (Peso 35%)
+   ├─ Teste WPM (Words Per Minute)
+   │  ├─ Passagem de teste-reteste de 1 minuto
+   │  ├─ Comparação com norma por idade
+   │  └─ Contagem de erros (omissões, inserções, substituições)
+   ├─ Leitura de Não-palavras (Pseudopalavras)
+   │  └─ Capacidade de aplicar regras fonológicas a estímulos novos
+   ├─ Leitura de Palavras Irregulares
+   │  └─ Capacidade de reconhecimento visual (whole-word)
+   └─ Tempo de Nomeação Rápida (RAN - Rapid Automatized Naming)
+      └─ Velocidade de acesso ao léxico
+
+3. COMPREENSÃO DE LEITURA (Peso 15%)
+   ├─ Perguntas de múltipla escolha sobre passagem lida
+   ├─ Inferência e conexão de ideias
+   ├─ Retenção de detalhes (literal vs. inferencial)
+   └─ Comparação: compreensão leitura vs. compreensão auditiva
+
+4. PROCESSAMENTO VISUAL-ORTOGRÁFICO (Peso 10%)
+   ├─ Teste de Escolha Visual (escolher palavra correta entre similares)
+   ├─ Memória de Sequência Visual
+   ├─ Simetria e Orientação de Letras
+   └─ Reconhecimento de Padrão Ortográfico
+
+TIMING E SEQUÊNCIA DOS TESTES
+├─ Sessão 1 (10-15 min): Consciência Fonêmica + RAN
+├─ Sessão 2 (10-15 min): WPM + Pseudo-palavras
+├─ Sessão 3 (10-15 min): Compreensão + Processamento Visual
+└─ Total: ~40-45 minutos em 3 sessões (reduz fadiga)
+```
+
+---
+
+## 📊 DIMENSÕES DE DIAGNÓSTICO (Multidimensional Profile)
+
+```
+SCORE FONOLÓGICO (0-100)
+├─ 0-30:   Normal - Processamento fonológico adequado
+├─ 31-60:  Intermediário - Ligeira dificuldade, possível intervenção preventiva
+├─ 61-85:  Risco Moderado - Déficit significativo, monitoramento recomendado
+└─ >85:    Alto Risco de Dislexia - Intervenção urgente recomendada
+
+SCORE DE FLUÊNCIA (0-100)
+├─ 0-30:   Muito Lento - WPM > 2 DPs abaixo da norma para idade
+├─ 31-60:  Lentidão Moderada - WPM 1-2 DPs abaixo
+├─ 61-85:  Ligeiramente Abaixo da Norma - WPM próximo à média
+└─ >85:    Fluência Adequada
+
+SCORE DE COMPREENSÃO (0-100)
+├─ 0-30:   Deficitário - Compreensão significativamente reduzida
+├─ 31-60:  Abaixo da Esperado - Dificuldade em extrair significado
+├─ 61-85:  Adequado - Compreensão literal preservada
+└─ >85:    Acima da Esperado - Bom acesso ao significado
+
+SCORE DE PROCESSAMENTO VISUAL (0-100)
+├─ 0-30:   Deficitário
+├─ 31-60:  Intermediário
+├─ 61-100: Adequado
+
+ÍNDICE DE DISCREPÂNCIA AUDIOVISUAL (Marker importante)
+├─ Cálculo: |Compreensão Auditiva - Compreensão Leitura|
+├─ >15 pontos: Forte indicador de dislexia específica (processamento de leitura vs. linguagem)
+└─ <15 pontos: Possível déficit de linguagem geral
+```
+
+---
+
+## 📤 OUTPUTS (RESULTADO FINAL)
+
+### 1. Classificação Diagnóstica (STAGE 5)
+
+```
+┌─────────────────────────────────────────────────┐
+│     CLASSIFICAÇÃO DIAGNÓSTICA DE DISLEXIA      │
+├─────────────────────────────────────────────────┤
+│                                                 │
+│ 🟢 SEM RISCO DE DISLEXIA                       │
+│   Score Geral: 0-30                            │
+│   Ação: Monitoragem anual                      │
+│                                                 │
+│ 🟡 RISCO LEVE                                   │
+│   Score Geral: 31-50                           │
+│   Ação: Intervenção preventiva, reteste em 3m │
+│                                                 │
+│ 🟠 RISCO MODERADO                              │
+│   Score Geral: 51-70                           │
+│   Ação: Encaminhamento a especialista,         │
+│   intervenção em leitura, reteste em 1-2m      │
+│                                                 │
+│ 🔴 ALTO RISCO / DISLEXIA PROVÁVEL             │
+│   Score Geral: 71-85                           │
+│   Ação: Avaliação completa por fonoaudiólogo,  │
+│   encaminhamento pedagógico urgente            │
+│                                                 │
+│ ⚫ DISLEXIA CONFIRMADA / GRAVE                  │
+│   Score Geral: >85                             │
+│   Ação: Encaminhamento a neurologista,         │
+│   plano de escolarização adaptada              │
+└─────────────────────────────────────────────────┘
+```
+
+### 2. Perfil Cognitivo Detalhado (STAGE 5)
+
+```
+EXEMPLO DE SAÍDA:
+─────────────────────────────────────────
+CRIANÇA: João Silva, 8 anos | Data: 05/05/2026
+─────────────────────────────────────────
+
+SCORES POR DIMENSÃO:
+┌─────────────────────────────┬──────┬─────────┐
+│ Dimensão                    │Score │ Status  │
+├─────────────────────────────┼──────┼─────────┤
+│ Processamento Fonológico    │  72  │ 🔴 Risco│
+│ Fluência de Leitura (WPM)   │  45  │ 🟡 Baixo│
+│ Compreensão de Leitura      │  68  │ 🟡 Médio│
+│ Processamento Visual        │  82  │ 🟢 OK   │
+│ Compreensão Auditiva*       │  88  │ 🟢 Forte│
+│ Índice Audiovisual          │  20  │ ⚠️  Alto│
+└─────────────────────────────┴──────┴─────────┘
+* Medido em entrevista clínica paralela
+
+DIAGNÓSTICO PRELIMINAR:
+➜ Forte indicador de Dislexia Fonológica
+  (déficit específico em processamento de sons)
+➜ Discrepância audiovisual sugestiva
+  (compreensão auditiva >> leitura)
+➜ Requiere validação por especialista
+
+PERFIL DE APRENDIZAGEM:
+• Força: Compreensão auditiva excelente
+• Desafio: Decodificação fonológica
+• Implicação: Criança precisa de métodos multi-sensórios
+             com ênfase em fonologia explícita
+```
+
+### 3. Plano de Intervenção Personalizado (STAGE 6)
+
+```
+EXEMPLO DE PLANO (gerado por Hermes Agent):
+═════════════════════════════════════════════
+
+OBJETIVO GERAL
+├─ Melhorar processamento fonológico de João
+├─ Aumentar WPM para >100 em 6 meses
+└─ Fortalecer fluência em leitura conectada
+
+INTERVENÇÃO ESTRUTURADA - FONOLOGIA EXPLÍCITA
+
+Fase 1: Consciência Fonêmica (Semanas 1-4)
+├─ Atividade: Jogo de Rimas com Palavras-alvo
+│  └─ Objetivo: Fortalecer discriminação de sons
+├─ Atividade: Segmentação Silábica (Palmas)
+│  └─ Objetivo: Quebra de palavras em unidades menores
+├─ Frequência: 3x por semana, 15 minutos
+└─ Responsável: Educador em ONG
+
+Fase 2: Decodificação Fonética (Semanas 5-8)
+├─ Atividade: Correspondência Grafema-Fonema
+│  └─ Objetivo: Ensino explícito de som das letras
+├─ Atividade: Blending de Sílabas (sa-pa-to)
+│  └─ Objetivo: Integração de sons em palavras
+├─ Material: Cartões de palavras controladas (CVC pattern)
+├─ Frequência: 4x por semana, 20 minutos
+└─ Responsável: Educador + Psicopedagogo
+
+Fase 3: Fluência em Leitura Conectada (Semanas 9-16)
+├─ Atividade: Leitura Repetida de Textos Breves
+│  └─ Objetivo: Automatização de decodificação
+├─ Atividade: Echo Reading (ler acompanhando modelo)
+│  └─ Objetivo: Modelo de fluência natural
+├─ Atividade: Caça de Palavras em Contexto
+│  └─ Objetivo: Reconhecimento rápido de palavras
+├─ Frequência: 5x por semana, 20-30 minutos
+└─ Responsável: Educador + Voluntário mentorado
+
+ACOMODAÇÕES IMEDIATAS (para hoje)
+├─ Uso de fonts disléxicas (OpenDyslexic)
+├─ Papel com espaçamento aumentado
+├─ Tempo extra em testes escolares (50% adicional)
+├─ Leitura em voz alta permitida
+└─ Apresentações orais como alternativa a testes escritos
+
+MONITORAMENTO
+├─ Teste WPM semanal (mesmo texto, comparar progressão)
+├─ Atividades de consciência fonêmica quinzenalmente
+├─ Reavaliação completa a cada 4 semanas
+└─ Comunicação semanal com responsável
+
+EXPECTATIVA DE PROGRESSO
+├─ Semana 4: Melhora em consciência fonêmica (+10 pontos)
+├─ Semana 8: Aumento em fluência (+20% WPM)
+├─ Semana 16: Reclassificação esperada de Risco Moderado → Risco Leve
+└─ Meta de 6 meses: WPM >100, Score Fonológico <60
+```
+
+### 4. Notificações Multicanal (STAGE 7)
+
+```
+Para PAIS/RESPONSÁVEL:
+┌─ SMS inicial: "João foi avaliado. Identificamos desafios 
+                 em leitura. Plano personalizado pronto para 
+                 discussão. Acesse: [link]"
+├─ Email semanal: Progresso, exercícios para casa, 
+                  encorajamento
+└─ WhatsApp: Lembretes de exercícios, celebração de conquistas
+
+Para EDUCADOR/ONG:
+┌─ Email: Plano detalhado, estratégias de ensino, 
+          acomodações necessárias
+├─ Dashboard: Progresso em tempo real, WPM tracking
+└─ Alertas: Se criança perde sessão (>3 dias sem atividade)
+
+Para ESPECIALISTA (se encaminhado):
+├─ Relatório estruturado com todos os scores
+├─ Padrão de erros (inversões, omissões, substituições)
+├─ Recomendação de diagnóstico profissional
+└─ Dados de linha de base para comparação
+
+Para COORDENADOR DE ONG:
+├─ Relatório de Coorte: quantas crianças em cada nível
+├─ Taxa de progresso do programa
+├─ Casos que requerem escalonamento
+└─ Análise de efetividade de intervenções
+```
+
+### 5. Relatório Longitudinal de Impacto (STAGE 9)
+
+```
+EXEMPLO: Acompanhamento de 6 meses
+
+EVOLUÇÃO DE SCORES
+┌─────────────┬────────┬────────┬─────────┐
+│ Dimensão    │ Inicial│ 3 meses│ 6 meses │
+├─────────────┼────────┼────────┼─────────┤
+│ Fonológico  │   72   │   58   │   42    │
+│ Fluência WPM│   45   │   68   │   92    │
+│ Compreensão │   68   │   74   │   81    │
+│ Visual      │   82   │   85   │   87    │
+└─────────────┴────────┴────────┴─────────┘
+
+PROGRESSO ABSOLUTO:
+• Processamento Fonológico: ↓ 30 pontos (MELHORA)
+• WPM: ↑ 47 WPM (MELHORA SIGNIFICATIVA)
+• Compreensão: ↑ 13 pontos
+• Classificação: Risco Moderado → Risco Leve
+
+ADERÊNCIA AO PLANO:
+• Taxa de Frequência: 92% das sessões completadas
+• Exercícios em Casa: 85% de aderência
+• Suporte Parental: Excelente engajamento
+
+ROI ESTIMADO:
+• Investimento Total (6 meses): R$ 1.200 (ONG + famíla)
+• Impacto Social Estimado (10 anos): R$ 150.000+
+  └─ Baseado em melhor desempenho escolar, redução
+     de reprovação, aumento de renda futura
+• Multiplicador: 125x
+
+RECOMENDAÇÃO FINAL:
+✓ Continuar intervenção por mais 6 meses
+✓ Reduzir intensidade (2x/semana → 1x/semana de acompanhamento)
+✓ Avaliar readiness para encaminhamento a especialista
+  para diagnóstico formal (opcional, criança progredindo bem)
+```
+
+---
+
+## 📊 KPIs / MÉTRICAS DE SUCESSO
+
+### Métricas Clínicas (Impacto Direto)
+
+| KPI | Meta | Frequência | Justificativa |
+|-----|------|-----------|---|
+| **Taxa de Detecção de Dislexia** | >75% (vs. baseline de <40% sem sistema) | Anual | Validar sensibilidade do screening |
+| **Melhora em Score Fonológico** | >40% crianças ↓ 20+ pontos em 6m | Trimestral | Marcador de efetividade de intervenção |
+| **Aumento de WPM** | Média +30 WPM em 6 meses | Mensal | Métrica de fluência objetiva |
+| **Redução de Discrepância Audiovisual** | >30% redução em gap | Trimestral | Indicador de desenvolvimento fonológico |
+| **Compreensão de Leitura** | >60% crianças mantêm/melhoram compreensão | Trimestral | Evitar trade-offs: fluência não prejudica compreensão |
+| **Tempo até Diagnóstico Profissional** | <8 semanas após score >70 | Mensal | Reduzir latência para diagnóstico especializado |
+
+### Métricas Operacionais
+
+| KPI | Meta | Frequência |
+|-----|------|-----------|
+| **Taxa de Conclusão de Bateria Completa** | >90% | Semanal |
+| **Tempo Médio de Avaliação (3 sessões)** | 40-45 minutos | Diário |
+| **Tempo de Geração de Plano** | <5 minutos (automático) | Automático |
+| **Taxa de Conformidade LGPD** | 100% | Auditado |
+| **Disponibilidade do Sistema** | 99.5% uptime | Continuamente |
+
+### Métricas de Engajamento
+
+| KPI | Meta | Frequência |
+|-----|------|-----------|
+| **Taxa de Aderência a Intervenção** | >75% | Mensal |
+| **NPS de Pais/Cuidadores** | >80 | Trimestral |
+| **Retenção no Programa** | >85% | Mensal |
+| **Satisfação de Educadores** | >4.5/5 | Trimestral |
+
+---
+
+## 🔧 REGRAS DE NEGÓCIO ESPECÍFICAS PARA DISLEXIA
+
+### Regras de Screening e Referência
+
+```
+REFERÊNCIA AUTOMÁTICA A ESPECIALISTA SE:
+├─ Score Fonológico > 70 E WPM < norma-1DP
+├─ Discrepância audiovisual > 15 pontos persistente
+├─ 3+ indicadores de alerta presentes
+└─ Responsável solicita encaminhamento
+
+EXCLUSÃO DO PROGRAMA SE:
+├─ Deficiência intelectual primária identificada
+│  (dislexia é específica de leitura, não global)
+├─ Perda auditiva não corrigida (confunde processamento fonológico)
+├─ Cegueira ou deficiência visual severa
+└─ Trauma ou desordem de saúde mental aguda
+
+INCLUSÃO COM ACOMODAÇÕES ESPECIAIS SE:
+├─ Transtorno do Espectro Autista (TEA)
+│  └─ Pode ter dislexia comórbida; avaliar separadamente
+├─ TDAH (Transtorno de Déficit de Atenção)
+│  └─ Pode mascarar dislexia; requiere avaliação atenta de atenção vs. decodificação
+├─ Múltiplas idiomáticas
+│  └─ Avaliar em ambos os idiomas; padrão deve ser consistente
+└─ Dislexia secundária (pós-trauma, sequela de AVC)
+   └─ Avaliar com neuropsicólogo
+```
+
+### Regras de Classificação de Severidade
+
+```
+DISLEXIA LEVE (Score 51-60)
+├─ Ação: Monitoramento + Intervenção Pedagógica
+├─ Frequência: 2-3x semana
+├─ Duração: 3-6 meses
+├─ Responsável: Educador + Voluntário
+└─ Reavaliação: 4 semanas
+
+DISLEXIA MODERADA (Score 61-75)
+├─ Ação: Intervenção Intensiva + Encaminhamento a Fonoaudiólogo
+├─ Frequência: 4-5x semana (20-30 min)
+├─ Duração: 6-12 meses
+├─ Responsável: Educador + Psicopedagogo + Fonoaudiólogo
+├─ Acomodações escolares: Tempo extra, fonte disléxica, leitura oral
+└─ Reavaliação: 2-4 semanas
+
+DISLEXIA SEVERA (Score >75)
+├─ Ação: Avaliação Neuropsicológica + Diagnóstico Profissional
+├─ Frequência: 5x semana + sessões especializadas 2x semana
+├─ Duração: 12+ meses
+├─ Responsável: Equipe Multidisciplinar (Neuropsicólogo, Fonoaudiólogo, Psicopedagogo)
+├─ Acomodações: Plano individualizado, possível encaminhamento a educação especial
+└─ Reavaliação: Semanal/quinzenal
+```
+
+### Regras de Reclassificação Dinâmica
+
+```
+PROMOVER PARA NÍVEL SUPERIOR (menos risco) SE:
+├─ Score reduzido > 10 pontos comparado a última avaliação
+├─ WPM aumentou > 20 palavras
+├─ 4+ semanas de progresso consistente
+├─ Compreensão mantida ou melhorada
+└─ Observação de educador: "criança mais confiante"
+
+REBAIXAR PARA NÍVEL INFERIOR (mais risco) SE:
+├─ Score aumentado > 10 pontos (piora)
+├─ WPM reduziu (regressão)
+├─ Aderência caiu <50%
+├─ Novo evento estressor (mudança de escola, luto familiar)
+└─ Falta de responsividade após 4 semanas de intervenção
+
+INDICADOR DE PROBLEMA SISTÊMICO SE:
+├─ >20% coorte não responde a intervenção padrão
+│  └─ Ação: Revisar qualidade da implementação, treinar educadores
+├─ >10% taxa de abandono
+│  └─ Ação: Analisar barreiras (transporte, custo, estigma)
+└─ Padrão de viés por gênero/raça
+   └─ Ação: Auditoria de viés, estratificar por demografia
+```
+
+---
+
+## ⏱️ SLA / TIMELINE DO SERVIÇO
+
+```
+STAGE 1: IDENTIFICAÇÃO INICIAL (Semana 1)
+├─ Receber referência: <24 horas
+├─ Triagem inicial: <3 dias
+├─ Agendamento de avaliação: <1 semana
+└─ Total: ~7 dias
+
+STAGE 2-3: AVALIAÇÃO COGNITIVA (Semanas 1-2)
+├─ Sessão 1 (Fonologia + RAN): Dia 1
+├─ Sessão 2 (WPM + Pseudo-palavras): Dia 3
+├─ Sessão 3 (Compreensão + Visual): Dia 5
+├─ Análise de dados: Dia 6
+└─ Total: ~10 dias para bateria completa
+
+STAGE 4-5: DIAGNÓSTICO E PERFIL (Dia 7)
+├─ Processamento por IA: <2 minutos
+├─ Geração de scores e classificação: <1 minuto
+├─ Validação por algoritmo: <1 minuto
+└─ Total: ~5 minutos automático
+
+STAGE 6: PLANO DE INTERVENÇÃO (Dia 7-8)
+├─ Elaboração por Hermes Agent: ~3-5 minutos
+├─ Revisão por psicopedagogo: ~20-30 minutos
+├─ Aprovação final: <1 hora
+└─ Total: ~1-2 horas para plano finalizado
+
+STAGE 7: NOTIFICAÇÕES (Dia 8-9)
+├─ Envio a pais: <1 hora após aprovação
+├─ Envio a educadores: <1 hora
+├─ Notificação a especialista (se >70): <2 horas
+└─ Total: Mesmo dia da aprovação
+
+STAGE 8: INTERVENÇÃO ATIVA (Semanas 3-24)
+├─ Início da intervenção: Dentro de 5 dias de aprovação
+├─ Frequência: Conforme intensidade (2-5x semana)
+├─ Monitoramento contínuo: Semanal/quinzenal
+└─ Total: 6+ meses de programa ativo
+
+STAGE 9: AVALIAÇÃO DE SAÍDA (Semana 24-28)
+├─ Reteste completo: Sessões 1-3 (mesma duração)
+├─ Análise de progressão: ~10 minutos
+├─ Relatório de impacto: ~20 minutos
+├─ Discussão com stakeholders: ~1 hora
+└─ Total: ~1-2 semanas para encerramento
+
+TOTAL DO PROGRAMA: 6-7 meses de duração típica
+```
+
+---
+
+## 🚨 RISCOS ESPECÍFICOS PARA DISLEXIA
+
+| Risco | Impacto | Mitigação |
+|-------|---------|-----------|
+| **Falso Negativo (perder criança com dislexia)** | Perda de janela de intervenção crítica | Validação com 2 especialistas; reavaliação 3 meses |
+| **Falso Positivo (diagnosticar dislexia quando não existe)** | Estigma, constrangimento psicológico | Especificidade >90% do algoritmo; revisão clínica |
+| **Viés por Língua/Idioma** | Dislexia de detecção em linguas não-latinas prejudicada | Avaliar em idioma materno; norms específicas por idioma |
+| **Comorbidade não detectada (TDAH, TEA)** | Diagnóstico incompleto | Questões de triagem para TDAH/TEA paralelas |
+| **Perda de Engajamento da Criança** | Criança abandona programa | Gamificação, reforço positivo, progressão clara |
+| **Inadequação de Acomodações Escolares** | Criança continua lutando apesar de intervenção | Loop de feedback com escola; ajuste dinâmico de acomodações |
+
+---
+
+## 🎯 JUSTIFICATIVA DAS ESCOLHAS DE DESIGN
+
+### Por que 9 Estágios?
+- **7 estágios originais eram insuficientes** para capturar a complexidade da dislexia
+- **Estágios 8-9 adicionados** para monitoramento contínuo e avaliação de longo prazo
+- **Dislexia requer acompanhamento longitudinal** (não é diagnóstico único, mas evolução)
+
+### Por que Testes Multidimensionais?
+- **Dislexia não é unidimensional**: envolve fonologia, fluência, compreensão, processamento visual
+- **Uma única métrica (WPM) é insuficiente**: criar falsos negativos
+- **Discrepância audiovisual é marcador-chave** para diferenciar dislexia de deficit de linguagem geral
+
+### Por que Score Ponderado?
+- **Pesos refletem neurociência**: processamento fonológico (40%) é déficit primário em dislexia
+- **Fluência (35%) e Compreensão (15%)** capuram impacto funcional
+- **Processamento Visual (10%)** identifica subtipos
+
+### Por que Plano Personalizado por IA?
+- **Padrão de deficits varia** criança a criança
+- **IA pode gerar recomendações específicas** baseado no perfil multidimensional
+- **Evita abordagem genérica one-size-fits-all**
+
+---
+
+**Documento preparado para apresentação executiva, implementação técnica e validação clínica**
+*Demonstra: intervenção educacional data-driven, diagnóstico assistido por IA, compliance, impacto social mensurado*
+
+</body>
+</html>

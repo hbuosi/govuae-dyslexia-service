@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spec-process-dyslexia-monitoring.md</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 { color: #0066cc; border-bottom: 3px solid #0066cc; padding-bottom: 10px; margin-top: 30px; }
+        h2 { color: #0088ff; margin-top: 25px; }
+        h3 { color: #0088ff; margin-top: 20px; }
+        h4, h5, h6 { color: #333; }
+        table { border-collapse: collapse; width: 100%; margin: 15px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f0f0f0; font-weight: bold; }
+        pre { background-color: #f5f5f5; border: 1px solid #ddd; padding: 12px; overflow-x: auto; }
+        code { background-color: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+        blockquote { border-left: 4px solid #0066cc; margin-left: 0; padding-left: 15px; color: #666; }
+        ul, ol { margin: 10px 0; padding-left: 30px; }
+        li { margin: 5px 0; }
+        .toc { background-color: #f9f9f9; padding: 20px; border-radius: 5px; margin: 20px 0; }
+        @media print {
+            body { max-width: 100%; }
+            page-break-inside: avoid;
+        }
+    </style>
+</head>
+<body>
+---
+title: Dyslexia Monitoring & Intervention Process Specification
+version: 1.0
+date_created: 2026-05-06
+owner: Product & Clinical Advisory Team
+tags: [process, dyslexia, education, intervention, dislexia]
+---
+
+# Specification: Dyslexia Monitoring & Intervention Process (DIMS)
+
+## 1. Purpose & Scope
+
+This specification defines the end-to-end process for the Dyslexia Intelligence Monitoring System (DIMS), a 9-stage automated workflow for identifying, monitoring, and intervening in children (6-17 years) with dyslexia. The process encompasses:
+
+- **Initial identification** through educator referrals or parental concerns
+- **Cognitive assessment** via multidimensional battery of dyslexia-specific tests
+- **Automated diagnosis** using weighted scoring and AI-driven pattern analysis
+- **Personalized intervention planning** using Claude API (Hermes Agent)
+- **Continuous monitoring** with dynamic reclassification
+- **Impact evaluation** measuring longitudinal progress
+
+**Intended Audience:** Product engineers, clinical advisors, compliance officers, ONG coordinators, educators, specialist referral partners.
+
+**Assumptions:**
+- Children have access to devices with microphone/camera for audio/visual testing
+- Internet connectivity sufficient for real-time data transmission
+- Educators/parents can engage in brief referral/consent process
+- System operates in Portuguese, with multi-language extensibility planned
+
+---
+
+## 2. Definitions
+
+| Term | Definition |
+|------|-----------|
+| **Dyslexia** | Specific learning disability affecting accurate/fluent word recognition, decoding, and spelling despite adequate intelligence and instruction (DSM-5 aligned) |
+| **Phonological Processing** | Ability to manipulate and perceive sounds in language; primary deficit in phonological dyslexia |
+| **WPM** | Words Per Minute; fluency metric measured via 1-minute reading passages |
+| **RAN** | Rapid Automatized Naming; speed of accessing phonological labels (rapid naming of colors, objects) |
+| **Discrepancy Model** | Comparing listening comprehension vs. reading comprehension; gap >15 points suggests specific reading disorder |
+| **Pseudowords** | Non-words following phonotactic rules (e.g., "balt", "kif") to test phonetic decoding ability |
+| **Phonemic Awareness** | Conscious awareness of individual phonemes (sounds); prerequisite for alphabetic decoding |
+| **Acomodações** | Classroom modifications (extra time, font changes, alternative formats) to reduce impact of dyslexia without lowering academic standards |
+| **LGPD** | Lei Geral de Proteção de Dados (Brazil data protection law); requires explicit consent for processing children's personal data |
+| **Hermes Agent** | Claude API-based reasoning agent for generating personalized intervention recommendations |
+| **Reclassification** | Dynamic reassignment to new risk tier based on updated assessment scores |
+
+---
+
+## 3. Requirements, Constraints & Guidelines
+
+### FUNCTIONAL REQUIREMENTS
+
+**REQ-001: Multi-Stage Process Flow**
+- System SHALL execute 9 sequential and/or parallel stages
+- Each stage SHALL have explicit entry/exit criteria
+- Each stage SHALL generate timestamped logs for audit trail
+
+**REQ-002: Multidimensional Assessment**
+- System SHALL administer minimum 4 cognitive dimensions:
+  - Phonological processing (40% weight)
+  - Reading fluency/WPM (35% weight)
+  - Reading comprehension (15% weight)
+  - Visual-orthographic processing (10% weight)
+- System SHALL measure and flag discrepancy between listening vs. reading comprehension
+- Composite score SHALL range 0-100 with >3 decimal places for sensitivity
+
+**REQ-003: Automated Risk Classification**
+- System SHALL classify children into 5 tiers: No Risk (0-30), Low Risk (31-50), Moderate Risk (51-70), High Risk (71-85), Critical/Confirmed (>85)
+- Classification logic SHALL be transparent and auditable
+- System SHALL flag required actions for each tier (monitoring vs. intervention vs. specialist referral)
+
+**REQ-004: Dynamic Reclassification**
+- System SHALL reclassify child if score changes >10 points
+- System SHALL reclassify if 3+ weeks pass without progress data
+- System SHALL trigger alerts if reclassification changes intervention intensity
+
+**REQ-005: AI-Driven Intervention Planning**
+- System SHALL generate personalized intervention plans within 5 minutes using Hermes Agent
+- Plans SHALL include:
+  - Phase-based structure (consciousness, decoding, fluency, comprehension)
+  - Specific activity recommendations tied to observed deficits
+  - Frequency and duration targets
+  - Clear responsibility assignment (educator, specialist, parent)
+  - Weekly progress milestones
+- Plans SHALL be reviewed by human psychopedagogue before delivery
+
+**REQ-006: Continuous Monitoring Loop**
+- System SHALL collect progress data weekly or bi-weekly (configurable)
+- Progress checks SHALL include: WPM re-measurement, targeted sub-skill assessment, adherence tracking
+- System SHALL detect regression (WPM decline, score increase) and trigger escalation
+
+**REQ-007: Multi-Channel Notifications**
+- System SHALL deliver:
+  - SMS/WhatsApp to caregivers (progress, motivation, reminders)
+  - Email to educators (strategies, recommendations, performance reports)
+  - Email to specialists (if referral required, with full assessment data)
+  - Dashboard notifications to ONG coordinator (caseload health, escalations)
+- Notifications SHALL be templated and personalizable
+
+**REQ-008: Longitudinal Reporting**
+- System SHALL generate comparison reports:
+  - Baseline vs. current scores (absolute and relative change)
+  - WPM progression trend (linear regression)
+  - Comorbidity indicators (TDAH, TEA screening flags)
+  - Adherence metrics (% of scheduled sessions attended)
+  - ROI estimation (cost of intervention vs. social impact)
+
+### NON-FUNCTIONAL REQUIREMENTS
+
+**NFR-001: Performance**
+- Stage 3 (cognitive battery) SHALL complete in 40-45 minutes total
+- Stage 5 (scoring/analysis) SHALL complete in <2 seconds
+- Stage 6 (plan generation) SHALL complete in <5 minutes
+- All user-facing actions SHALL have <2 second response time (95th percentile)
+
+**NFR-002: Availability**
+- System SHALL maintain 99.5% uptime SLA
+- Real-time data collection SHALL have automatic retry logic (exponential backoff, max 3 attempts)
+- If stage fails, system SHALL escalate to human reviewer within 1 hour
+
+**NFR-003: Security**
+- All PII (child name, test data, audio) SHALL be encrypted AES-256 at rest
+- All data transmission SHALL use TLS 1.3
+- Access SHALL be role-based (educator, specialist, ONG admin)
+- Audio recordings SHALL be deleted after scoring (retain only anonymized features)
+- System SHALL NOT expose individual child identifiers to third-party services
+
+**NFR-004: Compliance**
+- System SHALL obtain explicit LGPD consent before any assessment
+- System SHALL allow data subject (parent/guardian) to request deletion of their child's data (right to be forgotten)
+- System SHALL maintain audit log of all data access (who, when, what)
+- System SHALL NOT share data with external specialists without explicit parental consent
+- System SHALL include safeguarding protocols: if abuse indicators detected in free-text responses, SHALL escalate to trained social worker
+
+**NFR-005: Usability**
+- Interface SHALL be accessible (WCAG 2.1 AA) for children 6-17 with diverse literacy levels
+- Reading level of instructions SHALL not exceed 4th grade (Flesch-Kincaid)
+- System SHALL support both keyboard and voice input
+- System SHALL provide real-time feedback (progress bars, encouragement) to maintain engagement
+
+### DESIGN CONSTRAINTS
+
+**CON-001: Single Point of Truth for Assessment**
+- Child may NOT complete the same test stage twice within 3 days (avoid practice effects)
+- Exception: If technical failure occurs, automatic retry allowed within 24 hours
+- If child fails 3+ times, escalate to specialist
+
+**CON-002: Specialist Review Gate**
+- Any child classified >70 (High Risk/Critical) SHALL be reviewed by psychopedagogue before notifying family
+- Specialist review SHALL include: score verification, pattern analysis, differential diagnosis considerations
+
+**CON-003: Acomodations Consistency**
+- Once acomodations are assigned (e.g., extra time, dyslexia-friendly font), SHALL be applied consistently across all assessments
+- Any change to acomodations SHALL be documented with rationale
+
+**CON-004: Intervention Intensity Thresholds**
+- Moderate Risk (51-70): 2-3 sessions/week, 3-6 month duration
+- High Risk (71-85): 4-5 sessions/week, 6-12 month duration
+- Critical (>85): Daily + specialist involvement, 12+ months
+- Deviations from these require specialist approval
+
+---
+
+## 4. Interfaces & Data Contracts
+
+### 4.1 Input Data Contract (Stage 1: Child Registration)
+
+```json
+{
+  "registration": {
+    "child_id": "UUID",
+    "full_name": "string (max 100 chars)",
+    "date_of_birth": "YYYY-MM-DD",
+    "age_group": "6-8 | 9-11 | 12-14 | 15-17",
+    "gender": "M | F | Other",
+    "handedness": "Right | Left | Ambidextrous",
+    "native_language": "string",
+    "secondary_languages": "string[]",
+    "school_name": "string",
+    "grade_level": "1-12",
+    "referral_source": "Educator | Parent | ONG | Specialist",
+    "referral_date": "YYYY-MM-DD",
+    "dyslexia_risk_indicators": {
+      "family_history_dyslexia": "Yes | No | Unknown",
+      "history_speech_delay": "Yes | No",
+      "history_otitis_media": "Yes | No",
+      "current_reading_difficulty": "Yes | No"
+    },
+    "caregiver": {
+      "name": "string",
+      "email": "string",
+      "phone": "string (E.164 format)",
+      "relationship": "Parent | Guardian | Other"
+    },
+    "consent": {
+      "lgpd_accepted": "boolean (required)",
+      "consent_date": "YYYY-MM-DDTHH:MM:SSZ",
+      "consent_version": "1.0"
+    }
+  }
+}
+```
+
+### 4.2 Cognitive Assessment Data Contract (Stage 3: Test Results)
+
+```json
+{
+  "assessment_battery": {
+    "assessment_id": "UUID",
+    "child_id": "UUID",
+    "test_date": "YYYY-MM-DDTHH:MM:SSZ",
+    "session_number": "1 | 2 | 3",
+    "assessor_id": "UUID (educator/facilitator)",
+    "environment": "Home | School | ONG",
+    "tests": {
+      "phonological_processing": {
+        "phonemic_awareness_score": "0-100",
+        "rhyme_implicit_score": "0-100",
+        "syllable_segmentation_score": "0-100",
+        "syllable_reversal_score": "0-100",
+        "composite_phonological": "0-100"
+      },
+      "fluency_and_speed": {
+        "wpm_reading_passage_1": "number (words per minute)",
+        "wpm_reading_passage_2": "number",
+        "wpm_average": "number",
+        "error_count": "number (omissions, insertions, substitutions)",
+        "pseudoword_reading_score": "0-100",
+        "irregular_word_reading_score": "0-100",
+        "ran_naming_speed": "seconds (time to name 40 stimuli)",
+        "composite_fluency": "0-100"
+      },
+      "reading_comprehension": {
+        "multiple_choice_correct": "number of correct / total questions",
+        "inference_score": "0-100",
+        "detail_retention_score": "0-100",
+        "composite_reading_comprehension": "0-100"
+      },
+      "visual_orthographic": {
+        "visual_choice_score": "0-100",
+        "visual_sequence_memory": "0-100",
+        "letter_orientation_symmetry": "0-100",
+        "composite_visual": "0-100"
+      },
+      "listening_comprehension": {
+        "passage_auditory": "string (20-30 word passage read aloud)",
+        "questions_correct": "number / total",
+        "composite_listening": "0-100"
+      }
+    },
+    "metadata": {
+      "completion_time_minutes": "number",
+      "child_engagement": "1-5 (Likert)",
+      "technical_issues": "string (if any)",
+      "assessor_notes": "string (observations, behaviors)"
+    }
+  }
+}
+```
+
+### 4.3 Diagnostic Output Contract (Stage 5: Risk Classification)
+
+```json
+{
+  "diagnosis": {
+    "assessment_id": "UUID",
+    "child_id": "UUID",
+    "generated_timestamp": "YYYY-MM-DDTHH:MM:SSZ",
+    "overall_risk_score": "0-100 (floating point)",
+    "risk_classification": "No Risk | Low Risk | Moderate Risk | High Risk | Critical",
+    "dimension_scores": {
+      "phonological": "0-100",
+      "fluency": "0-100",
+      "comprehension": "0-100",
+      "visual_orthographic": "0-100"
+    },
+    "audiovisual_discrepancy": "number (listening_score - reading_score)",
+    "indicators": {
+      "strong_phonological_deficit": "boolean",
+      "significant_fluency_lag": "boolean",
+      "comprehension_preserved": "boolean",
+      "comorbidity_flags": ["ADHD_risk", "ASD_risk"] (empty if none)
+    },
+    "recommended_action": "Monitor | Preventive Intervention | Targeted Intervention | Specialist Referral | Critical Escalation",
+    "specialist_referral_required": "boolean",
+    "confidence_score": "0-100 (model confidence)"
+  }
+}
+```
+
+### 4.4 Intervention Plan Contract (Stage 6: Personalized Recommendation)
+
+```json
+{
+  "intervention_plan": {
+    "plan_id": "UUID",
+    "child_id": "UUID",
+    "generated_by": "hermes_agent | psychopedagogue",
+    "plan_date": "YYYY-MM-DD",
+    "goal_statement": "string",
+    "phases": [
+      {
+        "phase_number": 1,
+        "phase_name": "Phonemic Awareness",
+        "duration_weeks": "4",
+        "frequency": "3x per week",
+        "duration_per_session": "15 minutes",
+        "activities": [
+          {
+            "activity_id": "string",
+            "name": "Rhyme Matching Game",
+            "objective": "Strengthen phoneme discrimination",
+            "instructions": "string",
+            "materials_required": "string",
+            "expected_difficulty": "Beginner"
+          }
+        ],
+        "responsible_party": "Educator"
+      }
+    ],
+    "immediate_acomodations": [
+      "Dyslexia-friendly font (OpenDyslexic)",
+      "Extra time on tests (50% additional)",
+      "Oral reading permitted",
+      "Increased spacing on paper"
+    ],
+    "monitoring_schedule": {
+      "wpm_tracking": "weekly (same text)",
+      "phonemic_assessment": "bi-weekly",
+      "full_reevaluation": "every 4 weeks"
+    },
+    "success_metrics": [
+      {
+        "metric": "Phonological score increase",
+        "target": "+10 points by week 4"
+      },
+      {
+        "metric": "WPM improvement",
+        "target": "+20% by week 8"
+      }
+    ],
+    "escalation_triggers": [
+      "No progress after 4 weeks",
+      "Adherence <50%",
+      "Regression (score increase >5 points)"
+    ]
+  }
+}
+```
+
+---
+
+## 5. Acceptance Criteria
+
+**AC-001: Child Registration**
+- Given a valid referral from educator, When parent/guardian submits registration, Then system SHALL create child profile with all mandatory fields, validate LGPD consent, and trigger Stage 2 within 24 hours
+
+**AC-002: Assessment Battery Completion**
+- Given Stage 3 initiated, When child completes all 3 sessions (phonology, fluency, comprehension, visual), Then system SHALL store all raw scores, calculate composite metrics, and validate data quality (no missing values) before advancing to Stage 5
+
+**AC-003: Risk Scoring Accuracy**
+- Given completed assessment data, When system calculates overall risk score, Then:
+  - Score SHALL match manual calculation (educator validation) within ±3 points
+  - Classification tier SHALL be correctly assigned per thresholds (0-30 = No Risk, etc.)
+  - Discrepancy flag SHALL trigger specialist review if >70
+
+**AC-004: Plan Generation & Review**
+- Given High Risk child (score >65), When Hermes Agent generates intervention plan, Then:
+  - Plan SHALL be reviewed by psychopedagogue within 2 hours
+  - Plan SHALL include minimum 3 intervention phases with specific activities
+  - Plan SHALL assign clear responsibility (Educator/Specialist/Parent)
+  - Plan SHALL not be delivered to family until reviewed
+
+**AC-005: Notification Delivery**
+- Given plan approval, When notifications triggered, Then:
+  - SMS/WhatsApp to caregiver delivered within 1 hour
+  - Email to educator delivered within 1 hour
+  - Delivery confirmation logged in system
+
+**AC-006: Continuous Monitoring**
+- Given active intervention (Stages 8-9), When weekly progress collection scheduled, Then:
+  - System SHALL prompt caregiver/educator for WPM re-test
+  - System SHALL update score and flag if reclassification required
+  - System SHALL alert if >3 weeks without data (intervention at risk)
+
+**AC-007: Longitudinal Impact Report**
+- Given child at 6-month exit point, When final assessment triggered, Then:
+  - Report SHALL show baseline vs. exit scores for all dimensions
+  - Report SHALL calculate WPM delta (absolute and %)
+  - Report SHALL estimate ROI based on intervention cost and estimated social/economic impact
+  - Report SHALL recommend continuation, step-down, or specialist follow-up
+
+**AC-008: Data Privacy & Security**
+- Given any child assessment in system, When data access requested, Then:
+  - System SHALL verify requestor role (educator/specialist/parent)
+  - Audio recordings SHALL be deleted after scoring (retain features only)
+  - All access SHALL be logged with timestamp, user ID, data accessed
+  - System SHALL support parent's LGPD right to deletion (anonymize data)
+
+---
+
+## 6. Test Automation Strategy
+
+### Test Levels
+
+**Unit Tests:**
+- Scoring algorithm: Verify weighted calculation matches expected output for test inputs
+- Risk classification logic: Verify tier boundaries (0-30 = No Risk, etc.)
+- Data validation: Required fields, email format, date ranges
+- Frameworks: Jest/Vitest (JavaScript), unittest/pytest (Python)
+
+**Integration Tests:**
+- Assessment data ingestion: Upload test battery results → validate in database → trigger scoring
+- Plan generation: Send assessment data to Hermes Agent → receive plan → validate structure
+- Notification delivery: Generate notification → send via Twilio/SendGrid → confirm delivery log
+- Frameworks: Postman/Newman, pytest-flask
+
+**End-to-End Tests:**
+- Full workflow: Registration → Assessment (3 sessions) → Scoring → Plan Generation → Notification → Progress Monitoring
+- Regression testing: Ensure child data integrity after updates
+- Frameworks: Playwright (browser), custom Python scripts
+
+### CI/CD Integration
+- Unit tests run on every commit (GitHub Actions)
+- Integration tests run on PR (must pass before merge)
+- E2E tests run nightly against staging environment
+- Coverage minimum: 80% for business logic, 60% overall
+
+### Test Data Management
+- Mock dyslexia assessment results (high-risk, moderate-risk, no-risk profiles)
+- Mock caregiver/educator personas
+- Mock Hermes Agent responses (deterministic, unseeded LLM calls)
+- Test data cleaned up post-test (PII never retained)
+
+### Performance Testing
+- Load test: 100 concurrent assessment submissions
+- Latency test: Stage 5 scoring completes in <2 seconds
+- Database query optimization: Scoring query <100ms
+
+---
+
+## 7. Rationale & Context
+
+### Why 9 Stages?
+
+The original 7-stage model was insufficient for dyslexia's complexity:
+- **Stages 1-3**: Identification & assessment (same as general child monitoring)
+- **Stages 4-7**: Diagnosis, planning, notification, monitoring (specific to dyslexia)
+- **Stages 8-9** (new): Continuous progress tracking & longitudinal impact (critical because dyslexia is a developmental trajectory, not a point diagnosis)
+
+Dyslexia requires **longitudinal monitoring** beyond initial diagnosis because:
+1. Intervention effectiveness varies by individual
+2. Comorbidities (ADHD, ASD) may emerge over time
+3. School demands (reading load) increase with age, potentially unmasking deficits
+
+### Why Multidimensional Assessment?
+
+Single-metric approaches (e.g., WPM alone) create false negatives:
+- **Phonological dyslexia** (most common): High WPM but poor accuracy (many errors) → WPM alone misses it
+- **Surface dyslexia**: Can decode phonetically but can't recognize irregular words → different intervention needed
+- **Double deficit**: Both phonological AND fluency deficits → require combined intervention
+
+**Weights chosen:**
+- Phonological (40%): Primary deficit in ~70% of dyslexia cases
+- Fluency (35%): Functional impact (reading speed affects school participation)
+- Comprehension (15%): Marker of compensation (some kids decode but don't understand)
+- Visual-orthographic (10%): Sub-type identifier
+
+### Why Audiovisual Discrepancy as Key Marker?
+
+Children with dyslexia typically have:
+- **Strong listening comprehension** (can understand language when spoken)
+- **Weak reading comprehension** (can't access meaning from written text)
+
+A gap >15 points = **specific reading disorder** (vs. general language impairment). This discrepancy distinguishes dyslexia from:
+- Intellectual disability (deficits across domains)
+- Language disorder (listening & reading both weak)
+- ADHD (attention affects both, but no specific phonological deficit)
+
+### Why AI-Driven Personalized Planning?
+
+Standard intervention manuals (one-size-fits-all) are **ineffective for dyslexia heterogeneity**:
+- Child A: Pure phonological deficit → needs explicit phonological intervention
+- Child B: Comorbid with ADHD → needs shorter, more frequent sessions with movement breaks
+- Child C: Has compensatory strength in visual memory → can use multisensory approach
+
+Hermes Agent analyzes the full **assessment profile** and generates targeted recommendations:
+- Phase structure adapted to deficit severity
+- Activity selection based on observed strengths/weaknesses
+- Frequency/duration calibrated to comorbidities
+- Materials recommended based on engagement markers
+
+### Why Dynamic Reclassification?
+
+Dyslexia intervention response varies widely:
+- **Fast responders** (40%): Show measurable progress within 4 weeks → can reduce intervention intensity
+- **Slow responders** (40%): Show progress by 8-12 weeks → maintain or escalate intervention
+- **Non-responders** (20%): Minimal progress → may require specialist evaluation or modified approach
+
+System must continuously reassess and **adapt intensity** to actual response, not static initial classification.
+
+---
+
+## 8. Dependencies & External Integrations
+
+### External Systems
+
+- **EXT-001: Claude API (Anthropic Hermes Agent)** — Purpose: Generate personalized intervention recommendations from assessment profile; Integration type: REST API calls (async queuing); SLA: 95% <20 seconds response time
+
+- **EXT-002: Twilio Communications Platform** — Purpose: Deliver SMS/WhatsApp notifications to caregivers; Integration type: REST API; SLA: 99.5% delivery rate
+
+- **EXT-003: SendGrid Email Service** — Purpose: Deliver detailed reports to educators/specialists; Integration type: REST API; SLA: 98% delivery, <30 minute latency
+
+### Third-Party Services
+
+- **SVC-001: Assessment Validation Service** — Required capabilities: Verify scoring accuracy against human expert; Frequency: 5% random sampling of high-risk cases; Response time: <24 hours
+
+- **SVC-002: Specialist Referral Network** — Required capabilities: Directory of dyslexia specialists (fonoaudiólogos, neuropsicólogos) in geographic area; Feedback on intervention outcomes for model improvement
+
+### Infrastructure Dependencies
+
+- **INF-001: Database (PostgreSQL or equivalent)** — Requirement: ACID compliance, encrypted backups, minimum 99.5% uptime
+
+- **INF-002: API Gateway & Load Balancer** — Requirement: Handle 1000+ concurrent assessments, <100ms latency at p95
+
+- **INF-003: Audio/Video Recording Infrastructure** — Requirement: Encrypted storage, automatic deletion after feature extraction, GDPR compliance for audio data
+
+### Data Dependencies
+
+- **DAT-001: Reference Norms by Age/Language** — Format: CSV with WPM/phonological thresholds per age group (6-17) and language; Frequency: Updated annually; Source: IDA (International Dyslexia Association), academic literature
+
+- **DAT-002: Comorbidity Screening Instruments** — Format: Validated questionnaires (Conners for ADHD, AQ-10 for ASD); Frequency: Static; Source: Licensed from publishers
+
+### Technology Platform Dependencies
+
+- **PLT-001: JavaScript/Node.js runtime** — Requirement: Support for async/await, microservices architecture; Critical for real-time assessment processing
+
+- **PLT-002: PostgreSQL 12+** — Requirement: JSON support for flexible assessment data structures, full-text search for intervention matching
+
+- **PLT-003: Audio processing library** — Requirement: Extract phonetic features from child speech (formants, voice quality); Constraint: Must be privacy-preserving (process locally, not cloud-based)
+
+### Compliance Dependencies
+
+- **COM-001: LGPD Compliance Framework** — Impact: Requires explicit consent, right to deletion, data minimization (delete audio after feature extraction)
+
+- **COM-002: Child Safeguarding Protocols** — Impact: If system detects abuse indicators in free-text responses, must escalate to trained social worker (not automated)
+
+- **COM-003: Educational Standards (BNCC)** — Impact: Intervention recommendations must align with Brazilian National Curriculum (competency-based, not just deficit-focused)
+
+---
+
+## 9. Examples & Edge Cases
+
+### Example 1: High-Risk Dyslexia Child with ADHD Comorbidity
+
+```
+INPUT (Assessment Results):
+├─ Phonological Score: 78 (high deficit)
+├─ WPM: 35 (severely below norm for 9-year-old, who should be ~120)
+├─ Listening Comprehension: 92
+├─ Reading Comprehension: 45
+├─ Audiovisual Discrepancy: 47 points (SEVERE)
+├─ Behavioral Notes: "Fidgety, trouble staying focused on reading task"
+
+SYSTEM PROCESSING:
+├─ Overall Risk Score: 82 (HIGH RISK / CRITICAL)
+├─ Primary Deficit: Phonological dyslexia
+├─ Comorbidity Flag: ADHD risk (behavioral observation + discrepancy pattern)
+
+AI-GENERATED PLAN:
+├─ Phase 1: Phonemic Awareness (4 weeks)
+│  └─ Frequency: 3x/week, 10 minute sessions (shorter due to ADHD)
+│  └─ Strategy: Include movement breaks (jumping for syllables, clapping for phonemes)
+│  └─ Engagement: Gamified (earning points for focus)
+│
+├─ Phase 2: Phonetic Decoding (weeks 5-8)
+│  └─ Frequency: 4x/week, 15 minute sessions
+│  └─ Strategy: Multi-sensory (letter shapes, letter sounds, writing)
+│  └─ Engagement: Story-based progression (build story as sounds are learned)
+│
+├─ Phase 3: Fluency (weeks 9-16)
+│  └─ Frequency: 5x/week, 20 minute sessions (gradually increasing)
+│  └─ Strategy: Partner reading (child reads with model, builds confidence)
+│  └─ Engagement: Choose own books at reading level
+│
+├─ Acomodations:
+│  ├─ Extra time on school tests (50%)
+│  ├─ Dyslexia-friendly font + increased spacing
+│  ├─ Oral responses allowed
+│  └─ Movement breaks during long reading sessions
+│
+├─ CRITICAL NOTE:
+│  "Recommend parallel ADHD evaluation by pediatric neuropsychologist.
+│   If ADHD confirmed, address concurrently (short sessions, high engagement,
+│   movement integration). Dyslexia intervention alone may not resolve difficulty
+│   if attention is the limiting factor."
+│
+└─ Monitoring:
+   └─ Bi-weekly check-ins (given comorbidity risk, higher supervision)
+   └─ ADHD symptoms to track: On-task time, impulse control during tasks
+   └─ Dyslexia progress: WPM weekly, phonological bi-weekly
+   └─ If ADHD medication initiated, adjust phase intensity (may see sudden improvement)
+
+OUTPUT (To Stakeholders):
+├─ Parents: "João shows signs of both reading disability and attention challenges.
+              We recommend evaluation by neuropsychologist while starting reading
+              support now. Plan includes short sessions with movement to help focus."
+├─ Educator: [Detailed plan + acomodations checklist]
+└─ ONG Coordinator: "Escalate to specialist for ADHD assessment + continue reading intervention"
+```
+
+### Example 2: Surface Dyslexia (Irregular Word Weakness)
+
+```
+INPUT:
+├─ Phonological Score: 42 (NORMAL)
+├─ WPM: 85 (NORMAL for 8-year-old, ~90)
+├─ Pseudo-word Reading: 92 (STRONG phonetic decoding)
+├─ Irregular Word Reading: 30 (SEVERE weakness)
+├─ Strategy Observation: Child sounded out "yacht" as "yak-t", couldn't recognize "said"
+
+DIAGNOSIS:
+├─ Risk Score: 35 (LOW RISK, but not zero)
+├─ Pattern: Surface dyslexia (strong phonetic decoding, weak visual/memory access)
+├─ Implication: Child CAN decode but has weak sight word bank
+
+AI PLAN:
+├─ Focus: NOT phonological intervention (not needed)
+├─ Focus: Visual memory, whole-word recognition, etymology
+├─ Activities:
+│  ├─ Irregular word flashcards with story/image associations
+│  ├─ Etymology study (high-frequency irregular words share patterns: said/paid/laid)
+│  └─ Contextual reading (meaning aids recognition of irregular words)
+├─ Frequency: 2x/week, 15 minutes (less intensive than phonological)
+└─ Expected Progress: +30 WPM, but improvement focused on accuracy, not speed
+```
+
+### Example 3: Non-Responsive Child (No Progress After 4 Weeks)
+
+```
+TRIGGER:
+├─ Child in Moderate Risk intervention for 4 weeks
+├─ Sessions attended: 8/12 (67% adherence)
+├─ WPM baseline: 45 → current: 48 (minimal change)
+├─ Phonological Score: unchanged
+├─ ALERT: "No meaningful progress. Escalate."
+
+SYSTEM RESPONSE:
+├─ Automatic escalation checklist:
+│  ├─ Review adherence: 67% acceptable, but <75% target
+│  ├─ Check implementation fidelity: Were activities done as planned?
+│  ├─ Assess external factors: School transition? New sibling? Family stress?
+│  ├─ Verify assessment quality: Was baseline assessment valid?
+│  └─ Consider comorbidity: Has ADHD/anxiety/depression emerged?
+│
+├─ AI Generates Updated Recommendation:
+│  ├─ "Adherence at 67% may be limiting. Recommend:
+│  │   1. Assess barriers (too many sessions, distance, motivation)
+│  │   2. Simplify plan: Reduce to 2x/week to ensure quality
+│  │   3. Increase engagement: Use gamification, child's interest (sports, music)
+│  │   4. Screen for ADHD (ADHD + dyslexia may require different approach)
+│  └─  5. If still no progress by week 8, refer to neuropsychologist"
+│
+└─ Notification:
+   ├─ ONG Coordinator: "João's case requires review. Recommend discussion
+                       with parents about barriers & potential ADHD screening."
+   └─ Psychopedagogue assigned for strategy consultation
+```
+
+### Example 4: False Positive Scenario (System Flags as Risk, But Isn't Dyslexia)
+
+```
+INPUT:
+├─ Child: 7-year-old, 2nd month of formal reading instruction
+├─ Phonological Score: 60
+├─ WPM: 52 (below norm)
+├─ BUT: Child still learning letter sounds, high English as second language exposure
+
+SPECIALIST REVIEW (CONSTRAINT: All >70 scores reviewed by psychopedagogue, <55 flagged for review):
+├─ Observation: "Child is still in early reading phase. Phonological score elevated due to
+│                not yet knowing all letters, not due to dyslexia deficit."
+│
+├─ Decision: "Not dyslexia. Developmentally normal progress for early reader.
+│            Recommend regular classroom instruction. Retest in 8 weeks."
+│
+└─ LEARNING: Model updated with more features:
+   ├─ Time in literacy instruction
+   ├─ Language exposure patterns
+   ├─ Access to early reading intervention
+   └─ Helps distinguish "not yet reading proficient" from "dyslexic"
+```
+
+---
+
+## 10. Validation Criteria
+
+✓ **Assessment Validity**
+- External validation: 90%+ agreement between system scoring and manual expert scoring on 50 test cases
+- Criterion validity: Score >70 on system correlates with positive specialist diagnosis (r > 0.85)
+- Test-retest reliability: Same child tested 6 months later shows stable classification (>80% remain in same tier)
+
+✓ **Intervention Effectiveness**
+- Outcome metric: >60% of children improve by ≥10 points within 6 months
+- Average improvement: 20+ WPM by 6 months
+- Adherence: ≥75% session attendance correlates with meaningful progress
+
+✓ **Plan Relevance**
+- Educator feedback: ≥80% report plan activities are "very relevant" to observed deficits
+- Implementation fidelity: ≥80% of planned activities successfully completed
+
+✓ **Usability**
+- Assessment completion: ≥90% of children complete full battery without dropout
+- System availability: 99.5% uptime measured monthly
+
+✓ **Safety & Compliance**
+- LGPD: 100% of children have documented consent before assessment
+- Data security: 0 unauthorized access incidents, 0 data breaches
+- Escalation: 100% of abuse indicators escalated to social worker within 1 hour
+
+---
+
+## 11. Related Specifications
+
+- [Service Card: Dyslexia Monitoring & Intervention](./Child_Monitoring_Service_Card_Dyslexia_ENHANCED.md)
+- [BPMN 2.0 Process Diagram](./Child_Monitoring_Dyslexia_BPMN_Detailed.html)
+- Reference: [International Dyslexia Association — Definition & Types](https://dyslexiaida.org)
+- Reference: [DSM-5 Criteria for Specific Learning Disorder](https://www.psychiatry.org/dsm5)
+- Reference: [LGPD Compliance for Child Data](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm)
+
+---
+
+**Specification prepared for implementation & clinical validation**
+*Demonstrates: evidence-based assessment, differential diagnosis, personalized intervention, AI-assisted planning, compliance-first design*
+
+</body>
+</html>

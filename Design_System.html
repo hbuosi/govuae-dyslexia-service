@@ -1,0 +1,1583 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Design System - GovUAE Design System</title>
+        <style>
+            
+    :root {
+        --color-primary: #0066cc;
+        --color-secondary: #0088ff;
+        --color-success: #00aa44;
+        --color-warning: #ff6600;
+        --color-danger: #cc0000;
+        --color-dark: #1a1a1a;
+        --color-medium: #666666;
+        --color-light: #f5f5f5;
+        --color-white: #ffffff;
+
+        --spacing-xs: 4px;
+        --spacing-sm: 8px;
+        --spacing-md: 16px;
+        --spacing-lg: 24px;
+        --spacing-xl: 32px;
+
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --radius-lg: 16px;
+
+        --font-size-h1: 2.5rem;
+        --font-size-h2: 1.8rem;
+        --font-size-h3: 1.4rem;
+        --font-size-body: 1rem;
+        --font-size-small: 0.875rem;
+
+        --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+        --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+        --shadow-lg: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: var(--font-size-body);
+        line-height: 1.6;
+        color: var(--color-dark);
+        background-color: var(--color-white);
+    }
+
+    /* Navigation Bar */
+    .navbar {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        padding: var(--spacing-md) var(--spacing-lg);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: var(--shadow-md);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbar a {
+        color: var(--color-white);
+        text-decoration: none;
+        margin: 0 var(--spacing-md);
+        transition: opacity 200ms ease-in-out;
+    }
+
+    .navbar a:hover {
+        opacity: 0.8;
+    }
+
+    .navbar-brand {
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+
+    .navbar-links {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-lg);
+    }
+
+    /* Container */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: var(--spacing-lg);
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md) 0;
+        font-size: var(--font-size-small);
+        color: var(--color-medium);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .breadcrumb a {
+        color: var(--color-primary);
+        text-decoration: none;
+        transition: color 200ms ease-in-out;
+    }
+
+    .breadcrumb a:hover {
+        color: var(--color-secondary);
+        text-decoration: underline;
+    }
+
+    /* Headers */
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 700;
+        margin-top: var(--spacing-lg);
+        margin-bottom: var(--spacing-md);
+        color: var(--color-dark);
+    }
+
+    h1 {
+        font-size: var(--font-size-h1);
+        border-bottom: 3px solid var(--color-primary);
+        padding-bottom: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    h2 {
+        font-size: var(--font-size-h2);
+        margin-top: var(--spacing-xl);
+    }
+
+    h3 {
+        font-size: var(--font-size-h3);
+    }
+
+    /* Paragraphs & Text */
+    p {
+        margin-bottom: var(--spacing-md);
+        line-height: 1.8;
+    }
+
+    /* Links */
+    a {
+        color: var(--color-primary);
+        text-decoration: none;
+        transition: color 200ms ease-in-out;
+        border-bottom: 1px solid transparent;
+    }
+
+    a:hover {
+        color: var(--color-secondary);
+        border-bottom: 1px solid var(--color-primary);
+    }
+
+    /* Lists */
+    ul, ol {
+        margin-left: var(--spacing-lg);
+        margin-bottom: var(--spacing-md);
+    }
+
+    li {
+        margin-bottom: var(--spacing-sm);
+        line-height: 1.8;
+    }
+
+    /* Tables */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: var(--spacing-lg) 0;
+        box-shadow: var(--shadow-sm);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+    }
+
+    thead {
+        background-color: var(--color-light);
+        font-weight: 600;
+    }
+
+    th, td {
+        padding: var(--spacing-md);
+        text-align: left;
+        border-bottom: 1px solid var(--color-light);
+    }
+
+    tbody tr:hover {
+        background-color: var(--color-light);
+    }
+
+    /* Code blocks */
+    pre {
+        background-color: var(--color-dark);
+        color: var(--color-white);
+        padding: var(--spacing-lg);
+        border-radius: var(--radius-md);
+        overflow-x: auto;
+        margin: var(--spacing-lg) 0;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    code {
+        font-family: "Courier New", monospace;
+        background-color: var(--color-light);
+        padding: 2px 6px;
+        border-radius: var(--radius-sm);
+        font-size: 0.9rem;
+    }
+
+    pre code {
+        background-color: transparent;
+        padding: 0;
+    }
+
+    /* Blockquotes */
+    blockquote {
+        border-left: 4px solid var(--color-primary);
+        padding-left: var(--spacing-lg);
+        margin: var(--spacing-lg) 0;
+        color: var(--color-medium);
+        font-style: italic;
+    }
+
+    /* Cards / Panels */
+    .panel {
+        background-color: var(--color-white);
+        border: 1px solid var(--color-light);
+        border-radius: var(--radius-md);
+        padding: var(--spacing-lg);
+        margin: var(--spacing-lg) 0;
+        box-shadow: var(--shadow-sm);
+        transition: box-shadow 200ms ease-in-out;
+    }
+
+    .panel:hover {
+        box-shadow: var(--shadow-md);
+    }
+
+    .panel-header {
+        font-weight: 600;
+        color: var(--color-primary);
+        margin-bottom: var(--spacing-md);
+        font-size: 1.1rem;
+    }
+
+    /* Alerts / Notifications */
+    .alert {
+        padding: var(--spacing-lg);
+        border-radius: var(--radius-md);
+        margin: var(--spacing-lg) 0;
+        border-left: 4px solid;
+        display: flex;
+        gap: var(--spacing-md);
+    }
+
+    .alert-success {
+        background-color: rgba(0, 170, 68, 0.1);
+        border-color: var(--color-success);
+        color: var(--color-dark);
+    }
+
+    .alert-warning {
+        background-color: rgba(255, 102, 0, 0.1);
+        border-color: var(--color-warning);
+        color: var(--color-dark);
+    }
+
+    .alert-danger {
+        background-color: rgba(204, 0, 0, 0.1);
+        border-color: var(--color-danger);
+        color: var(--color-dark);
+    }
+
+    .alert-info {
+        background-color: rgba(0, 102, 204, 0.1);
+        border-color: var(--color-primary);
+        color: var(--color-dark);
+    }
+
+    /* Color Swatches */
+    .color-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: var(--spacing-lg);
+        margin: var(--spacing-lg) 0;
+    }
+
+    .color-swatch {
+        border-radius: var(--radius-md);
+        padding: var(--spacing-lg);
+        text-align: center;
+        color: var(--color-white);
+        font-weight: 600;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .color-swatch.primary {
+        background-color: var(--color-primary);
+    }
+
+    .color-swatch.secondary {
+        background-color: var(--color-secondary);
+    }
+
+    .color-swatch.success {
+        background-color: var(--color-success);
+    }
+
+    .color-swatch.warning {
+        background-color: var(--color-warning);
+    }
+
+    .color-swatch.danger {
+        background-color: var(--color-danger);
+    }
+
+    /* Badge / Tag */
+    .badge {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 50px;
+        font-size: var(--font-size-small);
+        font-weight: 600;
+        margin-right: var(--spacing-sm);
+    }
+
+    .badge-primary {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+    }
+
+    .badge-success {
+        background-color: var(--color-success);
+        color: var(--color-white);
+    }
+
+    .badge-warning {
+        background-color: var(--color-warning);
+        color: var(--color-white);
+    }
+
+    .badge-danger {
+        background-color: var(--color-danger);
+        color: var(--color-white);
+    }
+
+    /* Buttons */
+    .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        border-radius: var(--radius-sm);
+        font-weight: 500;
+        border: none;
+        cursor: pointer;
+        transition: all 200ms ease-in-out;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+
+    .btn-primary {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+    }
+
+    .btn-primary:hover {
+        background-color: var(--color-secondary);
+    }
+
+    .btn-secondary {
+        background-color: var(--color-light);
+        color: var(--color-dark);
+        border: 1px solid var(--color-medium);
+    }
+
+    .btn-secondary:hover {
+        background-color: var(--color-medium);
+        color: var(--color-white);
+    }
+
+    .btn-danger {
+        background-color: var(--color-danger);
+        color: var(--color-white);
+    }
+
+    .btn-danger:hover {
+        background-color: #aa0000;
+    }
+
+    /* Footer */
+    footer {
+        background-color: var(--color-dark);
+        color: var(--color-white);
+        padding: var(--spacing-xl) var(--spacing-lg);
+        margin-top: var(--spacing-3xl);
+        border-top: 1px solid var(--color-medium);
+    }
+
+    footer a {
+        color: var(--color-secondary);
+    }
+
+    footer p {
+        margin-bottom: var(--spacing-sm);
+        font-size: var(--font-size-small);
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-lg);
+    }
+
+    .footer-section h4 {
+        color: var(--color-secondary);
+        font-size: 1rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    /* Sidebar / TOC */
+    .sidebar {
+        position: sticky;
+        top: 80px;
+        width: 250px;
+        padding: var(--spacing-lg);
+        background-color: var(--color-light);
+        border-radius: var(--radius-md);
+        max-height: calc(100vh - 100px);
+        overflow-y: auto;
+    }
+
+    .sidebar-title {
+        font-weight: 600;
+        margin-bottom: var(--spacing-md);
+        color: var(--color-primary);
+    }
+
+    .sidebar ul {
+        list-style: none;
+        margin-left: 0;
+    }
+
+    .sidebar li {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .sidebar a {
+        display: block;
+        padding: var(--spacing-sm) var(--spacing-md);
+        border-radius: var(--radius-sm);
+        transition: all 200ms ease-in-out;
+    }
+
+    .sidebar a:hover {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        border-bottom: none;
+    }
+
+    /* Layout */
+    .main-layout {
+        display: grid;
+        grid-template-columns: 1fr 250px;
+        gap: var(--spacing-xl);
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: var(--spacing-lg);
+    }
+
+    .main-content {
+        flex: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .main-layout {
+            grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+            position: static;
+            width: 100%;
+            max-height: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+        }
+
+        .container {
+            padding: var(--spacing-md);
+        }
+
+        .navbar {
+            flex-direction: column;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+        }
+
+        .navbar-links {
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        table {
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            padding: var(--spacing-sm);
+        }
+
+        .color-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .navbar-links {
+            gap: var(--spacing-sm);
+        }
+
+        .navbar a {
+            margin: 0 var(--spacing-sm);
+            font-size: 0.9rem;
+        }
+
+        .color-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .color-swatch {
+            padding: var(--spacing-md);
+        }
+    }
+    
+        </style>
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="navbar-brand">🏛️ GovUAE</div>
+            <div class="navbar-links">
+                <a href="index.html">📑 Index</a>
+                <a href="Design_System.html">🎨 Design System</a>
+                <a href="AS-IS_TO-BE_Analysis.html">📊 Strategy</a>
+                <a href="RACI_Governance_Matrix.html">⚙️ Governance</a>
+                <a href="Target_Operating_Model.html">🏗️ Operations</a>
+                <a href="Technology_Stack_Mapping.html">💻 Technology</a>
+            </div>
+        </nav>
+
+        <!-- Breadcrumb -->
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Design System</span>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="container">
+            <h1 id="design-system">Design System</h1>
+<h2 id="govuae-dyslexia-monitoring-intervention-service">GovUAE Dyslexia Monitoring &amp; Intervention Service</h2>
+<hr />
+<h2 id="1-executive-summary">1. Executive Summary</h2>
+<p>This Design System provides a comprehensive set of guidelines, components, and patterns for the GovUAE Dyslexia Service platform. It ensures consistency across all digital touchpoints, improves user experience for diverse stakeholders (citizens, educators, specialists, government officials), and supports scalability across multiple ONGs.</p>
+<p><strong>Key Principles:</strong><br />
+- 🟢 <strong>Citizen-Centric</strong>: Simple, accessible interfaces for parents and educators<br />
+- 🔵 <strong>Professional</strong>: Enterprise-grade governance and compliance tools<br />
+- 📊 <strong>Data-Driven</strong>: Clear visualization of metrics and outcomes<br />
+- ♿ <strong>Inclusive</strong>: WCAG 2.1 AA accessibility compliance<br />
+- 🚀 <strong>Scalable</strong>: Reusable components across all service areas</p>
+<hr />
+<h2 id="2-visual-identity">2. Visual Identity</h2>
+<h3 id="21-color-palette">2.1 Color Palette</h3>
+<h4 id="primary-colors">Primary Colors</h4>
+<table>
+<thead>
+<tr>
+<th>Color</th>
+<th>Hex</th>
+<th>Usage</th>
+<th>WCAG Contrast</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primary Blue</strong></td>
+<td><code>#0066cc</code></td>
+<td>Primary actions, headers, navigation</td>
+<td>✅ AA+</td>
+</tr>
+<tr>
+<td><strong>Secondary Blue</strong></td>
+<td><code>#0088ff</code></td>
+<td>Hover states, secondary elements</td>
+<td>✅ AA+</td>
+</tr>
+<tr>
+<td><strong>Accent Green</strong></td>
+<td><code>#00aa44</code></td>
+<td>Success, positive states, completion</td>
+<td>✅ AA+</td>
+</tr>
+<tr>
+<td><strong>Warning Orange</strong></td>
+<td><code>#ff6600</code></td>
+<td>Alerts, cautions, in-progress</td>
+<td>✅ AA+</td>
+</tr>
+<tr>
+<td><strong>Danger Red</strong></td>
+<td><code>#cc0000</code></td>
+<td>Critical alerts, errors, escalations</td>
+<td>✅ AA+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="neutral-colors">Neutral Colors</h4>
+<table>
+<thead>
+<tr>
+<th>Color</th>
+<th>Hex</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dark Gray</strong></td>
+<td><code>#1a1a1a</code></td>
+<td>Text, dark backgrounds</td>
+</tr>
+<tr>
+<td><strong>Medium Gray</strong></td>
+<td><code>#666666</code></td>
+<td>Secondary text, borders</td>
+</tr>
+<tr>
+<td><strong>Light Gray</strong></td>
+<td><code>#f5f5f5</code></td>
+<td>Backgrounds, panels</td>
+</tr>
+<tr>
+<td><strong>White</strong></td>
+<td><code>#ffffff</code></td>
+<td>Content areas, clean backgrounds</td>
+</tr>
+</tbody>
+</table>
+<h4 id="semantic-colors">Semantic Colors</h4>
+<table>
+<thead>
+<tr>
+<th>Context</th>
+<th>Color</th>
+<th>Hex</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Success</strong></td>
+<td>Green</td>
+<td><code>#00aa44</code></td>
+<td>Process completed, positive outcome</td>
+</tr>
+<tr>
+<td><strong>Pending</strong></td>
+<td>Orange</td>
+<td><code>#ff6600</code></td>
+<td>In progress, awaiting action</td>
+</tr>
+<tr>
+<td><strong>Critical</strong></td>
+<td>Red</td>
+<td><code>#cc0000</code></td>
+<td>Error, escalation required</td>
+</tr>
+<tr>
+<td><strong>Info</strong></td>
+<td>Blue</td>
+<td><code>#0066cc</code></td>
+<td>Informational, neutral</td>
+</tr>
+<tr>
+<td><strong>Neutral</strong></td>
+<td>Gray</td>
+<td><code>#666666</code></td>
+<td>Neutral state, no action</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-typography">2.2 Typography</h3>
+<h4 id="font-families">Font Families</h4>
+<div class="codehilite"><pre><span></span><code>Headings: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif
+Body Text: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, sans-serif
+Monospace: &quot;Courier New&quot;, monospace
+</code></pre></div>
+
+<h4 id="type-scale">Type Scale</h4>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Size</th>
+<th>Weight</th>
+<th>Line Height</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>H1</strong></td>
+<td>2.5rem (40px)</td>
+<td>700 Bold</td>
+<td>1.2</td>
+<td>Page titles, major sections</td>
+</tr>
+<tr>
+<td><strong>H2</strong></td>
+<td>1.8rem (28px)</td>
+<td>700 Bold</td>
+<td>1.3</td>
+<td>Section headers</td>
+</tr>
+<tr>
+<td><strong>H3</strong></td>
+<td>1.4rem (22px)</td>
+<td>600 Semi-Bold</td>
+<td>1.4</td>
+<td>Subsection headers</td>
+</tr>
+<tr>
+<td><strong>Body Large</strong></td>
+<td>1.125rem (18px)</td>
+<td>400 Regular</td>
+<td>1.6</td>
+<td>Key information</td>
+</tr>
+<tr>
+<td><strong>Body Regular</strong></td>
+<td>1rem (16px)</td>
+<td>400 Regular</td>
+<td>1.6</td>
+<td>Standard text</td>
+</tr>
+<tr>
+<td><strong>Body Small</strong></td>
+<td>0.875rem (14px)</td>
+<td>400 Regular</td>
+<td>1.5</td>
+<td>Secondary text</td>
+</tr>
+<tr>
+<td><strong>Caption</strong></td>
+<td>0.75rem (12px)</td>
+<td>500 Medium</td>
+<td>1.4</td>
+<td>Metadata, labels</td>
+</tr>
+</tbody>
+</table>
+<h4 id="font-weights">Font Weights</h4>
+<ul>
+<li><strong>700 (Bold)</strong>: Headings, emphasis</li>
+<li><strong>600 (Semi-Bold)</strong>: Subheadings, important labels</li>
+<li><strong>500 (Medium)</strong>: Navigation, interactive elements</li>
+<li><strong>400 (Regular)</strong>: Body text, standard content</li>
+</ul>
+<h3 id="23-spacing-system">2.3 Spacing System</h3>
+<p>Base unit: <strong>8px</strong></p>
+<table>
+<thead>
+<tr>
+<th>Scale</th>
+<th>Value</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>xs</strong></td>
+<td>4px</td>
+<td>Micro spacing</td>
+</tr>
+<tr>
+<td><strong>sm</strong></td>
+<td>8px</td>
+<td>Padding, margins (small)</td>
+</tr>
+<tr>
+<td><strong>md</strong></td>
+<td>16px</td>
+<td>Standard padding, margins</td>
+</tr>
+<tr>
+<td><strong>lg</strong></td>
+<td>24px</td>
+<td>Large spacing</td>
+</tr>
+<tr>
+<td><strong>xl</strong></td>
+<td>32px</td>
+<td>Extra large spacing</td>
+</tr>
+<tr>
+<td><strong>2xl</strong></td>
+<td>48px</td>
+<td>Sections</td>
+</tr>
+<tr>
+<td><strong>3xl</strong></td>
+<td>64px</td>
+<td>Major sections</td>
+</tr>
+</tbody>
+</table>
+<h3 id="24-border-radius">2.4 Border Radius</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Radius</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Small</strong></td>
+<td>4px</td>
+<td>Buttons, inputs</td>
+</tr>
+<tr>
+<td><strong>Medium</strong></td>
+<td>8px</td>
+<td>Cards, panels</td>
+</tr>
+<tr>
+<td><strong>Large</strong></td>
+<td>16px</td>
+<td>Large components, modals</td>
+</tr>
+<tr>
+<td><strong>Full</strong></td>
+<td>50%</td>
+<td>Circular elements, badges</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-components">3. Components</h2>
+<h3 id="31-button-component">3.1 Button Component</h3>
+<h4 id="primary-button">Primary Button</h4>
+<ul>
+<li><strong>Background</strong>: Primary Blue <code>#0066cc</code></li>
+<li><strong>Text</strong>: White, Medium weight</li>
+<li><strong>Padding</strong>: 12px 24px</li>
+<li><strong>Border Radius</strong>: 4px</li>
+<li><strong>State Variants</strong>: Default, Hover, Active, Disabled</li>
+</ul>
+<h4 id="secondary-button">Secondary Button</h4>
+<ul>
+<li><strong>Background</strong>: Light Gray <code>#f5f5f5</code></li>
+<li><strong>Border</strong>: 1px Medium Gray <code>#666666</code></li>
+<li><strong>Text</strong>: Dark Gray <code>#1a1a1a</code>, Medium weight</li>
+<li><strong>Padding</strong>: 12px 24px</li>
+<li><strong>Border Radius</strong>: 4px</li>
+</ul>
+<h4 id="danger-button">Danger Button</h4>
+<ul>
+<li><strong>Background</strong>: Danger Red <code>#cc0000</code></li>
+<li><strong>Text</strong>: White, Medium weight</li>
+<li><strong>Padding</strong>: 12px 24px</li>
+<li><strong>Border Radius</strong>: 4px</li>
+<li><strong>Usage</strong>: Destructive actions, escalations</li>
+</ul>
+<h3 id="32-card-component">3.2 Card Component</h3>
+<div class="codehilite"><pre><span></span><code>┌─────────────────────────────┐
+│ Header (optional)           │
+├─────────────────────────────┤
+│ Content Area (16px padding) │
+│                             │
+├─────────────────────────────┤
+│ Footer (optional)           │
+└─────────────────────────────┘
+</code></pre></div>
+
+<p><strong>Properties:</strong><br />
+- <strong>Background</strong>: White <code>#ffffff</code><br />
+- <strong>Border</strong>: 1px Light Gray <code>#f5f5f5</code><br />
+- <strong>Border Radius</strong>: 8px<br />
+- <strong>Shadow</strong>: <code>0 2px 8px rgba(0,0,0,0.1)</code><br />
+- <strong>Padding</strong>: 24px<br />
+- <strong>Hover Effect</strong>: Shadow elevation to <code>0 4px 12px rgba(0,0,0,0.15)</code></p>
+<h3 id="33-badge-component">3.3 Badge Component</h3>
+<table>
+<thead>
+<tr>
+<th>Style</th>
+<th>Background</th>
+<th>Text</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Success</strong></td>
+<td>Green <code>#00aa44</code></td>
+<td>White</td>
+<td>Completed, active</td>
+</tr>
+<tr>
+<td><strong>Warning</strong></td>
+<td>Orange <code>#ff6600</code></td>
+<td>White</td>
+<td>In progress, pending</td>
+</tr>
+<tr>
+<td><strong>Critical</strong></td>
+<td>Red <code>#cc0000</code></td>
+<td>White</td>
+<td>Error, escalation</td>
+</tr>
+<tr>
+<td><strong>Info</strong></td>
+<td>Blue <code>#0066cc</code></td>
+<td>White</td>
+<td>Informational</td>
+</tr>
+<tr>
+<td><strong>Neutral</strong></td>
+<td>Gray <code>#f5f5f5</code></td>
+<td>Dark Gray</td>
+<td>Neutral state</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Properties:</strong><br />
+- <strong>Padding</strong>: 4px 12px<br />
+- <strong>Border Radius</strong>: 50%<br />
+- <strong>Font Size</strong>: 12px<br />
+- <strong>Font Weight</strong>: 600 (Semi-Bold)</p>
+<h3 id="34-status-indicator">3.4 Status Indicator</h3>
+<div class="codehilite"><pre><span></span><code>🟢 Active / Completed
+🟡 Pending / In Progress
+🔴 Critical / Error
+⚪ Neutral / Inactive
+</code></pre></div>
+
+<p><strong>Sizes:</strong><br />
+- <strong>Small</strong>: 8px diameter<br />
+- <strong>Medium</strong>: 12px diameter<br />
+- <strong>Large</strong>: 16px diameter</p>
+<h3 id="35-table-component">3.5 Table Component</h3>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Style</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Header Row</strong></td>
+<td>Background: Light Gray <code>#f5f5f5</code>, Font Weight: 600</td>
+<td>Sticky on scroll</td>
+</tr>
+<tr>
+<td><strong>Data Rows</strong></td>
+<td>Background: White, Border: 1px <code>#f5f5f5</code></td>
+<td>Alternate gray on hover</td>
+</tr>
+<tr>
+<td><strong>Hover State</strong></td>
+<td>Background: Light Gray <code>#f5f5f5</code></td>
+<td>Improved readability</td>
+</tr>
+<tr>
+<td><strong>Cell Padding</strong></td>
+<td>16px</td>
+<td>Vertical &amp; horizontal</td>
+</tr>
+</tbody>
+</table>
+<h3 id="36-form-components">3.6 Form Components</h3>
+<h4 id="input-field">Input Field</h4>
+<ul>
+<li><strong>Border</strong>: 1px Medium Gray <code>#666666</code></li>
+<li><strong>Border Radius</strong>: 4px</li>
+<li><strong>Padding</strong>: 12px 16px</li>
+<li><strong>Focus State</strong>: Border color → Primary Blue <code>#0066cc</code>, Shadow: <code>0 0 0 3px rgba(0,102,204,0.1)</code></li>
+<li><strong>Error State</strong>: Border color → Danger Red <code>#cc0000</code>, Help text in red</li>
+</ul>
+<h4 id="dropdownselect">Dropdown/Select</h4>
+<ul>
+<li><strong>Background</strong>: White <code>#ffffff</code></li>
+<li><strong>Border</strong>: 1px Medium Gray <code>#666666</code></li>
+<li><strong>Arrow Icon</strong>: Primary Blue <code>#0066cc</code></li>
+<li><strong>Padding</strong>: 12px 16px</li>
+<li><strong>Border Radius</strong>: 4px</li>
+</ul>
+<h4 id="checkboxradio">Checkbox/Radio</h4>
+<ul>
+<li><strong>Unchecked</strong>: Border 2px Medium Gray <code>#666666</code>, Background White</li>
+<li><strong>Checked</strong>: Background Primary Blue <code>#0066cc</code>, Checkmark White</li>
+<li><strong>Size</strong>: 20px × 20px</li>
+</ul>
+<h3 id="37-alertnotification-component">3.7 Alert/Notification Component</h3>
+<div class="codehilite"><pre><span></span><code>┌─────────────────────────────────┐
+│<span class="w"> </span>🟢<span class="w"> </span><span class="nv">Success</span><span class="w"> </span><span class="nv">Title</span><span class="w">                </span>│
+│<span class="w"> </span><span class="nv">Description</span><span class="w"> </span><span class="nv">text</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">alert</span>.<span class="w"> </span>│
+│<span class="w"> </span>[<span class="nv">Optional</span><span class="w"> </span><span class="nv">Action</span><span class="w"> </span><span class="nv">Link</span>]<span class="w">          </span>│
+└─────────────────────────────────┘
+</code></pre></div>
+
+<h4 id="alert-variants">Alert Variants</h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Icon</th>
+<th>Background</th>
+<th>Border</th>
+<th>Text</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Success</strong></td>
+<td>✅</td>
+<td>Light Green</td>
+<td>Green <code>#00aa44</code></td>
+<td>Dark Gray</td>
+</tr>
+<tr>
+<td><strong>Warning</strong></td>
+<td>⚠️</td>
+<td>Light Orange</td>
+<td>Orange <code>#ff6600</code></td>
+<td>Dark Gray</td>
+</tr>
+<tr>
+<td><strong>Error</strong></td>
+<td>❌</td>
+<td>Light Red</td>
+<td>Red <code>#cc0000</code></td>
+<td>Dark Gray</td>
+</tr>
+<tr>
+<td><strong>Info</strong></td>
+<td>ℹ️</td>
+<td>Light Blue</td>
+<td>Blue <code>#0066cc</code></td>
+<td>Dark Gray</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-layout-patterns">4. Layout Patterns</h2>
+<h3 id="41-master-detail-layout">4.1 Master-Detail Layout</h3>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────────────────┐
+│ Navigation/Sidebar               │
+├──────────────────────────────────┤
+│ Main Content Area                │
+│                                  │
+│ ┌──────────────┐ ┌────────────┐ │
+│ │ List/Table   │ │ Detail View│ │
+│ │              │ │            │ │
+│ └──────────────┘ └────────────┘ │
+└──────────────────────────────────┘
+</code></pre></div>
+
+<h3 id="42-dashboard-grid">4.2 Dashboard Grid</h3>
+<ul>
+<li><strong>Grid System</strong>: 12-column responsive grid</li>
+<li><strong>Breakpoints</strong>:</li>
+<li><strong>Mobile</strong>: &lt; 768px (1 column)</li>
+<li><strong>Tablet</strong>: 768px - 1024px (2 columns)</li>
+<li><strong>Desktop</strong>: &gt; 1024px (3-4 columns)</li>
+</ul>
+<h3 id="43-navigation-patterns">4.3 Navigation Patterns</h3>
+<h4 id="top-navigation-bar">Top Navigation Bar</h4>
+<ul>
+<li><strong>Height</strong>: 64px</li>
+<li><strong>Background</strong>: Primary Blue <code>#0066cc</code></li>
+<li><strong>Text</strong>: White</li>
+<li><strong>Items</strong>: Logo, Navigation Links, User Profile, Logout</li>
+<li><strong>Sticky</strong>: Yes, on scroll</li>
+</ul>
+<h4 id="sidebar-navigation">Sidebar Navigation</h4>
+<ul>
+<li><strong>Width</strong>: 250px (collapsible to 60px)</li>
+<li><strong>Background</strong>: Light Gray <code>#f5f5f5</code></li>
+<li><strong>Border</strong>: 1px Right Gray</li>
+<li><strong>Items</strong>: Main sections, collapsible groups</li>
+<li><strong>Active State</strong>: Left border Primary Blue, text bold</li>
+</ul>
+<h4 id="breadcrumb-navigation">Breadcrumb Navigation</h4>
+<div class="codehilite"><pre><span></span><code>Home &gt; Governance &gt; RACI Matrix &gt; Activity 1.1
+</code></pre></div>
+
+<ul>
+<li><strong>Separator</strong>: <code>/</code></li>
+<li><strong>Active Item</strong>: Bold, Primary Blue</li>
+<li><strong>Clickable Items</strong>: Underlined on hover</li>
+</ul>
+<hr />
+<h2 id="5-data-visualization">5. Data Visualization</h2>
+<h3 id="51-charts-graphs">5.1 Charts &amp; Graphs</h3>
+<h4 id="bar-charts">Bar Charts</h4>
+<ul>
+<li><strong>Colors</strong>: Primary Blue <code>#0066cc</code> (primary), Secondary Blue <code>#0088ff</code> (secondary)</li>
+<li><strong>Spacing</strong>: 8px between bars</li>
+<li><strong>Labels</strong>: 12px, Dark Gray <code>#1a1a1a</code></li>
+</ul>
+<h4 id="line-charts">Line Charts</h4>
+<ul>
+<li><strong>Line Color</strong>: Primary Blue <code>#0066cc</code></li>
+<li><strong>Fill Color</strong>: rgba(0, 102, 204, 0.1)</li>
+<li><strong>Point Color</strong>: Primary Blue <code>#0066cc</code></li>
+<li><strong>Grid</strong>: Light Gray <code>#f5f5f5</code></li>
+</ul>
+<h4 id="piedonut-charts">Pie/Donut Charts</h4>
+<ul>
+<li><strong>Color Sequence</strong>: Primary Blue → Secondary Blue → Green → Orange → Red</li>
+<li><strong>Labels</strong>: 12px, Dark Gray</li>
+<li><strong>Legend</strong>: Below chart, clickable for filtering</li>
+</ul>
+<h3 id="52-metrics-widgets">5.2 Metrics Widgets</h3>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────┐
+│ Metric Title         │
+│ 95%                  │
+│ ↑ 5% vs last month   │
+└──────────────────────┘
+</code></pre></div>
+
+<ul>
+<li><strong>Title</strong>: Small, Gray <code>#666666</code></li>
+<li><strong>Value</strong>: Large (2rem), Bold, Primary Blue <code>#0066cc</code></li>
+<li><strong>Trend</strong>: Small, Green <code>#00aa44</code> (up), Red <code>#cc0000</code> (down)</li>
+</ul>
+<hr />
+<h2 id="6-accessibility-standards">6. Accessibility Standards</h2>
+<h3 id="61-color-contrast">6.1 Color Contrast</h3>
+<ul>
+<li><strong>Text</strong>: Minimum 4.5:1 ratio (WCAG AA)</li>
+<li><strong>Large Text</strong>: Minimum 3:1 ratio (WCAG AA)</li>
+<li><strong>UI Components</strong>: Minimum 3:1 ratio (WCAG AA)</li>
+</ul>
+<h3 id="62-focus-management">6.2 Focus Management</h3>
+<ul>
+<li><strong>Focus Indicator</strong>: 3px solid Primary Blue <code>#0066cc</code></li>
+<li><strong>Focus Order</strong>: Logical, left-to-right, top-to-bottom</li>
+<li><strong>Keyboard Navigation</strong>: Tab, Shift+Tab, Enter, Arrow keys</li>
+</ul>
+<h3 id="63-semantic-html">6.3 Semantic HTML</h3>
+<ul>
+<li><strong>Headings</strong>: Use H1-H6 in proper hierarchy</li>
+<li><strong>Lists</strong>: Use <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code> appropriately</li>
+<li><strong>Forms</strong>: Use proper <code>&lt;label&gt;</code> associations</li>
+<li><strong>Buttons</strong>: Use <code>&lt;button&gt;</code> element, not links styled as buttons</li>
+</ul>
+<h3 id="64-aria-labels">6.4 ARIA Labels</h3>
+<ul>
+<li><strong>aria-label</strong>: For icon-only buttons</li>
+<li><strong>aria-describedby</strong>: For form validation messages</li>
+<li><strong>aria-live</strong>: For dynamic content updates</li>
+<li><strong>role</strong>: Only when semantic HTML insufficient</li>
+</ul>
+<h3 id="65-text-alternatives">6.5 Text Alternatives</h3>
+<ul>
+<li><strong>Images</strong>: Descriptive alt text</li>
+<li><strong>Icons</strong>: Aria-label or title attribute</li>
+<li><strong>Charts</strong>: Data table alternative</li>
+</ul>
+<hr />
+<h2 id="7-responsive-design">7. Responsive Design</h2>
+<h3 id="71-breakpoints">7.1 Breakpoints</h3>
+<div class="codehilite"><pre><span></span><code><span class="c">/* Mobile First */</span>
+<span class="nt">Mobile</span><span class="o">:</span><span class="w"> </span><span class="nt">320px</span><span class="w"> </span><span class="nt">-</span><span class="w"> </span><span class="nt">767px</span>
+<span class="nt">Tablet</span><span class="o">:</span><span class="w"> </span><span class="nt">768px</span><span class="w"> </span><span class="nt">-</span><span class="w"> </span><span class="nt">1023px</span>
+<span class="nt">Desktop</span><span class="o">:</span><span class="w"> </span><span class="nt">1024px</span><span class="o">+</span>
+</code></pre></div>
+
+<h3 id="72-responsive-behavior">7.2 Responsive Behavior</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Mobile</th>
+<th>Tablet</th>
+<th>Desktop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sidebar</strong></td>
+<td>Hidden, toggle menu</td>
+<td>Visible, collapsible</td>
+<td>Visible fixed</td>
+</tr>
+<tr>
+<td><strong>Table</strong></td>
+<td>Stacked rows</td>
+<td>Scroll horizontal</td>
+<td>Full table</td>
+</tr>
+<tr>
+<td><strong>Columns</strong></td>
+<td>1 column</td>
+<td>2 columns</td>
+<td>3+ columns</td>
+</tr>
+<tr>
+<td><strong>Typography</strong></td>
+<td>Scaled down 10%</td>
+<td>Normal</td>
+<td>Normal</td>
+</tr>
+</tbody>
+</table>
+<h3 id="73-touch-targets">7.3 Touch Targets</h3>
+<ul>
+<li><strong>Minimum Size</strong>: 44px × 44px (mobile)</li>
+<li><strong>Spacing</strong>: 8px minimum between targets</li>
+<li><strong>Mobile Buttons</strong>: Padding increased to 16px</li>
+</ul>
+<hr />
+<h2 id="8-interaction-patterns">8. Interaction Patterns</h2>
+<h3 id="81-loading-states">8.1 Loading States</h3>
+<div class="codehilite"><pre><span></span><code>🔄 Loading...
+⏳ Processing...
+</code></pre></div>
+
+<ul>
+<li><strong>Spinner</strong>: Primary Blue <code>#0066cc</code></li>
+<li><strong>Duration</strong>: Animated 1.5s rotation</li>
+<li><strong>Message</strong>: Below or beside spinner</li>
+</ul>
+<h3 id="82-empty-states">8.2 Empty States</h3>
+<div class="codehilite"><pre><span></span><code>📭 No data available
+Create your first item to get started.
+[+ Create Item Button]
+</code></pre></div>
+
+<ul>
+<li><strong>Icon</strong>: Large, Light Gray <code>#f5f5f5</code></li>
+<li><strong>Message</strong>: Helpful, actionable text</li>
+<li><strong>Action</strong>: Primary button for next step</li>
+</ul>
+<h3 id="83-transitions-animations">8.3 Transitions &amp; Animations</h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Animation</th>
+<th>Duration</th>
+<th>Easing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hover</strong></td>
+<td>Color/Shadow</td>
+<td>200ms</td>
+<td>ease-in-out</td>
+</tr>
+<tr>
+<td><strong>Open/Close</strong></td>
+<td>Fade + Scale</td>
+<td>300ms</td>
+<td>ease-in-out</td>
+</tr>
+<tr>
+<td><strong>Slide</strong></td>
+<td>Slide + Fade</td>
+<td>400ms</td>
+<td>ease-out</td>
+</tr>
+<tr>
+<td><strong>Loading</strong></td>
+<td>Spin</td>
+<td>1500ms</td>
+<td>linear</td>
+</tr>
+</tbody>
+</table>
+<h3 id="84-confirmation-dialogs">8.4 Confirmation Dialogs</h3>
+<div class="codehilite"><pre><span></span><code><span class="err">┌─────────────────────────────┐</span>
+<span class="err">│</span><span class="w"> </span><span class="err">⚠️</span><span class="w"> </span><span class="n">Confirm</span><span class="w"> </span><span class="k">Action</span><span class="w">           </span><span class="err">│</span>
+<span class="err">├─────────────────────────────┤</span>
+<span class="err">│</span><span class="w"> </span><span class="k">Are</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">sure</span><span class="vm">?</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">cannot</span><span class="w">   </span><span class="err">│</span>
+<span class="err">│</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">undone</span><span class="p">.</span><span class="w">                  </span><span class="err">│</span>
+<span class="err">├─────────────────────────────┤</span>
+<span class="err">│</span><span class="w"> </span><span class="o">[</span><span class="n">Cancel</span><span class="o">]</span><span class="w">      </span><span class="o">[</span><span class="n">Confirm</span><span class="o">]</span><span class="w">     </span><span class="err">│</span>
+<span class="err">└─────────────────────────────┘</span>
+</code></pre></div>
+
+<ul>
+<li><strong>Width</strong>: 400px max</li>
+<li><strong>Button Order</strong>: Cancel (secondary), Confirm (danger)</li>
+</ul>
+<hr />
+<h2 id="9-page-templates">9. Page Templates</h2>
+<h3 id="91-content-page-template">9.1 Content Page Template</h3>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────────────────┐
+│ Navigation Bar                   │
+├──────────────────────────────────┤
+│ ┌────────────┬────────────────┐ │
+│ │  Sidebar   │  Content       │ │
+│ │            │  ┌──────────┐  │ │
+│ │ Navigation │  │ H1 Title │  │ │
+│ │ Links      │  ├──────────┤  │ │
+│ │            │  │          │  │ │
+│ │            │  │ Content  │  │ │
+│ │            │  │          │  │ │
+│ │            │  │          │  │ │
+│ └────────────┴────────────────┘ │
+├──────────────────────────────────┤
+│ Footer                           │
+└──────────────────────────────────┘
+</code></pre></div>
+
+<h3 id="92-dashboard-template">9.2 Dashboard Template</h3>
+<div class="codehilite"><pre><span></span><code>┌──────────────────────────────────┐
+│ Navigation Bar                   │
+├──────────────────────────────────┤
+│ Breadcrumb / Title               │
+├──────────────────────────────────┤
+│ ┌────────┐ ┌────────┐ ┌────────┐│
+│ │ Widget │ │ Widget │ │ Widget ││
+│ └────────┘ └────────┘ └────────┘│
+│ ┌────────────────────────────────┤│
+│ │ Large Chart / Table            ││
+│ │                                ││
+│ └────────────────────────────────┘│
+└──────────────────────────────────┘
+</code></pre></div>
+
+<h3 id="93-form-template">9.3 Form Template</h3>
+<div class="codehilite"><pre><span></span><code><span class="err">┌──────────────────────────────────┐</span>
+<span class="err">│</span><span class="w"> </span><span class="n">Form</span><span class="w"> </span><span class="n">Title</span><span class="w">                       </span><span class="err">│</span>
+<span class="err">├──────────────────────────────────┤</span>
+<span class="err">│</span><span class="w"> </span><span class="n">Field</span><span class="w"> </span><span class="n">Label</span><span class="o">*</span><span class="w">                     </span><span class="err">│</span>
+<span class="err">│</span><span class="w"> </span><span class="p">[</span><span class="n">Input</span><span class="w"> </span><span class="n">Field</span><span class="w">                   </span><span class="p">]</span><span class="w"> </span><span class="err">│</span>
+<span class="err">│</span><span class="w"> </span><span class="n">Help</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">message</span><span class="w">       </span><span class="err">│</span>
+<span class="err">│</span><span class="w">                                  </span><span class="err">│</span>
+<span class="err">│</span><span class="w"> </span><span class="n">Field</span><span class="w"> </span><span class="n">Label</span><span class="o">*</span><span class="w">                     </span><span class="err">│</span>
+<span class="err">│</span><span class="w"> </span><span class="p">[</span><span class="n">Dropdown</span><span class="w">                      </span><span class="p">]</span><span class="w"> </span><span class="err">│</span>
+<span class="err">│</span><span class="w">                                  </span><span class="err">│</span>
+<span class="err">│</span><span class="w"> </span><span class="p">[</span><span class="n">Cancel</span><span class="w"> </span><span class="n">Button</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">Submit</span><span class="w"> </span><span class="n">Button</span><span class="p">]</span><span class="w"> </span><span class="err">│</span>
+<span class="err">└──────────────────────────────────┘</span>
+</code></pre></div>
+
+<hr />
+<h2 id="10-usage-guidelines">10. Usage Guidelines</h2>
+<h3 id="101-best-practices">10.1 Best Practices</h3>
+<p>✅ <strong>DO:</strong><br />
+- Use semantic HTML elements<br />
+- Maintain consistent spacing and typography<br />
+- Test with keyboard navigation<br />
+- Provide alt text for images<br />
+- Use color purposefully (not just for decoration)<br />
+- Ensure sufficient contrast ratios<br />
+- Test on multiple devices and browsers</p>
+<p>❌ <strong>DON'T:</strong><br />
+- Use color alone to convey information<br />
+- Rely on hover states for critical information<br />
+- Create nested interactive elements<br />
+- Use tables for layout<br />
+- Auto-play audio or video<br />
+- Flash or blink content (accessibility risk)</p>
+<h3 id="102-component-selection-guide">10.2 Component Selection Guide</h3>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Component</th>
+<th>Alternative</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primary action</td>
+<td>Primary Button</td>
+<td>Icon + Text</td>
+</tr>
+<tr>
+<td>Secondary action</td>
+<td>Secondary Button</td>
+<td>Link</td>
+</tr>
+<tr>
+<td>Confirmation</td>
+<td>Alert Dialog</td>
+<td>Toast Notification</td>
+</tr>
+<tr>
+<td>Error feedback</td>
+<td>Form Error</td>
+<td>Tooltip</td>
+</tr>
+<tr>
+<td>Status indication</td>
+<td>Badge</td>
+<td>Status Indicator</td>
+</tr>
+<tr>
+<td>Large datasets</td>
+<td>Table</td>
+<td>Cards Grid</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="11-implementation">11. Implementation</h2>
+<h3 id="111-css-variables">11.1 CSS Variables</h3>
+<div class="codehilite"><pre><span></span><code><span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">--color-primary</span><span class="p">:</span><span class="w"> </span><span class="mh">#0066cc</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--color-secondary</span><span class="p">:</span><span class="w"> </span><span class="mh">#0088ff</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--color-success</span><span class="p">:</span><span class="w"> </span><span class="mh">#00aa44</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--color-warning</span><span class="p">:</span><span class="w"> </span><span class="mh">#ff6600</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--color-danger</span><span class="p">:</span><span class="w"> </span><span class="mh">#cc0000</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--color-dark</span><span class="p">:</span><span class="w"> </span><span class="mh">#1a1a1a</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--color-medium</span><span class="p">:</span><span class="w"> </span><span class="mh">#666666</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--color-light</span><span class="p">:</span><span class="w"> </span><span class="mh">#f5f5f5</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--color-white</span><span class="p">:</span><span class="w"> </span><span class="mh">#ffffff</span><span class="p">;</span>
+
+<span class="w">  </span><span class="nv">--spacing-xs</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--spacing-sm</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--spacing-md</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--spacing-lg</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--spacing-xl</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="kt">px</span><span class="p">;</span>
+
+<span class="w">  </span><span class="nv">--radius-sm</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--radius-md</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--radius-lg</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+
+<span class="w">  </span><span class="nv">--font-size-h1</span><span class="p">:</span><span class="w"> </span><span class="mf">2.5</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--font-size-h2</span><span class="p">:</span><span class="w"> </span><span class="mf">1.8</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--font-size-body</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--font-size-small</span><span class="p">:</span><span class="w"> </span><span class="mf">0.875</span><span class="kt">rem</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="112-responsive-utilities">11.2 Responsive Utilities</h3>
+<div class="codehilite"><pre><span></span><code><span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="o">(</span><span class="nt">max-width</span><span class="o">:</span><span class="w"> </span><span class="nt">767px</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c">/* Mobile styles */</span>
+<span class="p">}</span>
+
+<span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="o">(</span><span class="nt">min-width</span><span class="o">:</span><span class="w"> </span><span class="nt">768px</span><span class="o">)</span><span class="w"> </span><span class="nt">and</span><span class="w"> </span><span class="o">(</span><span class="nt">max-width</span><span class="o">:</span><span class="w"> </span><span class="nt">1023px</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c">/* Tablet styles */</span>
+<span class="p">}</span>
+
+<span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="o">(</span><span class="nt">min-width</span><span class="o">:</span><span class="w"> </span><span class="nt">1024px</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c">/* Desktop styles */</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<hr />
+<h2 id="12-design-tokens-summary">12. Design Tokens Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Value</th>
+<th>Category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primary Color</td>
+<td><code>#0066cc</code></td>
+<td>Color</td>
+</tr>
+<tr>
+<td>Success Color</td>
+<td><code>#00aa44</code></td>
+<td>Color</td>
+</tr>
+<tr>
+<td>Warning Color</td>
+<td><code>#ff6600</code></td>
+<td>Color</td>
+</tr>
+<tr>
+<td>Danger Color</td>
+<td><code>#cc0000</code></td>
+<td>Color</td>
+</tr>
+<tr>
+<td>Base Spacing</td>
+<td>8px</td>
+<td>Spacing</td>
+</tr>
+<tr>
+<td>Small Radius</td>
+<td>4px</td>
+<td>Radius</td>
+</tr>
+<tr>
+<td>Typography Scale</td>
+<td>8 levels</td>
+<td>Typography</td>
+</tr>
+<tr>
+<td>Breakpoint 1</td>
+<td>768px</td>
+<td>Responsive</td>
+</tr>
+<tr>
+<td>Breakpoint 2</td>
+<td>1024px</td>
+<td>Responsive</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Document prepared for consistent UX/UI across GovUAE Dyslexia Service Platform</strong><br />
+<em>Ensures: Visual consistency, accessibility compliance, professional quality, scalability</em></p>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Documentation</h4>
+                    <p><a href="Design_System.html">Design System</a></p>
+                    <p><a href="AS-IS_TO-BE_Analysis.html">AS-IS TO-BE Analysis</a></p>
+                    <p><a href="RACI_Governance_Matrix.html">RACI Matrix</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Governance</h4>
+                    <p><a href="Target_Operating_Model.html">Operating Model</a></p>
+                    <p><a href="Risk_Register.html">Risk Register</a></p>
+                    <p><a href="Technology_Stack_Mapping.html">Technology Stack</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <p><a href="#">GovUAE Portal</a></p>
+                    <p><a href="#">Dyslexia Service</a></p>
+                    <p><a href="#">Contact</a></p>
+                </div>
+            </div>
+            <hr style="border: none; border-top: 1px solid var(--color-medium); margin: var(--spacing-lg) 0;">
+            <div style="text-align: center; padding: var(--spacing-lg) 0;">
+                <p>Generated on 2026-05-06 15:20:01 GMT+4 | GovUAE Dyslexia Service Documentation</p>
+                <p style="font-size: var(--font-size-small); color: var(--color-medium);">Classification: Internal Use | © 2026 Government of UAE</p>
+            </div>
+        </footer>
+    </body>
+    </html>
+    

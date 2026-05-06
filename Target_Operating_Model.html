@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="GovUAE - Dyslexia Monitoring Service">
+    <meta name="created" content="2026-05-06T14:24:15.924209">
+    <title>Target Operating Model - GovUAE</title>
+    <meta name="description" content="Dyslexia Monitoring & Intervention Service Documentation">
+    
+    
+<style>
+    :root {
+        --primary-color: #0066cc;
+        --secondary-color: #0088ff;
+        --accent-color: #00aa44;
+        --warning-color: #ff6600;
+        --danger-color: #cc0000;
+        --light-bg: #f5f5f5;
+        --border-color: #dddddd;
+        --text-color: #333333;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.7;
+        color: var(--text-color);
+        background: #ffffff;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+
+    header {
+        border-bottom: 3px solid var(--primary-color);
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+    }
+
+    h1 {
+        color: var(--primary-color);
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        border-bottom: 3px solid var(--primary-color);
+        padding-bottom: 15px;
+    }
+
+    h2 {
+        color: var(--secondary-color);
+        font-size: 1.8em;
+        margin-top: 40px;
+        margin-bottom: 15px;
+        padding-left: 15px;
+        border-left: 4px solid var(--secondary-color);
+    }
+
+    h3 {
+        color: #0099ff;
+        font-size: 1.4em;
+        margin-top: 30px;
+        margin-bottom: 12px;
+        padding-left: 12px;
+        border-left: 3px solid #0099ff;
+    }
+
+    h4, h5, h6 {
+        color: var(--text-color);
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        margin-bottom: 15px;
+        text-align: justify;
+    }
+
+    a {
+        color: var(--primary-color);
+        text-decoration: none;
+        border-bottom: 1px dotted var(--primary-color);
+        transition: all 0.3s ease;
+    }
+
+    a:hover {
+        background-color: var(--light-bg);
+        border-bottom: 1px solid var(--primary-color);
+    }
+
+    ul, ol {
+        margin: 15px 0 15px 30px;
+        padding-left: 20px;
+    }
+
+    li {
+        margin-bottom: 8px;
+    }
+
+    li > ul, li > ol {
+        margin-top: 8px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 20px 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    th {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-weight: 600;
+        border: none;
+    }
+
+    td {
+        padding: 12px 15px;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    tr:hover {
+        background-color: var(--light-bg);
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+
+    code {
+        background-color: var(--light-bg);
+        color: #c7254e;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: 'Monaco', 'Courier New', monospace;
+        font-size: 0.9em;
+    }
+
+    pre {
+        background: #2d2d2d;
+        color: #f8f8f2;
+        padding: 15px;
+        border-radius: 4px;
+        overflow-x: auto;
+        margin: 20px 0;
+        line-height: 1.4;
+        border-left: 4px solid var(--accent-color);
+    }
+
+    pre code {
+        background: none;
+        color: inherit;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    blockquote {
+        border-left: 4px solid var(--primary-color);
+        margin: 20px 0;
+        padding: 15px 20px;
+        background-color: var(--light-bg);
+        border-radius: 4px;
+        font-style: italic;
+    }
+
+    .toc {
+        background: var(--light-bg);
+        border: 2px solid var(--border-color);
+        border-radius: 4px;
+        padding: 20px;
+        margin: 30px 0;
+    }
+
+    .toc ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .toc li {
+        margin: 5px 0;
+    }
+
+    .toc a {
+        color: var(--primary-color);
+    }
+
+    .toc > ul > li > a {
+        font-weight: 600;
+        font-size: 1.1em;
+    }
+
+    .toc > ul > li > ul > li > a {
+        font-size: 0.95em;
+    }
+
+    hr {
+        border: none;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+        margin: 40px 0;
+    }
+
+    .document-meta {
+        background: var(--light-bg);
+        padding: 15px 20px;
+        border-radius: 4px;
+        margin-bottom: 30px;
+        font-size: 0.95em;
+        color: #666;
+    }
+
+    .document-meta p {
+        margin: 5px 0;
+    }
+
+    .highlight-box {
+        background: #fff3cd;
+        border-left: 4px solid var(--warning-color);
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 4px;
+    }
+
+    .success-box {
+        background: #d4edda;
+        border-left: 4px solid var(--accent-color);
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 4px;
+    }
+
+    .error-box {
+        background: #f8d7da;
+        border-left: 4px solid var(--danger-color);
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 4px;
+    }
+
+    .info-box {
+        background: #d1ecf1;
+        border-left: 4px solid var(--primary-color);
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 4px;
+    }
+
+    footer {
+        border-top: 2px solid var(--border-color);
+        padding-top: 20px;
+        margin-top: 60px;
+        text-align: center;
+        color: #999;
+        font-size: 0.9em;
+    }
+
+    @media print {
+        body {
+            max-width: 100%;
+            padding: 20px;
+        }
+        
+        a {
+            border: none;
+        }
+        
+        h1, h2, h3 {
+            page-break-after: avoid;
+        }
+        
+        table, pre {
+            page-break-inside: avoid;
+        }
+        
+        footer {
+            display: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+        body {
+            padding: 20px 10px;
+        }
+        
+        h1 {
+            font-size: 2em;
+        }
+        
+        h2 {
+            font-size: 1.5em;
+        }
+        
+        table {
+            font-size: 0.9em;
+        }
+        
+        th, td {
+            padding: 10px;
+        }
+    }
+</style>
+
+</head>
+<body>
+    <header>
+        <h1>🎯 Target Operating Model</h1>
+        <p style="color: #666; margin-top: 10px;">GovUAE Dyslexia Service Transformation Initiative</p>
+    </header>
+
+    <div class="document-meta">
+        <p><strong>Document:</strong> Target_Operating_Model.md</p>
+        <p><strong>Generated:</strong> 2026-05-06 14:24:15</p>
+        <p><strong>Purpose:</strong> Corporate Excellence & Government Modernization</p>
+    </div>
+
+    <div class="toc">
+<h3>📑 Índice de Conteúdo</h3>
+<ul>
+<ul>
+<li><a href="#target-operating-model-tom">Target Operating Model (TOM)</a></li>
+<ul>
+<li><a href="#integrated-dyslexia-monitoring-intervention-service-platform">Integrated Dyslexia Monitoring & Intervention Service Platform</a></li>
+<li><a href="#tom-overview">📐 TOM OVERVIEW</a></li>
+<li><a href="#people-dimension">👥 PEOPLE DIMENSION</a></li>
+<ul>
+<li><a href="#organizational-structure">Organizational Structure</a></li>
+<li><a href="#core-roles-responsibilities">Core Roles & Responsibilities</a></li>
+<ul>
+<li><a href="#1-intake-coordinator-fte-1-per-500-children">1. **Intake Coordinator** (FTE: 1 per 500 children)</a></li>
+<li><a href="#2-screening-specialist-fte-1-per-1000-children">2. **Screening Specialist** (FTE: 1 per 1000 children)</a></li>
+<li><a href="#3-assessment-specialist-fte-1-per-300-children">3. **Assessment Specialist** (FTE: 1 per 300 children)</a></li>
+<li><a href="#4-intervention-specialist-fte-1-per-150-children-in-active-intervention">4. **Intervention Specialist** (FTE: 1 per 150 children in active intervention)</a></li>
+<li><a href="#5-program-manager-ong-coordinator-fte-1-per-ong-1-state-level">5. **Program Manager / ONG Coordinator** (FTE: 1 per ONG + 1 state-level)</a></li>
+<li><a href="#6-data-governance-compliance-lead-fte-1-per-government-entity">6. **Data Governance & Compliance Lead** (FTE: 1 per government entity)</a></li>
+<li><a href="#7-system-administrator-support-fte-1-per-2000-children-system-wide">7. **System Administrator & Support** (FTE: 1 per 2000 children system-wide)</a></li>
+</ul>
+<li><a href="#staffing-model-summary">Staffing Model Summary</a></li>
+</ul>
+<li><a href="#process-dimension">🔄 PROCESS DIMENSION</a></li>
+<ul>
+<li><a href="#core-processes-cross-functional">Core Processes (Cross-Functional)</a></li>
+<li><a href="#process-flow-simplified">Process Flow (Simplified)</a></li>
+</ul>
+<li><a href="#technology-dimension">💻 TECHNOLOGY DIMENSION</a></li>
+<ul>
+<li><a href="#enterprise-architecture">Enterprise Architecture</a></li>
+<li><a href="#technology-stack-details">Technology Stack Details</a></li>
+<li><a href="#technology-scaling-model">Technology Scaling Model</a></li>
+</ul>
+<li><a href="#governance-dimension">🏛️ GOVERNANCE DIMENSION</a></li>
+<ul>
+<li><a href="#governance-structure">Governance Structure</a></li>
+<li><a href="#key-policies-controls">Key Policies & Controls</a></li>
+</ul>
+<li><a href="#tom-readiness-assessment">📊 TOM READINESS ASSESSMENT</a></li>
+<ul>
+<li><a href="#current-state-vs-tom">Current State vs TOM</a></li>
+</ul>
+</ul>
+</ul>
+</div>
+
+
+    <main>
+        <h1 id="target-operating-model-tom">Target Operating Model (TOM)</h1>
+<h2 id="integrated-dyslexia-monitoring-intervention-service-platform">Integrated Dyslexia Monitoring &amp; Intervention Service Platform</h2>
+<hr />
+<h2 id="tom-overview">📐 TOM OVERVIEW</h2>
+<p>The Target Operating Model defines <strong>HOW</strong> the future state service will operate across four interconnected dimensions:<br />
+1. <strong>People</strong> - Roles, skills, organizational structure<br />
+2. <strong>Process</strong> - Core workflows, decision gates, SLAs<br />
+3. <strong>Technology</strong> - Systems, data, integrations<br />
+4. <strong>Governance</strong> - Policies, compliance, oversight</p>
+<hr />
+<h2 id="people-dimension">👥 PEOPLE DIMENSION</h2>
+<h3 id="organizational-structure">Organizational Structure</h3>
+<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────────────────────┐
+│     GOVERNMENT OVERSIGHT (Health/Education)         │
+│     - Policy definition                             │
+│     - Compliance monitoring                         │
+│     - Funding allocation                            │
+└────────────────────┬────────────────────────────────┘
+                     │
+┌────────────────────▼────────────────────────────────┐
+│  SERVICE DELIVERY NETWORK (ONG Federation)          │
+│  - Program delivery                                 │
+│  - Quality assurance                                │
+│  - Stakeholder coordination                         │
+└────────────────────┬────────────────────────────────┘
+                     │
+        ┌────────────┼────────────┐
+        │            │            │
+┌───────▼──┐  ┌──────▼────┐  ┌──────▼──────┐
+│  INTAKE  │  │ ASSESSMENT│  │ INTERVENTION│
+│  CENTER  │  │ SERVICES  │  │   &amp; MONITOR │
+└──────────┘  └───────────┘  └──────────────┘
+</code></pre></div>
+
+<h3 id="core-roles-responsibilities">Core Roles &amp; Responsibilities</h3>
+<h4 id="1-intake-coordinator-fte-1-per-500-children">1. <strong>Intake Coordinator</strong> (FTE: 1 per 500 children)</h4>
+<div class="highlight"><pre><span></span><code>Primary Responsibilities:
+├─ Monitor referral intake queue
+├─ Validate incoming referrals (completeness check)
+├─ Assign to screening specialist
+├─ Track intake SLA (target: &lt;24h)
+├─ Escalate missing data requests
+└─ Maintain intake quality metrics
+
+Required Skills:
+├─ Data quality assessment
+├─ Customer service
+├─ Process discipline
+├─ Problem-solving
+└─ Basic data literacy
+
+Tools/Systems:
+├─ ServiceNow (intake ticketing)
+├─ Oracle CRM (child profile)
+└─ Microsoft Outlook (email + calendar)
+
+Success Metrics:
+├─ Intake SLA: 100% &lt;24h
+├─ Data completeness: 100%
+├─ Customer satisfaction: &gt;85 NPS
+└─ Processing cost: &lt;$5 per intake
+</code></pre></div>
+
+<h4 id="2-screening-specialist-fte-1-per-1000-children">2. <strong>Screening Specialist</strong> (FTE: 1 per 1000 children)</h4>
+<div class="highlight"><pre><span></span><code><span class="nv">Primary</span><span class="w"> </span><span class="nv">Responsibilities</span>:
+├─<span class="w"> </span><span class="nv">Administer</span><span class="w"> </span><span class="nv">behavioral</span><span class="w"> </span><span class="nv">screening</span><span class="w"> </span><span class="nv">questionnaire</span>
+├─<span class="w"> </span><span class="nv">Score</span><span class="w"> </span><span class="nv">responses</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">calculate</span><span class="w"> </span><span class="nv">risk</span><span class="w"> </span><span class="nv">level</span>
+├─<span class="w"> </span><span class="nv">Apply</span><span class="w"> </span><span class="nv">triage</span><span class="w"> </span><span class="nv">rules</span><span class="w"> </span><span class="ss">(</span><span class="nv">to</span><span class="w"> </span><span class="nv">assessment</span><span class="w"> </span><span class="nv">vs</span>.<span class="w"> </span><span class="nv">monitoring</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Recommend</span><span class="w"> </span><span class="nv">specialist</span><span class="w"> </span><span class="nv">routing</span><span class="w"> </span><span class="ss">(</span><span class="k">if</span><span class="w"> </span><span class="nv">needed</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Document</span><span class="w"> </span><span class="nv">assessment</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">case</span><span class="w"> </span><span class="nv">record</span>
+└─<span class="w"> </span><span class="nv">Provide</span><span class="w"> </span><span class="nv">parent</span><span class="w"> </span><span class="nv">feedback</span><span class="w"> </span><span class="nv">on</span><span class="w"> </span><span class="nv">screening</span><span class="w"> </span><span class="nv">results</span>
+
+<span class="nv">Required</span><span class="w"> </span><span class="nv">Skills</span>:
+├─<span class="w"> </span><span class="nv">Child</span><span class="w"> </span><span class="nv">development</span><span class="w"> </span><span class="nv">knowledge</span>
+├─<span class="w"> </span><span class="nv">Assessment</span><span class="w"> </span><span class="nv">administration</span>
+├─<span class="w"> </span><span class="nv">Communication</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">diverse</span><span class="w"> </span><span class="nv">families</span>
+├─<span class="w"> </span><span class="nv">Clinical</span><span class="w"> </span><span class="nv">judgment</span><span class="w"> </span><span class="ss">(</span><span class="nv">basic</span><span class="w"> </span><span class="nv">level</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Attention</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">detail</span>
+
+<span class="nv">Training</span><span class="w"> </span><span class="nv">Required</span>:
+├─<span class="w"> </span><span class="nv">Dyslexia</span><span class="w"> </span><span class="nv">awareness</span><span class="w"> </span><span class="ss">(</span><span class="mi">16</span><span class="w"> </span><span class="nv">hours</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Behavioral</span><span class="w"> </span><span class="nv">screening</span><span class="w"> </span><span class="nv">methodology</span><span class="w"> </span><span class="ss">(</span><span class="mi">8</span><span class="w"> </span><span class="nv">hours</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">LGPD</span><span class="w"> </span><span class="nv">compliance</span><span class="w"> </span><span class="ss">(</span><span class="mi">4</span><span class="w"> </span><span class="nv">hours</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">System</span><span class="w"> </span><span class="nv">training</span><span class="w"> </span><span class="ss">(</span><span class="nv">ServiceNow</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">Oracle</span><span class="ss">)</span><span class="w"> </span><span class="ss">(</span><span class="mi">4</span><span class="w"> </span><span class="nv">hours</span><span class="ss">)</span>
+└─<span class="w"> </span><span class="nv">Annual</span><span class="w"> </span><span class="nv">refresher</span><span class="w"> </span><span class="ss">(</span><span class="mi">8</span><span class="w"> </span><span class="nv">hours</span><span class="ss">)</span>
+
+<span class="nv">Tools</span><span class="o">/</span><span class="nv">Systems</span>:
+├─<span class="w"> </span><span class="nv">ServiceNow</span><span class="w"> </span><span class="ss">(</span><span class="nv">workflow</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">scheduling</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Oracle</span><span class="w"> </span><span class="nv">CRM</span><span class="w"> </span><span class="ss">(</span><span class="nv">child</span><span class="w"> </span><span class="nv">record</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Assessment</span><span class="w"> </span><span class="nv">platform</span><span class="w"> </span><span class="ss">(</span><span class="nv">screening</span><span class="w"> </span><span class="nv">forms</span><span class="ss">)</span>
+└─<span class="w"> </span><span class="nv">Microsoft</span><span class="w"> </span><span class="nv">Teams</span><span class="w"> </span><span class="ss">(</span><span class="nv">communication</span><span class="ss">)</span>
+
+<span class="nv">Success</span><span class="w"> </span><span class="nv">Metrics</span>:
+├─<span class="w"> </span><span class="nv">Screening</span><span class="w"> </span><span class="nv">completion</span><span class="w"> </span><span class="nv">rate</span>:<span class="w"> </span><span class="o">&gt;</span><span class="mi">95</span><span class="o">%</span>
+├─<span class="w"> </span><span class="nv">Screening</span><span class="w"> </span><span class="nv">SLA</span>:<span class="w"> </span><span class="o">&lt;</span><span class="mi">48</span><span class="nv">h</span>
+├─<span class="w"> </span><span class="nv">Assessment</span><span class="w"> </span><span class="nv">accuracy</span><span class="w"> </span><span class="ss">(</span><span class="nv">validated</span><span class="w"> </span><span class="nv">against</span><span class="w"> </span><span class="nv">specialist</span><span class="ss">)</span>:<span class="w"> </span><span class="o">&gt;</span><span class="mi">90</span><span class="o">%</span>
+├─<span class="w"> </span><span class="nv">Parent</span><span class="w"> </span><span class="nv">satisfaction</span>:<span class="w"> </span><span class="o">&gt;</span><span class="mi">80</span><span class="w"> </span><span class="nv">NPS</span>
+└─<span class="w"> </span><span class="nv">False</span><span class="w"> </span><span class="nv">positive</span><span class="w"> </span><span class="nv">rate</span>:<span class="w"> </span><span class="o">&lt;</span><span class="mi">10</span><span class="o">%</span>
+</code></pre></div>
+
+<h4 id="3-assessment-specialist-fte-1-per-300-children">3. <strong>Assessment Specialist</strong> (FTE: 1 per 300 children)</h4>
+<div class="highlight"><pre><span></span><code><span class="nv">Primary</span><span class="w"> </span><span class="nv">Responsibilities</span>:
+├─<span class="w"> </span><span class="nv">Administer</span><span class="w"> </span><span class="nv">multidimensional</span><span class="w"> </span><span class="nv">cognitive</span><span class="w"> </span><span class="nv">battery</span>
+├─<span class="w"> </span><span class="nv">Conduct</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="nv">assessment</span><span class="w"> </span><span class="nv">sessions</span><span class="w"> </span><span class="ss">(</span><span class="nv">phonology</span>,<span class="w"> </span><span class="nv">fluency</span>,<span class="w"> </span><span class="nv">comprehension</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Collect</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="nv">validate</span><span class="w"> </span><span class="nv">test</span><span class="w"> </span><span class="nv">data</span>
+├─<span class="w"> </span><span class="nv">Document</span><span class="w"> </span><span class="nv">observations</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">behavioral</span><span class="w"> </span><span class="nv">notes</span>
+├─<span class="w"> </span><span class="nv">Prepare</span><span class="w"> </span><span class="nv">raw</span><span class="w"> </span><span class="nv">score</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">automated</span><span class="w"> </span><span class="nv">analysis</span>
+├─<span class="w"> </span><span class="nv">Communicate</span><span class="w"> </span><span class="nv">results</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">parents</span><span class="o">/</span><span class="nv">educators</span>
+└─<span class="w"> </span><span class="nv">Escalate</span><span class="w"> </span><span class="nv">technical</span><span class="w"> </span><span class="nv">failures</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">support</span>
+
+<span class="nv">Required</span><span class="w"> </span><span class="nv">Skills</span>:
+├─<span class="w"> </span><span class="nv">Dyslexia</span><span class="w"> </span><span class="nv">assessment</span><span class="w"> </span><span class="nv">expertise</span><span class="w"> </span><span class="ss">(</span><span class="nv">master</span><span class="err">&#39;s level preferred)</span>
+<span class="err">├─ Child psychology</span>
+<span class="err">├─ Psychometric assessment knowledge</span>
+<span class="err">├─ Data collection + documentation</span>
+<span class="err">├─ Empathetic communication (especially with struggling children)</span>
+
+<span class="err">Credentials:</span>
+<span class="err">├─ Fonoaudiólogo (speech-language pathologist) OR</span>
+<span class="err">├─ Psicopedagogo (educational psychologist) OR</span>
+<span class="err">├─ Psychologist with dyslexia specialization</span>
+
+<span class="err">Training Required:</span>
+<span class="err">├─ Assessment battery certification (40 hours)</span>
+<span class="err">├─ Data quality assurance (8 hours)</span>
+<span class="err">├─ System training (assessment platform + Oracle) (8 hours)</span>
+<span class="err">├─ LGPD compliance (4 hours)</span>
+<span class="err">└─ Annual certification renewal (16 hours)</span>
+
+<span class="err">Tools/Systems:</span>
+<span class="err">├─ Assessment platform (test administration)</span>
+<span class="err">├─ Audio recording system (secure cloud storage)</span>
+<span class="err">├─ Oracle CRM (case documentation)</span>
+<span class="err">├─ ServiceNow (scheduling + escalation)</span>
+<span class="err">└─ Power BI (progress dashboards - read-only)</span>
+
+<span class="err">Success Metrics:</span>
+<span class="err">├─ Assessment completion rate: &gt;98%</span>
+<span class="err">├─ Assessment SLA: &lt;10 days for full battery</span>
+<span class="err">├─ Data quality (no missing values): 100%</span>
+<span class="err">├─ Test-retest reliability: &gt;0.85 (validated)</span>
+<span class="err">├─ Parent satisfaction: &gt;85 NPS</span>
+<span class="err">└─ Assessment cost per child: &lt;$50</span>
+</code></pre></div>
+
+<h4 id="4-intervention-specialist-fte-1-per-150-children-in-active-intervention">4. <strong>Intervention Specialist</strong> (FTE: 1 per 150 children in active intervention)</h4>
+<div class="highlight"><pre><span></span><code>Primary<span class="w"> </span>Responsibilities:
+├─<span class="w"> </span>Review<span class="w"> </span>AI-generated<span class="w"> </span>intervention<span class="w"> </span>plans
+├─<span class="w"> </span>Refine<span class="w"> </span>plans<span class="w"> </span>based<span class="w"> </span>on<span class="w"> </span>clinical<span class="w"> </span>judgment
+├─<span class="w"> </span>Approve<span class="w"> </span>plan<span class="w"> </span>(digital<span class="w"> </span>signature)
+├─<span class="w"> </span>Assign<span class="w"> </span>to<span class="w"> </span>educator<span class="w"> </span>implementation<span class="w"> </span>team
+├─<span class="w"> </span>Monitor<span class="w"> </span>plan<span class="w"> </span>adherence<span class="w"> </span>+<span class="w"> </span>effectiveness
+├─<span class="w"> </span>Escalate<span class="w"> </span>non-responsive<span class="w"> </span>cases
+├─<span class="w"> </span>Provide<span class="w"> </span>strategy<span class="w"> </span>consultation<span class="w"> </span>to<span class="w"> </span>educators
+├─<span class="w"> </span>Conduct<span class="w"> </span>progress<span class="w"> </span>reviews<span class="w"> </span>(monthly)
+
+Required<span class="w"> </span>Skills:
+├─<span class="w"> </span>Dyslexia<span class="w"> </span>intervention<span class="w"> </span>expertise
+├─<span class="w"> </span>Pedagogical<span class="w"> </span>knowledge
+├─<span class="w"> </span>AI/data<span class="w"> </span>interpretation
+├─<span class="w"> </span>Mentoring<span class="w"> </span>and<span class="w"> </span>coaching
+├─<span class="w"> </span>Cross-functional<span class="w"> </span>collaboration
+
+Credentials:
+├─<span class="w"> </span>Master&#39;s<span class="w"> </span>in<span class="w"> </span>Special<span class="w"> </span>Education<span class="w"> </span>OR
+├─<span class="w"> </span>Fonoaudiólogo<span class="w"> </span>with<span class="w"> </span>intervention<span class="w"> </span>experience<span class="w"> </span>OR
+├─<span class="w"> </span>Psicopedagogo<span class="w"> </span>with<span class="w"> </span>clinical<span class="w"> </span>track<span class="w"> </span>record
+
+Training<span class="w"> </span>Required:
+├─<span class="w"> </span>Intervention<span class="w"> </span>protocol<span class="w"> </span>certification<span class="w"> </span>(32<span class="w"> </span>hours)
+├─<span class="w"> </span>AI-assisted<span class="w"> </span>planning<span class="w"> </span>(8<span class="w"> </span>hours)
+├─<span class="w"> </span>Progress<span class="w"> </span>monitoring<span class="w"> </span>+<span class="w"> </span>data<span class="w"> </span>interpretation<span class="w"> </span>(8<span class="w"> </span>hours)
+├─<span class="w"> </span>System<span class="w"> </span>training<span class="w"> </span>(Oracle<span class="w"> </span>+<span class="w"> </span>ServiceNow<span class="w"> </span>+<span class="w"> </span>Power<span class="w"> </span>BI)<span class="w"> </span>(8<span class="w"> </span>hours)
+└─<span class="w"> </span>LGPD<span class="w"> </span>compliance<span class="w"> </span>(4<span class="w"> </span>hours)
+
+Tools/Systems:
+├─<span class="w"> </span>Oracle<span class="w"> </span>CRM<span class="w"> </span>(case<span class="w"> </span>management)
+├─<span class="w"> </span>ServiceNow<span class="w"> </span>(task<span class="w"> </span>orchestration)
+├─<span class="w"> </span>Claude<span class="w"> </span>API<span class="w"> </span>(Hermes<span class="w"> </span>Agent<span class="w"> </span>-<span class="w"> </span>view<span class="w"> </span>only)
+├─<span class="w"> </span>Power<span class="w"> </span>BI<span class="w"> </span>(progress<span class="w"> </span>dashboards)
+├─<span class="w"> </span>Microsoft<span class="w"> </span>Teams<span class="w"> </span>(educator<span class="w"> </span>communication)
+
+Success<span class="w"> </span>Metrics:
+├─<span class="w"> </span>Plan<span class="w"> </span>approval<span class="w"> </span>SLA:<span class="w"> </span><span class="nt">&lt;4h</span>
+<span class="err">├─</span><span class="w"> </span><span class="err">Plan</span><span class="w"> </span><span class="err">quality</span><span class="w"> </span><span class="err">(educator</span><span class="w"> </span><span class="err">satisfaction):</span><span class="w"> </span><span class="nt">&gt;</span>85%
+├─<span class="w"> </span>Intervention<span class="w"> </span>effectiveness<span class="w"> </span>(&gt;60%<span class="w"> </span>show<span class="w"> </span>progress):<span class="w"> </span>&gt;60%
+├─<span class="w"> </span>Non-response<span class="w"> </span>escalation<span class="w"> </span>rate:<span class="w"> </span><span class="nt">&lt;5</span><span class="err">%</span>
+<span class="err">├─</span><span class="w"> </span><span class="err">Plan</span><span class="w"> </span><span class="err">refinement</span><span class="w"> </span><span class="err">rate:</span><span class="w"> </span><span class="err">&lt;20%</span><span class="w"> </span><span class="err">(suggests</span><span class="w"> </span><span class="err">AI</span><span class="w"> </span><span class="err">plans</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">good)</span>
+<span class="err">└─</span><span class="w"> </span><span class="err">Intervention</span><span class="w"> </span><span class="err">cost</span><span class="w"> </span><span class="err">per</span><span class="w"> </span><span class="err">child:</span><span class="w"> </span><span class="err">&lt;$100/month</span>
+</code></pre></div>
+
+<h4 id="5-program-manager-ong-coordinator-fte-1-per-ong-1-state-level">5. <strong>Program Manager / ONG Coordinator</strong> (FTE: 1 per ONG + 1 state-level)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">Primary</span><span class="w"> </span><span class="n">Responsibilities</span><span class="p">:</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Oversee</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">delivery</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">ONG</span><span class="o">/</span><span class="n">region</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Manage</span><span class="w"> </span><span class="n">caseload</span><span class="w"> </span><span class="n">allocation</span><span class="w"> </span><span class="p">(</span><span class="n">educators</span><span class="p">,</span><span class="w"> </span><span class="n">specialists</span><span class="p">)</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Monitor</span><span class="w"> </span><span class="n">SLAs</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">escalate</span><span class="w"> </span><span class="n">breaches</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Coordinate</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">government</span><span class="w"> </span><span class="n">oversight</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Manage</span><span class="w"> </span><span class="n">educator</span><span class="w"> </span><span class="n">recruitment</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">training</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Maintain</span><span class="w"> </span><span class="n">compliance</span><span class="w"> </span><span class="p">(</span><span class="n">LGPD</span><span class="p">,</span><span class="w"> </span><span class="n">audits</span><span class="p">,</span><span class="w"> </span><span class="n">reporting</span><span class="p">)</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Optimize</span><span class="w"> </span><span class="n">operations</span><span class="w"> </span><span class="p">(</span><span class="n">reduce</span><span class="w"> </span><span class="n">costs</span><span class="p">,</span><span class="w"> </span><span class="n">improve</span><span class="w"> </span><span class="n">quality</span><span class="p">)</span>
+<span class="err">└─</span><span class="w"> </span><span class="n">Represent</span><span class="w"> </span><span class="n">ONG</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">governance</span><span class="w"> </span><span class="n">meetings</span>
+
+<span class="n">Required</span><span class="w"> </span><span class="n">Skills</span><span class="p">:</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Program</span><span class="w"> </span><span class="n">management</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Budget</span><span class="w"> </span><span class="n">management</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Staff</span><span class="w"> </span><span class="n">management</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Data</span><span class="w"> </span><span class="n">analysis</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Stakeholder</span><span class="w"> </span><span class="n">communication</span>
+
+<span class="n">Credentials</span><span class="p">:</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">MBA</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">equivalent</span><span class="w"> </span><span class="n">management</span><span class="w"> </span><span class="n">experience</span><span class="w"> </span><span class="n">OR</span>
+<span class="err">├─</span><span class="w"> </span><span class="mi">5</span><span class="o">+</span><span class="w"> </span><span class="n">years</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">management</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">education</span><span class="o">/</span><span class="n">health</span>
+
+<span class="n">Training</span><span class="w"> </span><span class="n">Required</span><span class="p">:</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Service</span><span class="w"> </span><span class="n">delivery</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="p">(</span><span class="mi">16</span><span class="w"> </span><span class="n">hours</span><span class="p">)</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Power</span><span class="w"> </span><span class="n">BI</span><span class="w"> </span><span class="n">dashboards</span><span class="w"> </span><span class="p">(</span><span class="mi">8</span><span class="w"> </span><span class="n">hours</span><span class="p">)</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Compliance</span><span class="w"> </span><span class="n">management</span><span class="w"> </span><span class="p">(</span><span class="mi">8</span><span class="w"> </span><span class="n">hours</span><span class="p">)</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">ServiceNow</span><span class="w"> </span><span class="n">administration</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="n">hours</span><span class="p">)</span>
+<span class="err">└─</span><span class="w"> </span><span class="n">Annual</span><span class="w"> </span><span class="n">refresher</span><span class="w"> </span><span class="p">(</span><span class="mi">8</span><span class="w"> </span><span class="n">hours</span><span class="p">)</span>
+
+<span class="n">Tools</span><span class="o">/</span><span class="n">Systems</span><span class="p">:</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">ServiceNow</span><span class="w"> </span><span class="p">(</span><span class="n">caseload</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">SLA</span><span class="w"> </span><span class="n">dashboard</span><span class="p">)</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Power</span><span class="w"> </span><span class="n">BI</span><span class="w"> </span><span class="p">(</span><span class="n">program</span><span class="w"> </span><span class="n">metrics</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">KPIs</span><span class="p">)</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Oracle</span><span class="w"> </span><span class="n">CRM</span><span class="w"> </span><span class="p">(</span><span class="n">client</span><span class="w"> </span><span class="n">management</span><span class="p">)</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Microsoft</span><span class="w"> </span><span class="n">Excel</span><span class="w"> </span><span class="p">(</span><span class="n">budgeting</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">forecasting</span><span class="p">)</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Jira</span><span class="w"> </span><span class="p">(</span><span class="n">project</span><span class="w"> </span><span class="n">management</span><span class="p">,</span><span class="w"> </span><span class="n">optional</span><span class="p">)</span>
+
+<span class="n">Success</span><span class="w"> </span><span class="n">Metrics</span><span class="p">:</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">SLA</span><span class="w"> </span><span class="n">compliance</span><span class="p">:</span><span class="w"> </span><span class="o">&gt;</span><span class="mi">95</span><span class="o">%</span><span class="w"> </span><span class="n">across</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">services</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Budget</span><span class="w"> </span><span class="n">adherence</span><span class="p">:</span><span class="w"> </span><span class="err">±</span><span class="mi">5</span><span class="o">%</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">plan</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Educator</span><span class="w"> </span><span class="n">retention</span><span class="p">:</span><span class="w"> </span><span class="o">&gt;</span><span class="mi">85</span><span class="o">%</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Program</span><span class="w"> </span><span class="n">efficiency</span><span class="p">:</span><span class="w"> </span><span class="o">&lt;$</span><span class="mi">150</span><span class="w"> </span><span class="n">cost</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">child</span><span class="o">/</span><span class="n">month</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Government</span><span class="w"> </span><span class="n">compliance</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="o">%</span>
+<span class="err">└─</span><span class="w"> </span><span class="n">Stakeholder</span><span class="w"> </span><span class="n">satisfaction</span><span class="p">:</span><span class="w"> </span><span class="o">&gt;</span><span class="mi">80</span><span class="w"> </span><span class="n">NPS</span>
+</code></pre></div>
+
+<h4 id="6-data-governance-compliance-lead-fte-1-per-government-entity">6. <strong>Data Governance &amp; Compliance Lead</strong> (FTE: 1 per government entity)</h4>
+<div class="highlight"><pre><span></span><code><span class="n">Primary</span><span class="w"> </span><span class="nl">Responsibilities:</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Ensure</span><span class="w"> </span><span class="n">LGPD</span><span class="w"> </span><span class="n">compliance</span><span class="w"> </span><span class="n">across</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">ONGs</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Audit</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">handling</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">access</span><span class="w"> </span><span class="n">controls</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Manage</span><span class="w"> </span><span class="n">consent</span><span class="w"> </span><span class="n">records</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">deletion</span><span class="w"> </span><span class="n">requests</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Monitor</span><span class="w"> </span><span class="n">audit</span><span class="w"> </span><span class="n">trails</span><span class="w"> </span><span class="p">(</span><span class="n">proof</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">compliance</span><span class="p">)</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Review</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">privacy</span><span class="w"> </span><span class="n">incidents</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Report</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">government</span><span class="w"> </span><span class="n">regulators</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Train</span><span class="w"> </span><span class="n">teams</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">LGPD</span><span class="w"> </span><span class="n">requirements</span>
+<span class="err">└─</span><span class="w"> </span><span class="n">Maintain</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">governance</span><span class="w"> </span><span class="n">policies</span>
+
+<span class="n">Required</span><span class="w"> </span><span class="nl">Skills:</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Data</span><span class="w"> </span><span class="n">privacy</span><span class="w"> </span><span class="n">expertise</span><span class="w"> </span><span class="p">(</span><span class="n">LGPD</span><span class="o">/</span><span class="n">GDPR</span><span class="p">)</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Audit</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">compliance</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Risk</span><span class="w"> </span><span class="n">management</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Regulatory</span><span class="w"> </span><span class="n">knowledge</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Data</span><span class="w"> </span><span class="n">security</span><span class="w"> </span><span class="n">fundamentals</span>
+
+<span class="nl">Credentials:</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Privacy</span><span class="w"> </span><span class="n">Certification</span><span class="w"> </span><span class="p">(</span><span class="n">CDPO</span><span class="p">,</span><span class="w"> </span><span class="n">CIPM</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">equivalent</span><span class="p">)</span><span class="w"> </span><span class="n">OR</span>
+<span class="err">├─</span><span class="w"> </span><span class="mh">5</span><span class="o">+</span><span class="w"> </span><span class="n">years</span><span class="w"> </span><span class="n">legal</span><span class="o">/</span><span class="n">compliance</span><span class="w"> </span><span class="n">background</span>
+
+<span class="n">Training</span><span class="w"> </span><span class="nl">Required:</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">LGPD</span><span class="w"> </span><span class="n">deep</span><span class="o">-</span><span class="n">dive</span><span class="w"> </span><span class="p">(</span><span class="mh">24</span><span class="w"> </span><span class="n">hours</span><span class="p">)</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Data</span><span class="w"> </span><span class="n">governance</span><span class="w"> </span><span class="n">frameworks</span><span class="w"> </span><span class="p">(</span><span class="mh">8</span><span class="w"> </span><span class="n">hours</span><span class="p">)</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">System</span><span class="w"> </span><span class="n">auditing</span><span class="w"> </span><span class="p">(</span><span class="n">Oracle</span><span class="p">,</span><span class="w"> </span><span class="n">ServiceNow</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mh">8</span><span class="w"> </span><span class="n">hours</span><span class="p">)</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Incident</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="p">(</span><span class="mh">8</span><span class="w"> </span><span class="n">hours</span><span class="p">)</span>
+<span class="err">└─</span><span class="w"> </span><span class="n">Annual</span><span class="w"> </span><span class="n">refresher</span><span class="w"> </span><span class="p">(</span><span class="mh">12</span><span class="w"> </span><span class="n">hours</span><span class="p">)</span>
+
+<span class="n">Tools</span><span class="o">/</span><span class="nl">Systems:</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">ServiceNow</span><span class="w"> </span><span class="p">(</span><span class="n">audit</span><span class="w"> </span><span class="n">workflows</span><span class="p">)</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Oracle</span><span class="w"> </span><span class="n">Data</span><span class="w"> </span><span class="n">Governance</span><span class="w"> </span><span class="p">(</span><span class="n">metadata</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lineage</span><span class="p">)</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Microsoft</span><span class="w"> </span><span class="n">Power</span><span class="w"> </span><span class="n">BI</span><span class="w"> </span><span class="p">(</span><span class="n">compliance</span><span class="w"> </span><span class="n">dashboards</span><span class="p">)</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Azure</span><span class="w"> </span><span class="n">Information</span><span class="w"> </span><span class="n">Protection</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="n">classification</span><span class="p">)</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Compliance</span><span class="w"> </span><span class="n">software</span><span class="w"> </span><span class="p">(</span><span class="n">OneTrust</span><span class="p">,</span><span class="w"> </span><span class="n">Drata</span><span class="p">,</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">similar</span><span class="p">)</span>
+
+<span class="n">Success</span><span class="w"> </span><span class="nl">Metrics:</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">LGPD</span><span class="w"> </span><span class="nl">compliance:</span><span class="w"> </span><span class="mh">100</span><span class="o">%</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Audit</span><span class="w"> </span><span class="nl">findings:</span><span class="w"> </span><span class="mh">0</span><span class="w"> </span><span class="n">critical</span><span class="o">/</span><span class="n">high</span><span class="w"> </span><span class="n">severity</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Consent</span><span class="w"> </span><span class="n">record</span><span class="w"> </span><span class="nl">completeness:</span><span class="w"> </span><span class="mh">100</span><span class="o">%</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Data</span><span class="w"> </span><span class="n">deletion</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="nl">SLA:</span><span class="w"> </span><span class="mh">100</span><span class="o">%</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">30</span><span class="w"> </span><span class="n">days</span>
+<span class="err">├─</span><span class="w"> </span><span class="n">Audit</span><span class="w"> </span><span class="n">trail</span><span class="w"> </span><span class="nl">availability:</span><span class="w"> </span><span class="mh">100</span><span class="o">%</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">transactions</span>
+<span class="err">└─</span><span class="w"> </span><span class="n">Regulatory</span><span class="w"> </span><span class="n">audit</span><span class="w"> </span><span class="nl">results:</span><span class="w"> </span><span class="n">Pass</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">findings</span>
+</code></pre></div>
+
+<h4 id="7-system-administrator-support-fte-1-per-2000-children-system-wide">7. <strong>System Administrator &amp; Support</strong> (FTE: 1 per 2000 children system-wide)</h4>
+<div class="highlight"><pre><span></span><code><span class="nv">Primary</span><span class="w"> </span><span class="nv">Responsibilities</span>:
+├─<span class="w"> </span><span class="nv">User</span><span class="w"> </span><span class="nv">account</span><span class="w"> </span><span class="nv">management</span><span class="w"> </span><span class="ss">(</span><span class="nv">access</span><span class="w"> </span><span class="nv">provisioning</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">System</span><span class="w"> </span><span class="nv">monitoring</span><span class="w"> </span><span class="ss">(</span><span class="k">uptime</span>,<span class="w"> </span><span class="nv">performance</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Password</span><span class="w"> </span><span class="nv">resets</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">account</span><span class="w"> </span><span class="nv">recovery</span>
+├─<span class="w"> </span><span class="nv">Help</span><span class="w"> </span><span class="nv">desk</span><span class="w"> </span><span class="nv">support</span><span class="w"> </span><span class="ss">(</span><span class="nv">Tier</span><span class="w"> </span><span class="mi">1</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">System</span><span class="w"> </span><span class="nv">backups</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">disaster</span><span class="w"> </span><span class="nv">recovery</span>
+├─<span class="w"> </span><span class="nv">Apply</span><span class="w"> </span><span class="nv">security</span><span class="w"> </span><span class="nv">patches</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">updates</span>
+├─<span class="w"> </span><span class="nv">Document</span><span class="w"> </span><span class="nv">system</span><span class="w"> </span><span class="nv">configurations</span>
+└─<span class="w"> </span><span class="nv">Train</span><span class="w"> </span><span class="nv">users</span><span class="w"> </span><span class="nv">on</span><span class="w"> </span><span class="nv">system</span><span class="w"> </span><span class="nv">features</span>
+
+<span class="nv">Required</span><span class="w"> </span><span class="nv">Skills</span>:
+├─<span class="w"> </span><span class="nv">IT</span><span class="w"> </span><span class="nv">operations</span>
+├─<span class="w"> </span><span class="nv">Cloud</span><span class="w"> </span><span class="nv">infrastructure</span>
+├─<span class="w"> </span><span class="nv">Help</span><span class="w"> </span><span class="nv">desk</span><span class="w"> </span><span class="nv">support</span>
+├─<span class="w"> </span><span class="nv">Basic</span><span class="w"> </span><span class="nv">cybersecurity</span>
+├─<span class="w"> </span><span class="nv">Documentation</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">training</span>
+
+<span class="nv">Certifications</span>:
+├─<span class="w"> </span><span class="nv">CompTIA</span><span class="w"> </span><span class="nv">A</span><span class="o">+</span><span class="w"> </span><span class="nv">OR</span>
+├─<span class="w"> </span><span class="nv">Azure</span><span class="w"> </span><span class="nv">Fundamentals</span><span class="w"> </span><span class="ss">(</span><span class="nv">AZ</span><span class="o">-</span><span class="mi">900</span><span class="ss">)</span><span class="w"> </span><span class="nv">OR</span>
+├─<span class="w"> </span><span class="nv">ServiceNow</span><span class="w"> </span><span class="nv">Administrator</span><span class="w"> </span><span class="ss">(</span><span class="nv">optional</span><span class="ss">)</span>
+
+<span class="nv">Training</span><span class="w"> </span><span class="nv">Required</span>:
+├─<span class="w"> </span><span class="nv">Oracle</span><span class="w"> </span><span class="nv">CRM</span><span class="w"> </span><span class="nv">administration</span><span class="w"> </span><span class="ss">(</span><span class="mi">24</span><span class="w"> </span><span class="nv">hours</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">ServiceNow</span><span class="w"> </span><span class="nv">administration</span><span class="w"> </span><span class="ss">(</span><span class="mi">24</span><span class="w"> </span><span class="nv">hours</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Azure</span><span class="w"> </span><span class="nv">fundamentals</span><span class="w"> </span><span class="ss">(</span><span class="mi">16</span><span class="w"> </span><span class="nv">hours</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Security</span><span class="w"> </span><span class="nv">best</span><span class="w"> </span><span class="nv">practices</span><span class="w"> </span><span class="ss">(</span><span class="mi">8</span><span class="w"> </span><span class="nv">hours</span><span class="ss">)</span>
+└─<span class="w"> </span><span class="nv">Annual</span><span class="w"> </span><span class="nv">refresher</span><span class="w"> </span><span class="ss">(</span><span class="mi">8</span><span class="w"> </span><span class="nv">hours</span><span class="ss">)</span>
+
+<span class="nv">Tools</span><span class="o">/</span><span class="nv">Systems</span>:
+├─<span class="w"> </span><span class="nv">Oracle</span><span class="w"> </span><span class="nv">Cloud</span><span class="w"> </span><span class="ss">(</span><span class="nv">system</span><span class="w"> </span><span class="nv">administration</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">ServiceNow</span><span class="w"> </span><span class="ss">(</span><span class="nv">workflow</span><span class="w"> </span><span class="nv">administration</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Microsoft</span><span class="w"> </span><span class="nv">Azure</span><span class="w"> </span><span class="ss">(</span><span class="nv">cloud</span><span class="w"> </span><span class="nv">management</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Jira</span><span class="w"> </span><span class="ss">(</span><span class="nv">incident</span><span class="w"> </span><span class="nv">tracking</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">VPN</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">Access</span><span class="w"> </span><span class="nv">controls</span><span class="w"> </span><span class="ss">(</span><span class="nv">Azure</span><span class="w"> </span><span class="nv">AD</span><span class="ss">)</span>
+
+<span class="nv">Success</span><span class="w"> </span><span class="nv">Metrics</span>:
+├─<span class="w"> </span><span class="nv">System</span><span class="w"> </span><span class="k">uptime</span>:<span class="w"> </span><span class="o">&gt;</span><span class="mi">99</span>.<span class="mi">5</span><span class="o">%</span>
+├─<span class="w"> </span><span class="nv">Help</span><span class="w"> </span><span class="nv">desk</span><span class="w"> </span><span class="nv">response</span><span class="w"> </span><span class="nv">SLA</span>:<span class="w"> </span><span class="o">&lt;</span><span class="mi">2</span><span class="w"> </span><span class="nv">hours</span>
+├─<span class="w"> </span><span class="nv">Password</span><span class="w"> </span><span class="nv">reset</span><span class="w"> </span><span class="nv">SLA</span>:<span class="w"> </span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="nv">hour</span>
+├─<span class="w"> </span><span class="nv">Security</span><span class="w"> </span><span class="nv">patch</span><span class="w"> </span><span class="nv">deployment</span>:<span class="w"> </span><span class="o">&lt;</span><span class="mi">30</span><span class="w"> </span><span class="nv">days</span>
+├─<span class="w"> </span><span class="nv">User</span><span class="w"> </span><span class="nv">onboarding</span><span class="w"> </span><span class="nv">SLA</span>:<span class="w"> </span><span class="o">&lt;</span><span class="mi">5</span><span class="w"> </span><span class="nv">days</span>
+└─<span class="w"> </span><span class="nv">Support</span><span class="w"> </span><span class="nv">cost</span><span class="w"> </span><span class="nv">per</span><span class="w"> </span><span class="nv">user</span>:<span class="w"> </span><span class="o">&lt;</span><span class="mh">$20</span><span class="o">/</span><span class="nv">year</span>
+</code></pre></div>
+
+<h3 id="staffing-model-summary">Staffing Model Summary</h3>
+<div class="highlight"><pre><span></span><code>Service Scale: 10,000 children/year
+
+Role                          FTE Needed    Annual Cost (avg)    Total Cost
+─────────────────────────────────────────────────────────────────────────
+Intake Coordinator            20            R$ 45,000            R$ 900,000
+Screening Specialist          20            R$ 55,000            R$ 1,100,000
+Assessment Specialist         33            R$ 75,000            R$ 2,475,000
+Intervention Specialist       67            R$ 85,000            R$ 5,695,000
+Program Manager (ONG)         10            R$ 95,000            R$ 950,000
+Data Governance Lead          1             R$ 120,000           R$ 120,000
+System Admin &amp; Support        5             R$ 65,000            R$ 325,000
+─────────────────────────────────────────────────────────────────────────
+TOTAL                         156 FTE       Average: R$ 75,000   R$ 11,565,000
+
+Cost per Child/Year: R$ 1,156 (or ~$230 USD)
+</code></pre></div>
+
+<hr />
+<h2 id="process-dimension">🔄 PROCESS DIMENSION</h2>
+<h3 id="core-processes-cross-functional">Core Processes (Cross-Functional)</h3>
+<div class="highlight"><pre><span></span><code>Level 1: Strategic Processes
+├─ Service Portfolio Management (government + ONG federation)
+├─ Compliance &amp; Risk Management
+└─ Continuous Improvement
+
+Level 2: Operational Processes
+├─ Child Intake &amp; Registration
+├─ Screening &amp; Triage
+├─ Assessment &amp; Diagnosis
+├─ Intervention Planning &amp; Delivery
+├─ Progress Monitoring &amp; Reclassification
+├─ Case Closure &amp; Impact Evaluation
+└─ Communication &amp; Escalation
+
+Level 3: Support Processes
+├─ User Account Management
+├─ System Maintenance &amp; Support
+├─ Training &amp; Capability Building
+└─ Reporting &amp; Analytics
+</code></pre></div>
+
+<h3 id="process-flow-simplified">Process Flow (Simplified)</h3>
+<div class="highlight"><pre><span></span><code><span class="nv">Child</span><span class="w"> </span><span class="nv">Referred</span>
+<span class="w">    </span>↓
+<span class="mi">1</span>.<span class="w"> </span><span class="nv">INTAKE</span><span class="w"> </span><span class="ss">(</span><span class="mi">24</span><span class="nv">h</span><span class="w"> </span><span class="nv">SLA</span><span class="ss">)</span>
+<span class="w">   </span><span class="nv">Unified</span><span class="w"> </span><span class="nv">portal</span><span class="w"> </span><span class="nv">intake</span>
+<span class="w">   </span><span class="nv">LGPD</span><span class="w"> </span><span class="nv">consent</span><span class="w"> </span><span class="nv">digital</span><span class="w"> </span><span class="nv">signature</span>
+<span class="w">    </span>↓
+<span class="mi">2</span>.<span class="w"> </span><span class="nv">SCREENING</span><span class="w"> </span><span class="ss">(</span><span class="mi">48</span><span class="nv">h</span><span class="w"> </span><span class="nv">SLA</span><span class="ss">)</span>
+<span class="w">   </span><span class="nv">Behavioral</span><span class="w"> </span><span class="nv">questionnaire</span>
+<span class="w">   </span><span class="nv">Risk</span><span class="w"> </span><span class="nv">classification</span>
+<span class="w">    </span>↓
+<span class="mi">3</span>.<span class="w"> </span><span class="nv">ASSESSMENT</span><span class="w"> </span><span class="ss">(</span><span class="mi">10</span><span class="w"> </span><span class="nv">days</span><span class="w"> </span><span class="nv">SLA</span><span class="ss">)</span>
+<span class="w">   </span><span class="mi">3</span><span class="o">-</span><span class="nv">session</span><span class="w"> </span><span class="nv">cognitive</span><span class="w"> </span><span class="nv">battery</span>
+<span class="w">   </span><span class="nv">Multidimensional</span><span class="w"> </span><span class="nv">scoring</span>
+<span class="w">    </span>↓
+<span class="mi">4</span>.<span class="w"> </span><span class="nv">DIAGNOSIS</span><span class="w"> </span><span class="ss">(</span><span class="mi">2</span><span class="nv">h</span><span class="w"> </span><span class="nv">SLA</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">48</span><span class="nv">h</span><span class="w"> </span><span class="nv">specialist</span><span class="w"> </span><span class="nv">review</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nv">needed</span><span class="ss">)</span>
+<span class="w">   </span><span class="nv">Risk</span><span class="w"> </span><span class="nv">classification</span>
+<span class="w">   </span><span class="nv">Specialist</span><span class="w"> </span><span class="nv">validation</span><span class="w"> </span><span class="ss">(</span><span class="k">if</span><span class="w"> </span><span class="nv">High</span><span class="w"> </span><span class="nv">Risk</span><span class="ss">)</span>
+<span class="w">    </span>↓
+<span class="mi">5</span>.<span class="w"> </span><span class="nv">PLANNING</span><span class="w"> </span><span class="ss">(</span><span class="mi">5</span><span class="w"> </span><span class="nv">min</span><span class="w"> </span><span class="nv">AI</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="nv">h</span><span class="w"> </span><span class="nv">psychopedagogue</span><span class="w"> </span><span class="nv">review</span><span class="ss">)</span>
+<span class="w">   </span><span class="nv">Personalized</span><span class="w"> </span><span class="nv">intervention</span><span class="w"> </span><span class="nv">plan</span>
+<span class="w">   </span><span class="nv">Digital</span><span class="w"> </span><span class="nv">approval</span><span class="w"> </span><span class="nv">workflow</span>
+<span class="w">    </span>↓
+<span class="mi">6</span>.<span class="w"> </span><span class="nv">COMMUNICATION</span><span class="w"> </span><span class="ss">(</span><span class="mi">1</span><span class="nv">h</span><span class="w"> </span><span class="nv">SLA</span><span class="ss">)</span>
+<span class="w">   </span><span class="nv">Multi</span><span class="o">-</span><span class="nv">channel</span><span class="w"> </span><span class="nv">notifications</span>
+<span class="w">   </span><span class="ss">(</span><span class="nv">SMS</span><span class="o">/</span><span class="nv">Email</span><span class="o">/</span><span class="nv">Push</span><span class="o">/</span><span class="nv">WhatsApp</span><span class="ss">)</span>
+<span class="w">    </span>↓
+<span class="mi">7</span>.<span class="w"> </span><span class="nv">INTERVENTION</span><span class="w"> </span><span class="nv">DELIVERY</span><span class="w"> </span><span class="ss">(</span><span class="mi">6</span><span class="w"> </span><span class="nv">months</span><span class="ss">)</span>
+<span class="w">   </span><span class="nv">Structured</span><span class="w"> </span><span class="nv">phases</span>
+<span class="w">   </span><span class="nv">Regular</span><span class="w"> </span><span class="nv">educator</span><span class="w"> </span><span class="nv">sessions</span>
+<span class="w">    </span>↓
+<span class="mi">8</span>.<span class="w"> </span><span class="nv">MONITORING</span><span class="w"> </span><span class="ss">(</span><span class="nv">weekly</span><span class="o">/</span><span class="nv">bi</span><span class="o">-</span><span class="nv">weekly</span><span class="ss">)</span>
+<span class="w">   </span><span class="nv">Progress</span><span class="w"> </span><span class="nv">collection</span>
+<span class="w">   </span><span class="nv">Dynamic</span><span class="w"> </span><span class="nv">reclassification</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nv">needed</span>
+<span class="w">    </span>↓
+<span class="mi">9</span>.<span class="w"> </span><span class="k">EXIT</span><span class="w"> </span><span class="nv">EVALUATION</span><span class="w"> </span><span class="ss">(</span><span class="nv">final</span><span class="w"> </span><span class="nv">assessment</span><span class="ss">)</span>
+<span class="w">   </span><span class="nv">Impact</span><span class="w"> </span><span class="nv">measurement</span>
+<span class="w">   </span><span class="nv">ROI</span><span class="w"> </span><span class="nv">calculation</span>
+<span class="w">   </span><span class="nv">Recommendations</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">continuity</span>
+<span class="w">    </span>↓
+<span class="nv">Program</span><span class="w"> </span><span class="nv">Complete</span>
+</code></pre></div>
+
+<hr />
+<h2 id="technology-dimension">💻 TECHNOLOGY DIMENSION</h2>
+<h3 id="enterprise-architecture">Enterprise Architecture</h3>
+<div class="highlight"><pre><span></span><code><span class="err">┌─────────────────────────────────────────────────────────┐</span>
+<span class="err">│</span><span class="w">              </span><span class="nx">Citizen</span><span class="o">/</span><span class="nx">Educator</span><span class="o">/</span><span class="nx">Specialist</span><span class="w"> </span><span class="nx">Interfaces</span><span class="w">     </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="nx">Web</span><span class="w"> </span><span class="nx">Portal</span><span class="w"> </span><span class="p">(</span><span class="nx">responsive</span><span class="w"> </span><span class="nx">design</span><span class="p">)</span><span class="w">                      </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="nx">Mobile</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="p">(</span><span class="nx">iOS</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">Android</span><span class="p">)</span><span class="w">                          </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="nx">WhatsApp</span><span class="w"> </span><span class="nx">Bot</span><span class="w"> </span><span class="p">(</span><span class="nx">notifications</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">simple</span><span class="w"> </span><span class="nx">tasks</span><span class="p">)</span><span class="w">         </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">└─</span><span class="w"> </span><span class="nx">Email</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">SMS</span><span class="w"> </span><span class="p">(</span><span class="nx">push</span><span class="w"> </span><span class="nx">notifications</span><span class="p">)</span><span class="w">                    </span><span class="err">│</span>
+<span class="err">└────────────────┬────────────────────────────────────────┘</span>
+<span class="w">                 </span><span class="err">│</span>
+<span class="err">┌────────────────▼────────────────────────────────────────┐</span>
+<span class="err">│</span><span class="w">                  </span><span class="nx">API</span><span class="w"> </span><span class="nx">Gateway</span><span class="w"> </span><span class="p">(</span><span class="nx">Azure</span><span class="w"> </span><span class="nx">API</span><span class="w"> </span><span class="nx">Management</span><span class="p">)</span><span class="w">      </span><span class="err">│</span>
+<span class="err">│</span><span class="w">   </span><span class="p">(</span><span class="nx">Rate</span><span class="w"> </span><span class="nx">limiting</span><span class="p">,</span><span class="w"> </span><span class="nx">authentication</span><span class="p">,</span><span class="w"> </span><span class="nx">monitoring</span><span class="p">)</span><span class="w">           </span><span class="err">│</span>
+<span class="err">└────────────────┬────────────────────────────────────────┘</span>
+<span class="w">                 </span><span class="err">│</span>
+<span class="w">    </span><span class="err">┌────────────┼────────────┬──────────────┐</span>
+<span class="w">    </span><span class="err">│</span><span class="w">            </span><span class="err">│</span><span class="w">            </span><span class="err">│</span><span class="w">              </span><span class="err">│</span>
+<span class="err">┌───▼───┐</span><span class="w">  </span><span class="err">┌────▼────┐</span><span class="w">  </span><span class="err">┌────▼────┐</span><span class="w">  </span><span class="err">┌─────▼─────┐</span>
+<span class="err">│</span><span class="nx">Oracle</span><span class="w"> </span><span class="err">│</span><span class="w">  </span><span class="err">│</span><span class="nx">Service</span><span class="w">  </span><span class="err">│</span><span class="w">  </span><span class="err">│</span><span class="nx">Microsoft</span><span class="err">│</span><span class="w">  </span><span class="err">│</span><span class="nx">Assessment</span><span class="w"> </span><span class="err">│</span>
+<span class="err">│</span><span class="nx">Cloud</span><span class="w">  </span><span class="err">│</span><span class="w">  </span><span class="err">│</span><span class="w">  </span><span class="nx">Now</span><span class="w">    </span><span class="err">│</span><span class="w">  </span><span class="err">│</span><span class="nx">Platform</span><span class="w"> </span><span class="err">│</span><span class="w">  </span><span class="err">│</span><span class="w"> </span><span class="nx">Platform</span><span class="w">  </span><span class="err">│</span>
+<span class="err">│</span><span class="nx">CRM</span><span class="w">    </span><span class="err">│</span><span class="w">  </span><span class="err">│</span><span class="nx">Workflow</span><span class="w"> </span><span class="err">│</span><span class="w">  </span><span class="err">│</span><span class="w">  </span><span class="p">(</span><span class="nx">PBI</span><span class="p">,</span><span class="w">  </span><span class="err">│</span><span class="w">  </span><span class="err">│</span><span class="p">(</span><span class="nx">AI</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">Test</span><span class="p">)</span><span class="err">│</span>
+<span class="err">└───┬───┘</span><span class="w">  </span><span class="err">│</span><span class="nx">Ticketing</span><span class="err">│</span><span class="w">  </span><span class="err">│</span><span class="w"> </span><span class="nx">PA</span><span class="p">,</span><span class="w"> </span><span class="nx">PD</span><span class="p">)</span><span class="w"> </span><span class="err">│</span><span class="w">  </span><span class="err">└──────┬────┘</span>
+<span class="w">    </span><span class="err">│</span><span class="w">      </span><span class="err">└────┬────┘</span><span class="w">  </span><span class="err">└────┬────┘</span><span class="w">         </span><span class="err">│</span>
+<span class="w">    </span><span class="err">│</span><span class="w">           </span><span class="err">│</span><span class="w">             </span><span class="err">│</span><span class="w">              </span><span class="err">│</span>
+<span class="w">    </span><span class="err">└───────────┼─────────────┼──────────────┘</span>
+<span class="w">                </span><span class="err">│</span><span class="w">             </span><span class="err">│</span>
+<span class="w">        </span><span class="err">┌───────▼─────────────▼────────┐</span>
+<span class="w">        </span><span class="err">│</span><span class="w">  </span><span class="nx">Azure</span><span class="w"> </span><span class="nx">Data</span><span class="w"> </span><span class="nx">Lake</span><span class="w">              </span><span class="err">│</span>
+<span class="w">        </span><span class="err">│</span><span class="w">  </span><span class="p">(</span><span class="nx">Data</span><span class="w"> </span><span class="nx">warehouse</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">analytics</span><span class="p">)</span><span class="w"> </span><span class="err">│</span>
+<span class="w">        </span><span class="err">└───────┬──────────────────────┘</span>
+<span class="w">                </span><span class="err">│</span>
+<span class="w">        </span><span class="err">┌───────▼──────────────────┐</span>
+<span class="w">        </span><span class="err">│</span><span class="w"> </span><span class="nx">Microsoft</span><span class="w"> </span><span class="nx">Power</span><span class="w"> </span><span class="nx">BI</span><span class="w">        </span><span class="err">│</span>
+<span class="w">        </span><span class="err">│</span><span class="w"> </span><span class="p">(</span><span class="nx">Dashboards</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">Reporting</span><span class="p">)</span><span class="w">  </span><span class="err">│</span>
+<span class="w">        </span><span class="err">└──────────────────────────┘</span>
+
+<span class="nx">Integration</span><span class="w"> </span><span class="nx">Points</span><span class="p">:</span>
+<span class="err">├─</span><span class="w"> </span><span class="nx">School</span><span class="w"> </span><span class="nx">systems</span><span class="w"> </span><span class="p">(</span><span class="nx">API</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">educator</span><span class="w"> </span><span class="nx">referrals</span><span class="p">)</span>
+<span class="err">├─</span><span class="w"> </span><span class="nx">Health</span><span class="w"> </span><span class="nx">systems</span><span class="w"> </span><span class="p">(</span><span class="nx">API</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">specialist</span><span class="w"> </span><span class="nx">referrals</span><span class="p">)</span>
+<span class="err">├─</span><span class="w"> </span><span class="nx">Payment</span><span class="w"> </span><span class="nx">systems</span><span class="w"> </span><span class="p">(</span><span class="nx">billing</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">grant</span><span class="w"> </span><span class="nx">tracking</span><span class="p">)</span>
+<span class="err">├─</span><span class="w"> </span><span class="nx">SMS</span><span class="o">/</span><span class="nx">Email</span><span class="w"> </span><span class="nx">gateways</span><span class="w"> </span><span class="p">(</span><span class="nx">Twilio</span><span class="p">,</span><span class="w"> </span><span class="nx">SendGrid</span><span class="p">)</span>
+<span class="err">└─</span><span class="w"> </span><span class="nx">Analytics</span><span class="w"> </span><span class="nx">platforms</span><span class="w"> </span><span class="p">(</span><span class="kd">external</span><span class="w"> </span><span class="nx">research</span><span class="w"> </span><span class="nx">partnerships</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="technology-stack-details">Technology Stack Details</h3>
+<div class="highlight"><pre><span></span><code><span class="nv">LAYER</span><span class="w"> </span><span class="mi">1</span>:<span class="w"> </span><span class="nv">CITIZEN</span><span class="w"> </span><span class="nv">INTERFACES</span>
+├─<span class="w"> </span><span class="nv">Web</span><span class="w"> </span><span class="nv">Portal</span>:<span class="w"> </span><span class="nv">Angular</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="ss">(</span><span class="nv">responsive</span>,<span class="w"> </span><span class="nv">accessible</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Mobile</span><span class="w"> </span><span class="nv">Apps</span>:<span class="w"> </span><span class="nv">React</span><span class="w"> </span><span class="nv">Native</span><span class="w"> </span><span class="ss">(</span><span class="nv">iOS</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">Android</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">WhatsApp</span><span class="w"> </span><span class="nv">Integration</span>:<span class="w"> </span><span class="nv">Twilio</span><span class="w"> </span><span class="nv">WhatsApp</span><span class="w"> </span><span class="nv">API</span>
+└─<span class="w"> </span><span class="nv">Email</span>:<span class="w"> </span><span class="nv">SendGrid</span><span class="w"> </span><span class="ss">(</span><span class="nv">templated</span>,<span class="w"> </span><span class="nv">tracked</span><span class="ss">)</span>
+
+<span class="nv">LAYER</span><span class="w"> </span><span class="mi">2</span>:<span class="w"> </span><span class="nv">API</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nv">ORCHESTRATION</span>
+├─<span class="w"> </span><span class="nv">API</span><span class="w"> </span><span class="nv">Gateway</span>:<span class="w"> </span><span class="nv">Azure</span><span class="w"> </span><span class="nv">API</span><span class="w"> </span><span class="nv">Management</span>
+├─<span class="w"> </span><span class="nv">Workflow</span><span class="w"> </span><span class="nv">Orchestration</span>:<span class="w"> </span><span class="nv">ServiceNow</span><span class="w"> </span><span class="nv">Workflow</span><span class="w"> </span><span class="nv">Engine</span>
+├─<span class="w"> </span><span class="nv">Authentication</span>:<span class="w"> </span><span class="nv">Azure</span><span class="w"> </span><span class="nv">AD</span><span class="w"> </span><span class="ss">(</span><span class="nv">OAuth</span><span class="w"> </span><span class="mi">2</span>.<span class="mi">0</span>,<span class="w"> </span><span class="nv">MFA</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Rate</span><span class="w"> </span><span class="nv">Limiting</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nv">Monitoring</span>:<span class="w"> </span><span class="nv">API</span><span class="w"> </span><span class="nv">Management</span>
+└─<span class="w"> </span><span class="nv">Message</span><span class="w"> </span><span class="nv">Queue</span>:<span class="w"> </span><span class="nv">Azure</span><span class="w"> </span><span class="nv">Service</span><span class="w"> </span><span class="nv">Bus</span><span class="w"> </span><span class="ss">(</span><span class="nv">async</span><span class="w"> </span><span class="nv">processing</span><span class="ss">)</span>
+
+<span class="nv">LAYER</span><span class="w"> </span><span class="mi">3</span>:<span class="w"> </span><span class="nv">CORE</span><span class="w"> </span><span class="nv">BUSINESS</span><span class="w"> </span><span class="nv">SYSTEMS</span>
+├─<span class="w"> </span><span class="nv">CRM</span>:<span class="w"> </span><span class="nv">Oracle</span><span class="w"> </span><span class="nv">Service</span><span class="w"> </span><span class="nv">Cloud</span><span class="w"> </span><span class="ss">(</span><span class="nv">child</span><span class="w"> </span><span class="nv">master</span><span class="w"> </span><span class="nv">profile</span>,<span class="w"> </span><span class="nv">case</span><span class="w"> </span><span class="nv">mgmt</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Workflow</span><span class="o">/</span><span class="nv">Ticketing</span>:<span class="w"> </span><span class="nv">ServiceNow</span><span class="w"> </span><span class="ss">(</span><span class="nv">intake</span>,<span class="w"> </span><span class="nv">screening</span>,<span class="w"> </span><span class="nv">scheduling</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Power</span><span class="w"> </span><span class="nv">Platform</span>:<span class="w"> </span><span class="nv">Power</span><span class="w"> </span><span class="nv">Apps</span><span class="w"> </span><span class="ss">(</span><span class="nv">intake</span><span class="w"> </span><span class="nv">forms</span><span class="ss">)</span>,<span class="w"> </span><span class="nv">Power</span><span class="w"> </span><span class="nv">Automate</span><span class="w"> </span><span class="ss">(</span><span class="nv">workflows</span><span class="ss">)</span>,<span class="w"> </span><span class="nv">Power</span><span class="w"> </span><span class="nv">BI</span><span class="w"> </span><span class="ss">(</span><span class="nv">dashboards</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Assessment</span><span class="w"> </span><span class="nv">Engine</span>:<span class="w"> </span><span class="nv">Custom</span><span class="w"> </span><span class="nv">platform</span><span class="w"> </span><span class="ss">(</span><span class="nv">testing</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">AI</span><span class="w"> </span><span class="nv">scoring</span><span class="ss">)</span>
+└─<span class="w"> </span><span class="nv">AI</span><span class="o">/</span><span class="nv">Reasoning</span>:<span class="w"> </span><span class="nv">Claude</span><span class="w"> </span><span class="nv">API</span><span class="w"> </span><span class="ss">(</span><span class="nv">Hermes</span><span class="w"> </span><span class="nv">Agent</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">intervention</span><span class="w"> </span><span class="nv">planning</span><span class="ss">)</span>
+
+<span class="nv">LAYER</span><span class="w"> </span><span class="mi">4</span>:<span class="w"> </span><span class="nv">DATA</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nv">ANALYTICS</span>
+├─<span class="w"> </span><span class="nv">Data</span><span class="w"> </span><span class="nv">Lake</span>:<span class="w"> </span><span class="nv">Azure</span><span class="w"> </span><span class="nv">Data</span><span class="w"> </span><span class="nv">Lake</span><span class="w"> </span><span class="nv">Storage</span><span class="w"> </span><span class="ss">(</span><span class="nv">Gen</span><span class="w"> </span><span class="mi">2</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Data</span><span class="w"> </span><span class="nv">Warehouse</span>:<span class="w"> </span><span class="nv">Synapse</span><span class="w"> </span><span class="nv">Analytics</span><span class="w"> </span><span class="ss">(</span><span class="nv">SQL</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">Spark</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Analytics</span>:<span class="w"> </span><span class="nv">Power</span><span class="w"> </span><span class="nv">BI</span><span class="w"> </span><span class="ss">(</span><span class="mi">120</span><span class="o">+</span><span class="w"> </span><span class="nv">dashboards</span><span class="w"> </span><span class="nv">across</span><span class="w"> </span><span class="nv">roles</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Data</span><span class="w"> </span><span class="nv">Governance</span>:<span class="w"> </span><span class="nv">Oracle</span><span class="w"> </span><span class="nv">Data</span><span class="w"> </span><span class="nv">Governance</span><span class="w"> </span><span class="ss">(</span><span class="nv">metadata</span>,<span class="w"> </span><span class="nv">lineage</span>,<span class="w"> </span><span class="nv">quality</span><span class="ss">)</span>
+└─<span class="w"> </span><span class="nv">Machine</span><span class="w"> </span><span class="nv">Learning</span>:<span class="w"> </span><span class="nv">Azure</span><span class="w"> </span><span class="nv">ML</span><span class="w"> </span><span class="ss">(</span><span class="nv">predictive</span><span class="w"> </span><span class="nv">models</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">reclassification</span><span class="ss">)</span>
+
+<span class="nv">LAYER</span><span class="w"> </span><span class="mi">5</span>:<span class="w"> </span><span class="nv">SECURITY</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nv">COMPLIANCE</span>
+├─<span class="w"> </span><span class="nv">Encryption</span>:<span class="w"> </span><span class="nv">AES</span><span class="o">-</span><span class="mi">256</span><span class="w"> </span><span class="ss">(</span><span class="nv">at</span><span class="w"> </span><span class="nv">rest</span><span class="ss">)</span>,<span class="w"> </span><span class="nv">TLS</span><span class="w"> </span><span class="mi">1</span>.<span class="mi">3</span><span class="w"> </span><span class="ss">(</span><span class="nv">in</span><span class="w"> </span><span class="nv">transit</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Access</span><span class="w"> </span><span class="nv">Control</span>:<span class="w"> </span><span class="nv">Azure</span><span class="w"> </span><span class="nv">AD</span><span class="w"> </span><span class="nv">RBAC</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">Oracle</span><span class="w"> </span><span class="nv">fine</span><span class="o">-</span><span class="nv">grained</span><span class="w"> </span><span class="nv">access</span>
+├─<span class="w"> </span><span class="nv">Audit</span><span class="w"> </span><span class="nv">Logging</span>:<span class="w"> </span><span class="nv">All</span><span class="w"> </span><span class="nv">system</span><span class="w"> </span><span class="nv">activities</span><span class="w"> </span><span class="nv">logged</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">Azure</span><span class="w"> </span><span class="nv">Monitor</span>
+├─<span class="w"> </span><span class="nv">Data</span><span class="w"> </span><span class="nv">Privacy</span>:<span class="w"> </span><span class="nv">Azure</span><span class="w"> </span><span class="nv">Information</span><span class="w"> </span><span class="nv">Protection</span><span class="w"> </span><span class="ss">(</span><span class="nv">PII</span><span class="w"> </span><span class="nv">classification</span><span class="ss">)</span>
+├─<span class="w"> </span><span class="nv">Backup</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nv">Recovery</span>:<span class="w"> </span><span class="nv">Geo</span><span class="o">-</span><span class="nv">redundant</span><span class="w"> </span><span class="nv">backups</span><span class="w"> </span><span class="ss">(</span><span class="mi">24</span><span class="nv">h</span><span class="w"> </span><span class="nv">RPO</span>,<span class="w"> </span><span class="mi">4</span><span class="nv">h</span><span class="w"> </span><span class="nv">RTO</span><span class="ss">)</span>
+└─<span class="w"> </span><span class="nv">Compliance</span><span class="w"> </span><span class="nv">Monitoring</span>:<span class="w"> </span><span class="nv">Automated</span><span class="w"> </span><span class="nv">LGPD</span><span class="w"> </span><span class="nv">compliance</span><span class="w"> </span><span class="nv">checks</span>
+</code></pre></div>
+
+<h3 id="technology-scaling-model">Technology Scaling Model</h3>
+<div class="highlight"><pre><span></span><code><span class="n">Children</span><span class="o">/</span><span class="n">Year</span><span class="w">    </span><span class="n">Web</span><span class="w"> </span><span class="n">Portal</span><span class="w">    </span><span class="n">Mobile</span><span class="w">    </span><span class="n">Assessment</span><span class="w">    </span><span class="n">Data</span><span class="w"> </span><span class="n">Lake</span>
+<span class="err">───────────────────────────────────────────────────────────────</span>
+<span class="mh">1</span><span class="p">,</span><span class="mh">000</span><span class="w">           </span><span class="n">Tier</span><span class="w"> </span><span class="mh">1</span><span class="w">        </span><span class="n">Basic</span><span class="w">     </span><span class="n">Basic</span><span class="w"> </span><span class="n">DB</span><span class="w">      </span><span class="n">Basic</span>
+<span class="mh">5</span><span class="p">,</span><span class="mh">000</span><span class="w">           </span><span class="n">Tier</span><span class="w"> </span><span class="mh">1</span><span class="w">        </span><span class="n">Full</span><span class="w">      </span><span class="n">Scaled</span><span class="w"> </span><span class="n">DB</span><span class="w">     </span><span class="n">Data</span><span class="w"> </span><span class="n">Lake</span>
+<span class="mh">10</span><span class="p">,</span><span class="mh">000</span><span class="w">          </span><span class="n">Tier</span><span class="w"> </span><span class="mh">2</span><span class="w">        </span><span class="n">Full</span><span class="w">      </span><span class="n">Scaled</span><span class="w"> </span><span class="n">DB</span><span class="w">     </span><span class="n">Analytics</span>
+<span class="mh">50</span><span class="p">,</span><span class="mh">000</span><span class="w">          </span><span class="n">Tier</span><span class="w"> </span><span class="mh">2</span><span class="w">        </span><span class="n">Full</span><span class="w">      </span><span class="n">Multi</span><span class="o">-</span><span class="n">region</span><span class="w">  </span><span class="n">ML</span><span class="o">-</span><span class="n">enabled</span>
+<span class="mh">100</span><span class="p">,</span><span class="mh">000</span><span class="o">+</span><span class="w">        </span><span class="n">Tier</span><span class="w"> </span><span class="mh">3</span><span class="w">        </span><span class="n">Full</span><span class="w">      </span><span class="n">Multi</span><span class="o">-</span><span class="n">region</span><span class="w">  </span><span class="n">Real</span><span class="o">-</span><span class="kt">time</span><span class="w"> </span><span class="n">ML</span>
+</code></pre></div>
+
+<hr />
+<h2 id="governance-dimension">🏛️ GOVERNANCE DIMENSION</h2>
+<h3 id="governance-structure">Governance Structure</h3>
+<div class="highlight"><pre><span></span><code><span class="err">┌─────────────────────────────────────────┐</span>
+<span class="err">│</span><span class="w">  </span><span class="n">EXECUTIVE</span><span class="w"> </span><span class="n">STEERING</span><span class="w"> </span><span class="n">COMMITTEE</span><span class="w"> </span><span class="p">(</span><span class="n">Quarterly</span><span class="p">)</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">Health</span><span class="w"> </span><span class="n">Minister</span><span class="w"> </span><span class="p">(</span><span class="n">Chair</span><span class="p">)</span><span class="w">             </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">Education</span><span class="w"> </span><span class="n">Minister</span><span class="w">                  </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">ONG</span><span class="w"> </span><span class="n">Federation</span><span class="w"> </span><span class="n">President</span><span class="w">            </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">Citizen</span><span class="w"> </span><span class="n">Advocate</span><span class="w">                    </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">└─</span><span class="w"> </span><span class="n">Budget</span><span class="o">/</span><span class="n">Finance</span><span class="w"> </span><span class="n">Officer</span><span class="w">              </span><span class="err">│</span>
+<span class="err">│</span><span class="w">                                         </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="nl">Decisions:</span><span class="w">                             </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">Strategic</span><span class="w"> </span><span class="n">direction</span><span class="w">                 </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">Budget</span><span class="w"> </span><span class="n">allocation</span><span class="w">                   </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">Expansion</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">regions</span><span class="w">            </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">└─</span><span class="w"> </span><span class="n">Major</span><span class="w"> </span><span class="n">risk</span><span class="w"> </span><span class="n">escalations</span><span class="w">              </span><span class="err">│</span>
+<span class="err">└────────────────┬────────────────────────┘</span>
+<span class="w">                 </span><span class="err">│</span>
+<span class="err">┌────────────────▼────────────────────────┐</span>
+<span class="err">│</span><span class="w">  </span><span class="n">SERVICE</span><span class="w"> </span><span class="n">DELIVERY</span><span class="w"> </span><span class="n">BOARD</span><span class="w"> </span><span class="p">(</span><span class="n">Monthly</span><span class="p">)</span><span class="w">       </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">ONG</span><span class="w"> </span><span class="n">Program</span><span class="w"> </span><span class="n">Managers</span><span class="w"> </span><span class="p">(</span><span class="mh">5</span><span class="p">)</span><span class="w">            </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">Assessment</span><span class="w"> </span><span class="n">Lead</span><span class="w"> </span><span class="p">(</span><span class="n">Psychopedagogue</span><span class="p">)</span><span class="w">   </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">Intervention</span><span class="w"> </span><span class="n">Lead</span><span class="w"> </span><span class="p">(</span><span class="n">Educator</span><span class="p">)</span><span class="w">        </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">Technology</span><span class="w"> </span><span class="n">Lead</span><span class="w">                     </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">└─</span><span class="w"> </span><span class="n">Compliance</span><span class="w"> </span><span class="n">Officer</span><span class="w">                  </span><span class="err">│</span>
+<span class="err">│</span><span class="w">                                         </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="nl">Decisions:</span><span class="w">                             </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">Operational</span><span class="w"> </span><span class="n">issues</span><span class="w">                  </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">Resource</span><span class="w"> </span><span class="n">allocation</span><span class="w">                 </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">SLA</span><span class="w"> </span><span class="n">performance</span><span class="w">                     </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">└─</span><span class="w"> </span><span class="n">Process</span><span class="w"> </span><span class="n">improvements</span><span class="w">                </span><span class="err">│</span>
+<span class="err">└────────────────┬────────────────────────┘</span>
+<span class="w">                 </span><span class="err">│</span>
+<span class="err">┌────────────────▼────────────────────────┐</span>
+<span class="err">│</span><span class="w">  </span><span class="n">QUALITY</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">COMPLIANCE</span><span class="w"> </span><span class="n">BOARD</span><span class="w"> </span><span class="p">(</span><span class="n">Bi</span><span class="o">-</span><span class="n">weekly</span><span class="p">)</span><span class="w"> </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">Data</span><span class="w"> </span><span class="n">Privacy</span><span class="w"> </span><span class="n">Officer</span><span class="w">                </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">Clinical</span><span class="w"> </span><span class="n">Advisor</span><span class="w"> </span><span class="p">(</span><span class="n">Dyslexia</span><span class="w"> </span><span class="n">expert</span><span class="p">)</span><span class="w">  </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">Risk</span><span class="w"> </span><span class="n">Manager</span><span class="w">                        </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">Audit</span><span class="w"> </span><span class="n">Lead</span><span class="w">                          </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">└─</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="n">Experience</span><span class="w"> </span><span class="n">Lead</span><span class="w">                </span><span class="err">│</span>
+<span class="err">│</span><span class="w">                                         </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="nl">Decisions:</span><span class="w">                             </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">Quality</span><span class="w"> </span><span class="n">metrics</span><span class="w">                     </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">Risk</span><span class="w"> </span><span class="n">management</span><span class="w">                     </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">Compliance</span><span class="w"> </span><span class="n">issues</span><span class="w">                   </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">└─</span><span class="w"> </span><span class="n">Data</span><span class="w"> </span><span class="n">privacy</span><span class="w"> </span><span class="n">concerns</span><span class="w">               </span><span class="err">│</span>
+<span class="err">└────────────────┬────────────────────────┘</span>
+<span class="w">                 </span><span class="err">│</span>
+<span class="err">┌────────────────▼────────────────────────┐</span>
+<span class="err">│</span><span class="w">  </span><span class="n">OPERATIONS</span><span class="w"> </span><span class="n">CENTER</span><span class="w"> </span><span class="p">(</span><span class="n">Daily</span><span class="p">)</span><span class="w">              </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">Incident</span><span class="w"> </span><span class="n">Management</span><span class="w">                 </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">SLA</span><span class="w"> </span><span class="n">Tracking</span><span class="w">                        </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">Performance</span><span class="w"> </span><span class="n">Monitoring</span><span class="w">              </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">├─</span><span class="w"> </span><span class="n">Help</span><span class="w"> </span><span class="n">Desk</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">Support</span><span class="w">                 </span><span class="err">│</span>
+<span class="err">│</span><span class="w">  </span><span class="err">└─</span><span class="w"> </span><span class="n">Daily</span><span class="w"> </span><span class="n">Operations</span><span class="w"> </span><span class="n">Standup</span><span class="w">            </span><span class="err">│</span>
+<span class="err">└─────────────────────────────────────────┘</span>
+</code></pre></div>
+
+<h3 id="key-policies-controls">Key Policies &amp; Controls</h3>
+<div class="highlight"><pre><span></span><code>Policy                    Owner                  Frequency      Audited
+─────────────────────────────────────────────────────────────────────
+SLA Management            Service Delivery Bd    Daily monitor  Weekly
+Data Access Control       Data Governance        Real-time      Monthly
+Incident Response         Operations Center      As needed      Quarterly
+Change Management         Technology Lead       Per request     Monthly
+Compliance Certification  Compliance Officer    Quarterly       Annual
+Risk Register Review      Risk Manager          Bi-weekly       Quarterly
+Financial Controls        Budget Officer        Monthly         Quarterly
+Training &amp; Certification  Operations Mgr        Annual          Quarterly
+Disaster Recovery Test    System Admin          Semi-annual     As-needed
+</code></pre></div>
+
+<hr />
+<h2 id="tom-readiness-assessment">📊 TOM READINESS ASSESSMENT</h2>
+<h3 id="current-state-vs-tom">Current State vs TOM</h3>
+<div class="highlight"><pre><span></span><code><span class="n">Dimension</span><span class="w">          </span><span class="n">Current</span><span class="w">     </span><span class="n">TOM</span><span class="w"> </span><span class="n">Target</span><span class="w">   </span><span class="n">Gap</span><span class="w">      </span><span class="n">Priority</span>
+<span class="err">────────────────────────────────────────────────────────────</span>
+<span class="n">People</span><span class="w"> </span><span class="n">Structure</span><span class="w">   </span><span class="n">Fragmented</span><span class="w">  </span><span class="n">Standardized</span><span class="w"> </span><span class="mh">5</span><span class="o">/</span><span class="mh">5</span><span class="w">      </span><span class="err">🔴</span><span class="w"> </span><span class="n">Critical</span>
+<span class="n">Process</span><span class="w"> </span><span class="n">Definition</span><span class="w"> </span><span class="n">Ad</span><span class="o">-</span><span class="n">hoc</span><span class="w">      </span><span class="n">BPMN</span><span class="o">-</span><span class="n">defined</span><span class="w"> </span><span class="mh">5</span><span class="o">/</span><span class="mh">5</span><span class="w">     </span><span class="err">🔴</span><span class="w"> </span><span class="n">Critical</span>
+<span class="n">Technology</span><span class="w"> </span><span class="n">Stack</span><span class="w">   </span><span class="n">Siloed</span><span class="w">      </span><span class="n">Integrated</span><span class="w">   </span><span class="mh">5</span><span class="o">/</span><span class="mh">5</span><span class="w">      </span><span class="err">🔴</span><span class="w"> </span><span class="n">Critical</span>
+<span class="n">Governance</span><span class="w"> </span><span class="n">Model</span><span class="w">   </span><span class="n">Informal</span><span class="w">    </span><span class="n">Formal</span><span class="w">       </span><span class="mh">5</span><span class="o">/</span><span class="mh">5</span><span class="w">      </span><span class="err">🔴</span><span class="w"> </span><span class="n">Critical</span>
+<span class="n">Compliance</span><span class="w"> </span><span class="n">Ready</span><span class="w">   </span><span class="n">Basic</span><span class="w">       </span><span class="n">LGPD</span><span class="o">-</span><span class="n">proven</span><span class="w">  </span><span class="mh">4</span><span class="o">/</span><span class="mh">5</span><span class="w">      </span><span class="err">🔴</span><span class="w"> </span><span class="n">Critical</span>
+<span class="n">Data</span><span class="w"> </span><span class="n">Maturity</span><span class="w">      </span><span class="n">Spreadsheets</span><span class="w"> </span><span class="n">Data</span><span class="o">-</span><span class="n">driven</span><span class="w"> </span><span class="mh">5</span><span class="o">/</span><span class="mh">5</span><span class="w">     </span><span class="err">🔴</span><span class="w"> </span><span class="n">Critical</span>
+<span class="n">Scalability</span><span class="w">        </span><span class="n">Limited</span><span class="w">     </span><span class="n">Multi</span><span class="o">-</span><span class="n">region</span><span class="w"> </span><span class="mh">5</span><span class="o">/</span><span class="mh">5</span><span class="w">     </span><span class="err">🔴</span><span class="w"> </span><span class="n">Critical</span>
+
+<span class="n">Overall</span><span class="w"> </span><span class="n">TOM</span><span class="w"> </span><span class="nl">Gap:</span><span class="w"> </span><span class="mh">95</span><span class="o">%</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">Requires</span><span class="w"> </span><span class="n">full</span><span class="w"> </span><span class="n">transformation</span>
+</code></pre></div>
+
+<hr />
+<p><strong>Document prepared for enterprise architecture &amp; operational excellence</strong><br />
+<em>Demonstrates: People/Process/Technology/Governance integration, scalability, compliance readiness</em></p>
+    </main>
+
+    <footer>
+        <hr>
+        <p>Document generated from Markdown | GovUAE Dyslexia Service Platform</p>
+        <p>© 2026 Government Excellence Initiative</p>
+    </footer>
+
+    <script>
+        // Add smooth scrolling to anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add copy button to code blocks
+        document.querySelectorAll('pre').forEach(block => {
+            const button = document.createElement('button');
+            button.textContent = 'Copy';
+            button.style.cssText = 'position: absolute; top: 5px; right: 5px; padding: 5px 10px; background: #0066cc; color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 0.85em;';
+            block.style.position = 'relative';
+            block.appendChild(button);
+            
+            button.addEventListener('click', function() {
+                const text = block.innerText;
+                navigator.clipboard.writeText(text).then(() => {
+                    button.textContent = 'Copied!';
+                    setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

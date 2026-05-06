@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__plugin_everything-claude-code_exa__web_fetch_exa",
+      "Bash(gh auth:*)",
+      "Bash(brew install:*)",
+      "Bash(npx skills:*)",
+      "Bash(git config:*)",
+      "Bash(brew upgrade:*)",
+      "Bash(curl -fsSL https://bun.sh/install)",
+      "Bash(bash)",
+      "Bash(python3 -m pip install weasyprint markdown2pdf --quiet)",
+      "Bash(python3 convert_to_pdf.py)",
+      "Bash(/usr/local/bin/pandoc --version)",
+      "Read(//usr/local/**)",
+      "Bash(python3 *)",
+      "Bash(npm install *)",
+      "Bash(node convert_pdfs.js)",
+      "Bash(grep -E \"\\(\\\\.html$|README|index\\)\")",
+      "Bash(awk '{print $9, \"\\(\" $5 \"\\)\"}')",
+      "mcp__plugin_everything-claude-code_github__create_repository",
+      "Bash(git init *)",
+      "Bash(git add *)"
+    ]
+  }
+}
