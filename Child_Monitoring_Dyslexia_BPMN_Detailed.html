@@ -274,7 +274,7 @@ graph TD
     Esc3 -->|Specialist<br>Review| S5
 
     S4 -->|Calculate<br>Subscores| CalcScores["Phonological: 0-100<br>Fluency/WPM: 0-100<br>Comprehension: 0-100<br>Visual: 0-100<br>Composite Calc:<br>0.40*Phon + 0.35*Fluency<br>+ 0.15*Comp + 0.10*Visual"]
-    CalcScores --> S5["TASK: Stage 5<br>Risk Classification<br>& Decision Gating"]
+    CalcScores --> S5["TASK: Stage 5<br>Risk Classification<br>&amp; Decision Gating"]
 
     S5 -->|Classify<br>by Score| ScoreGate{GATEWAY<br>Composite Score?<br>0-30: No Risk<br>31-50: Low Risk<br>51-70: Moderate<br>71-85: High Risk<br>85 plus: Critical}
 
@@ -292,7 +292,7 @@ graph TD
     SpecReview -->|Approved| S6["TASK: Stage 6<br>AI-Driven Plan<br>Generation"]
 
     S6 -->|Generate Plan| GenPlan["Hermes Agent:<br>Personalized<br>Intervention Plan<br>Based on Profile"]
-    GenPlan -->|Expert Review| PsychReview["Psychopedagogue<br>Review & Approval"]
+    GenPlan -->|Expert Review| PsychReview["Psychopedagogue<br>Review &amp; Approval"]
     PsychReview -->|Validate| ApprovalGate{GATEWAY<br>Plan Approved?<br>Condition:<br>Specialist OK?}
     ApprovalGate -->|Needs Revision| Revise["Revise Plan<br>Address Feedback"]
     Revise -->|Resubmit| PsychReview
@@ -300,7 +300,7 @@ graph TD
 
     S7 -->|Notify<br>Stakeholders| NotifyAll["SMS Parent<br>Email Educator<br>Email Specialist<br>Alert ONG<br>Create Tasks"]
     NotifyAll --> S8
-    Monitor -->|Link to<br>Monitoring| S8["TASK: Stage 8<br>Active Monitoring<br>& Progress Tracking"]
+    Monitor -->|Link to<br>Monitoring| S8["TASK: Stage 8<br>Active Monitoring<br>&amp; Progress Tracking"]
 
     S8 -->|Weekly<br>Bi-weekly| Collect["Progress Collection:<br>WPM Assessment<br>Adherence Check<br>Behavioral Obs"]
     Collect -->|Test| WPMTest["WPM Re-test<br>Same Protocol"]
