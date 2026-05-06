@@ -82,7 +82,7 @@
         .content-box h4 { color: #1b3a6b; margin-bottom: 10px; font-size: 1em; text-transform: uppercase; font-weight: 600; }
         .content-box ul { list-style: none; padding-left: 0; }
         .content-box li { padding: 8px 0; padding-left: 25px; position: relative; }
-        .content-box li:before { content: "→"; position: absolute; left: 0; color: #667eea; font-weight: bold; }
+        .content-box li:before { content: "->"; position: absolute; left: 0; color: #667eea; font-weight: bold; }
         .decision-diamond { background: #fff3cd; border-left-color: #ffc107; }
         .error-handling { background: #f8d7da; border-left-color: #dc3545; }
         .parallel-activity { background: #d1ecf1; border-left-color: #17a2b8; }
@@ -345,8 +345,8 @@ graph TD
                     <li><strong>Exclusive Gateways (Yellow Diamonds):</strong> All decision points use proper diamond notation with explicit conditions labeled on branches</li>
                     <li><strong>Gateway Conditions:</strong> Each gateway shows condition logic (score ranges, thresholds, retry counts) for automation readiness</li>
                     <li><strong>Error Handling (Red Nodes):</strong> Escalation paths are explicit with boundary error events and retry logic (max 3x)</li>
-                    <li><strong>Specialist Gates (Purple):</strong> Critical review points for high-risk scores (71-85 and ≥85) with 48/24-hour SLAs</li>
-                    <li><strong>Monitoring Loop:</strong> Stage 8 shows explicit loop with termination conditions (score change ≥10 or time >= 26 weeks)</li>
+                    <li><strong>Specialist Gates (Purple):</strong> Critical review points for high-risk scores (71-85 and greater 85) with 48/24-hour SLAs</li>
+                    <li><strong>Monitoring Loop:</strong> Stage 8 shows explicit loop with termination conditions (score change 10 or greater or time greater 26 weeks)</li>
                     <li><strong>Data Flow:</strong> Activities show input/output data clearly (e.g., Stage 4 outputs composite score for Stage 5 decision)</li>
                     <li><strong>Swimlanes (Implicit):</strong> Activities grouped by responsible actor (System, Educator, Specialist, ONG, Parent)</li>
                 </ul>
@@ -407,9 +407,9 @@ graph TD
                     <div class="content-box decision-diamond">
                         <h4>Decision Gateway: Risk Classification</h4>
                         <ul>
-                            <li><strong>0-1 indicators:</strong> Low risk → Annual monitoring only</li>
-                            <li><strong>2-3 indicators:</strong> Moderate risk → Full assessment (Stage 3)</li>
-                            <li><strong>4+ indicators:</strong> High risk → Fast-track to specialist</li>
+                            <li><strong>0-1 indicators:</strong> Low risk -> Annual monitoring only</li>
+                            <li><strong>2-3 indicators:</strong> Moderate risk -> Full assessment (Stage 3)</li>
+                            <li><strong>4+ indicators:</strong> High risk -> Fast-track to specialist</li>
                         </ul>
                     </div>
                 </div>
@@ -492,7 +492,7 @@ graph TD
                     <div class="content-box">
                         <h4>Composite Score & Analysis</h4>
                         <ul>
-                            <li><strong>Weighted Composite:</strong> (0.40 × Phon) + (0.35 × Fluency) + (0.15 × Comp) + (0.10 × Visual)</li>
+                            <li><strong>Weighted Composite:</strong> (0.40 x Phon) + (0.35 x Fluency) + (0.15 x Comp) + (0.10 x Visual)</li>
                             <li>Calculate Listening-Reading Discrepancy (L-R gap)</li>
                             <li>Compare to age-normed reference data (population percentile)</li>
                             <li>Flag outlier patterns and cognitive strengths/weaknesses</li>
@@ -532,7 +532,7 @@ graph TD
                             </tr>
                             <tr style="background: #fff3cd;">
                                 <td><strong>Composite Score</strong></td>
-                                <td>0.40×Phon + 0.35×Fluency + 0.15×Comp + 0.10×Visual</td>
+                                <td>0.40 x Phon + 0.35 x Fluency + 0.15 x Comp + 0.10 x Visual</td>
                                 <td>0-100</td>
                             </tr>
                             <tr>
@@ -559,7 +559,7 @@ graph TD
                             <li><strong>Score 31-50:</strong> Low Risk</li>
                             <li><strong>Score 51-70:</strong> Moderate Risk</li>
                             <li><strong>Score 71-85:</strong> High Risk (⚠️ Specialist Review)</li>
-                            <li><strong>Score ≥85:</strong> Critical Risk (🔴 Urgent Escalation)</li>
+                            <li><strong>Score 85 or greater:</strong> Critical Risk (URGENT Escalation)</li>
                         </ul>
                     </div>
                     <div class="content-box">
@@ -578,8 +578,8 @@ graph TD
                     IF composite_score < 31 THEN risk_tier = "No Risk"<br/>
                     ELSE IF composite_score < 51 THEN risk_tier = "Low Risk"<br/>
                     ELSE IF composite_score < 71 THEN risk_tier = "Moderate Risk"<br/>
-                    ELSE IF composite_score < 85 THEN risk_tier = "High Risk" → Specialist Gate<br/>
-                    ELSE risk_tier = "Critical Risk" → Urgent Gate</code>
+                    ELSE IF composite_score less 85 THEN risk_tier = "High Risk" -> Specialist Gate<br/>
+                    ELSE risk_tier = "Critical Risk" -> Urgent Gate</code>
                 </div>
                 <div class="decision-table">
                     <table style="width: 100%; border-collapse: collapse;">
@@ -596,35 +596,35 @@ graph TD
                             <tr>
                                 <td><strong>No Risk</strong></td>
                                 <td>0-30</td>
-                                <td>→ Stage 6 (Auto)</td>
+                                <td>-> Stage 6 (Auto)</td>
                                 <td>10 days</td>
                                 <td>Annual Monitoring</td>
                             </tr>
                             <tr>
                                 <td><strong>Low Risk</strong></td>
                                 <td>31-50</td>
-                                <td>→ Stage 6 (Auto)</td>
+                                <td>-> Stage 6 (Auto)</td>
                                 <td>10 days</td>
                                 <td>Preventive Plan</td>
                             </tr>
                             <tr>
                                 <td><strong>Moderate Risk</strong></td>
                                 <td>51-70</td>
-                                <td>→ Stage 6 (Auto)</td>
+                                <td>-> Stage 6 (Auto)</td>
                                 <td>7 days</td>
                                 <td>Intervention Plan</td>
                             </tr>
                             <tr style="background: #fff3cd;">
                                 <td><strong>High Risk</strong></td>
                                 <td>71-85</td>
-                                <td>→ Specialist Gate</td>
+                                <td>-> Specialist Gate</td>
                                 <td><strong>48h</strong></td>
                                 <td>Specialist Review</td>
                             </tr>
                             <tr style="background: #ffcccc;">
                                 <td><strong>Critical Risk</strong></td>
-                                <td>≥85</td>
-                                <td>→ Urgent Gate</td>
+                                <td>greater85</td>
+                                <td>-> Urgent Gate</td>
                                 <td><strong>24h</strong></td>
                                 <td>Urgent Specialist</td>
                             </tr>
@@ -632,7 +632,7 @@ graph TD
                     </table>
                 </div>
                 <div class="justification">
-                    <strong>Why These Score Ranges?</strong> Thresholds are based on clinical research and ROC analysis: Scores 0-30 represent typical readers (no intervention needed). Scores 31-50 show mild difficulties (preventive strategies). Scores 51-70 indicate dyslexia-like profiles requiring intervention. Scores 71-85 are definitively dyslexic (specialist expertise valuable). Scores ≥85 indicate severe dyslexia with likely comorbidities (urgent specialist assessment required within 24 hours).
+                    <strong>Why These Score Ranges?</strong> Thresholds are based on clinical research and ROC analysis: Scores 0-30 represent typical readers (no intervention needed). Scores 31-50 show mild difficulties (preventive strategies). Scores 51-70 indicate dyslexia-like profiles requiring intervention. Scores 71-85 are definitively dyslexic (specialist expertise valuable). Scores greater85 indicate severe dyslexia with likely comorbidities (urgent specialist assessment required within 24 hours).
                 </div>
             </div>
 
@@ -707,13 +707,13 @@ graph TD
                             <li>Educator submits weekly: WPM assessment, adherence check, behavioral observations</li>
                             <li>Parent submits (via app): practice minutes, homework completion, child confidence level</li>
                             <li>System tracks: intervention dose (hours/week), engagement rate, dropout signals</li>
-                            <li>Automated alerts: If adherence <50% for 2 weeks → Escalate to ONG coordinator</li>
+                            <li>Automated alerts: If adherence <50% for 2 weeks -> Escalate to ONG coordinator</li>
                         </ul>
                     </div>
                     <div class="content-box">
                         <h4>Reclassification Trigger Logic</h4>
                         <ul>
-                            <li><strong>Score Change ≥10 points:</strong> Trigger full re-assessment (Stages 3-5)</li>
+                            <li><strong>Score Change greater10 points:</strong> Trigger full re-assessment (Stages 3-5)</li>
                             <li><strong>WPM Improvement >15%:</strong> Plan optimization (increase complexity)</li>
                             <li><strong>WPM Decline >10%:</strong> Plan adjustment (slower progress, investigate barriers)</li>
                             <li><strong>Adherence <50% for 2 weeks:</strong> Escalate to remove implementation barriers</li>
@@ -880,7 +880,7 @@ graph TD
                         <tr>
                             <td><strong>8</strong></td>
                             <td>Active Monitoring</td>
-                            <td>Score Change ≥10? Time ≥26w?</td>
+                            <td>Score Change greater10? Time greater26w?</td>
                             <td>Weekly</td>
                             <td>Educator/Parent/System</td>
                             <td>Progress Data</td>
@@ -994,7 +994,7 @@ graph TD
             <p><strong>Compliance Standard:</strong> ISO/IEC 19510:2013 (BPMN 2.0)</p>
             <p><strong>Total Stages:</strong> 9 (1 Start, 7 Process, 1 End) + 8 Decision Gateways + Error Handling</p>
             <p><strong>Overall Automation Readiness:</strong> ✓ Ready for workflow engine implementation (Camunda, Activiti, UiPath)</p>
-            <p><strong>Recommended Implementation:</strong> Phase 1 (Stages 1-5) → Phase 2 (Stages 6-9) with parallel monitoring</p>
+            <p><strong>Recommended Implementation:</strong> Phase 1 (Stages 1-5) -> Phase 2 (Stages 6-9) with parallel monitoring</p>
             <p style="margin-top: 20px; font-style: italic; color: #999;">
                 This BPMN 2.0 model is designed for operational clarity, automation capability, and stakeholder alignment.
                 All decision points are formalized with explicit conditions suitable for workflow engine implementation.
