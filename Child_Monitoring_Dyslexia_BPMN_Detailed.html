@@ -212,20 +212,7 @@
         </div>
 
         <div class="content">
-            <h2 class="section-title">Process Overview: The 9-Stage Dyslexia Monitoring Flow (BPMN 2.0 Compliant) [UPDATED]</h2>
-
-            <div class="bpmn-note">
-                <strong>BPMN 2.0 Standards Applied:</strong> This diagram follows ISO/IEC 19510:2013 standards with proper notation:
-                <ul style="margin-top: 10px; margin-left: 20px;">
-                    <li><strong>Start/End Events:</strong> Green circles marking process boundaries</li>
-                    <li><strong>Tasks:</strong> Blue rectangles representing atomic units of work</li>
-                    <li><strong>Exclusive Gateways:</strong> Yellow diamonds for decision points with explicit conditions</li>
-                    <li><strong>Error Boundary Events:</strong> Red nodes for error handling and escalation paths</li>
-                    <li><strong>Specialist Gates:</strong> Purple nodes for critical review points (SLA: 48 hours)</li>
-                    <li><strong>Swimlanes:</strong> Organized by actor roles (System, Educator, Specialist, ONG, Parent)</li>
-                    <li><strong>Clear Labeling:</strong> All decision points show conditions (score ranges, retry logic, time thresholds)</li>
-                </ul>
-            </div>
+            <h2 class="section-title">Process Overview: The 9-Stage Dyslexia Monitoring Flow</h2>
 
             <!-- BPMN 2.0 LEGEND -->
             <h3 style="color: #1b3a6b; margin: 25px 0 15px 0;">BPMN 2.0 Symbol Legend</h3>
@@ -260,84 +247,108 @@
             <div class="diagram-container" style="background-color: #ffffff; border: 2px solid #667eea; border-radius: 8px; padding: 15px; min-height: 900px;">
                 <div class="mermaid">
 flowchart TD
-    Start(["START<br/>Child Referral<br/>Received"]):::startEnd
+    %% Start Event (BPMN 2.0: thin-bordered circle)
+    Start(("Start"))
     
-    Start -->|Create Profile| S1["TASK: Stage 1<br/>Initial Identification<br/>and Registration"]:::task
-
-    S1 -->|Verify Data Quality| ValidCheck{"GATEWAY<br/>Data Valid?<br/>All required fields?"}:::gateway
-    ValidCheck -->|NO| RetryData{"GATEWAY<br/>Retry Available?<br/>Count less than 3?"}:::gateway
-    RetryData -->|Failed| Esc1["ERROR<br/>Escalate to ONG<br/>Manual Review"]:::error
-    RetryData -->|Success| S2
-    ValidCheck -->|YES| S2["TASK: Stage 2<br/>Behavioral Screening<br/>and Alert Detection"]:::task
-
-    Esc1 -->|Manual Resolution| S2
-
-    S2 -->|Assess Risk Indicators| S2Gate{"GATEWAY<br/>Risk Signals?<br/>0-1: Low<br/>2-3: Moderate<br/>4+: High"}:::gateway
-    S2Gate -->|Low/None| Monitor["MONITOR<br/>Annual Retest<br/>12 months"]:::monitor
-    S2Gate -->|Moderate or High| S3["TASK: Stage 3<br/>Multidimensional<br/>Cognitive Battery<br/>3 Parallel Sessions"]:::task
-
-    S3 -->|Phonological Fluency Comprehension| S3Sessions["Session 1: Phonology<br/>Session 2: Fluency<br/>Session 3: Comprehension"]:::activity
-    S3Sessions -->|Quality Validation| QualityGate{"GATEWAY<br/>Data Quality OK?<br/>Audio at least 0.7<br/>Missing less than 5%"}:::gateway
-    QualityGate -->|Issues Found| Retry3x{"GATEWAY<br/>Retry Count<br/>Less than 3?"}:::gateway
-    Retry3x -->|Failed| Esc3["ERROR<br/>Escalate to Specialist<br/>In-person Eval"]:::error
-    Retry3x -->|Success| S4
-    QualityGate -->|OK| S4["TASK: Stage 4<br/>Automated Scoring<br/>and Analysis"]:::task
-
-    Esc3 -->|Specialist Review| S5
-
-    S4 -->|Calculate Subscores| CalcScores["Phonological: 0-100<br/>Fluency/WPM: 0-100<br/>Comprehension: 0-100<br/>Visual: 0-100<br/>Composite Calc:<br/>0.40 Phon + 0.35 Fluency<br/>+ 0.15 Comp + 0.10 Visual"]:::activity
-    CalcScores --> S5["TASK: Stage 5<br/>Risk Classification<br/>and Decision Gating"]:::task
-
-    S5 -->|Classify by Score| ScoreGate{"GATEWAY<br/>Composite Score?<br/>0-30: No Risk<br/>31-50: Low Risk<br/>51-70: Moderate<br/>71-85: High Risk<br/>85+: Critical"}:::gateway
-
-    ScoreGate -->|0-30| Tier1["OUTCOME: No Risk<br/>Annual Monitoring<br/>Preventive Plan"]:::outcome
-    ScoreGate -->|31-50| Tier2["OUTCOME: Low Risk<br/>Preventive/Monitoring<br/>Plan Generation"]:::outcome
-    ScoreGate -->|51-70| Tier3["OUTCOME: Moderate Risk<br/>Intervention Plan<br/>Generation"]:::outcome
-    ScoreGate -->|71-85| Tier4["SPECIALIST GATE<br/>High Risk<br/>Specialist Review<br/>SLA: 48 hours"]:::specialist
-    ScoreGate -->|85 or higher| Tier5["SPECIALIST GATE<br/>Critical Risk<br/>Urgent Escalation<br/>SLA: 24 hours"]:::specialist
-
-    Tier1 -->|Auto Path| S6
-    Tier2 -->|Auto Path| S6
-    Tier3 -->|Auto Path| S6
-    Tier4 -->|Specialist Gate| SpecReview["SPECIALIST REVIEW<br/>Psychopedagogue<br/>Assessment<br/>SLA: 48 hours"]:::specialist
-    Tier5 -->|Urgent Gate| SpecReviewUrgent["URGENT SPECIALIST REVIEW<br/>Multi-disciplinary Team<br/>SLA: 24 hours"]:::specialist
-    SpecReview -->|Approved| S6["TASK: Stage 6<br/>AI-Driven Plan<br/>Generation"]:::task
-    SpecReviewUrgent -->|Approved| S6
-
-    S6 -->|Generate Plan| GenPlan["Hermes Agent:<br/>Personalized<br/>Intervention Plan<br/>Based on Profile"]:::activity
-    GenPlan -->|Expert Review| PsychReview["Psychopedagogue<br/>Review and Approval"]:::activity
-    PsychReview -->|Validate| ApprovalGate{"GATEWAY<br/>Plan Approved?<br/>Specialist OK?"}:::gateway
-    ApprovalGate -->|Needs Revision| Revise["Revise Plan<br/>Address Feedback"]:::activity
-    Revise -->|Resubmit| PsychReview
-    ApprovalGate -->|Approved| S7["TASK: Stage 7<br/>Multi-Channel<br/>Communication"]:::task
-
-    S7 -->|Notify Stakeholders| NotifyAll["SMS Parent<br/>Email Educator<br/>Email Specialist<br/>Alert ONG<br/>Create Tasks"]:::activity
+    %% Stage 1: Initial Identification
+    Start --> S1("Stage 1<br/>Identification<br/>and Registration")
+    S1 --> ValidCheck{"Data Valid?"}
+    ValidCheck -- No --> RetryData{"Retry less than 3?"}
+    RetryData -- No --> Esc1[/"Error: Escalate<br/>to ONG"/]
+    RetryData -- Yes --> S1
+    Esc1 --> S2
+    ValidCheck -- Yes (default) --> S2
+    
+    %% Stage 2: Behavioral Screening
+    S2("Stage 2<br/>Behavioral Screening<br/>and Alert Detection")
+    S2 --> S2Gate{"Risk Signals?"}
+    S2Gate -- "0-1 Low" --> Monitor("Annual Monitoring<br/>12 months")
+    S2Gate -- "2+ Moderate/High" --> S3
+    
+    %% Stage 3: Cognitive Battery
+    S3("Stage 3<br/>Cognitive Battery<br/>3 Parallel Sessions")
+    S3 --> S3Sessions[/"S1: Phonology<br/>S2: Fluency<br/>S3: Comprehension"/]
+    S3Sessions --> QualityGate{"Data Quality OK?"}
+    QualityGate -- No --> Retry3x{"Retry less than 3?"}
+    Retry3x -- No --> Esc3[/"Error: Escalate<br/>to Specialist"/]
+    Retry3x -- Yes --> S3
+    Esc3 --> S5
+    QualityGate -- Yes (default) --> S4
+    
+    %% Stage 4: Automated Scoring
+    S4("Stage 4<br/>Automated Scoring<br/>and Analysis")
+    S4 --> CalcScores[/"Phonological: 0-100<br/>Fluency/WPM: 0-100<br/>Comprehension: 0-100<br/>Visual: 0-100<br/>Composite weighted score"/]
+    CalcScores --> S5
+    
+    %% Stage 5: Risk Classification (5 outcomes)
+    S5("Stage 5<br/>Risk Classification<br/>and Decision Gating")
+    S5 --> ScoreGate{"Composite<br/>Score?"}
+    ScoreGate -- "0-30 No Risk" --> Tier1("No Risk<br/>Annual Monitoring<br/>Preventive Plan")
+    ScoreGate -- "31-50 Low" --> Tier2("Low Risk<br/>Preventive/Monitoring<br/>Plan Generation")
+    ScoreGate -- "51-70 Moderate" --> Tier3("Moderate Risk<br/>Intervention Plan<br/>Generation")
+    ScoreGate -- "71-85 High" --> Tier4("High Risk<br/>Specialist Review<br/>SLA: 48h")
+    ScoreGate -- "85+ Critical" --> Tier5("Critical Risk<br/>Urgent Specialist<br/>SLA: 24h")
+    
+    Tier1 --> S6
+    Tier2 --> S6
+    Tier3 --> S6
+    Tier4 --> SpecReview("Specialist Review<br/>Psychopedagogue<br/>SLA: 48h")
+    Tier5 --> SpecReviewUrgent("Urgent Review<br/>Multi-disciplinary<br/>SLA: 24h")
+    SpecReview --> S6
+    SpecReviewUrgent --> S6
+    
+    %% Stage 6: Plan Generation
+    S6("Stage 6<br/>AI-Driven Plan<br/>Generation")
+    S6 --> GenPlan[/"Hermes Agent:<br/>Personalized Plan"/]
+    GenPlan --> PsychReview("Psychopedagogue<br/>Review and Approval")
+    PsychReview --> ApprovalGate{"Plan<br/>Approved?"}
+    ApprovalGate -- No --> Revise("Revise Plan<br/>Address Feedback")
+    Revise --> PsychReview
+    ApprovalGate -- Yes (default) --> S7
+    
+    %% Stage 7: Communication
+    S7("Stage 7<br/>Multi-Channel<br/>Communication")
+    S7 --> NotifyAll[/"SMS Parent<br/>Email Educator<br/>Email Specialist<br/>Alert ONG"/]
     NotifyAll --> S8
-    Monitor -->|Link to Monitoring| S8["TASK: Stage 8<br/>Active Monitoring<br/>and Progress Tracking"]:::task
-
-    S8 -->|Weekly/Bi-weekly| Collect["Progress Collection:<br/>WPM Assessment<br/>Adherence Check<br/>Behavioral Obs"]:::monitor
-    Collect -->|Test| WPMTest["WPM Re-test<br/>Same Protocol"]:::monitor
-    WPMTest -->|Analyze| ReClassGate{"GATEWAY<br/>Score Change?<br/>10+ points<br/>improvement/decline?"}:::gateway
-    ReClassGate -->|Yes: Major Change| S5
-    ReClassGate -->|No: Continue| TimeGate{"GATEWAY<br/>6 Months Complete?<br/>weeks at least 26"}:::gateway
-    TimeGate -->|No: Continue| Collect
-    TimeGate -->|Yes: Exit| S9["TASK: Stage 9<br/>Exit Evaluation<br/>and Impact Assessment"]:::task
-
-    S9 -->|Reassess| FullBattery["Full Re-assessment<br/>Same Cognitive<br/>Battery as Stage 3"]:::activity
-    FullBattery -->|Calculate| Impact["Score Delta<br/>WPM Change<br/>ROI Calculation<br/>Effectiveness Index"]:::activity
-    Impact -->|Decide| ExitGate{"GATEWAY<br/>Outcome?<br/>Goal achieved?"}:::gateway
-    ExitGate -->|Continue Needed| Collect
-    ExitGate -->|Exit| Report["FINAL REPORT<br/>Impact Assessment<br/>Recommendations<br/>Transition Plan"]:::activity
-    Report --> End(["END<br/>Program<br/>Completion"]):::startEnd
-
-    classDef startEnd fill:#4CAF50,stroke:#2E7D32,stroke-width:3px,color:#fff,font-weight:bold
-    classDef task fill:#1976D2,stroke:#0D47A1,stroke-width:2px,color:#fff,font-weight:bold
-    classDef gateway fill:#FFB300,stroke:#FF6D00,stroke-width:2px,color:#000,font-weight:bold
-    classDef error fill:#D32F2F,stroke:#B71C1C,stroke-width:2px,color:#fff,font-weight:bold
-    classDef specialist fill:#AB47BC,stroke:#6A1B9A,stroke-width:2px,color:#fff,font-weight:bold
-    classDef monitor fill:#F4511E,stroke:#D84315,stroke-width:2px,color:#fff,font-weight:bold
-    classDef activity fill:#0097A7,stroke:#006064,stroke-width:2px,color:#fff
-    classDef outcome fill:#2E7D32,stroke:#1B5E20,stroke-width:2px,color:#fff,font-weight:bold
+    Monitor --> S8
+    
+    %% Stage 8: Active Monitoring (loop)
+    S8("Stage 8<br/>Active Monitoring<br/>Progress Tracking")
+    S8 --> Collect[/"WPM Assessment<br/>Adherence Check<br/>Behavioral Obs"/]
+    Collect --> WPMTest("WPM Re-test<br/>Same Protocol")
+    WPMTest --> ReClassGate{"Score Change<br/>10+ points?"}
+    ReClassGate -- "Yes" --> S5
+    ReClassGate -- "No (default)" --> TimeGate{"6 Months<br/>Complete?"}
+    TimeGate -- "No" --> Collect
+    TimeGate -- "Yes" --> S9
+    
+    %% Stage 9: Exit Evaluation
+    S9("Stage 9<br/>Exit Evaluation<br/>Impact Assessment")
+    S9 --> FullBattery("Full Reassessment<br/>Same Battery as S3")
+    FullBattery --> Impact[/"Score Delta<br/>WPM Change<br/>ROI Calculation"/]
+    Impact --> ExitGate{"Goal<br/>Achieved?"}
+    ExitGate -- "No" --> Collect
+    ExitGate -- "Yes" --> Report[/"Final Report<br/>Recommendations<br/>Transition Plan"/]
+    Report --> End((("End")))
+    
+    %% BPMN 2.0 Styling
+    classDef event fill:#FFFFFF,stroke:#2E7D32,stroke-width:3px,color:#000,font-weight:bold
+    classDef task fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#000,rx:10,ry:10
+    classDef gateway fill:#FFF8E1,stroke:#F57C00,stroke-width:2px,color:#000,font-weight:bold
+    classDef data fill:#F3E5F5,stroke:#6A1B9A,stroke-width:1px,color:#000,font-style:italic
+    classDef error fill:#FFEBEE,stroke:#C62828,stroke-width:2px,color:#000
+    classDef specialist fill:#F3E5F5,stroke:#6A1B9A,stroke-width:2px,color:#000
+    classDef outcome fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px,color:#000
+    classDef monitor fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#000
+    
+    class Start,End event
+    class S1,S2,S3,S4,S5,S6,S7,S8,S9 task
+    class ValidCheck,RetryData,S2Gate,QualityGate,Retry3x,ScoreGate,ApprovalGate,ReClassGate,TimeGate,ExitGate gateway
+    class S3Sessions,CalcScores,GenPlan,NotifyAll,Collect,Impact,Report data
+    class Esc1,Esc3 error
+    class SpecReview,SpecReviewUrgent specialist
+    class Tier1,Tier2,Tier3,Tier4,Tier5 outcome
+    class Monitor,WPMTest,PsychReview,Revise,FullBattery monitor
 </div>
                 <p style="margin-top: 15px; padding: 10px; background: #f0f4ff; border-radius: 4px; font-size: 12px; color: #333;">
                     <strong>BPMN 2.0 Interactive Diagram:</strong> This diagram shows the complete 9-stage Dyslexia Monitoring &amp; Intervention System (DIMS) flow.
