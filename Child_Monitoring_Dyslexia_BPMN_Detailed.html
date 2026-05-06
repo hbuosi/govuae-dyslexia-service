@@ -250,13 +250,13 @@
 graph TD
     Start(["START<br/>Child Referral<br/>Received"])
 
-    Start -->|Create Profile| S1["TASK: Stage 1<br/>Initial Identification<br/>& Registration"]
+    Start -->|Create Profile| S1["TASK: Stage 1<br/>Initial Identification<br/>and Registration"]
 
     S1 -->|Verify Data<br/>Quality| ValidCheck{GATEWAY<br/>Data Valid?<br/>Condition:<br/>All required fields?}
     ValidCheck -->|NO| RetryData{GATEWAY<br/>Retry Available?<br/>Retry Count less 3}
     RetryData -->|Failed| Esc1["ERROR<br/>Escalate to ONG<br/>Manual Review"]
     RetryData -->|Success| S2
-    ValidCheck -->|YES| S2["TASK: Stage 2<br/>Behavioral Screening<br/>& Alert Detection"]
+    ValidCheck -->|YES| S2["TASK: Stage 2<br/>Behavioral Screening<br/>and Alert Detection"]
 
     Esc1 -->|Manual Resolution| S2
 
@@ -269,7 +269,7 @@ graph TD
     QualityGate -->|Issues Found| Retry3x{GATEWAY<br/>Retry Count<br/>less 3}
     Retry3x -->|Failed| Esc3["ERROR<br/>Escalate to<br/>Specialist<br/>In-person Eval"]
     Retry3x -->|Success| S4
-    QualityGate -->|OK| S4["TASK: Stage 4<br/>Automated Scoring<br/>& Analysis"]
+    QualityGate -->|OK| S4["TASK: Stage 4<br/>Automated Scoring<br/>and Analysis"]
 
     Esc3 -->|Specialist<br/>Review| S5
 
@@ -357,7 +357,7 @@ graph TD
 
             <!-- STAGE 1 -->
             <div class="stage-card">
-                <h3 class="stage-title"><span class="stage-number">1</span>Initial Identification & Registration</h3>
+                <h3 class="stage-title"><span class="stage-number">1</span>Initial Identification and Registration</h3>
                 <div class="stage-content">
                     <div class="content-box">
                         <h4>Inputs</h4>
@@ -391,7 +391,7 @@ graph TD
 
             <!-- STAGE 2 -->
             <div class="stage-card">
-                <h3 class="stage-title"><span class="stage-number">2</span>Behavioral Screening & Alert Detection</h3>
+                <h3 class="stage-title"><span class="stage-number">2</span>Behavioral Screening and Alert Detection</h3>
                 <div class="stage-content">
                     <div class="content-box">
                         <h4>Screening Questions (5-10 min)</h4>
@@ -478,7 +478,7 @@ graph TD
 
             <!-- STAGE 4 -->
             <div class="stage-card">
-                <h3 class="stage-title"><span class="stage-number">4</span>Automated Scoring & Analysis</h3>
+                <h3 class="stage-title"><span class="stage-number">4</span>Automated Scoring and Analysis</h3>
                 <div class="stage-content">
                     <div class="content-box">
                         <h4>Subscore Calculation</h4>
@@ -490,7 +490,7 @@ graph TD
                         </ul>
                     </div>
                     <div class="content-box">
-                        <h4>Composite Score & Analysis</h4>
+                        <h4>Composite Score and Analysis</h4>
                         <ul>
                             <li><strong>Weighted Composite:</strong> (0.40 x Phon) + (0.35 x Fluency) + (0.15 x Comp) + (0.10 x Visual)</li>
                             <li>Calculate Listening-Reading Discrepancy (L-R gap)</li>
@@ -823,7 +823,7 @@ graph TD
                     <tbody>
                         <tr>
                             <td><strong>1</strong></td>
-                            <td>Initial ID & Registration</td>
+                            <td>Initial ID and Registration</td>
                             <td>Data Valid?</td>
                             <td>7 days</td>
                             <td>System/ONG</td>
