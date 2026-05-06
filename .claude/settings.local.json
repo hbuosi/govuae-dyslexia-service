@@ -31,7 +31,8 @@
       "mcp__plugin_everything-claude-code_playwright__browser_navigate",
       "WebFetch(domain:hbuosi.github.io)",
       "Bash(curl -s \"https://hbuosi.github.io/govuae-dyslexia-service/01-Service-Card-Dyslexia.html\")",
-      "Bash(curl -s --insecure \"https://hbuosi.github.io/govuae-dyslexia-service/01-Service-Card-Dyslexia.html\")"
+      "Bash(curl -s --insecure \"https://hbuosi.github.io/govuae-dyslexia-service/01-Service-Card-Dyslexia.html\")",
+      "Bash(curl -s --insecure \"https://hbuosi.github.io/govuae-dyslexia-service/Child_Monitoring_Dyslexia_BPMN_Detailed.html\")"
     ]
   }
 }
