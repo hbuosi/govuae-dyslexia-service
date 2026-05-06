@@ -1,0 +1,118 @@
+# GovUAE Dyslexia Service Platform - Project Specifications
+
+## Project Overview
+This is a **static HTML documentation portal** for the Dyslexia Service Platform, deployed on Vercel and GitHub Pages. The project contains governance, operational, and technical documentation for a child dyslexia monitoring and intervention system (DIMS).
+
+## Key Specifications
+
+### Language & Localization
+- **Primary Language:** English (all new content and updates must be in English)
+- **Status:** Portuguese content has been migrated to English
+- **Enforcement:** All HTML files must have `lang="en"` attribute
+
+### Technology Stack
+- **Type:** Static HTML (no Node.js/build tools required)
+- **Hosting:** Vercel (primary), GitHub Pages (secondary)
+- **Deployment:** Direct git push to main branch
+- **File Format:** HTML5 with embedded CSS and JavaScript
+
+### Project Structure
+```
+GovUAE/
+├── index.html (Portal homepage)
+├── 01-Service-Card-Dyslexia.html (Service design canvas)
+├── Child_Monitoring_Dyslexia_BPMN_Detailed.html (Process diagram)
+├── spec-process-dyslexia-monitoring.html (Process spec)
+├── AS-IS_TO-BE_Analysis.html (Strategic analysis)
+├── Target_Operating_Model.html (Operating model)
+├── RACI_Governance_Matrix.html (Governance matrix)
+├── Risk_Register.html (Risk assessment)
+├── Technology_Stack_Mapping.html (Tech architecture)
+└── DIMS_BPMN_DrawIO.drawio (Editable draw.io diagram)
+```
+
+### Critical Files & Updates
+1. **01-Service-Card-Dyslexia.html**
+   - Status: ✅ Translated to English (commit: 56bcc07)
+   - Content: Service design with 9-stage monitoring process
+   - Last update: 2026-05-06
+
+2. **Child_Monitoring_Dyslexia_BPMN_Detailed.html**
+   - Status: Uses draw.io iframe (no Mermaid errors)
+   - Contains: Complete 9-stage BPMN 2.0 process
+   - Diagram source: DIMS_BPMN_DrawIO.drawio
+
+3. **Portal Index (index.html)**
+   - Status: ⚠️ Still shows Portuguese (cached on GitHub Pages)
+   - Vercel: Shows updated English version
+   - Issue: GitHub Pages serves stale cache despite .nojekyll file
+
+### Known Issues & Solutions
+1. **GitHub Pages Cache Problem**
+   - Symptom: Old Portuguese version served instead of English
+   - Cause: Aggressive CDN caching (600s max-age)
+   - Workaround: Use Vercel for primary access (no cache issues)
+   - Solution: .nojekyll file added to disable Jekyll processing
+
+2. **Translation Completeness**
+   - All Portuguese terms must be replaced with English equivalents
+   - Use case-insensitive Perl regex for thorough coverage
+   - Verify `lang="en"` attribute in HTML head
+
+### Development Workflow
+1. **Before Making Changes:**
+   - Ensure all content updates are in English
+   - Run git status to check for untracked submodules
+   - Clean up worktree/submodule changes before committing
+
+2. **When Updating Files:**
+   - Edit HTML directly (no build required)
+   - Test on Vercel: https://govuae-dyslexia-service.vercel.app/
+   - Use `curl` or browser to verify content
+   - Commit with clear message (fix, feat, chore prefix)
+
+3. **After Pushing:**
+   - Vercel updates automatically (no caching issues)
+   - GitHub Pages may lag (cache) - check Vercel instead
+   - Use `curl https://raw.githubusercontent.com/...` to verify remote content
+
+### Content Standards
+- **Language:** English only (all headings, descriptions, metadata)
+- **HTML Structure:** Semantic HTML5 with lang="en"
+- **Styling:** Embedded CSS (no external dependencies)
+- **Accessibility:** WCAG 2.1 AA compliance recommended
+- **Special Characters:** Escape ampersands as `&amp;` in content
+
+### Git Workflow
+```bash
+# Check status
+git status
+
+# Commit changes
+git add <files>
+git commit -m "type: description"
+git push origin main
+
+# Verify on Vercel (primary check)
+curl https://govuae-dyslexia-service.vercel.app/<filename>
+
+# Verify on GitHub raw (secondary check)
+curl https://raw.githubusercontent.com/hbuosi/govuae-dyslexia-service/main/<filename>
+```
+
+### Useful Commands
+```bash
+# Check for Portuguese content
+grep -r "[áéíóúãõç]" *.html | head -20
+
+# Verify language attribute
+grep -o 'lang="[^"]*"' *.html
+
+# Count occurrences of specific word
+grep -o "word" file.html | wc -l
+```
+
+### Contacts & Resources
+- **Repository:** https://github.com/hbuosi/govuae-dyslexia-service
+- **Vercel:** https://govuae-dyslexia-service.vercel.app/
+- **GitHub Pages:** https://hbuosi.github.io/govuae-dyslexia-service/
