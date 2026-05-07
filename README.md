@@ -85,4 +85,4 @@ Full design system reference: [docs/uae-design-system-research.md](docs/uae-desi
 
 ## License
 
-Internal documentation - UAE Ministry of Education.
+Internal documentation - Departamento X.
