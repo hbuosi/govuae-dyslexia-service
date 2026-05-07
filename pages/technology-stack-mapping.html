@@ -238,10 +238,37 @@
             </div>
 
             <h4 id="oracle-api-contracts" class="text-lg font-bold text-aeblack-700 mb-3">Oracle API Contracts</h4>
-            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
-              <p class="text-base text-aeblack-600 leading-relaxed">
-                REST API Endpoints (via Azure API Management): 1. POST /oracle/children Request: { "referral_date": "2026-05-06", "full_name": "John Silva", "date_of_birth": "2020-03-15", "parent_id": "uuid", "referral_source": "Educator" } Response: { "child_id": "uuid", "status": "Registered", "next_action": "Schedule Screening" } 2. GET /oracle/children/{child_id} Returns: Full child master profile + assessment history + current plan 3. POST /oracle/assessments/{child_id} Request: Assessment results (scores, dates, assessor_id) Response: Stored record + risk_classification 4. POST /oracle/plans/{child_id} Request: Intervention plan (phases, activities, approvals) Response: Plan stored + approval_status 5. POST /oracle/progress/{plan_id} Request: Weekly/monthly progress (WPM, adherence, notes) Response: Progress logged + reclassification_flag (if needed) 6. GET /oracle/cases?status=HighRisk&amp;days_since_assessment&lt;30 Returns: All high-risk cases pending specialist review (for Service Board) 7. POST /oracle/consent/{child_id}/revoke Request: LGPD right to deletion Response: Data anonymized + audit trail + confirmation 8. GET /oracle/audit-trail/{child_id} Returns: Complete audit log (who accessed, when, what changed)
-              </p>
+            <p class="text-sm font-bold uppercase tracking-wider mb-3" style="color: #7C5E24;">REST API Endpoints (via Azure API Management)</p>
+
+            <div class="portal-table-wrapper mb-6">
+              <table class="portal-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 60px;">#</th>
+                    <th scope="col" style="width: 70px;">Method</th>
+                    <th scope="col">Endpoint</th>
+                    <th scope="col">Purpose</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>1</td><td><span style="display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.78rem; font-weight:700; background:#FFF3E0; color:#E65100;">POST</span></td><td><code>/oracle/children</code></td><td>Register a new child profile</td></tr>
+                  <tr><td>2</td><td><span style="display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.78rem; font-weight:700; background:#E8F5E9; color:#2E7D32;">GET</span></td><td><code>/oracle/children/{child_id}</code></td><td>Full master profile + assessment history + current plan</td></tr>
+                  <tr><td>3</td><td><span style="display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.78rem; font-weight:700; background:#FFF3E0; color:#E65100;">POST</span></td><td><code>/oracle/assessments/{child_id}</code></td><td>Store assessment results &amp; return risk classification</td></tr>
+                  <tr><td>4</td><td><span style="display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.78rem; font-weight:700; background:#FFF3E0; color:#E65100;">POST</span></td><td><code>/oracle/plans/{child_id}</code></td><td>Submit intervention plan with phases, activities, approvals</td></tr>
+                  <tr><td>5</td><td><span style="display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.78rem; font-weight:700; background:#FFF3E0; color:#E65100;">POST</span></td><td><code>/oracle/progress/{plan_id}</code></td><td>Log weekly / monthly progress (WPM, adherence, notes)</td></tr>
+                  <tr><td>6</td><td><span style="display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.78rem; font-weight:700; background:#E8F5E9; color:#2E7D32;">GET</span></td><td><code>/oracle/cases?status=HighRisk</code></td><td>List high-risk cases pending specialist review</td></tr>
+                  <tr><td>7</td><td><span style="display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.78rem; font-weight:700; background:#FFF3E0; color:#E65100;">POST</span></td><td><code>/oracle/consent/{child_id}/revoke</code></td><td>LGPD right to deletion &mdash; anonymize + audit trail</td></tr>
+                  <tr><td>8</td><td><span style="display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.78rem; font-weight:700; background:#E8F5E9; color:#2E7D32;">GET</span></td><td><code>/oracle/audit-trail/{child_id}</code></td><td>Complete audit log (who accessed, when, what changed)</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="content-block portal-content-block mb-6" style="border-left-color: #92722A;">
+              <div class="content-block-header" style="color: #7C5E24; border-bottom-color: #F9F7ED;">Endpoint 1 &mdash; Sample Payload</div>
+              <ul class="content-block-list">
+                <li><strong>Request:</strong> <code>{ "referral_date": "2026-05-06", "full_name": "John Silva", "date_of_birth": "2020-03-15", "parent_id": "uuid", "referral_source": "Educator" }</code></li>
+                <li><strong>Response:</strong> <code>{ "child_id": "uuid", "status": "Registered", "next_action": "Schedule Screening" }</code></li>
+              </ul>
             </div>
           </div>
         </section>
@@ -360,10 +387,69 @@
             </div>
 
             <h4 id="servicenow-api-integrations" class="text-lg font-bold text-aeblack-700 mb-3">ServiceNow API Integrations</h4>
-            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
-              <p class="text-base text-aeblack-600 leading-relaxed">
-                Inbound APIs (from Oracle/Azure): 1. POST /servicenow/tickets/intake When: New referral in Oracle Data: child_id, referral_date, referral_source Action: Create intake ticket, assign, set SLA 2. POST /servicenow/tickets/specialist-review When: Assessment score &gt;70 detected Data: child_id, assessment_id, composite_score Action: Create review ticket, assign specialist 3. POST /servicenow/tickets/reclassification When: Reclassification needed (score +/-10) Data: child_id, old_score, new_score, reason Action: Create re-assessment ticket Outbound APIs (to Oracle/Azure): 1. GET /servicenow/tickets?status=overdue&amp;sla_target Fetch: All overdue tickets for escalation 2. POST /servicenow/{ticket_id}/resolution Update: completion_date, resolution_time, outcomes 3. GET /servicenow/sla-compliance?period=weekly Generate: SLA metrics by team and process
-              </p>
+
+            <p class="text-sm font-bold uppercase tracking-wider mb-3" style="color: #7C5E24;">Inbound APIs (from Oracle / Azure)</p>
+            <div class="portal-table-wrapper mb-6">
+              <table class="portal-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 70px;">Method</th>
+                    <th scope="col">Endpoint</th>
+                    <th scope="col">Trigger</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span style="display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.78rem; font-weight:700; background:#FFF3E0; color:#E65100;">POST</span></td>
+                    <td><code>/servicenow/tickets/intake</code></td>
+                    <td>New referral in Oracle</td>
+                    <td>Create intake ticket, assign, set SLA</td>
+                  </tr>
+                  <tr>
+                    <td><span style="display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.78rem; font-weight:700; background:#FFF3E0; color:#E65100;">POST</span></td>
+                    <td><code>/servicenow/tickets/specialist-review</code></td>
+                    <td>Assessment score &gt; 70 detected</td>
+                    <td>Create review ticket, assign specialist</td>
+                  </tr>
+                  <tr>
+                    <td><span style="display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.78rem; font-weight:700; background:#FFF3E0; color:#E65100;">POST</span></td>
+                    <td><code>/servicenow/tickets/reclassification</code></td>
+                    <td>Score change &plusmn; 10 detected</td>
+                    <td>Create re-assessment ticket</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p class="text-sm font-bold uppercase tracking-wider mb-3" style="color: #7C5E24;">Outbound APIs (to Oracle / Azure)</p>
+            <div class="portal-table-wrapper mb-6">
+              <table class="portal-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 70px;">Method</th>
+                    <th scope="col">Endpoint</th>
+                    <th scope="col">Purpose</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span style="display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.78rem; font-weight:700; background:#E8F5E9; color:#2E7D32;">GET</span></td>
+                    <td><code>/servicenow/tickets?status=overdue</code></td>
+                    <td>Fetch all overdue tickets for escalation</td>
+                  </tr>
+                  <tr>
+                    <td><span style="display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.78rem; font-weight:700; background:#FFF3E0; color:#E65100;">POST</span></td>
+                    <td><code>/servicenow/{ticket_id}/resolution</code></td>
+                    <td>Update completion date, resolution time, outcomes</td>
+                  </tr>
+                  <tr>
+                    <td><span style="display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.78rem; font-weight:700; background:#E8F5E9; color:#2E7D32;">GET</span></td>
+                    <td><code>/servicenow/sla-compliance?period=weekly</code></td>
+                    <td>Generate SLA metrics by team and process</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
@@ -542,10 +628,40 @@
         <section id="technology-stack-license-cost-model" class="mb-10">
           <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
             <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">Technology Stack: License &amp; Cost Model</h2>
-            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
-              <p class="text-base text-aeblack-600 leading-relaxed">
-                Component Annual License Cost (10k children/year) Oracle Service Cloud R$ 500,000 (enterprise tier) ServiceNow Platform R$ 450,000 (enterprise tier + workflows) Microsoft Power Platform R$ 200,000 (500 users, Power Apps/Automate) Azure Cloud (Data Lake + Synapse) R$ 300,000 (compute + storage) Azure AI/ML Services R$ 100,000 (model training + inference) Twilio Communications R$ 50,000 (SMS/WhatsApp at scale) SendGrid Email Service R$ 20,000 (email at scale) TOTAL ANNUAL R$ 1,620,000 (~$324k USD) Cost per Child/Year: R$ 162 (or ~$32 USD) Note: Technology costs are 14% of total cost of service (R$1,156/child) Rest goes to people (assessors, specialists, coordinators)
-              </p>
+
+            <p class="text-sm font-bold uppercase tracking-wider mb-3" style="color: #7C5E24;">Annual License Cost (10,000 children / year)</p>
+            <div class="portal-table-wrapper mb-6">
+              <table class="portal-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Component</th>
+                    <th scope="col">Annual Cost</th>
+                    <th scope="col">Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Oracle Service Cloud</strong></td><td>R$ 500,000</td><td>Enterprise tier</td></tr>
+                  <tr><td><strong>ServiceNow Platform</strong></td><td>R$ 450,000</td><td>Enterprise tier + workflows</td></tr>
+                  <tr><td><strong>Microsoft Power Platform</strong></td><td>R$ 200,000</td><td>500 users, Power Apps / Automate</td></tr>
+                  <tr><td><strong>Azure Cloud</strong> (Data Lake + Synapse)</td><td>R$ 300,000</td><td>Compute + storage</td></tr>
+                  <tr><td><strong>Azure AI / ML Services</strong></td><td>R$ 100,000</td><td>Model training + inference</td></tr>
+                  <tr><td><strong>Twilio Communications</strong></td><td>R$ 50,000</td><td>SMS / WhatsApp at scale</td></tr>
+                  <tr><td><strong>SendGrid Email Service</strong></td><td>R$ 20,000</td><td>Email at scale</td></tr>
+                  <tr style="background:#F9F7ED;">
+                    <td><strong>TOTAL ANNUAL</strong></td>
+                    <td><strong>R$ 1,620,000</strong> (~US$ 324k)</td>
+                    <td><strong>Cost per child / year:</strong> R$ 162 (~US$ 32)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="content-block portal-content-block" style="border-left-color: #1565C0;">
+              <div class="content-block-header" style="color: #0D47A1; border-bottom-color: #E3F2FD;">Cost Mix Note</div>
+              <ul class="content-block-list">
+                <li>Technology costs represent <strong>14%</strong> of the total cost of service (R$ 1,156 / child).</li>
+                <li>The remaining <strong>86%</strong> goes to people: assessors, specialists, and coordinators.</li>
+              </ul>
             </div>
           </div>
         </section>
