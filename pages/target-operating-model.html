@@ -614,15 +614,55 @@
             </div>
 
             <h3 id="technology-scaling-model" class="text-lg font-bold text-aeblack-800 mb-3">Technology Scaling Model</h3>
-            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
-              <p class="text-base text-aeblack-600 leading-relaxed">
-                Children/Year | Web Portal | Mobile | Assessment | Data Lake<br/>
-                1,000 | Tier 1 | Basic | Basic DB | Basic<br/>
-                5,000 | Tier 1 | Full | Scaled DB | Data Lake<br/>
-                10,000 | Tier 2 | Full | Scaled DB | Analytics<br/>
-                50,000 | Tier 2 | Full | Multi-region | ML-enabled<br/>
-                100,000+ | Tier 3 | Full | Multi-region | Real-time ML
-              </p>
+            <div class="portal-table-wrapper mb-4">
+              <table class="portal-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Children / Year</th>
+                    <th scope="col">Web Portal</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Assessment</th>
+                    <th scope="col">Data Lake</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>1,000</strong></td>
+                    <td>Tier 1</td>
+                    <td>Basic</td>
+                    <td>Basic DB</td>
+                    <td>Basic</td>
+                  </tr>
+                  <tr>
+                    <td><strong>5,000</strong></td>
+                    <td>Tier 1</td>
+                    <td>Full</td>
+                    <td>Scaled DB</td>
+                    <td>Data Lake</td>
+                  </tr>
+                  <tr>
+                    <td><strong>10,000</strong></td>
+                    <td>Tier 2</td>
+                    <td>Full</td>
+                    <td>Scaled DB</td>
+                    <td>Analytics</td>
+                  </tr>
+                  <tr>
+                    <td><strong>50,000</strong></td>
+                    <td>Tier 2</td>
+                    <td>Full</td>
+                    <td>Multi-region</td>
+                    <td>ML-enabled</td>
+                  </tr>
+                  <tr>
+                    <td><strong>100,000+</strong></td>
+                    <td>Tier 3</td>
+                    <td>Full</td>
+                    <td>Multi-region</td>
+                    <td>Real-time ML</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
@@ -693,19 +733,28 @@
             </div>
 
             <h3 id="key-policies-controls" class="text-lg font-bold text-aeblack-800 mb-3">Key Policies &amp; Controls</h3>
-            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
-              <p class="text-base text-aeblack-600 leading-relaxed">
-                Policy | Owner | Frequency | Audited<br/>
-                SLA Management | Service Delivery Bd | Daily monitor | Weekly<br/>
-                Data Access Control | Data Governance | Real-time | Monthly<br/>
-                Incident Response | Operations Center | As needed | Quarterly<br/>
-                Change Management | Technology Lead | Per request | Monthly<br/>
-                Compliance Certification | Compliance Officer | Quarterly | Annual<br/>
-                Risk Register Review | Risk Manager | Bi-weekly | Quarterly<br/>
-                Financial Controls | Budget Officer | Monthly | Quarterly<br/>
-                Training &amp; Certification | Operations Mgr | Annual | Quarterly<br/>
-                Disaster Recovery Test | System Admin | Semi-annual | As-needed
-              </p>
+            <div class="portal-table-wrapper mb-4">
+              <table class="portal-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Policy</th>
+                    <th scope="col">Owner</th>
+                    <th scope="col">Frequency</th>
+                    <th scope="col">Audited</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>SLA Management</strong></td><td>Service Delivery Bd</td><td>Daily monitor</td><td>Weekly</td></tr>
+                  <tr><td><strong>Data Access Control</strong></td><td>Data Governance</td><td>Real-time</td><td>Monthly</td></tr>
+                  <tr><td><strong>Incident Response</strong></td><td>Operations Center</td><td>As needed</td><td>Quarterly</td></tr>
+                  <tr><td><strong>Change Management</strong></td><td>Technology Lead</td><td>Per request</td><td>Monthly</td></tr>
+                  <tr><td><strong>Compliance Certification</strong></td><td>Compliance Officer</td><td>Quarterly</td><td>Annual</td></tr>
+                  <tr><td><strong>Risk Register Review</strong></td><td>Risk Manager</td><td>Bi-weekly</td><td>Quarterly</td></tr>
+                  <tr><td><strong>Financial Controls</strong></td><td>Budget Officer</td><td>Monthly</td><td>Quarterly</td></tr>
+                  <tr><td><strong>Training &amp; Certification</strong></td><td>Operations Mgr</td><td>Annual</td><td>Quarterly</td></tr>
+                  <tr><td><strong>Disaster Recovery Test</strong></td><td>System Admin</td><td>Semi-annual</td><td>As-needed</td></tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
@@ -716,18 +765,72 @@
             <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">TOM READINESS ASSESSMENT</h2>
 
             <h3 id="current-state-vs-tom" class="text-lg font-bold text-aeblack-800 mb-3">Current State vs TOM</h3>
-            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
-              <p class="text-base text-aeblack-600 leading-relaxed">
-                Dimension | Current | TOM Target | Gap | Priority<br/>
-                People Structure | Fragmented | Standardized | 5/5 | Critical<br/>
-                Process Definition | Ad-hoc | BPMN-defined | 5/5 | Critical<br/>
-                Technology Stack | Siloed | Integrated | 5/5 | Critical<br/>
-                Governance Model | Informal | Formal | 5/5 | Critical<br/>
-                Compliance Ready | Basic | LGPD-proven | 4/5 | Critical<br/>
-                Data Maturity | Spreadsheets | Data-driven | 5/5 | Critical<br/>
-                Scalability | Limited | Multi-region | 5/5 | Critical<br/><br/>
-                Overall TOM Gap: 95% &rarr; Requires full transformation
-              </p>
+            <div class="portal-table-wrapper mb-4">
+              <table class="portal-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Dimension</th>
+                    <th scope="col">Current</th>
+                    <th scope="col">TOM Target</th>
+                    <th scope="col">Gap</th>
+                    <th scope="col">Priority</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>People Structure</strong></td>
+                    <td><span style="display:inline-block; padding:2px 10px; border-radius:9999px; font-size:0.8rem; font-weight:600; background:#FFEBEE; color:#B71C1C;">Fragmented</span></td>
+                    <td><span style="display:inline-block; padding:2px 10px; border-radius:9999px; font-size:0.8rem; font-weight:600; background:#E8F5E9; color:#2E7D32;">Standardized</span></td>
+                    <td><strong>5/5</strong></td>
+                    <td><span style="display:inline-block; padding:2px 10px; border-radius:9999px; font-size:0.8rem; font-weight:600; background:#FFEBEE; color:#B71C1C;">Critical</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Process Definition</strong></td>
+                    <td><span style="display:inline-block; padding:2px 10px; border-radius:9999px; font-size:0.8rem; font-weight:600; background:#FFEBEE; color:#B71C1C;">Ad-hoc</span></td>
+                    <td><span style="display:inline-block; padding:2px 10px; border-radius:9999px; font-size:0.8rem; font-weight:600; background:#E8F5E9; color:#2E7D32;">BPMN-defined</span></td>
+                    <td><strong>5/5</strong></td>
+                    <td><span style="display:inline-block; padding:2px 10px; border-radius:9999px; font-size:0.8rem; font-weight:600; background:#FFEBEE; color:#B71C1C;">Critical</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Technology Stack</strong></td>
+                    <td><span style="display:inline-block; padding:2px 10px; border-radius:9999px; font-size:0.8rem; font-weight:600; background:#FFEBEE; color:#B71C1C;">Siloed</span></td>
+                    <td><span style="display:inline-block; padding:2px 10px; border-radius:9999px; font-size:0.8rem; font-weight:600; background:#E8F5E9; color:#2E7D32;">Integrated</span></td>
+                    <td><strong>5/5</strong></td>
+                    <td><span style="display:inline-block; padding:2px 10px; border-radius:9999px; font-size:0.8rem; font-weight:600; background:#FFEBEE; color:#B71C1C;">Critical</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Governance Model</strong></td>
+                    <td><span style="display:inline-block; padding:2px 10px; border-radius:9999px; font-size:0.8rem; font-weight:600; background:#FFEBEE; color:#B71C1C;">Informal</span></td>
+                    <td><span style="display:inline-block; padding:2px 10px; border-radius:9999px; font-size:0.8rem; font-weight:600; background:#E8F5E9; color:#2E7D32;">Formal</span></td>
+                    <td><strong>5/5</strong></td>
+                    <td><span style="display:inline-block; padding:2px 10px; border-radius:9999px; font-size:0.8rem; font-weight:600; background:#FFEBEE; color:#B71C1C;">Critical</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Compliance Readiness</strong></td>
+                    <td><span style="display:inline-block; padding:2px 10px; border-radius:9999px; font-size:0.8rem; font-weight:600; background:#FFF3E0; color:#E65100;">Basic</span></td>
+                    <td><span style="display:inline-block; padding:2px 10px; border-radius:9999px; font-size:0.8rem; font-weight:600; background:#E8F5E9; color:#2E7D32;">LGPD-proven</span></td>
+                    <td><strong>4/5</strong></td>
+                    <td><span style="display:inline-block; padding:2px 10px; border-radius:9999px; font-size:0.8rem; font-weight:600; background:#FFEBEE; color:#B71C1C;">Critical</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Data Maturity</strong></td>
+                    <td><span style="display:inline-block; padding:2px 10px; border-radius:9999px; font-size:0.8rem; font-weight:600; background:#FFEBEE; color:#B71C1C;">Spreadsheets</span></td>
+                    <td><span style="display:inline-block; padding:2px 10px; border-radius:9999px; font-size:0.8rem; font-weight:600; background:#E8F5E9; color:#2E7D32;">Data-driven</span></td>
+                    <td><strong>5/5</strong></td>
+                    <td><span style="display:inline-block; padding:2px 10px; border-radius:9999px; font-size:0.8rem; font-weight:600; background:#FFEBEE; color:#B71C1C;">Critical</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Scalability</strong></td>
+                    <td><span style="display:inline-block; padding:2px 10px; border-radius:9999px; font-size:0.8rem; font-weight:600; background:#FFEBEE; color:#B71C1C;">Limited</span></td>
+                    <td><span style="display:inline-block; padding:2px 10px; border-radius:9999px; font-size:0.8rem; font-weight:600; background:#E8F5E9; color:#2E7D32;">Multi-region</span></td>
+                    <td><strong>5/5</strong></td>
+                    <td><span style="display:inline-block; padding:2px 10px; border-radius:9999px; font-size:0.8rem; font-weight:600; background:#FFEBEE; color:#B71C1C;">Critical</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="content-block portal-content-block mb-6" style="border-left-color: #B71C1C;">
+              <div class="content-block-header" style="color: #B71C1C; border-bottom-color: #FFEBEE;">Overall TOM Gap: 95% &rarr; Requires full transformation</div>
             </div>
 
             <p class="text-base text-aeblack-600 leading-relaxed mt-4">
