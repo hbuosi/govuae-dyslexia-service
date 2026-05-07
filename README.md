@@ -1,6 +1,6 @@
 # Dyslexia Service Platform - Documentation Portal
 
-Documentation portal for the UAE Child Dyslexia Monitoring and Intervention Service (DIMS). Built with the [UAE Government Design System v3.0](https://designsystem.gov.ae/).
+Documentation portal for the Child Dyslexia Monitoring and Intervention Service (DIMS). Built with the [Design System v3.0](https://designsystem.gov.ae/).
 
 **Live:** [govuae-dyslexia-service.vercel.app](https://govuae-dyslexia-service.vercel.app/)
 
@@ -21,7 +21,7 @@ Documentation portal for the UAE Child Dyslexia Monitoring and Intervention Serv
 
 ## Tech Stack
 
-- **Frontend:** Static HTML5 with [UAE Design System v3.0](https://designsystem.gov.ae/) (`@aegov/design-system`)
+- **Frontend:** Static HTML5 with [Design System v3.0](https://designsystem.gov.ae/) (`@aegov/design-system`)
 - **CSS:** TailwindCSS v4 + custom portal styles
 - **Icons:** [Phosphor Icons](https://phosphoricons.com/)
 - **BPMN Rendering:** Mermaid.js v10.6.1
@@ -34,7 +34,7 @@ Documentation portal for the UAE Child Dyslexia Monitoring and Intervention Serv
 ├── index.html                 Portal homepage
 ├── pages/                     Documentation pages (kebab-case)
 ├── assets/                    Images and static assets
-├── dist/                      Built CSS (UAE Design System + custom)
+├── dist/                      Built CSS (Design System + custom)
 ├── src/                       Tailwind source CSS
 ├── docs/                      Reference documentation
 ├── vercel.json                URL redirects
@@ -73,16 +73,16 @@ npx serve .
 
 ## Design System
 
-This portal follows the [UAE Government Design System v3.0](https://designsystem.gov.ae/) maintained by TDRA. Key design decisions:
+This portal follows the [Design System v3.0](https://designsystem.gov.ae/) maintained by TDRA. Key design decisions:
 
 - **Primary color:** AEGold `#92722A` (primary-600)
 - **Typography:** Roboto (English), Noto Kufi Arabic (Arabic)
 - **Components:** `aegov-card`, `aegov-btn`, `aegov-badge`, `aegov-breadcrumb`
-- **Spacing:** UAE 4px base scale with 24px default gaps
+- **Spacing:** 4px base scale with 24px default gaps
 - **Layout:** Max 1280px container, 6-column grid system
 
 Full design system reference: [docs/uae-design-system-research.md](docs/uae-design-system-research.md)
 
 ## License
 
-Internal documentation - Departamento X.
+Internal documentation - Department X.
