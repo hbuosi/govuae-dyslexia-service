@@ -19,16 +19,28 @@ This is a **static HTML documentation portal** for the Dyslexia Service Platform
 ### Project Structure
 ```
 GovUAE/
-├── index.html (Portal homepage)
-├── 01-Service-Card-Dyslexia.html (Service design canvas)
-├── Child_Monitoring_Dyslexia_BPMN_Detailed.html (Process diagram)
-├── spec-process-dyslexia-monitoring.html (Process spec)
-├── AS-IS_TO-BE_Analysis.html (Strategic analysis)
-├── Target_Operating_Model.html (Operating model)
-├── RACI_Governance_Matrix.html (Governance matrix)
-├── Risk_Register.html (Risk assessment)
-├── Technology_Stack_Mapping.html (Tech architecture)
-└── DIMS_BPMN_DrawIO.drawio (Editable draw.io diagram)
+├── index.html                          (Portal homepage)
+├── pages/
+│   ├── service-card-dyslexia.html      (Service design canvas)
+│   ├── child-monitoring-dyslexia-bpmn-detailed.html (BPMN process diagram)
+│   ├── spec-process-dyslexia-monitoring.html (Process spec)
+│   ├── as-is-to-be-analysis.html       (Strategic analysis)
+│   ├── target-operating-model.html     (Operating model)
+│   ├── raci-governance-matrix.html     (Governance matrix)
+│   ├── risk-register.html              (Risk assessment)
+│   └── technology-stack-mapping.html   (Tech architecture)
+├── assets/
+│   └── uae-emblem.png                  (UAE government emblem)
+├── dist/
+│   ├── style.css                       (Built UAE Design System CSS)
+│   └── custom.css                      (Portal bridge styles)
+├── src/
+│   └── style.css                       (Tailwind source CSS)
+├── docs/
+│   └── uae-design-system-research.md   (UAE DS v3.0 reference)
+├── vercel.json                         (Redirects for old URLs)
+├── package.json
+└── .gitignore
 ```
 
 ### Critical Files & Updates

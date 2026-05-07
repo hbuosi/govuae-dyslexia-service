@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="author" content="Dyslexia Service Platform - Dyslexia Monitoring Service"/>
+  <meta name="created" content="2026-05-06T14:24:15.924209"/>
+  <title>Target Operating Model - Dyslexia Service Platform</title>
+  <meta name="description" content="Dyslexia Monitoring &amp; Intervention Service Documentation"/>
+  <link rel="stylesheet" href="../dist/style.css">
+  <link rel="stylesheet" href="../dist/custom.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    [id] { scroll-margin-top: 5rem; }
+  </style>
+</head>
+<body class="bg-whitely-100 text-aeblack-800 font-roboto antialiased">
+
+  <a href="#main" class="portal-skip-nav">Skip to main content</a>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-whitely-50 shadow-sm border-b border-aeblack-100">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-8">
+      <nav class="flex items-center justify-between h-16" aria-label="Main navigation">
+        <a href="../index.html" class="flex items-center gap-3 text-aeblack-800 no-underline">
+          <img src="../assets/uae-emblem.png" alt="UAE Government Emblem" class="h-8 w-auto">
+          <div>
+            <span class="font-extrabold text-base tracking-tight text-aeblack-800">Dyslexia Service Platform</span>
+            <span class="block text-xs text-aeblack-400 font-normal">Documentation Portal</span>
+          </div>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="../index.html" class="px-4 py-2 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline transition-colors">Home</a>
+          <a href="#people-dimension" class="px-4 py-2 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline transition-colors">People</a>
+          <a href="#process-dimension" class="px-4 py-2 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline transition-colors">Process</a>
+          <a href="#technology-dimension" class="px-4 py-2 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline transition-colors">Technology</a>
+          <a href="#governance-dimension" class="px-4 py-2 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline transition-colors">Governance</a>
+        </div>
+        <button class="md:hidden text-aeblack-600 p-2" aria-label="Open menu" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </nav>
+      <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-aeblack-100">
+        <a href="../index.html" class="block px-4 py-3 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline">Home</a>
+        <a href="#people-dimension" class="block px-4 py-3 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline">People</a>
+        <a href="#process-dimension" class="block px-4 py-3 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline">Process</a>
+        <a href="#technology-dimension" class="block px-4 py-3 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline">Technology</a>
+        <a href="#governance-dimension" class="block px-4 py-3 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline">Governance</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="bg-aeblack-900 py-10 lg:py-14">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-8">
+      <nav class="flex items-center gap-2 text-sm mb-4" aria-label="Breadcrumb" style="color: rgba(255,255,255,0.5);">
+        <a href="../index.html" class="hover:text-white no-underline" style="color: rgba(255,255,255,0.5);">Home</a>
+        <span>/</span>
+        <span style="color: rgba(215,188,109,0.8);">Target Operating Model</span>
+      </nav>
+      <h1 class="text-h4 md:text-h3 xl:text-h2 font-extrabold" style="color: #FFFFFF;">Target Operating Model</h1>
+      <p class="mt-3 text-base max-w-2xl" style="color: rgba(255,255,255,0.6);">Future-state organizational design, governance composition and capability maturity model for the Integrated Dyslexia Monitoring &amp; Intervention Service Platform</p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
+    <div class="lg:grid lg:grid-cols-[280px_1fr] lg:gap-12">
+
+      <!-- Sidebar TOC -->
+      <aside class="hidden lg:block">
+        <nav class="sticky top-24" aria-label="Table of contents">
+          <h2 class="text-sm font-bold uppercase tracking-wider text-aeblack-400 mb-4">On this page</h2>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#tom-overview" class="text-aeblack-500 hover:text-primary-600 no-underline">TOM Overview</a></li>
+            <li><a href="#people-dimension" class="text-aeblack-500 hover:text-primary-600 no-underline">People Dimension</a></li>
+            <li><a href="#process-dimension" class="text-aeblack-500 hover:text-primary-600 no-underline">Process Dimension</a></li>
+            <li><a href="#technology-dimension" class="text-aeblack-500 hover:text-primary-600 no-underline">Technology Dimension</a></li>
+            <li><a href="#governance-dimension" class="text-aeblack-500 hover:text-primary-600 no-underline">Governance Dimension</a></li>
+            <li><a href="#tom-readiness-assessment" class="text-aeblack-500 hover:text-primary-600 no-underline">Readiness Assessment</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main content -->
+      <main id="main">
+
+        <!-- Overview -->
+        <section id="target-operating-model-tom" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-4">Target Operating Model (TOM)</h2>
+            <h3 id="integrated-dyslexia-monitoring-intervention-service-platform" class="text-lg font-bold text-aeblack-700 mb-4">Integrated Dyslexia Monitoring &amp; Intervention Service Platform</h3>
+          </div>
+        </section>
+
+        <!-- TOM Overview -->
+        <section id="tom-overview" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">TOM OVERVIEW</h2>
+            <p class="text-base text-aeblack-600 leading-relaxed">
+              The Target Operating Model defines <strong>HOW</strong> the future state service will operate across four interconnected dimensions:<br/>
+              1. <strong>People</strong> - Roles, skills, organizational structure<br/>
+              2. <strong>Process</strong> - Core workflows, decision gates, SLAs<br/>
+              3. <strong>Technology</strong> - Systems, data, integrations<br/>
+              4. <strong>Governance</strong> - Policies, compliance, oversight
+            </p>
+          </div>
+        </section>
+
+        <!-- People Dimension -->
+        <section id="people-dimension" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">PEOPLE DIMENSION</h2>
+
+            <h3 id="organizational-structure" class="text-lg font-bold text-aeblack-800 mb-3">Organizational Structure</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <p class="text-base font-bold text-aeblack-800 mb-2">service OVERSIGHT (Health/Education)</p>
+              <p class="text-base text-aeblack-600 leading-relaxed mb-2">Policy definition - Compliance monitoring - Funding allocation</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>SERVICE DELIVERY NETWORK (ONG Federation) - Program delivery - Quality assurance - Stakeholder coordination</li>
+                <li>INTAKE CENTER | ASSESSMENT SERVICES | INTERVENTION &amp; MONITOR</li>
+              </ul>
+            </div>
+
+            <h3 id="core-roles-responsibilities" class="text-lg font-bold text-aeblack-800 mb-3">Core Roles &amp; Responsibilities</h3>
+
+            <!-- Role 1 -->
+            <h4 id="1-intake-coordinator-fte-1-per-500-children" class="text-base font-semibold text-aeblack-700 mb-2">1. <strong>Intake Coordinator</strong> (FTE: 1 per 500 children)</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <p class="text-base font-bold text-aeblack-800 mb-2">Primary Responsibilities:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Monitor referral intake queue</li>
+                <li>Validate incoming referrals (completeness check)</li>
+                <li>Assign to screening specialist</li>
+                <li>Track intake SLA (target: &lt;24h)</li>
+                <li>Escalate missing data requests</li>
+                <li>Maintain intake quality metrics</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Required Skills:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Data quality assessment</li>
+                <li>Customer service</li>
+                <li>Process discipline</li>
+                <li>Problem-solving</li>
+                <li>Basic data literacy</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Tools/Systems:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>ServiceNow (intake ticketing)</li>
+                <li>Oracle CRM (child profile)</li>
+                <li>Microsoft Outlook (email + calendar)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Success Metrics:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Intake SLA: 100% &lt;24h</li>
+                <li>Data completeness: 100%</li>
+                <li>Customer satisfaction: &gt;85 NPS</li>
+                <li>Processing cost: &lt;$5 per intake</li>
+              </ul>
+            </div>
+
+            <!-- Role 2 -->
+            <h4 id="2-screening-specialist-fte-1-per-1000-children" class="text-base font-semibold text-aeblack-700 mb-2">2. <strong>Screening Specialist</strong> (FTE: 1 per 1000 children)</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <p class="text-base font-bold text-aeblack-800 mb-2">Primary Responsibilities:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Administer behavioral screening questionnaire</li>
+                <li>Score responses + calculate risk level</li>
+                <li>Apply triage rules (to assessment vs. monitoring)</li>
+                <li>Recommend specialist routing (if needed)</li>
+                <li>Document assessment in case record</li>
+                <li>Provide parent feedback on screening results</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Required Skills:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Child development knowledge</li>
+                <li>Assessment administration</li>
+                <li>Communication with diverse families</li>
+                <li>Clinical judgment (basic level)</li>
+                <li>Attention to detail</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Training Required:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Dyslexia awareness (16 hours)</li>
+                <li>Behavioral screening methodology (8 hours)</li>
+                <li>LGPD compliance (4 hours)</li>
+                <li>System training (ServiceNow + Oracle) (4 hours)</li>
+                <li>Annual refresher (8 hours)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Tools/Systems:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>ServiceNow (workflow + scheduling)</li>
+                <li>Oracle CRM (child record)</li>
+                <li>Assessment platform (screening forms)</li>
+                <li>Microsoft Teams (communication)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Success Metrics:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Screening completion rate: &gt;95%</li>
+                <li>Screening SLA: &lt;48h</li>
+                <li>Assessment accuracy (validated against specialist): &gt;90%</li>
+                <li>Parent satisfaction: &gt;80 NPS</li>
+                <li>False positive rate: &lt;10%</li>
+              </ul>
+            </div>
+
+            <!-- Role 3 -->
+            <h4 id="3-assessment-specialist-fte-1-per-300-children" class="text-base font-semibold text-aeblack-700 mb-2">3. <strong>Assessment Specialist</strong> (FTE: 1 per 300 children)</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <p class="text-base font-bold text-aeblack-800 mb-2">Primary Responsibilities:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Administer multidimensional cognitive battery</li>
+                <li>Conduct 3 assessment sessions (phonology, fluency, comprehension)</li>
+                <li>Collect and validate test data</li>
+                <li>Document observations + behavioral notes</li>
+                <li>Prepare raw score data for automated analysis</li>
+                <li>Communicate results to parents/educators</li>
+                <li>Escalate technical failures to support</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Required Skills:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Dyslexia assessment expertise (master's level preferred)</li>
+                <li>Child psychology</li>
+                <li>Psychometric assessment knowledge</li>
+                <li>Data collection + documentation</li>
+                <li>Empathetic communication (especially with struggling children)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Credentials:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Speech Therapist (speech-language pathologist) OR</li>
+                <li>Psychopedagogue (educational psychologist) OR</li>
+                <li>Psychologist with dyslexia specialization</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Training Required:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Assessment battery certification (40 hours)</li>
+                <li>Data quality assurance (8 hours)</li>
+                <li>System training (assessment platform + Oracle) (8 hours)</li>
+                <li>LGPD compliance (4 hours)</li>
+                <li>Annual certification renewal (16 hours)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Tools/Systems:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Assessment platform (test administration)</li>
+                <li>Audio recording system (secure cloud storage)</li>
+                <li>Oracle CRM (case documentation)</li>
+                <li>ServiceNow (scheduling + escalation)</li>
+                <li>Power BI (progress dashboards - read-only)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Success Metrics:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Assessment completion rate: &gt;98%</li>
+                <li>Assessment SLA: &lt;10 days for full battery</li>
+                <li>Data quality (no missing values): 100%</li>
+                <li>Test-retest reliability: &gt;0.85 (validated)</li>
+                <li>Parent satisfaction: &gt;85 NPS</li>
+                <li>Assessment cost per child: &lt;$50</li>
+              </ul>
+            </div>
+
+            <!-- Role 4 -->
+            <h4 id="4-intervention-specialist-fte-1-per-150-children-in-active-intervention" class="text-base font-semibold text-aeblack-700 mb-2">4. <strong>Intervention Specialist</strong> (FTE: 1 per 150 children in active intervention)</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <p class="text-base font-bold text-aeblack-800 mb-2">Primary Responsibilities:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Review AI-generated intervention plans</li>
+                <li>Refine plans based on clinical judgment</li>
+                <li>Approve plan (digital signature)</li>
+                <li>Assign to educator implementation team</li>
+                <li>Monitor plan adherence + effectiveness</li>
+                <li>Escalate non-responsive cases</li>
+                <li>Provide strategy consultation to educators</li>
+                <li>Conduct progress reviews (monthly)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Required Skills:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Dyslexia intervention expertise</li>
+                <li>Pedagogical knowledge</li>
+                <li>AI/data interpretation</li>
+                <li>Mentoring and coaching</li>
+                <li>Cross-functional collaboration</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Credentials:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Master's in Special Education OR</li>
+                <li>Speech Therapist with intervention experience OR</li>
+                <li>Psychopedagogue with clinical track record</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Training Required:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Intervention protocol certification (32 hours)</li>
+                <li>AI-assisted planning (8 hours)</li>
+                <li>Progress monitoring + data interpretation (8 hours)</li>
+                <li>System training (Oracle + ServiceNow + Power BI) (8 hours)</li>
+                <li>LGPD compliance (4 hours)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Tools/Systems:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Oracle CRM (case management)</li>
+                <li>ServiceNow (task orchestration)</li>
+                <li>Claude API (Hermes Agent - view only)</li>
+                <li>Power BI (progress dashboards)</li>
+                <li>Microsoft Teams (educator communication)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Success Metrics:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Plan approval SLA: &lt;4h</li>
+                <li>Plan quality (educator satisfaction): &gt;85%</li>
+                <li>Intervention effectiveness (&gt;60% show progress): &gt;60%</li>
+                <li>Non-response escalation rate: &lt;5%</li>
+                <li>Plan refinement rate: &lt;20% (suggests AI plans are good)</li>
+                <li>Intervention cost per child: &lt;$100/month</li>
+              </ul>
+            </div>
+
+            <!-- Role 5 -->
+            <h4 id="5-program-manager-ong-coordinator-fte-1-per-ong-1-state-level" class="text-base font-semibold text-aeblack-700 mb-2">5. <strong>Program Manager / ONG Coordinator</strong> (FTE: 1 per ONG + 1 state-level)</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <p class="text-base font-bold text-aeblack-800 mb-2">Primary Responsibilities:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Oversee service delivery in ONG/region</li>
+                <li>Manage caseload allocation (educators, specialists)</li>
+                <li>Monitor SLAs + escalate breaches</li>
+                <li>Coordinate with service oversight</li>
+                <li>Manage educator recruitment + training</li>
+                <li>Maintain compliance (LGPD, audits, reporting)</li>
+                <li>Optimize operations (reduce costs, improve quality)</li>
+                <li>Represent ONG in governance meetings</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Required Skills:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Program management</li>
+                <li>Budget management</li>
+                <li>Staff management</li>
+                <li>Data analysis</li>
+                <li>Stakeholder communication</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Credentials:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>MBA or equivalent management experience OR</li>
+                <li>5+ years program management in education/health</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Training Required:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Service delivery model (16 hours)</li>
+                <li>Power BI dashboards (8 hours)</li>
+                <li>Compliance management (8 hours)</li>
+                <li>ServiceNow administration (4 hours)</li>
+                <li>Annual refresher (8 hours)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Tools/Systems:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>ServiceNow (caseload + SLA dashboard)</li>
+                <li>Power BI (program metrics + KPIs)</li>
+                <li>Oracle CRM (client management)</li>
+                <li>Microsoft Excel (budgeting + forecasting)</li>
+                <li>Jira (project management, optional)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Success Metrics:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>SLA compliance: &gt;95% across all services</li>
+                <li>Budget adherence: &plusmn;5% of plan</li>
+                <li>Educator retention: &gt;85%</li>
+                <li>Program efficiency: &lt;$150 cost per child/month</li>
+                <li>service compliance: 100%</li>
+                <li>Stakeholder satisfaction: &gt;80 NPS</li>
+              </ul>
+            </div>
+
+            <!-- Role 6 -->
+            <h4 id="6-data-governance-compliance-lead-fte-1-per-service-entity" class="text-base font-semibold text-aeblack-700 mb-2">6. <strong>Data Governance &amp; Compliance Lead</strong> (FTE: 1 per service entity)</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <p class="text-base font-bold text-aeblack-800 mb-2">Primary Responsibilities:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Ensure LGPD compliance across all ONGs</li>
+                <li>Audit data handling + access controls</li>
+                <li>Manage consent records + deletion requests</li>
+                <li>Monitor audit trails (proof of compliance)</li>
+                <li>Review data privacy incidents</li>
+                <li>Report to service regulators</li>
+                <li>Train teams on LGPD requirements</li>
+                <li>Maintain data governance policies</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Required Skills:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Data privacy expertise (LGPD/GDPR)</li>
+                <li>Audit + compliance</li>
+                <li>Risk management</li>
+                <li>Regulatory knowledge</li>
+                <li>Data security fundamentals</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Credentials:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Privacy Certification (CDPO, CIPM, or equivalent) OR</li>
+                <li>5+ years legal/compliance background</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Training Required:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>LGPD deep-dive (24 hours)</li>
+                <li>Data governance frameworks (8 hours)</li>
+                <li>System auditing (Oracle, ServiceNow) (8 hours)</li>
+                <li>Incident response (8 hours)</li>
+                <li>Annual refresher (12 hours)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Tools/Systems:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>ServiceNow (audit workflows)</li>
+                <li>Oracle Data Governance (metadata + lineage)</li>
+                <li>Microsoft Power BI (compliance dashboards)</li>
+                <li>Azure Information Protection (data classification)</li>
+                <li>Compliance software (OneTrust, Drata, or similar)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Success Metrics:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>LGPD compliance: 100%</li>
+                <li>Audit findings: 0 critical/high severity</li>
+                <li>Consent record completeness: 100%</li>
+                <li>Data deletion request SLA: 100% &lt;30 days</li>
+                <li>Audit trail availability: 100% of transactions</li>
+                <li>Regulatory audit results: Pass with no findings</li>
+              </ul>
+            </div>
+
+            <!-- Role 7 -->
+            <h4 id="7-system-administrator-support-fte-1-per-2000-children-system-wide" class="text-base font-semibold text-aeblack-700 mb-2">7. <strong>System Administrator &amp; Support</strong> (FTE: 1 per 2000 children system-wide)</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <p class="text-base font-bold text-aeblack-800 mb-2">Primary Responsibilities:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>User account management (access provisioning)</li>
+                <li>System monitoring (uptime, performance)</li>
+                <li>Password resets + account recovery</li>
+                <li>Help desk support (Tier 1)</li>
+                <li>System backups + disaster recovery</li>
+                <li>Apply security patches + updates</li>
+                <li>Document system configurations</li>
+                <li>Train users on system features</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Required Skills:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>IT operations</li>
+                <li>Cloud infrastructure</li>
+                <li>Help desk support</li>
+                <li>Basic cybersecurity</li>
+                <li>Documentation + training</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Certifications:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>CompTIA A+ OR</li>
+                <li>Azure Fundamentals (AZ-900) OR</li>
+                <li>ServiceNow Administrator (optional)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Training Required:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Oracle CRM administration (24 hours)</li>
+                <li>ServiceNow administration (24 hours)</li>
+                <li>Azure fundamentals (16 hours)</li>
+                <li>Security best practices (8 hours)</li>
+                <li>Annual refresher (8 hours)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Tools/Systems:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Oracle Cloud (system administration)</li>
+                <li>ServiceNow (workflow administration)</li>
+                <li>Microsoft Azure (cloud management)</li>
+                <li>Jira (incident tracking)</li>
+                <li>VPN + Access controls (Azure AD)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Success Metrics:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>System uptime: &gt;99.5%</li>
+                <li>Help desk response SLA: &lt;2 hours</li>
+                <li>Password reset SLA: &lt;1 hour</li>
+                <li>Security patch deployment: &lt;30 days</li>
+                <li>User onboarding SLA: &lt;5 days</li>
+                <li>Support cost per user: &lt;$20/year</li>
+              </ul>
+            </div>
+
+            <!-- Staffing Model -->
+            <h3 id="staffing-model-summary" class="text-lg font-bold text-aeblack-800 mb-3">Staffing Model Summary</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <p class="text-base font-bold text-aeblack-800 mb-2">Service Scale: 10,000 children/year</p>
+              <p class="text-base text-aeblack-600 leading-relaxed">
+                Role FTE Needed Annual Cost (avg) Total Cost<br/>
+                Intake Coordinator 20 R$ 45,000 R$ 900,000<br/>
+                Screening Specialist 20 R$ 55,000 R$ 1,100,000<br/>
+                Assessment Specialist 33 R$ 75,000 R$ 2,475,000<br/>
+                Intervention Specialist 67 R$ 85,000 R$ 5,695,000<br/>
+                Program Manager (ONG) 10 R$ 95,000 R$ 950,000<br/>
+                Data Governance Lead 1 R$ 120,000 R$ 120,000<br/>
+                System Admin &amp; Support 5 R$ 65,000 R$ 325,000<br/><br/>
+                TOTAL 156 FTE Average: R$ 75,000 R$ 11,565,000<br/>
+                Cost per Child/Year: R$ 1,156 (or ~$230 USD)
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Process Dimension -->
+        <section id="process-dimension" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">PROCESS DIMENSION</h2>
+
+            <h3 id="core-processes-cross-functional" class="text-lg font-bold text-aeblack-800 mb-3">Core Processes (Cross-Functional)</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <p class="text-base font-bold text-aeblack-800 mb-2">Level 1: Strategic Processes</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Service Portfolio Management (service + ONG federation)</li>
+                <li>Compliance &amp; Risk Management</li>
+                <li>Continuous Improvement</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Level 2: Operational Processes</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Child Intake &amp; Registration</li>
+                <li>Screening &amp; Triage</li>
+                <li>Assessment &amp; Diagnosis</li>
+                <li>Intervention Planning &amp; Delivery</li>
+                <li>Progress Monitoring &amp; Reclassification</li>
+                <li>Case Closure &amp; Impact Evaluation</li>
+                <li>Communication &amp; Escalation</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Level 3: Support Processes</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>User Account Management</li>
+                <li>System Maintenance &amp; Support</li>
+                <li>Training &amp; Capability Building</li>
+                <li>Reporting &amp; Analytics</li>
+              </ul>
+            </div>
+
+            <h3 id="process-flow-simplified" class="text-lg font-bold text-aeblack-800 mb-3">Process Flow (Simplified)</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed">
+                Child Referred<br/>
+                &darr; 1. INTAKE (24h SLA) - Unified portal intake - LGPD consent digital signature<br/>
+                &darr; 2. SCREENING (48h SLA) - Behavioral questionnaire - Risk classification<br/>
+                &darr; 3. ASSESSMENT (10 days SLA) - 3-session cognitive battery - Multidimensional scoring<br/>
+                &darr; 4. DIAGNOSIS (2h SLA + 48h specialist review if needed) - Risk classification - Specialist validation (if High Risk)<br/>
+                &darr; 5. PLANNING (5 min AI + 2h psychopedagogue review) - Personalized intervention plan - Digital approval workflow<br/>
+                &darr; 6. COMMUNICATION (1h SLA) - Multi-channel notifications (SMS/Email/Push/WhatsApp)<br/>
+                &darr; 7. INTERVENTION DELIVERY (6 months) - Structured phases - Regular educator sessions<br/>
+                &darr; 8. MONITORING (weekly/bi-weekly) - Progress collection - Dynamic reclassification if needed<br/>
+                &darr; 9. EXIT EVALUATION (final assessment) - Impact measurement - ROI calculation - Recommendations for continuity<br/>
+                &darr; Program Complete
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Technology Dimension -->
+        <section id="technology-dimension" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">TECHNOLOGY DIMENSION</h2>
+
+            <h3 id="enterprise-architecture" class="text-lg font-bold text-aeblack-800 mb-3">Enterprise Architecture</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <p class="text-base font-bold text-aeblack-800 mb-2">Citizen/Educator/Specialist Interfaces</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Web Portal (responsive design)</li>
+                <li>Mobile App (iOS + Android)</li>
+                <li>WhatsApp Bot (notifications + simple tasks)</li>
+                <li>Email + SMS (push notifications)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">API Gateway (Azure API Management)</p>
+              <p class="text-base text-aeblack-600 leading-relaxed mb-2">Rate limiting, authentication, monitoring</p>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Core Systems</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Oracle Service Cloud (CRM)</li>
+                <li>ServiceNow (Workflow Ticketing)</li>
+                <li>Microsoft Platform (PBI, PA, PD)</li>
+                <li>Assessment Platform (AI + Test)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Data Layer</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Azure Data Lake (Data warehouse + analytics)</li>
+                <li>Microsoft Power BI (Dashboards + Reporting)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">Integration Points:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>School systems (API for educator referrals)</li>
+                <li>Health systems (API for specialist referrals)</li>
+                <li>Payment systems (billing + grant tracking)</li>
+                <li>SMS/Email gateways (Twilio, SendGrid)</li>
+                <li>Analytics platforms (external research partnerships)</li>
+              </ul>
+            </div>
+
+            <h3 id="technology-stack-details" class="text-lg font-bold text-aeblack-800 mb-3">Technology Stack Details</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <p class="text-base font-bold text-aeblack-800 mb-2">LAYER 1: CITIZEN INTERFACES</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Web Portal: Angular 16 (responsive, accessible)</li>
+                <li>Mobile Apps: React Native (iOS + Android)</li>
+                <li>WhatsApp Integration: Twilio WhatsApp API</li>
+                <li>Email: SendGrid (templated, tracked)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">LAYER 2: API &amp; ORCHESTRATION</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>API Gateway: Azure API Management</li>
+                <li>Workflow Orchestration: ServiceNow Workflow Engine</li>
+                <li>Authentication: Azure AD (OAuth 2.0, MFA)</li>
+                <li>Rate Limiting &amp; Monitoring: API Management</li>
+                <li>Message Queue: Azure Service Bus (async processing)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">LAYER 3: CORE BUSINESS SYSTEMS</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>CRM: Oracle Service Cloud (child master profile, case mgmt)</li>
+                <li>Workflow/Ticketing: ServiceNow (intake, screening, scheduling)</li>
+                <li>Power Platform: Power Apps (intake forms), Power Automate (workflows), Power BI (dashboards)</li>
+                <li>Assessment Engine: Custom platform (testing + AI scoring)</li>
+                <li>AI/Reasoning: Claude API (Hermes Agent for intervention planning)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">LAYER 4: DATA &amp; ANALYTICS</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Data Lake: Azure Data Lake Storage (Gen 2)</li>
+                <li>Data Warehouse: Synapse Analytics (SQL + Spark)</li>
+                <li>Analytics: Power BI (120+ dashboards across roles)</li>
+                <li>Data Governance: Oracle Data Governance (metadata, lineage, quality)</li>
+                <li>Machine Learning: Azure ML (predictive models for reclassification)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">LAYER 5: SECURITY &amp; COMPLIANCE</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Encryption: AES-256 (at rest), TLS 1.3 (in transit)</li>
+                <li>Access Control: Azure AD RBAC + Oracle fine-grained access</li>
+                <li>Audit Logging: All system activities logged to Azure Monitor</li>
+                <li>Data Privacy: Azure Information Protection (PII classification)</li>
+                <li>Backup &amp; Recovery: Geo-redundant backups (24h RPO, 4h RTO)</li>
+                <li>Compliance Monitoring: Automated LGPD compliance checks</li>
+              </ul>
+            </div>
+
+            <h3 id="technology-scaling-model" class="text-lg font-bold text-aeblack-800 mb-3">Technology Scaling Model</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed">
+                Children/Year | Web Portal | Mobile | Assessment | Data Lake<br/>
+                1,000 | Tier 1 | Basic | Basic DB | Basic<br/>
+                5,000 | Tier 1 | Full | Scaled DB | Data Lake<br/>
+                10,000 | Tier 2 | Full | Scaled DB | Analytics<br/>
+                50,000 | Tier 2 | Full | Multi-region | ML-enabled<br/>
+                100,000+ | Tier 3 | Full | Multi-region | Real-time ML
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Governance Dimension -->
+        <section id="governance-dimension" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">GOVERNANCE DIMENSION</h2>
+
+            <h3 id="governance-structure" class="text-lg font-bold text-aeblack-800 mb-3">Governance Structure</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <p class="text-base font-bold text-aeblack-800 mb-2">EXECUTIVE STEERING COMMITTEE (Quarterly)</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Health Minister (Chair)</li>
+                <li>Education Minister</li>
+                <li>ONG Federation President</li>
+                <li>Citizen Advocate</li>
+                <li>Budget/Finance Officer</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-3 mb-2">Decisions:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Strategic direction</li>
+                <li>Budget allocation</li>
+                <li>Expansion to new regions</li>
+                <li>Major risk escalations</li>
+              </ul>
+
+              <p class="text-base font-bold text-aeblack-800 mt-6 mb-2">SERVICE DELIVERY BOARD (Monthly)</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>ONG Program Managers (5)</li>
+                <li>Assessment Lead (Psychopedagogue)</li>
+                <li>Intervention Lead (Educator)</li>
+                <li>Technology Lead</li>
+                <li>Compliance Officer</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-3 mb-2">Decisions:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Operational issues</li>
+                <li>Resource allocation</li>
+                <li>SLA performance</li>
+                <li>Process improvements</li>
+              </ul>
+
+              <p class="text-base font-bold text-aeblack-800 mt-6 mb-2">QUALITY &amp; COMPLIANCE BOARD (Bi-weekly)</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Data Privacy Officer</li>
+                <li>Clinical Advisor (Dyslexia expert)</li>
+                <li>Risk Manager</li>
+                <li>Audit Lead</li>
+                <li>User Experience Lead</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-3 mb-2">Decisions:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Quality metrics</li>
+                <li>Risk management</li>
+                <li>Compliance issues</li>
+                <li>Data privacy concerns</li>
+              </ul>
+
+              <p class="text-base font-bold text-aeblack-800 mt-6 mb-2">OPERATIONS CENTER (Daily)</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Incident Management</li>
+                <li>SLA Tracking</li>
+                <li>Performance Monitoring</li>
+                <li>Help Desk &amp; Support</li>
+                <li>Daily Operations Standup</li>
+              </ul>
+            </div>
+
+            <h3 id="key-policies-controls" class="text-lg font-bold text-aeblack-800 mb-3">Key Policies &amp; Controls</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed">
+                Policy | Owner | Frequency | Audited<br/>
+                SLA Management | Service Delivery Bd | Daily monitor | Weekly<br/>
+                Data Access Control | Data Governance | Real-time | Monthly<br/>
+                Incident Response | Operations Center | As needed | Quarterly<br/>
+                Change Management | Technology Lead | Per request | Monthly<br/>
+                Compliance Certification | Compliance Officer | Quarterly | Annual<br/>
+                Risk Register Review | Risk Manager | Bi-weekly | Quarterly<br/>
+                Financial Controls | Budget Officer | Monthly | Quarterly<br/>
+                Training &amp; Certification | Operations Mgr | Annual | Quarterly<br/>
+                Disaster Recovery Test | System Admin | Semi-annual | As-needed
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- TOM Readiness Assessment -->
+        <section id="tom-readiness-assessment" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">TOM READINESS ASSESSMENT</h2>
+
+            <h3 id="current-state-vs-tom" class="text-lg font-bold text-aeblack-800 mb-3">Current State vs TOM</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <p class="text-base text-aeblack-600 leading-relaxed">
+                Dimension | Current | TOM Target | Gap | Priority<br/>
+                People Structure | Fragmented | Standardized | 5/5 | Critical<br/>
+                Process Definition | Ad-hoc | BPMN-defined | 5/5 | Critical<br/>
+                Technology Stack | Siloed | Integrated | 5/5 | Critical<br/>
+                Governance Model | Informal | Formal | 5/5 | Critical<br/>
+                Compliance Ready | Basic | LGPD-proven | 4/5 | Critical<br/>
+                Data Maturity | Spreadsheets | Data-driven | 5/5 | Critical<br/>
+                Scalability | Limited | Multi-region | 5/5 | Critical<br/><br/>
+                Overall TOM Gap: 95% &rarr; Requires full transformation
+              </p>
+            </div>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mt-4">
+              <strong>Document prepared for enterprise architecture &amp; operational excellence</strong><br/>
+              <em>Demonstrates: People/Process/Technology/Governance integration, scalability, compliance readiness</em>
+            </p>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-aeblack-900 text-whitely-100">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">Core Documents</h4>
+          <ul class="space-y-2.5">
+            <li><a href="service-card-dyslexia.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Service Card</a></li>
+            <li><a href="child-monitoring-dyslexia-bpmn-detailed.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">BPMN Diagram</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">Governance</h4>
+          <ul class="space-y-2.5">
+            <li><a href="as-is-to-be-analysis.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">AS-IS / TO-BE</a></li>
+            <li><a href="target-operating-model.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Operating Model</a></li>
+            <li><a href="raci-governance-matrix.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">RACI Matrix</a></li>
+            <li><a href="risk-register.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Risk Register</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">Process &amp; Tech</h4>
+          <ul class="space-y-2.5">
+            <li><a href="spec-process-dyslexia-monitoring.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Process Spec</a></li>
+            <li><a href="technology-stack-mapping.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Technology Stack</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">About</h4>
+          <p class="text-sm text-aeblack-300 leading-relaxed">UAE Dyslexia Service Platform documentation portal. Part of the Ministry of Education digital transformation initiative.</p>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-aeblack-700">
+      <div class="max-w-screen-xl mx-auto px-6 lg:px-8 py-5 text-center">
+        <p class="text-sm text-aeblack-400">&copy; 2026 UAE Dyslexia Service Platform &middot; Ministry of Education</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 z-50 w-12 h-12 bg-primary-600 hover:bg-primary-500 text-whitely-50 rounded-full shadow-lg flex items-center justify-center transition-all opacity-0 pointer-events-none" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,165.66a8,8,0,0,1-11.32,0L128,99.31,61.66,165.66a8,8,0,0,1-11.32-11.32l72-72a8,8,0,0,1,11.32,0l72,72A8,8,0,0,1,205.66,165.66Z"/></svg>
+  </button>
+
+  <script src="https://unpkg.com/@aegov/design-system@latest/dist/aegov.js" defer></script>
+  <script>
+    const topBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      const show = window.pageYOffset > 400;
+      topBtn.style.opacity = show ? '1' : '0';
+      topBtn.style.pointerEvents = show ? 'auto' : 'none';
+    });
+    topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden'));
+    });
+  </script>
+
+</body>
+</html>

@@ -1,634 +1,441 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dyslexia Service Platform - Documentation Portal</title>
-<style>
-:root {
-    --color-primary: #0066cc;
-    --color-secondary: #0088ff;
-    --color-accent: #00aa44;
-    --color-warning: #ff6600;
-    --color-danger: #cc0000;
-    --color-dark: #1a1a1a;
-    --color-medium: #666666;
-    --color-light: #f5f5f5;
-    --color-lighter: #fafbfc;
-    --color-white: #ffffff;
-    --color-border: #e1e4e8;
-    --spacing-xs: 4px;
-    --spacing-sm: 8px;
-    --spacing-md: 16px;
-    --spacing-lg: 24px;
-    --spacing-xl: 32px;
-    --spacing-2xl: 48px;
-    --spacing-3xl: 64px;
-    --radius-sm: 4px;
-    --radius-md: 8px;
-    --radius-lg: 12px;
-    --radius-xl: 16px;
-    --shadow-sm: 0 2px 4px rgba(0,0,0,0.06);
-    --shadow-md: 0 4px 12px rgba(0,0,0,0.10);
-    --shadow-lg: 0 12px 32px rgba(0,0,0,0.15);
-    --shadow-xl: 0 20px 50px rgba(0,0,0,0.20);
-    --transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--color-dark);
-    background: var(--color-lighter);
-    -webkit-font-smoothing: antialiased;
-}
-
-/* ============ Navigation ============ */
-.navbar {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-    color: var(--color-white);
-    padding: var(--spacing-md) var(--spacing-xl);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: var(--shadow-md);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-.navbar-brand {
-    font-weight: 700;
-    font-size: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-}
-.navbar-links {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    flex-wrap: wrap;
-}
-.navbar a {
-    color: var(--color-white);
-    text-decoration: none;
-    transition: var(--transition);
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: var(--radius-sm);
-    font-size: 0.95rem;
-}
-.navbar a:hover {
-    background-color: rgba(255,255,255,0.18);
-    transform: translateY(-1px);
-}
-
-/* ============ Hero ============ */
-.hero {
-    background: linear-gradient(135deg, #003d7a 0%, #0066cc 50%, #0088ff 100%);
-    color: var(--color-white);
-    padding: var(--spacing-3xl) var(--spacing-xl);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-.hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
-}
-.hero h1 {
-    font-size: 2.75rem;
-    font-weight: 800;
-    margin-bottom: var(--spacing-md);
-    letter-spacing: -0.02em;
-    position: relative;
-}
-.hero p {
-    font-size: 1.15rem;
-    opacity: 0.95;
-    max-width: 720px;
-    margin: 0 auto var(--spacing-xl);
-    position: relative;
-}
-.hero-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: var(--spacing-md);
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-}
-.stat-box {
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(10px);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(255,255,255,0.18);
-    transition: var(--transition);
-}
-.stat-box:hover {
-    transform: translateY(-2px);
-    background: rgba(255,255,255,0.18);
-}
-.stat-number {
-    font-size: 2rem;
-    font-weight: 700;
-    display: block;
-    margin-bottom: var(--spacing-xs);
-}
-.stat-label {
-    font-size: 0.85rem;
-    opacity: 0.9;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-/* ============ Container ============ */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: var(--spacing-2xl) var(--spacing-xl);
-}
-
-/* ============ Sections ============ */
-.section { margin-bottom: var(--spacing-3xl); }
-.section-header {
-    margin-bottom: var(--spacing-xl);
-    text-align: center;
-}
-.section-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--color-dark);
-    margin-bottom: var(--spacing-sm);
-    letter-spacing: -0.01em;
-}
-.section-subtitle {
-    font-size: 1.05rem;
-    color: var(--color-medium);
-    max-width: 640px;
-    margin: 0 auto;
-}
-
-/* ============ Featured Cards (Service Card + BPMN) ============ */
-.featured-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
-    gap: var(--spacing-xl);
-    margin-bottom: var(--spacing-2xl);
-}
-.featured-card {
-    background: var(--color-white);
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    transition: var(--transition);
-    position: relative;
-    border: 1px solid var(--color-border);
-}
-.featured-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-xl);
-}
-.featured-card-banner {
-    height: 8px;
-    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
-}
-.featured-card-banner.bpmn {
-    background: linear-gradient(90deg, var(--color-warning), var(--color-danger));
-}
-.featured-card-content { padding: var(--spacing-xl); }
-.featured-card-tag {
-    display: inline-block;
-    background: var(--color-light);
-    color: var(--color-primary);
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: var(--spacing-md);
-}
-.featured-card-tag.bpmn {
-    background: #fff3e0;
-    color: var(--color-warning);
-}
-.featured-card-icon {
-    font-size: 3rem;
-    margin-bottom: var(--spacing-md);
-    line-height: 1;
-}
-.featured-card-title {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--color-dark);
-    margin-bottom: var(--spacing-sm);
-    letter-spacing: -0.01em;
-}
-.featured-card-description {
-    color: var(--color-medium);
-    font-size: 1rem;
-    line-height: 1.7;
-    margin-bottom: var(--spacing-lg);
-}
-.featured-card-features {
-    list-style: none;
-    margin-bottom: var(--spacing-xl);
-}
-.featured-card-features li {
-    padding: var(--spacing-sm) 0;
-    color: var(--color-dark);
-    font-size: 0.95rem;
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-}
-.featured-card-features li::before {
-    content: '✓';
-    color: var(--color-accent);
-    font-weight: 700;
-    flex-shrink: 0;
-}
-.featured-card-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    background: var(--color-primary);
-    color: var(--color-white);
-    padding: var(--spacing-md) var(--spacing-xl);
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    font-weight: 600;
-    transition: var(--transition);
-}
-.featured-card-cta.bpmn { background: var(--color-warning); }
-.featured-card-cta:hover {
-    transform: translateX(4px);
-    box-shadow: var(--shadow-md);
-}
-
-/* ============ Document Cards ============ */
-.doc-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-lg);
-}
-.doc-card {
-    background: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: var(--spacing-lg);
-    transition: var(--transition);
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-}
-.doc-card:hover {
-    border-color: var(--color-primary);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
-}
-.doc-card-icon {
-    font-size: 1.75rem;
-    line-height: 1;
-}
-.doc-card-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--color-dark);
-}
-.doc-card-description {
-    color: var(--color-medium);
-    font-size: 0.9rem;
-    line-height: 1.5;
-    flex: 1;
-}
-.doc-card-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: var(--spacing-sm);
-    border-top: 1px solid var(--color-border);
-    font-size: 0.8rem;
-    color: var(--color-medium);
-    margin-top: var(--spacing-sm);
-}
-.doc-card-badge {
-    background: var(--color-light);
-    color: var(--color-primary);
-    padding: 2px 10px;
-    border-radius: 12px;
-    font-weight: 600;
-}
-
-/* ============ Footer ============ */
-footer {
-    background: var(--color-dark);
-    color: var(--color-white);
-    padding: var(--spacing-2xl) var(--spacing-xl);
-    margin-top: var(--spacing-3xl);
-}
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--spacing-xl);
-    margin-bottom: var(--spacing-xl);
-}
-.footer-section h4 {
-    color: var(--color-secondary);
-    font-size: 0.9rem;
-    margin-bottom: var(--spacing-md);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-.footer-section a {
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
-    display: block;
-    padding: var(--spacing-xs) 0;
-    transition: var(--transition);
-    font-size: 0.9rem;
-}
-.footer-section a:hover { color: var(--color-white); }
-.footer-bottom {
-    text-align: center;
-    padding-top: var(--spacing-lg);
-    border-top: 1px solid rgba(255,255,255,0.1);
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.6);
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* ============ Back to Top ============ */
-.back-to-top {
-    position: fixed;
-    bottom: var(--spacing-lg);
-    right: var(--spacing-lg);
-    width: 48px;
-    height: 48px;
-    background: var(--color-primary);
-    color: var(--color-white);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    opacity: 0;
-    transition: var(--transition);
-    pointer-events: none;
-    font-size: 1.25rem;
-    z-index: 99;
-    box-shadow: var(--shadow-md);
-    border: none;
-}
-.back-to-top.visible {
-    opacity: 1;
-    pointer-events: auto;
-}
-.back-to-top:hover {
-    transform: translateY(-2px);
-    background: var(--color-secondary);
-}
-
-/* ============ Responsive ============ */
-@media (max-width: 768px) {
-    .hero h1 { font-size: 2rem; }
-    .hero p { font-size: 1rem; }
-    .navbar { padding: var(--spacing-md); }
-    .navbar-links { width: 100%; justify-content: center; gap: var(--spacing-sm); }
-    .container { padding: var(--spacing-xl) var(--spacing-md); }
-    .section-title { font-size: 1.5rem; }
-    .featured-grid { grid-template-columns: 1fr; gap: var(--spacing-lg); }
-    .featured-card-content { padding: var(--spacing-lg); }
-    .featured-card-title { font-size: 1.4rem; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dyslexia Service Platform - Documentation Portal</title>
+  <link rel="stylesheet" href="dist/style.css">
+  <link rel="stylesheet" href="dist/custom.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css" rel="stylesheet">
+  <style>
+    /* Page-specific overrides only */
+    .hero-gradient {
+      background: linear-gradient(135deg, #0E0F12 0%, #1B1D21 40%, #361E12 75%, #5D3B26 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-gradient::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 75% 30%, rgba(146,114,42,0.25) 0%, transparent 50%),
+        radial-gradient(ellipse at 20% 80%, rgba(146,114,42,0.10) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    .hero-gradient::after { display: none; }
+    .stat-glass {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .stat-glass:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(215,188,109,0.25);
+    }
+    .doc-card {
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .doc-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -8px rgba(0,0,0,0.12);
+    }
+    .featured-accent {
+      position: relative;
+    }
+    .featured-accent::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      border-radius: 1rem 1rem 0 0;
+    }
+    .featured-accent--gold::before { background: var(--color-primary-600, #92722A); }
+    .featured-accent--amber::before { background: var(--color-camel-600, #D97706); }
+    .section-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--color-primary-600, #92722A);
+      border-radius: 2px;
+      margin: 0 auto 1rem;
+    }
+    /* Smooth anchor scrolling offset for sticky nav */
+    [id] { scroll-margin-top: 5rem; }
+  </style>
 </head>
-<body>
+<body class="bg-whitely-100 text-aeblack-800 font-roboto antialiased">
 
-<!-- Navigation -->
-<nav class="navbar">
-    <div class="navbar-brand">🏛️ Dyslexia Service Platform</div>
-    <div class="navbar-links">
-        <a href="#featured">Featured</a>
-        <a href="#governance">Governance</a>
-        <a href="#operations">Operations</a>
-        <a href="#technology">Technology</a>
+  <!-- Skip navigation -->
+  <a href="#main" class="portal-skip-nav">Skip to main content</a>
+
+  <!-- ============================================================
+       HEADER — UAE Design System pattern
+       ============================================================ -->
+  <header class="sticky top-0 z-50 bg-whitely-50 shadow-sm border-b border-aeblack-100">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-8">
+      <nav class="flex items-center justify-between h-16" aria-label="Main navigation">
+        <!-- Brand -->
+        <a href="index.html" class="flex items-center gap-3 text-aeblack-800 no-underline">
+          <img src="assets/uae-emblem.png" alt="UAE Government Emblem" class="h-8 w-auto">
+          <div>
+            <span class="font-extrabold text-base tracking-tight text-aeblack-800">Dyslexia Service Platform</span>
+            <span class="block text-xs text-aeblack-400 font-normal">Documentation Portal</span>
+          </div>
+        </a>
+
+        <!-- Navigation links -->
+        <div class="hidden md:flex items-center gap-1">
+          <a href="#featured" class="px-4 py-2 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline transition-colors">Core Documents</a>
+          <a href="#governance" class="px-4 py-2 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline transition-colors">Governance</a>
+          <a href="#operations" class="px-4 py-2 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline transition-colors">Operations</a>
+          <a href="#technology" class="px-4 py-2 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline transition-colors">Technology</a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button class="md:hidden text-aeblack-600 p-2" aria-label="Open menu" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-aeblack-100">
+        <a href="#featured" class="block px-4 py-3 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline">Core Documents</a>
+        <a href="#governance" class="block px-4 py-3 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline">Governance</a>
+        <a href="#operations" class="block px-4 py-3 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline">Operations</a>
+        <a href="#technology" class="block px-4 py-3 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline">Technology</a>
+      </div>
     </div>
-</nav>
+  </header>
 
-<!-- Hero Section -->
-<div class="hero">
-    <h1>Dyslexia Service Transformation</h1>
-    <p>Comprehensive documentation portal for the UAE child dyslexia monitoring and intervention platform. Browse the full set of governance, operational, and technical documents.</p>
-    <div class="hero-stats">
-        <div class="stat-box">
-            <span class="stat-number">9</span>
-            <span class="stat-label">Process Stages</span>
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero-gradient py-20 lg:py-28 text-center text-whitely-50">
+    <div class="relative z-10 max-w-screen-lg mx-auto px-6 lg:px-8">
+      <p class="inline-block text-xs font-semibold uppercase tracking-widest mb-5 px-4 py-1.5 rounded-full" style="color: #D7BC6D; border: 1px solid rgba(215,188,109,0.3); background: rgba(215,188,109,0.08);">UAE Ministry of Education</p>
+
+      <h1 class="text-h3 md:text-h2 xl:text-h1 font-extrabold tracking-tight mb-6" style="color: #FFFFFF;">
+        Child Dyslexia Monitoring<br class="hidden sm:inline"> &amp; Intervention Service
+      </h1>
+
+      <p class="text-lg lg:text-xl max-w-2xl mx-auto mb-12 leading-relaxed" style="color: rgba(255,255,255,0.75);">
+        Comprehensive documentation portal for the UAE child dyslexia monitoring and intervention platform. Browse the full set of governance, operational, and technical documents.
+      </p>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
+        <div class="stat-glass rounded-xl p-5 text-center transition-all">
+          <span class="block text-3xl lg:text-h4 font-extrabold" style="color:#FFFFFF;">9</span>
+          <span class="block text-xs uppercase tracking-wider mt-1" style="color: rgba(215,188,109,0.7);">Process Stages</span>
         </div>
-        <div class="stat-box">
-            <span class="stat-number">5</span>
-            <span class="stat-label">Risk Tiers</span>
+        <div class="stat-glass rounded-xl p-5 text-center transition-all">
+          <span class="block text-3xl lg:text-h4 font-extrabold" style="color:#FFFFFF;">5</span>
+          <span class="block text-xs uppercase tracking-wider mt-1" style="color: rgba(215,188,109,0.7);">Risk Tiers</span>
         </div>
-        <div class="stat-box">
-            <span class="stat-number">31</span>
-            <span class="stat-label">Risks Mapped</span>
+        <div class="stat-glass rounded-xl p-5 text-center transition-all">
+          <span class="block text-3xl lg:text-h4 font-extrabold" style="color:#FFFFFF;">31</span>
+          <span class="block text-xs uppercase tracking-wider mt-1" style="color: rgba(215,188,109,0.7);">Risks Mapped</span>
         </div>
-        <div class="stat-box">
-            <span class="stat-number">15</span>
-            <span class="stat-label">Roles Defined</span>
+        <div class="stat-glass rounded-xl p-5 text-center transition-all">
+          <span class="block text-3xl lg:text-h4 font-extrabold" style="color:#FFFFFF;">15</span>
+          <span class="block text-xs uppercase tracking-wider mt-1" style="color: rgba(215,188,109,0.7);">Roles Defined</span>
         </div>
+      </div>
     </div>
-</div>
+  </section>
 
-<div class="container">
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <main id="main">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
 
-    <!-- ============ FEATURED: Service Card + BPMN ============ -->
-    <div class="section" id="featured">
-        <div class="section-header">
-            <h2 class="section-title">⭐ Core Documents</h2>
-            <p class="section-subtitle">The two foundational artifacts that define this transformation: the Service Card and the BPMN 2.0 process diagram.</p>
+      <!-- ========== CORE DOCUMENTS ========== -->
+      <section id="featured" class="mb-20">
+        <div class="text-center mb-10">
+          <div class="section-divider"></div>
+          <h2 class="text-h5 md:text-h4 xl:text-h3 font-extrabold mb-3">Core Documents</h2>
+          <p class="text-base text-aeblack-400 max-w-xl mx-auto">The two foundational artifacts that define this transformation: the Service Card and the BPMN 2.0 process diagram.</p>
         </div>
 
-        <div class="featured-grid">
-            <!-- Service Card Featured -->
-            <article class="featured-card">
-                <div class="featured-card-banner"></div>
-                <div class="featured-card-content">
-                    <span class="featured-card-tag">Service Design</span>
-                    <div class="featured-card-icon">📋</div>
-                    <h3 class="featured-card-title">Service Card</h3>
-                    <p class="featured-card-description">
-                        The complete service canvas defining value proposition, customer journey, stakeholders, key processes, success metrics and critical factors for the child dyslexia monitoring service.
-                    </p>
-                    <ul class="featured-card-features">
-                        <li>Service blueprint with 9 monitoring stages</li>
-                        <li>Persona profiles and customer journey</li>
-                        <li>SLAs, KPIs and success metrics</li>
-                        <li>Compliance and regulatory framework</li>
-                    </ul>
-                    <a href="01-Service-Card-Dyslexia.html" class="featured-card-cta">Open Service Card →</a>
-                </div>
-            </article>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Service Card -->
+          <article class="aegov-card card-bordered featured-accent featured-accent--gold overflow-hidden">
+            <div class="p-6 lg:p-8">
+              <div class="flex items-start justify-between mb-5">
+                <span class="aegov-badge badge-soft badge-success text-xs">Service Design</span>
+              </div>
 
-            <!-- BPMN Featured -->
-            <article class="featured-card">
-                <div class="featured-card-banner bpmn"></div>
-                <div class="featured-card-content">
-                    <span class="featured-card-tag bpmn">BPMN 2.0 ISO 19510</span>
-                    <div class="featured-card-icon">🔀</div>
-                    <h3 class="featured-card-title">BPMN Process Diagram</h3>
-                    <p class="featured-card-description">
-                        Comprehensive end-to-end process flow rendered with Mermaid.js following BPMN 2.0 standards (ISO/IEC 19510:2013), showing all stages, decision gateways and risk classification tiers.
-                    </p>
-                    <ul class="featured-card-features">
-                        <li>9 sequential stages with explicit gateways</li>
-                        <li>5 risk classification outcomes (No Risk → Critical)</li>
-                        <li>Specialist review gates (24h / 48h SLAs)</li>
-                        <li>Error handling and retry logic (max 3x)</li>
-                    </ul>
-                    <a href="Child_Monitoring_Dyslexia_BPMN_Detailed.html" class="featured-card-cta bpmn">Open BPMN Diagram →</a>
-                </div>
-            </article>
+              <h3 class="text-h5 font-extrabold text-aeblack-800 mb-3">Service Card — Dyslexia Monitoring</h3>
+
+              <p class="text-base text-aeblack-400 leading-relaxed mb-6">
+                The complete service canvas defining value proposition, customer journey, stakeholders, key processes, success metrics and critical factors for the child dyslexia monitoring service.
+              </p>
+
+              <ul class="space-y-2.5 mb-8">
+                <li class="flex items-start gap-2.5 text-sm text-aeblack-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-aegreen-600 shrink-0 mt-0.5" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></svg>
+                  Service blueprint with 9 monitoring stages
+                </li>
+                <li class="flex items-start gap-2.5 text-sm text-aeblack-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-aegreen-600 shrink-0 mt-0.5" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></svg>
+                  Persona profiles and customer journey
+                </li>
+                <li class="flex items-start gap-2.5 text-sm text-aeblack-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-aegreen-600 shrink-0 mt-0.5" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></svg>
+                  SLAs, KPIs and success metrics
+                </li>
+                <li class="flex items-start gap-2.5 text-sm text-aeblack-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-aegreen-600 shrink-0 mt-0.5" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></svg>
+                  Compliance and regulatory framework
+                </li>
+              </ul>
+
+              <a href="pages/service-card-dyslexia.html" class="aegov-btn">
+                Open Service Card
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 rtl:-scale-x-100" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69l-58.35-58.34a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- BPMN Diagram -->
+          <article class="aegov-card card-bordered featured-accent featured-accent--amber overflow-hidden">
+            <div class="p-6 lg:p-8">
+              <div class="flex items-start justify-between mb-5">
+                <span class="aegov-badge badge-soft badge-warning text-xs">BPMN 2.0 · ISO 19510</span>
+              </div>
+
+              <h3 class="text-h5 font-extrabold text-aeblack-800 mb-3">BPMN Process Diagram</h3>
+
+              <p class="text-base text-aeblack-400 leading-relaxed mb-6">
+                Comprehensive end-to-end process flow rendered with Mermaid.js following BPMN 2.0 standards (ISO/IEC 19510:2013), showing all stages, decision gateways and risk classification tiers.
+              </p>
+
+              <ul class="space-y-2.5 mb-8">
+                <li class="flex items-start gap-2.5 text-sm text-aeblack-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-aegreen-600 shrink-0 mt-0.5" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></svg>
+                  9 sequential stages with explicit gateways
+                </li>
+                <li class="flex items-start gap-2.5 text-sm text-aeblack-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-aegreen-600 shrink-0 mt-0.5" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></svg>
+                  5 risk classification outcomes (No Risk → Critical)
+                </li>
+                <li class="flex items-start gap-2.5 text-sm text-aeblack-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-aegreen-600 shrink-0 mt-0.5" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></svg>
+                  Specialist review gates (24h / 48h SLAs)
+                </li>
+                <li class="flex items-start gap-2.5 text-sm text-aeblack-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-aegreen-600 shrink-0 mt-0.5" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></svg>
+                  Error handling and retry logic (max 3x)
+                </li>
+              </ul>
+
+              <a href="pages/child-monitoring-dyslexia-bpmn-detailed.html" class="aegov-btn btn-secondary">
+                Open BPMN Diagram
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 rtl:-scale-x-100" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69l-58.35-58.34a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
+              </a>
+            </div>
+          </article>
         </div>
+      </section>
+
+      <!-- ========== STRATEGIC & GOVERNANCE ========== -->
+      <section id="governance" class="mb-20">
+        <div class="text-center mb-10">
+          <div class="section-divider"></div>
+          <h2 class="text-h5 md:text-h4 xl:text-h3 font-extrabold mb-3">Strategic &amp; Governance</h2>
+          <p class="text-base text-aeblack-400 max-w-xl mx-auto">Transformation strategy, operating model, accountability matrix and risk management.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+          <!-- AS-IS / TO-BE -->
+          <a href="pages/as-is-to-be-analysis.html" class="aegov-card card-service card-bordered doc-card no-underline block">
+            <div class="p-6">
+              <div class="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mb-5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-600" viewBox="0 0 256 256" fill="currentColor"><path d="M232,208a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V48a8,8,0,0,1,16,0v94.37L90.73,98a8,8,0,0,1,10.07-.38l58.81,44.11L218.73,90a8,8,0,1,1,10.54,12.06l-64,56a8,8,0,0,1-10.07.38L96.39,114.29,40,163.63V200H224A8,8,0,0,1,232,208Z"/></svg>
+              </div>
+              <h3 class="card-service-title mb-2">AS-IS / TO-BE Analysis</h3>
+              <p class="text-sm text-aeblack-400 leading-relaxed mb-4">Current-state pain points and future-state vision with transformation impact summary.</p>
+              <div class="flex items-center justify-between pt-4 border-t border-aeblack-100">
+                <span class="aegov-badge badge-soft badge-info text-xs">Strategy</span>
+                <span class="text-xs text-aeblack-300">~15 min read</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Target Operating Model -->
+          <a href="pages/target-operating-model.html" class="aegov-card card-service card-bordered doc-card no-underline block">
+            <div class="p-6">
+              <div class="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mb-5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-600" viewBox="0 0 256 256" fill="currentColor"><path d="M232,224H208V32h8a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16h8V224H24a8,8,0,0,0,0,16H232a8,8,0,0,0,0-16ZM64,32H192V224H160V184a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8v40H64Zm80,192H112V192h32ZM88,64a8,8,0,0,1,8-8h16a8,8,0,0,1,0,16H96A8,8,0,0,1,88,64Zm48,0a8,8,0,0,1,8-8h16a8,8,0,0,1,0,16H144A8,8,0,0,1,136,64ZM88,104a8,8,0,0,1,8-8h16a8,8,0,0,1,0,16H96A8,8,0,0,1,88,104Zm48,0a8,8,0,0,1,8-8h16a8,8,0,0,1,0,16H144A8,8,0,0,1,136,104ZM88,144a8,8,0,0,1,8-8h16a8,8,0,0,1,0,16H96A8,8,0,0,1,88,144Zm48,0a8,8,0,0,1,8-8h16a8,8,0,0,1,0,16H144A8,8,0,0,1,136,144Z"/></svg>
+              </div>
+              <h3 class="card-service-title mb-2">Target Operating Model</h3>
+              <p class="text-sm text-aeblack-400 leading-relaxed mb-4">Future-state organizational design, governance composition and capability maturity model.</p>
+              <div class="flex items-center justify-between pt-4 border-t border-aeblack-100">
+                <span class="aegov-badge badge-soft badge-info text-xs">Operations</span>
+                <span class="text-xs text-aeblack-300">~20 min read</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- RACI Matrix -->
+          <a href="pages/raci-governance-matrix.html" class="aegov-card card-service card-bordered doc-card no-underline block">
+            <div class="p-6">
+              <div class="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mb-5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-600" viewBox="0 0 256 256" fill="currentColor"><path d="M244.8,150.4a8,8,0,0,1-11.2-1.6A51.6,51.6,0,0,0,192,128a8,8,0,0,1-7.37-4.89,8,8,0,0,1,0-6.22A8,8,0,0,1,192,112a24,24,0,1,0-23.24-30,8,8,0,1,1-15.5-4A40,40,0,1,1,219,117.51a67.94,67.94,0,0,1,27.43,21.68A8,8,0,0,1,244.8,150.4ZM190.92,212a8,8,0,1,1-13.84,8,57,57,0,0,0-98.16,0,8,8,0,1,1-13.84-8,72.06,72.06,0,0,1,33.74-29.92,48,48,0,1,1,58.36,0A72.06,72.06,0,0,1,190.92,212ZM128,176a32,32,0,1,0-32-32A32,32,0,0,0,128,176ZM64,112a8,8,0,0,0,7.37-4.89,8,8,0,0,0,0-6.22A8,8,0,0,0,64,96a24,24,0,1,1,23.24-30,8,8,0,0,0,15.5-4A40,40,0,1,0,37,117.51,67.94,67.94,0,0,0,9.6,139.19a8,8,0,1,0,12.8,9.61A51.6,51.6,0,0,1,64,128,8,8,0,0,0,64,112Z"/></svg>
+              </div>
+              <h3 class="card-service-title mb-2">RACI Governance Matrix</h3>
+              <p class="text-sm text-aeblack-400 leading-relaxed mb-4">Role-responsibility mapping across 13 process areas, 166 activities and 15 roles.</p>
+              <div class="flex items-center justify-between pt-4 border-t border-aeblack-100">
+                <span class="aegov-badge badge-soft badge-info text-xs">Governance</span>
+                <span class="text-xs text-aeblack-300">~18 min read</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Risk Register -->
+          <a href="pages/risk-register.html" class="aegov-card card-service card-bordered doc-card no-underline block">
+            <div class="p-6">
+              <div class="w-12 h-12 rounded-xl bg-aered-50 flex items-center justify-center mb-5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-aered-600" viewBox="0 0 256 256" fill="currentColor"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"/></svg>
+              </div>
+              <h3 class="card-service-title mb-2">Risk Register</h3>
+              <p class="text-sm text-aeblack-400 leading-relaxed mb-4">31 identified risks with mitigation strategies, ownership and monitoring approach.</p>
+              <div class="flex items-center justify-between pt-4 border-t border-aeblack-100">
+                <span class="aegov-badge badge-soft badge-error text-xs">Risk</span>
+                <span class="text-xs text-aeblack-300">~15 min read</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ========== OPERATIONS & PROCESS ========== -->
+      <section id="operations" class="mb-20">
+        <div class="text-center mb-10">
+          <div class="section-divider"></div>
+          <h2 class="text-h5 md:text-h4 xl:text-h3 font-extrabold mb-3">Operations &amp; Process</h2>
+          <p class="text-base text-aeblack-400 max-w-xl mx-auto">Detailed process specifications and supporting operational documents.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+          <a href="pages/spec-process-dyslexia-monitoring.html" class="aegov-card card-service card-bordered doc-card no-underline block">
+            <div class="p-6">
+              <div class="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mb-5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-600" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z"/></svg>
+              </div>
+              <h3 class="card-service-title mb-2">Process Specification</h3>
+              <p class="text-sm text-aeblack-400 leading-relaxed mb-4">Detailed BPMN 2.0 process specification with requirements, constraints, interfaces and acceptance criteria.</p>
+              <div class="flex items-center justify-between pt-4 border-t border-aeblack-100">
+                <span class="aegov-badge badge-soft badge-success text-xs">Process</span>
+                <span class="text-xs text-aeblack-300">~22 min read</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ========== TECHNOLOGY ========== -->
+      <section id="technology" class="mb-12">
+        <div class="text-center mb-10">
+          <div class="section-divider"></div>
+          <h2 class="text-h5 md:text-h4 xl:text-h3 font-extrabold mb-3">Technology &amp; Architecture</h2>
+          <p class="text-base text-aeblack-400 max-w-xl mx-auto">Enterprise technology stack, integration patterns and data architecture.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+          <a href="pages/technology-stack-mapping.html" class="aegov-card card-service card-bordered doc-card no-underline block">
+            <div class="p-6">
+              <div class="w-12 h-12 rounded-xl bg-techblue-50 flex items-center justify-center mb-5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-techblue-600" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216ZM172,128a44,44,0,1,1-44-44A44.05,44.05,0,0,1,172,128Zm-60,0a16,16,0,1,0,16-16A16,16,0,0,0,112,128Z"/></svg>
+              </div>
+              <h3 class="card-service-title mb-2">Technology Stack Mapping</h3>
+              <p class="text-sm text-aeblack-400 leading-relaxed mb-4">Enterprise architecture (Oracle, ServiceNow, Microsoft Azure) with integration patterns and security architecture.</p>
+              <div class="flex items-center justify-between pt-4 border-t border-aeblack-100">
+                <span class="aegov-badge badge-soft badge-info text-xs">Technology</span>
+                <span class="text-xs text-aeblack-300">~20 min read</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ============================================================
+       FOOTER — UAE Design System pattern
+       ============================================================ -->
+  <footer class="bg-aeblack-900 text-whitely-100">
+    <!-- Footer top -->
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">Core Documents</h4>
+          <ul class="space-y-2.5">
+            <li><a href="pages/service-card-dyslexia.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Service Card</a></li>
+            <li><a href="pages/child-monitoring-dyslexia-bpmn-detailed.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">BPMN Diagram</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">Governance</h4>
+          <ul class="space-y-2.5">
+            <li><a href="pages/as-is-to-be-analysis.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">AS-IS / TO-BE</a></li>
+            <li><a href="pages/target-operating-model.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Operating Model</a></li>
+            <li><a href="pages/raci-governance-matrix.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">RACI Matrix</a></li>
+            <li><a href="pages/risk-register.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Risk Register</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">Process &amp; Tech</h4>
+          <ul class="space-y-2.5">
+            <li><a href="pages/spec-process-dyslexia-monitoring.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Process Spec</a></li>
+            <li><a href="pages/technology-stack-mapping.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Technology Stack</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">About</h4>
+          <p class="text-sm text-aeblack-300 leading-relaxed">UAE Dyslexia Service Platform documentation portal. Part of the Ministry of Education digital transformation initiative.</p>
+        </div>
+      </div>
     </div>
 
-    <!-- ============ Strategic & Governance ============ -->
-    <div class="section" id="governance">
-        <div class="section-header">
-            <h2 class="section-title">📊 Strategic &amp; Governance</h2>
-            <p class="section-subtitle">Transformation strategy, operating model, accountability matrix and risk management.</p>
-        </div>
-        <div class="doc-grid">
-            <a href="AS-IS_TO-BE_Analysis.html" class="doc-card">
-                <div class="doc-card-icon">📈</div>
-                <div class="doc-card-title">AS-IS / TO-BE Analysis</div>
-                <div class="doc-card-description">Current-state pain points and future-state vision with transformation impact summary.</div>
-                <div class="doc-card-meta">
-                    <span class="doc-card-badge">Strategy</span>
-                    <span>~15 min</span>
-                </div>
-            </a>
-            <a href="Target_Operating_Model.html" class="doc-card">
-                <div class="doc-card-icon">🏗️</div>
-                <div class="doc-card-title">Target Operating Model</div>
-                <div class="doc-card-description">Future-state organizational design, governance composition and capability maturity model.</div>
-                <div class="doc-card-meta">
-                    <span class="doc-card-badge">Operations</span>
-                    <span>~20 min</span>
-                </div>
-            </a>
-            <a href="RACI_Governance_Matrix.html" class="doc-card">
-                <div class="doc-card-icon">⚙️</div>
-                <div class="doc-card-title">RACI Governance Matrix</div>
-                <div class="doc-card-description">Role-responsibility mapping across 13 process areas, 166 activities and 15 roles.</div>
-                <div class="doc-card-meta">
-                    <span class="doc-card-badge">Governance</span>
-                    <span>~18 min</span>
-                </div>
-            </a>
-            <a href="Risk_Register.html" class="doc-card">
-                <div class="doc-card-icon">🚨</div>
-                <div class="doc-card-title">Risk Register</div>
-                <div class="doc-card-description">31 identified risks with mitigation strategies, ownership and monitoring approach.</div>
-                <div class="doc-card-meta">
-                    <span class="doc-card-badge">Risk</span>
-                    <span>~15 min</span>
-                </div>
-            </a>
-        </div>
+    <!-- Footer bottom -->
+    <div class="border-t border-aeblack-700">
+      <div class="max-w-screen-xl mx-auto px-6 lg:px-8 py-5 text-center">
+        <p class="text-sm text-aeblack-400">&copy; 2026 UAE Dyslexia Service Platform &middot; Ministry of Education</p>
+      </div>
     </div>
+  </footer>
 
-    <!-- ============ Operations & Process ============ -->
-    <div class="section" id="operations">
-        <div class="section-header">
-            <h2 class="section-title">🔄 Operations &amp; Process</h2>
-            <p class="section-subtitle">Detailed process specifications and supporting operational documents.</p>
-        </div>
-        <div class="doc-grid">
-            <a href="spec-process-dyslexia-monitoring.html" class="doc-card">
-                <div class="doc-card-icon">📝</div>
-                <div class="doc-card-title">Process Specification</div>
-                <div class="doc-card-description">Detailed BPMN 2.0 process specification with requirements, constraints, interfaces and acceptance criteria.</div>
-                <div class="doc-card-meta">
-                    <span class="doc-card-badge">Process</span>
-                    <span>~22 min</span>
-                </div>
-            </a>
-        </div>
-    </div>
+  <!-- Back to top -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 z-50 w-12 h-12 bg-primary-600 hover:bg-primary-500 text-whitely-50 rounded-full shadow-lg flex items-center justify-center transition-all opacity-0 pointer-events-none" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,165.66a8,8,0,0,1-11.32,0L128,99.31,61.66,165.66a8,8,0,0,1-11.32-11.32l72-72a8,8,0,0,1,11.32,0l72,72A8,8,0,0,1,205.66,165.66Z"/></svg>
+  </button>
 
-    <!-- ============ Technology ============ -->
-    <div class="section" id="technology">
-        <div class="section-header">
-            <h2 class="section-title">💻 Technology &amp; Architecture</h2>
-            <p class="section-subtitle">Enterprise technology stack, integration patterns and data architecture.</p>
-        </div>
-        <div class="doc-grid">
-            <a href="Technology_Stack_Mapping.html" class="doc-card">
-                <div class="doc-card-icon">🏛️</div>
-                <div class="doc-card-title">Technology Stack Mapping</div>
-                <div class="doc-card-description">Enterprise architecture (Oracle, ServiceNow, Microsoft Azure) with integration patterns and security architecture.</div>
-                <div class="doc-card-meta">
-                    <span class="doc-card-badge">Technology</span>
-                    <span>~20 min</span>
-                </div>
-            </a>
-        </div>
-    </div>
+  <!-- Scripts -->
+  <script src="https://unpkg.com/@aegov/design-system@latest/dist/aegov.js" defer></script>
+  <script>
+    // Back to top visibility
+    const topBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      const show = window.pageYOffset > 400;
+      topBtn.style.opacity = show ? '1' : '0';
+      topBtn.style.pointerEvents = show ? 'auto' : 'none';
+    });
+    topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-</div>
-
-<!-- Footer -->
-<footer>
-    <div class="footer-content">
-        <div class="footer-section">
-            <h4>Core Documents</h4>
-            <a href="01-Service-Card-Dyslexia.html">Service Card</a>
-            <a href="Child_Monitoring_Dyslexia_BPMN_Detailed.html">BPMN Diagram</a>
-        </div>
-        <div class="footer-section">
-            <h4>Governance</h4>
-            <a href="AS-IS_TO-BE_Analysis.html">AS-IS / TO-BE</a>
-            <a href="Target_Operating_Model.html">Operating Model</a>
-            <a href="RACI_Governance_Matrix.html">RACI Matrix</a>
-            <a href="Risk_Register.html">Risk Register</a>
-        </div>
-        <div class="footer-section">
-            <h4>Process &amp; Tech</h4>
-            <a href="spec-process-dyslexia-monitoring.html">Process Spec</a>
-            <a href="Technology_Stack_Mapping.html">Technology Stack</a>
-        </div>
-        <div class="footer-section">
-            <h4>About</h4>
-            <a href="#featured">Documentation Portal</a>
-            <p style="color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: var(--spacing-sm);">UAE Dyslexia Service</p>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>© 2026 UAE Dyslexia Service Platform · Internal documentation</p>
-    </div>
-</footer>
-
-<button class="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
-<script>
-const btn = document.querySelector('.back-to-top');
-window.addEventListener('scroll', () => {
-    btn.classList.toggle('visible', window.pageYOffset > 300);
-});
-</script>
+    // Mobile menu auto-close on link click
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden'));
+    });
+  </script>
 
 </body>
 </html>

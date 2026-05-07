@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="author" content="Dyslexia Service Platform - Dyslexia Monitoring Service"/>
+  <meta name="created" content="2026-05-06T14:24:15.872970"/>
+  <title>AS-IS TO-BE Analysis - Dyslexia Service Platform</title>
+  <meta name="description" content="Dyslexia Monitoring &amp; Intervention Service Documentation"/>
+  <link rel="stylesheet" href="../dist/style.css">
+  <link rel="stylesheet" href="../dist/custom.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    [id] { scroll-margin-top: 5rem; }
+  </style>
+</head>
+<body class="bg-whitely-100 text-aeblack-800 font-roboto antialiased">
+
+  <a href="#main" class="portal-skip-nav">Skip to main content</a>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-whitely-50 shadow-sm border-b border-aeblack-100">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-8">
+      <nav class="flex items-center justify-between h-16" aria-label="Main navigation">
+        <a href="../index.html" class="flex items-center gap-3 text-aeblack-800 no-underline">
+          <img src="../assets/uae-emblem.png" alt="UAE Government Emblem" class="h-8 w-auto">
+          <div>
+            <span class="font-extrabold text-base tracking-tight text-aeblack-800">Dyslexia Service Platform</span>
+            <span class="block text-xs text-aeblack-400 font-normal">Documentation Portal</span>
+          </div>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="../index.html" class="px-4 py-2 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline transition-colors">Home</a>
+          <a href="#current-state-as-is-pain-points" class="px-4 py-2 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline transition-colors">AS-IS</a>
+          <a href="#future-state-to-be-vision" class="px-4 py-2 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline transition-colors">TO-BE</a>
+          <a href="#transformation-impact-summary" class="px-4 py-2 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline transition-colors">Impact</a>
+        </div>
+        <button class="md:hidden text-aeblack-600 p-2" aria-label="Open menu" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </nav>
+      <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-aeblack-100">
+        <a href="../index.html" class="block px-4 py-3 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline">Home</a>
+        <a href="#current-state-as-is-pain-points" class="block px-4 py-3 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline">AS-IS</a>
+        <a href="#future-state-to-be-vision" class="block px-4 py-3 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline">TO-BE</a>
+        <a href="#transformation-impact-summary" class="block px-4 py-3 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline">Impact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="bg-aeblack-900 py-10 lg:py-14">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-8">
+      <nav class="flex items-center gap-2 text-sm mb-4" aria-label="Breadcrumb" style="color: rgba(255,255,255,0.5);">
+        <a href="../index.html" class="hover:text-white no-underline" style="color: rgba(255,255,255,0.5);">Home</a>
+        <span>/</span>
+        <span style="color: rgba(215,188,109,0.8);">AS-IS / TO-BE Analysis</span>
+      </nav>
+      <h1 class="text-h4 md:text-h3 xl:text-h2 font-extrabold" style="color: #FFFFFF;">AS-IS / TO-BE Analysis</h1>
+      <p class="mt-3 text-base max-w-2xl" style="color: rgba(255,255,255,0.6);">Current-state pain points and future-state vision for the Dyslexia Service Transformation Initiative</p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
+    <div class="lg:grid lg:grid-cols-[280px_1fr] lg:gap-12">
+
+      <!-- Sidebar TOC -->
+      <aside class="hidden lg:block">
+        <nav class="sticky top-24" aria-label="Table of contents">
+          <h2 class="text-sm font-bold uppercase tracking-wider text-aeblack-400 mb-4">On this page</h2>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#current-state-vs-future-state-analysis" class="text-aeblack-500 hover:text-primary-600 no-underline">Overview</a></li>
+            <li><a href="#current-state-as-is-pain-points" class="text-aeblack-500 hover:text-primary-600 no-underline">Current State (AS-IS)</a></li>
+            <li><a href="#future-state-to-be-vision" class="text-aeblack-500 hover:text-primary-600 no-underline">Future State (TO-BE)</a></li>
+            <li><a href="#transformation-impact-summary" class="text-aeblack-500 hover:text-primary-600 no-underline">Transformation Impact</a></li>
+            <li><a href="#strategic-alignment-service-excellence-lens" class="text-aeblack-500 hover:text-primary-600 no-underline">Strategic Alignment</a></li>
+            <li><a href="#governance-model-future-state" class="text-aeblack-500 hover:text-primary-600 no-underline">Governance Model</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main content -->
+      <main id="main">
+
+        <!-- Overview -->
+        <section id="current-state-vs-future-state-analysis" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-4">Current State vs Future State Analysis</h2>
+            <h3 id="dyslexia-monitoring-intervention-service-transformation" class="text-lg font-bold text-aeblack-700 mb-4">Dyslexia Monitoring &amp; Intervention Service Transformation</h3>
+          </div>
+        </section>
+
+        <!-- AS-IS Pain Points -->
+        <section id="current-state-as-is-pain-points" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">CURRENT STATE (AS-IS) PAIN POINTS</h2>
+
+            <!-- Pain Point 1 -->
+            <h3 id="1-fragmented-child-assessment-intake" class="text-lg font-bold text-aeblack-800 mb-2">1. <strong>Fragmented Child Assessment &amp; Intake</strong></h3>
+            <h4 id="problem" class="text-base font-semibold text-aeblack-700 mb-2">Problem:</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-aered-500 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed">Multiple entry points with no unified intake. Educators refer via email/phone (no formal process). Parents register through different ONG systems. Specialists have separate referral channels. No centralized child record repository. Duplicate registrations common (same child in 3+ systems).</p>
+            </div>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-6">
+              <strong>Impact:</strong><br/>
+              - <strong>Operational Waste</strong>: 20-30% time lost to data reconciliation<br/>
+              - <strong>Service Quality</strong>: Child starts assessment multiple times<br/>
+              - <strong>Data Integrity</strong>: Inconsistent demographic data across systems<br/>
+              - <strong>Compliance Risk</strong>: LGPD consent fragmented across systems
+            </p>
+
+            <!-- Pain Point 2 -->
+            <h3 id="2-manual-referral-delays-bottlenecks" class="text-lg font-bold text-aeblack-800 mb-2">2. <strong>Manual Referral Delays &amp; Bottlenecks</strong></h3>
+            <h4 id="problem" class="text-base font-semibold text-aeblack-700 mb-2">Problem:</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-aered-500 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed">Referral-to-Assessment timeline is unpredictable. Educator refers &rarr; Email sits in inbox (2-5 days). Manual screening by caseworker (3-7 days). Assessment scheduling via phone/email (3-10 days). No automated escalation triggers. Current SLA: 21-35 days (should be 7-10 days).</p>
+            </div>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-6">
+              <strong>Impact:</strong><br/>
+              - <strong>Service Delay</strong>: Average 28-day gap between referral and assessment start<br/>
+              - <strong>Child Opportunity Cost</strong>: Early intervention window closes<br/>
+              - <strong>Educator Frustration</strong>: No visibility into referral status<br/>
+              - <strong>System Inefficiency</strong>: Caseworkers spend 40% time on scheduling admin
+            </p>
+
+            <!-- Pain Point 3 -->
+            <h3 id="3-inconsistent-specialist-triage-validation" class="text-lg font-bold text-aeblack-800 mb-2">3. <strong>Inconsistent Specialist Triage &amp; Validation</strong></h3>
+            <h4 id="problem" class="text-base font-semibold text-aeblack-700 mb-2">Problem:</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-aered-500 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed">No standard triage rules for specialist referrals. Different ONG coordinators use different criteria. Specialist selection is ad-hoc (based on personal relationships). No SLA for specialist review (ranges 1-14 days). Lack of escalation protocol for critical cases. No feedback loop from specialists to ONG.</p>
+            </div>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-6">
+              <strong>Impact:</strong><br/>
+              - <strong>Service Inconsistency</strong>: Same child gets different pathways depending on ONG<br/>
+              - <strong>Equity Issue</strong>: Access to specialists varies by geography/wealth<br/>
+              - <strong>Quality Variance</strong>: Some cases get expert review, others don't<br/>
+              - <strong>No Learning Loop</strong>: System doesn't improve based on specialist feedback
+            </p>
+
+            <!-- Pain Point 4 -->
+            <h3 id="4-lack-of-cross-stakeholder-visibility" class="text-lg font-bold text-aeblack-800 mb-2">4. <strong>Lack of Cross-Stakeholder Visibility</strong></h3>
+            <h4 id="problem" class="text-base font-semibold text-aeblack-700 mb-2">Problem:</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-aered-500 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed">Stakeholders operate in information silos. Parents don't know child's status (no regular updates). Educators don't see progress tracking (no data access). Specialists don't know if recommendations were implemented. ONG coordinators don't have holistic caseload view. No shared dashboard or notification system. Communication happens via email (untracked, scattered).</p>
+            </div>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-6">
+              <strong>Impact:</strong><br/>
+              - <strong>Parent Anxiety</strong>: Lack of communication breeds distrust<br/>
+              - <strong>Educator Disconnect</strong>: Teachers don't see ROI of referral<br/>
+              - <strong>Specialist Frustration</strong>: Can't track if advice was followed<br/>
+              - <strong>Program Ineffectiveness</strong>: No feedback loop = no improvement
+            </p>
+
+            <!-- Pain Point 5 -->
+            <h3 id="5-no-standard-service-taxonomy-or-classification" class="text-lg font-bold text-aeblack-800 mb-2">5. <strong>No Standard Service Taxonomy or Classification</strong></h3>
+            <h4 id="problem" class="text-base font-semibold text-aeblack-700 mb-2">Problem:</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-aered-500 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed">Service definition varies by ONG. Each ONG defines "dislexia" differently. Risk classification thresholds differ. Intervention phases are non-standard. "Progress" is measured differently across ONGs. No shared vocabulary (educators and specialists use different terms). Billing/reporting cannot be aggregated.</p>
+            </div>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-6">
+              <strong>Impact:</strong><br/>
+              - <strong>Data Aggregation Impossible</strong>: Can't compare across ONGs<br/>
+              - <strong>Policy Blind Spot</strong>: service can't measure service maturity<br/>
+              - <strong>Quality Metrics Weak</strong>: KPIs are anecdotal, not systematic<br/>
+              - <strong>Scaling Difficulty</strong>: Every new ONG requires custom integration
+            </p>
+
+            <!-- Pain Point 6 -->
+            <h3 id="6-limited-kpi-governance-reporting" class="text-lg font-bold text-aeblack-800 mb-2">6. <strong>Limited KPI Governance &amp; Reporting</strong></h3>
+            <h4 id="problem" class="text-base font-semibold text-aeblack-700 mb-2">Problem:</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-aered-500 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed">Metrics are ad-hoc and untracked. No centralized KPI dashboard. Reporting is manual (Excel spreadsheets). Historical data not retained (hard to see trends). SLAs exist but aren't monitored (no enforcement). No audit trail of decision-making. Monthly reports take 20% of coordinator time.</p>
+            </div>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-6">
+              <strong>Impact:</strong><br/>
+              - <strong>Accountability Gap</strong>: No way to prove service effectiveness<br/>
+              - <strong>Decision Blindness</strong>: Leaders can't see what's working/failing<br/>
+              - <strong>Audit Risk</strong>: Can't demonstrate LGPD compliance on demand<br/>
+              - <strong>Funding Risk</strong>: Can't justify program effectiveness to donors
+            </p>
+
+            <!-- Pain Point 7 -->
+            <h3 id="7-disconnected-technology-ecosystem" class="text-lg font-bold text-aeblack-800 mb-2">7. <strong>Disconnected Technology Ecosystem</strong></h3>
+            <h4 id="problem" class="text-base font-semibold text-aeblack-700 mb-2">Problem:</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-aered-500 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed">Systems don't talk to each other. Assessment tool: standalone desktop app. Referral tracking: email + Google Sheets. Parent communication: WhatsApp (untracked). Progress data: manual entry in local database. Reporting: manual export to Excel. No API integrations, no data flow automation. LGPD compliance is manual (consent forms in PDFs).</p>
+            </div>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-6">
+              <strong>Impact:</strong><br/>
+              - <strong>Data Silos</strong>: Same data re-entered in multiple systems<br/>
+              - <strong>Manual Errors</strong>: 5-10% data entry mistakes<br/>
+              - <strong>Compliance Risk</strong>: Can't prove audit trail<br/>
+              - <strong>Scalability Block</strong>: Can't scale without major IT overhaul
+            </p>
+          </div>
+        </section>
+
+        <!-- TO-BE Vision -->
+        <section id="future-state-to-be-vision" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">FUTURE STATE (TO-BE) VISION</h2>
+
+            <!-- Solution 1 -->
+            <h3 id="1-unified-citizen-centric-intake-workflow" class="text-lg font-bold text-aeblack-800 mb-2">1. <strong>Unified, Citizen-Centric Intake Workflow</strong></h3>
+            <h4 id="solution" class="text-base font-semibold text-aeblack-700 mb-2">Solution:</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-aegreen-600 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed">Single digital intake portal (web + mobile). Educator referral form (integrated with school system). Parent self-registration (with digital LGPD consent). Specialist direct referral (via OAuth integration). Automatic duplicate detection (by CPF/name matching). Single child master profile (golden record). Real-time intake status visibility (for all stakeholders).</p>
+            </div>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4">
+              <strong>Benefits:</strong><br/>
+              - <strong>Speed</strong>: Intake &rarr; Assessment in 7 days (vs. 28 days current)<br/>
+              - <strong>Quality</strong>: No duplicate registrations<br/>
+              - <strong>Compliance</strong>: Digitally signed LGPD consent with audit trail<br/>
+              - <strong>UX</strong>: Citizens see clear progress (reduces anxiety)
+            </p>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-6">
+              <strong>Technology:</strong><br/>
+              - Oracle Service Cloud (citizen portal)<br/>
+              - ServiceNow (intake orchestration)<br/>
+              - Azure AD (authentication)
+            </p>
+
+            <!-- Solution 2 -->
+            <h3 id="2-standardized-rules-based-triage-assessment" class="text-lg font-bold text-aeblack-800 mb-2">2. <strong>Standardized, Rules-Based Triage &amp; Assessment</strong></h3>
+            <h4 id="solution" class="text-base font-semibold text-aeblack-700 mb-2">Solution:</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-aegreen-600 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed">Automated triage workflow with clear decision gates. Behavioral screening (standardized questionnaire). Risk classification rules (consistent across ONGs). Automated specialist routing (by geography + expertise). SLA tracking (with escalation if &gt;48h). Auto-assignment to assessment specialist. Real-time status updates (SMS/email to stakeholders).</p>
+            </div>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4">
+              <strong>Benefits:</strong><br/>
+              - <strong>Speed</strong>: Triage decision in &lt;2 hours<br/>
+              - <strong>Equity</strong>: Same criteria apply everywhere (no geography bias)<br/>
+              - <strong>Quality</strong>: Every high-risk case reviewed (no gaps)<br/>
+              - <strong>Transparency</strong>: Educators see exactly why child got routed to specialist
+            </p>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-6">
+              <strong>Technology:</strong><br/>
+              - ServiceNow Workflow Engine (triage logic)<br/>
+              - Microsoft Power Automate (automated routing)<br/>
+              - Oracle Case Management (case tracking)
+            </p>
+
+            <!-- Solution 3 -->
+            <h3 id="3-integrated-assessment-diagnosis" class="text-lg font-bold text-aeblack-800 mb-2">3. <strong>Integrated Assessment &amp; Diagnosis</strong></h3>
+            <h4 id="solution" class="text-base font-semibold text-aeblack-700 mb-2">Solution:</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-aegreen-600 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed">Automated cognitive battery + AI analysis. Standardized BPMN workflow (same for all children). Multidimensional assessment (phonology, fluency, comprehension). Real-time scoring + risk classification. Hermes Agent AI generates personalized plan. Specialist review gate (for high-risk cases). Digital signature workflow (plan approval).</p>
+            </div>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4">
+              <strong>Benefits:</strong><br/>
+              - <strong>Consistency</strong>: Same assessment used everywhere (benchmarkable)<br/>
+              - <strong>Speed</strong>: Diagnosis in 10 days (vs. 21-35 days current)<br/>
+              - <strong>Quality</strong>: AI-assisted planning (no human bias)<br/>
+              - <strong>Compliance</strong>: Full audit trail of all decisions
+            </p>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-6">
+              <strong>Technology:</strong><br/>
+              - Oracle WPM test platform (audio assessment)<br/>
+              - Claude API (Hermes Agent - intervention planning)<br/>
+              - ServiceNow (approval workflows)
+            </p>
+
+            <!-- Solution 4 -->
+            <h3 id="4-cross-stakeholder-visibility-dashboard" class="text-lg font-bold text-aeblack-800 mb-2">4. <strong>Cross-Stakeholder Visibility Dashboard</strong></h3>
+            <h4 id="solution" class="text-base font-semibold text-aeblack-700 mb-2">Solution:</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-aegreen-600 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed">Microsoft Power BI dashboards (role-based). Parent View: Child progress, next steps, resources. Educator View: Child performance, recommended strategies, class impact. Specialist View: Caseload, outcomes, intervention effectiveness. ONG Coordinator View: Program metrics, resource allocation, SLAs. service View: Aggregate metrics, equity analysis, program maturity. Real-time notifications (SMS/email/push) for key events.</p>
+            </div>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4">
+              <strong>Benefits:</strong><br/>
+              - <strong>Engagement</strong>: Parents/educators see value (stay in program)<br/>
+              - <strong>Accountability</strong>: Everyone sees agreed SLAs + actual performance<br/>
+              - <strong>Learning</strong>: Data reveals what's working (feedback loop)<br/>
+              - <strong>Scaling</strong>: service can measure maturity across ONGs
+            </p>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-6">
+              <strong>Technology:</strong><br/>
+              - Microsoft Power BI (data visualization)<br/>
+              - Azure Data Lake (centralized data repository)<br/>
+              - Twilio (multi-channel notifications)
+            </p>
+
+            <!-- Solution 5 -->
+            <h3 id="5-standardized-service-taxonomy-governance" class="text-lg font-bold text-aeblack-800 mb-2">5. <strong>Standardized Service Taxonomy &amp; Governance</strong></h3>
+            <h4 id="solution" class="text-base font-semibold text-aeblack-700 mb-2">Solution:</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-aegreen-600 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed">Shared service model with governance checkpoints. Standard child status taxonomy (Registered &rarr; Screened &rarr; Assessed &rarr; In Progress &rarr; Exited). Uniform risk classification (5 tiers: No Risk, Low, Moderate, High, Critical). Standardized intervention phases (same naming/sequencing everywhere). Common KPI definitions (same child counted same way across ONGs). Shared glossary (educators + specialists use same vocabulary). Service level agreements (published, monitored, enforced).</p>
+            </div>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4">
+              <strong>Benefits:</strong><br/>
+              - <strong>Comparability</strong>: Can aggregate data across ONGs (10x reporting efficiency)<br/>
+              - <strong>Policy Visibility</strong>: service sees actual service maturity<br/>
+              - <strong>Scaling</strong>: New ONG adopts existing model (vs. custom build)<br/>
+              - <strong>Quality</strong>: Standards create floor (prevents low-quality variations)
+            </p>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-6">
+              <strong>Technology:</strong><br/>
+              - Oracle Data Governance (metadata management)<br/>
+              - ServiceNow (policy/SLA management)<br/>
+              - SharePoint (shared documentation)
+            </p>
+
+            <!-- Solution 6 -->
+            <h3 id="6-automated-kpi-governance-real-time-reporting" class="text-lg font-bold text-aeblack-800 mb-2">6. <strong>Automated KPI Governance &amp; Real-Time Reporting</strong></h3>
+            <h4 id="solution" class="text-base font-semibold text-aeblack-700 mb-2">Solution:</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-aegreen-600 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed">Centralized performance management system. Real-time KPI dashboard (updated hourly). SLA tracking with automated alerts (if &gt;threshold). Historical trend analysis (identify improvements). Audit trail logging (every decision recorded). Auto-generated monthly reports (no manual work). Governance board review (data-driven decisions). Citizen-facing service quality dashboard (transparency).</p>
+            </div>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4">
+              <strong>Benefits:</strong><br/>
+              - <strong>Accountability</strong>: Real-time visibility to SLA performance<br/>
+              - <strong>Rapid Response</strong>: Alerts trigger when SLAs at risk<br/>
+              - <strong>Data-Driven</strong>: Leaders see trends + can make informed decisions<br/>
+              - <strong>Compliance</strong>: Audit trail proves LGPD compliance on demand<br/>
+              - <strong>Efficiency</strong>: Reports auto-generated (saves 40h/month per ONG)
+            </p>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-6">
+              <strong>Technology:</strong><br/>
+              - Microsoft Power BI (KPI visualization)<br/>
+              - Azure Synapse (data analytics)<br/>
+              - ServiceNow (workflow + alert management)
+            </p>
+
+            <!-- Solution 7 -->
+            <h3 id="7-integrated-api-first-technology-ecosystem" class="text-lg font-bold text-aeblack-800 mb-2">7. <strong>Integrated, API-First Technology Ecosystem</strong></h3>
+            <h4 id="solution" class="text-base font-semibold text-aeblack-700 mb-2">Solution:</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-aegreen-600 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed">Enterprise platform integrations. Oracle CRM: Single citizen/child master profile. ServiceNow: Unified workflow orchestration + ticketing. Microsoft Power Platform: Dashboards, automations, mobile apps. Assessment Tool API: Real-time scoring + data sync. Notification Service: Multi-channel (SMS/Email/Push). Data Lake: Centralized analytics + LGPD compliance. Single sign-on (Azure AD) for all users.</p>
+            </div>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4">
+              <strong>Benefits:</strong><br/>
+              - <strong>Efficiency</strong>: No more manual data entry (API automation)<br/>
+              - <strong>Accuracy</strong>: Single source of truth (no duplicate data)<br/>
+              - <strong>Scalability</strong>: Same platform supports any ONG<br/>
+              - <strong>Compliance</strong>: Data governance built-in (LGPD, audit trail)<br/>
+              - <strong>Analytics</strong>: Centralized data enables AI/ML improvements
+            </p>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-2">
+              <strong>Technology:</strong><br/>
+              - Oracle Cloud (CRM + data management)<br/>
+              - ServiceNow Cloud (workflow + ticketing)<br/>
+              - Microsoft Azure (analytics + AI)
+            </p>
+          </div>
+        </section>
+
+        <!-- Transformation Impact Summary -->
+        <section id="transformation-impact-summary" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">TRANSFORMATION IMPACT SUMMARY</h2>
+            <div class="portal-table-wrapper">
+              <table class="portal-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Dimension</th>
+                    <th scope="col">Current State</th>
+                    <th scope="col">Future State</th>
+                    <th scope="col">Improvement</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Intake to Assessment Time</strong></td>
+                    <td>28-35 days</td>
+                    <td>7-10 days</td>
+                    <td>70% faster</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Manual Data Entry Time</strong></td>
+                    <td>40h/month</td>
+                    <td>5h/month</td>
+                    <td>87% reduction</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Cross-ONG Data Comparability</strong></td>
+                    <td>0%</td>
+                    <td>100%</td>
+                    <td>Complete visibility</td>
+                  </tr>
+                  <tr>
+                    <td><strong>SLA Compliance</strong></td>
+                    <td>60%</td>
+                    <td>95%+</td>
+                    <td>35 point improvement</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Specialist Availability (avg wait)</strong></td>
+                    <td>7-14 days</td>
+                    <td>1-2 days</td>
+                    <td>85% faster</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Parent Satisfaction (NPS)</strong></td>
+                    <td>55</td>
+                    <td>80+</td>
+                    <td>+25 points</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Audit Trail Completeness</strong></td>
+                    <td>20%</td>
+                    <td>100%</td>
+                    <td>5x improvement</td>
+                  </tr>
+                  <tr>
+                    <td><strong>System Scalability (ONGs supported)</strong></td>
+                    <td>5-10</td>
+                    <td>100+</td>
+                    <td>10x scale</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Strategic Alignment -->
+        <section id="strategic-alignment-service-excellence-lens" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">STRATEGIC ALIGNMENT (service Excellence Lens)</h2>
+
+            <h3 id="citizen-centric-service-excellence" class="text-lg font-bold text-aeblack-800 mb-2">Citizen-Centric Service Excellence</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <p class="text-base text-aeblack-600 leading-relaxed">Current: Service focused on program operations. Future: Service centered on citizen journey. Simple, intuitive parent experience. Clear visibility into child progress. Accessible communication (multiple languages, formats). Equity focus (same quality across all ONGs/geographies).</p>
+            </div>
+
+            <h3 id="operational-maturity" class="text-lg font-bold text-aeblack-800 mb-2">Operational Maturity</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <p class="text-base text-aeblack-600 leading-relaxed">Current: Manual processes, inconsistent execution. Future: Standardized, measurable, continuously improving. Clear process definitions (BPMN-documented). Real-time performance tracking (SLA dashboards). Governance checkpoints (quality gates). Continuous improvement cycles (data-driven optimization).</p>
+            </div>
+
+            <h3 id="regulatory-compliance-risk-management" class="text-lg font-bold text-aeblack-800 mb-2">Regulatory Compliance &amp; Risk Management</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <p class="text-base text-aeblack-600 leading-relaxed">Current: Compliance is ad-hoc. Future: Compliance automated + auditable. Digital consent management (LGPD-ready). Complete audit trails (every decision logged). Data privacy by design (encryption, access controls). Regular compliance certification (external audit ready).</p>
+            </div>
+
+            <h3 id="scalability-across-public-entities" class="text-lg font-bold text-aeblack-800 mb-2">Scalability Across Public Entities</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed">Current: One-off implementations. Future: Replicable, standard platform. Same technology stack (Oracle/ServiceNow/Azure). Same process model (BPMN workflow). Same metrics (comparable across entities). Same governance (centralized policy management).</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Governance Model -->
+        <section id="governance-model-future-state" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">Governance Model - Future State</h2>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <h3 class="text-lg font-bold text-aeblack-800 mb-2">Executive Steering Committee</h3>
+              <p class="text-base text-aeblack-600 leading-relaxed">service health/education ministers. ONG federation representatives. Citizens advocate. Quarterly reviews of KPIs + risk register.</p>
+            </div>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <h3 class="text-lg font-bold text-aeblack-800 mb-2">Service Delivery Board</h3>
+              <p class="text-base text-aeblack-600 leading-relaxed">Program managers (from partner ONGs). Assessment specialists. Technology lead. Monthly reviews of SLAs + escalations.</p>
+            </div>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <h3 class="text-lg font-bold text-aeblack-800 mb-2">Quality &amp; Compliance Board</h3>
+              <p class="text-base text-aeblack-600 leading-relaxed">Data privacy officer (LGPD). Clinical advisor (dyslexia specialist). Risk manager. Bi-weekly audits of critical decisions.</p>
+            </div>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <h3 class="text-lg font-bold text-aeblack-800 mb-2">Operations Center</h3>
+              <p class="text-base text-aeblack-600 leading-relaxed">24/7 incident management (ServiceNow). SLA tracking + escalation. User support + training. Daily operational dashboards.</p>
+            </div>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mt-4">
+              <strong>Document prepared for enterprise transformation &amp; service modernization</strong><br/>
+              <em>Demonstrates: AS-IS pain points, TO-BE vision, strategic alignment, governance maturity</em>
+            </p>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-aeblack-900 text-whitely-100">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">Core Documents</h4>
+          <ul class="space-y-2.5">
+            <li><a href="service-card-dyslexia.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Service Card</a></li>
+            <li><a href="child-monitoring-dyslexia-bpmn-detailed.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">BPMN Diagram</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">Governance</h4>
+          <ul class="space-y-2.5">
+            <li><a href="as-is-to-be-analysis.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">AS-IS / TO-BE</a></li>
+            <li><a href="target-operating-model.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Operating Model</a></li>
+            <li><a href="raci-governance-matrix.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">RACI Matrix</a></li>
+            <li><a href="risk-register.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Risk Register</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">Process &amp; Tech</h4>
+          <ul class="space-y-2.5">
+            <li><a href="spec-process-dyslexia-monitoring.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Process Spec</a></li>
+            <li><a href="technology-stack-mapping.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Technology Stack</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">About</h4>
+          <p class="text-sm text-aeblack-300 leading-relaxed">UAE Dyslexia Service Platform documentation portal. Part of the Ministry of Education digital transformation initiative.</p>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-aeblack-700">
+      <div class="max-w-screen-xl mx-auto px-6 lg:px-8 py-5 text-center">
+        <p class="text-sm text-aeblack-400">&copy; 2026 UAE Dyslexia Service Platform &middot; Ministry of Education</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 z-50 w-12 h-12 bg-primary-600 hover:bg-primary-500 text-whitely-50 rounded-full shadow-lg flex items-center justify-center transition-all opacity-0 pointer-events-none" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,165.66a8,8,0,0,1-11.32,0L128,99.31,61.66,165.66a8,8,0,0,1-11.32-11.32l72-72a8,8,0,0,1,11.32,0l72,72A8,8,0,0,1,205.66,165.66Z"/></svg>
+  </button>
+
+  <script src="https://unpkg.com/@aegov/design-system@latest/dist/aegov.js" defer></script>
+  <script>
+    const topBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      const show = window.pageYOffset > 400;
+      topBtn.style.opacity = show ? '1' : '0';
+      topBtn.style.pointerEvents = show ? 'auto' : 'none';
+    });
+    topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden'));
+    });
+  </script>
+
+</body>
+</html>

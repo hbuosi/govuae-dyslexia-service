@@ -1,0 +1,5 @@
+@layer base;
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+@plugin "@aegov/design-system";

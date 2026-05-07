@@ -1,0 +1,12 @@
+{
+  "redirects": [
+    { "source": "/01-Service-Card-Dyslexia.html", "destination": "/pages/service-card-dyslexia.html", "permanent": true },
+    { "source": "/Child_Monitoring_Dyslexia_BPMN_Detailed.html", "destination": "/pages/child-monitoring-dyslexia-bpmn-detailed.html", "permanent": true },
+    { "source": "/spec-process-dyslexia-monitoring.html", "destination": "/pages/spec-process-dyslexia-monitoring.html", "permanent": true },
+    { "source": "/AS-IS_TO-BE_Analysis.html", "destination": "/pages/as-is-to-be-analysis.html", "permanent": true },
+    { "source": "/Target_Operating_Model.html", "destination": "/pages/target-operating-model.html", "permanent": true },
+    { "source": "/RACI_Governance_Matrix.html", "destination": "/pages/raci-governance-matrix.html", "permanent": true },
+    { "source": "/Risk_Register.html", "destination": "/pages/risk-register.html", "permanent": true },
+    { "source": "/Technology_Stack_Mapping.html", "destination": "/pages/technology-stack-mapping.html", "permanent": true }
+  ]
+}

@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="author" content="Dyslexia Service Platform - Dyslexia Monitoring Service"/>
+  <meta name="created" content="2026-05-06T14:24:16.047354"/>
+  <title>Technology Stack Mapping - Dyslexia Service Platform</title>
+  <meta name="description" content="Dyslexia Monitoring &amp; Intervention Service Documentation"/>
+  <link rel="stylesheet" href="../dist/style.css">
+  <link rel="stylesheet" href="../dist/custom.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    [id] { scroll-margin-top: 5rem; }
+  </style>
+</head>
+<body class="bg-whitely-100 text-aeblack-800 font-roboto antialiased">
+
+  <!-- Skip navigation -->
+  <a href="#main" class="portal-skip-nav">Skip to main content</a>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-whitely-50 shadow-sm border-b border-aeblack-100">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-8">
+      <nav class="flex items-center justify-between h-16" aria-label="Main navigation">
+        <a href="../index.html" class="flex items-center gap-3 text-aeblack-800 no-underline">
+          <img src="../assets/uae-emblem.png" alt="UAE Government Emblem" class="h-8 w-auto">
+          <div>
+            <span class="font-extrabold text-base tracking-tight text-aeblack-800">Dyslexia Service Platform</span>
+            <span class="block text-xs text-aeblack-400 font-normal">Documentation Portal</span>
+          </div>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="../index.html" class="px-4 py-2 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline transition-colors">Home</a>
+          <a href="#" class="px-4 py-2 text-sm text-primary-600 bg-primary-50 rounded-lg no-underline transition-colors font-medium">Technology Stack Mapping</a>
+        </div>
+        <button class="md:hidden text-aeblack-600 p-2" aria-label="Open menu" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </nav>
+      <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-aeblack-100">
+        <a href="../index.html" class="block px-4 py-3 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline">Home</a>
+        <a href="#" class="block px-4 py-3 text-sm text-primary-600 bg-primary-50 rounded-lg no-underline font-medium">Technology Stack Mapping</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO BANNER -->
+  <section class="bg-aeblack-900 py-10 lg:py-14">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-8">
+      <nav class="flex items-center gap-2 text-sm mb-4" aria-label="Breadcrumb" style="color: rgba(255,255,255,0.5);">
+        <a href="../index.html" class="hover:text-white no-underline" style="color: rgba(255,255,255,0.5);">Home</a>
+        <span>/</span>
+        <span style="color: rgba(215,188,109,0.8);">Technology Stack Mapping</span>
+      </nav>
+      <h1 class="text-h4 md:text-h3 xl:text-h2 font-extrabold" style="color: #FFFFFF;">Technology Stack Mapping</h1>
+      <p class="mt-3 text-base max-w-2xl" style="color: rgba(255,255,255,0.6);">Dyslexia Service Platform Dyslexia Service Transformation Initiative</p>
+    </div>
+  </section>
+
+  <!-- MAIN LAYOUT -->
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
+    <div class="lg:grid lg:grid-cols-[280px_1fr] lg:gap-12">
+
+      <!-- Sidebar TOC -->
+      <aside class="hidden lg:block">
+        <nav class="sticky top-24" aria-label="Table of contents">
+          <h2 class="text-sm font-bold uppercase tracking-wider text-aeblack-400 mb-4">On this page</h2>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#enterprise-platform-integration-dyslexia-service" class="text-aeblack-500 hover:text-primary-600 no-underline">Overview</a></li>
+            <li><a href="#enterprise-architecture-overview" class="text-aeblack-500 hover:text-primary-600 no-underline">Architecture Overview</a></li>
+            <li><a href="#1-oracle-cloud-crm-master-data" class="text-aeblack-500 hover:text-primary-600 no-underline">Oracle Cloud (CRM)</a></li>
+            <li><a href="#2-servicenow-workflow-orchestration" class="text-aeblack-500 hover:text-primary-600 no-underline">ServiceNow (Workflows)</a></li>
+            <li><a href="#3-microsoft-platform-analytics-automation" class="text-aeblack-500 hover:text-primary-600 no-underline">Microsoft Platform</a></li>
+            <li><a href="#4-azure-data-platform" class="text-aeblack-500 hover:text-primary-600 no-underline">Azure Data Platform</a></li>
+            <li><a href="#integration-flows-key-workflows" class="text-aeblack-500 hover:text-primary-600 no-underline">Integration Flows</a></li>
+            <li><a href="#technology-stack-license-cost-model" class="text-aeblack-500 hover:text-primary-600 no-underline">License &amp; Cost Model</a></li>
+            <li><a href="#implementation-roadmap" class="text-aeblack-500 hover:text-primary-600 no-underline">Implementation Roadmap</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main content -->
+      <main id="main">
+
+        <!-- Overview -->
+        <section id="enterprise-platform-integration-dyslexia-service" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">Enterprise Platform Integration - Dyslexia Service</h2>
+          </div>
+        </section>
+
+        <!-- Enterprise Architecture Overview -->
+        <section id="enterprise-architecture-overview" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">ENTERPRISE ARCHITECTURE OVERVIEW</h2>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <h3 class="text-lg font-bold text-aeblack-800 mb-2">Citizen/Educator Interfaces Web Portal, Mobile, WhatsApp</h3>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Azure API Management (Rate Limit, Auth, Monitor)</li>
+                <li>Oracle Cloud Platform (CRM) | ServiceNow Platform (Workflows) | Microsoft Platform (Analytics)</li>
+                <li>Azure Data Lake (Raw Data + History)</li>
+                <li>Microsoft Power BI (Dashboards, Reports)</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 1. Oracle Cloud -->
+        <section id="1-oracle-cloud-crm-master-data" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">ORACLE CLOUD (CRM &amp; Master Data)</h2>
+
+            <h3 id="primary-role-citizen-master-profile-case-management" class="text-xl font-bold text-aeblack-800 mb-4">Primary Role: <strong>Citizen Master Profile + Case Management</strong></h3>
+
+            <h4 id="oracle-service-cloud-components" class="text-lg font-bold text-aeblack-700 mb-3">Oracle Service Cloud Components</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <h3 class="text-lg font-bold text-aeblack-800 mb-2">ORACLE SERVICE CLOUD (Tenant) Citizen Management Module</h3>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Master child profile (golden record)</li>
+                <li>Parent/guardian relationships</li>
+                <li>Contact preferences (SMS/Email/WhatsApp)</li>
+                <li>LGPD consent tracking (digital signatures)</li>
+                <li>Data deletion requests (right to be forgotten)</li>
+                <li>Audit trail (all profile changes logged) Case Management Module</li>
+                <li>Assessment records (baseline results)</li>
+                <li>Diagnosis record (risk classification)</li>
+                <li>Intervention plan (AI-generated + approved)</li>
+                <li>Progress notes (weekly/monthly updates)</li>
+                <li>Communication history (all interactions)</li>
+                <li>Escalation records (when &amp; why escalated)</li>
+                <li>Exit records (final assessment + impact)</li>
+                <li>Document attachments (consent forms, reports) Relationship Management</li>
+                <li>Educator relationships (who referred?)</li>
+                <li>ONG relationships (which organization?)</li>
+                <li>Specialist relationships (who reviewed?)</li>
+                <li>Family relationships (siblings in program?) Knowledge Base</li>
+                <li>Service processes (standard operating proc)</li>
+                <li>Intervention strategies (by deficit type)</li>
+                <li>FAQ for parents/educators</li>
+                <li>Regulatory information (LGPD, rights)</li>
+                <li>Training materials (for all user types) Data Governance Module</li>
+                <li>Metadata management (what data exists)</li>
+                <li>Data lineage (where does data come from)</li>
+                <li>Data quality rules (enforce standards)</li>
+                <li>Privacy impact assessments</li>
+                <li>Data classification (PII vs. non-PII)</li>
+                <li>Access control lists (who can see what)</li>
+              </ul>
+            </div>
+
+            <h4 id="data-model-child-master-record" class="text-lg font-bold text-aeblack-700 mb-3">Data Model: Child Master Record</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <h3 class="text-lg font-bold text-aeblack-800 mb-2">CHILD_PROFILE Table:</h3>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>child_id (UUID, primary key)</li>
+                <li>full_name (encrypted AES-256)</li>
+                <li>date_of_birth (encrypted)</li>
+                <li>gender</li>
+                <li>handedness</li>
+                <li>native_language</li>
+                <li>current_school</li>
+                <li>referral_date</li>
+                <li>referral_source</li>
+                <li>parent_id (foreign key to PARENT_PROFILE)</li>
+                <li>current_status (Registered | Screening | Assessed | In Intervention | Exited)</li>
+                <li>risk_tier (No Risk | Low | Moderate | High | Critical)</li>
+                <li>last_assessment_date</li>
+                <li>next_assessment_due_date</li>
+                <li>intervention_start_date</li>
+                <li>intervention_end_date (if exited)</li>
+                <li>created_date</li>
+                <li>created_by_user_id</li>
+                <li>modified_date</li>
+                <li>modified_by_user_id</li>
+                <li>created_timestamp (audit)</li>
+                <li>deleted_date (if LGPD deletion requested)</li>
+                <li>archived (soft delete flag) ASSESSMENT_RECORD Table:</li>
+                <li>assessment_id (UUID)</li>
+                <li>child_id (foreign key)</li>
+                <li>assessment_date</li>
+                <li>assessment_type (Screening | Full Battery | Follow-up)</li>
+                <li>phonological_score (0-100)</li>
+                <li>fluency_score (0-100)</li>
+                <li>comprehension_score (0-100)</li>
+                <li>visual_score (0-100)</li>
+                <li>composite_score (weighted)</li>
+                <li>audiovisual_discrepancy</li>
+                <li>risk_classification (outcome)</li>
+                <li>assessor_id (foreign key to SPECIALIST)</li>
+                <li>quality_flag (if data quality issues)</li>
+                <li>specialist_review_required (boolean)</li>
+                <li>specialist_review_date (if &gt;70)</li>
+                <li>specialist_notes</li>
+                <li>assessor_notes</li>
+                <li>archived_timestamp INTERVENTION_PLAN Table:</li>
+                <li>plan_id (UUID)</li>
+                <li>child_id (foreign key)</li>
+                <li>assessment_id (which assessment triggered this)</li>
+                <li>plan_date</li>
+                <li>plan_status (Draft | Approved | Active | Paused | Completed)</li>
+                <li>intervention_type (Phonological | Fluency | Comp | Multi)</li>
+                <li>responsible_educator_id (foreign key)</li>
+                <li>responsible_specialist_id (foreign key)</li>
+                <li>start_date</li>
+                <li>target_end_date</li>
+                <li>phase_1_name / phase_2_name / phase_3_name</li>
+                <li>phase_1_activities (JSON)</li>
+                <li>phase_2_activities (JSON)</li>
+                <li>phase_3_activities (JSON)</li>
+                <li>accommodations (JSON array)</li>
+                <li>monitoring_schedule</li>
+                <li>generated_by_hermes_agent (boolean)</li>
+                <li>specialist_approval_required (boolean)</li>
+                <li>specialist_approved_date</li>
+                <li>specialist_approved_by_id</li>
+                <li>approval_signature (digital, encrypted)</li>
+                <li>last_updated_date PROGRESS_TRACKING Table:</li>
+                <li>progress_id (UUID)</li>
+                <li>child_id (foreign key)</li>
+                <li>plan_id (foreign key)</li>
+                <li>data_collection_date</li>
+                <li>collection_type (Weekly | Bi-weekly | Monthly)</li>
+                <li>wpm_reading_score</li>
+                <li>phonological_assessment_score</li>
+                <li>adherence_rate (% of sessions completed)</li>
+                <li>behavioral_notes (engagement, confidence)</li>
+                <li>parent_feedback</li>
+                <li>educator_feedback</li>
+                <li>need_reclassification (boolean, auto-flagged if +/-10 points)</li>
+                <li>reclassification_date (if triggered)</li>
+                <li>reclassification_new_tier</li>
+                <li>reclassification_reason</li>
+                <li>progress_trend (Improving | Stable | Declining)</li>
+                <li>next_review_date</li>
+              </ul>
+            </div>
+
+            <h4 id="oracle-api-contracts" class="text-lg font-bold text-aeblack-700 mb-3">Oracle API Contracts</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed">
+                REST API Endpoints (via Azure API Management): 1. POST /oracle/children Request: { "referral_date": "2026-05-06", "full_name": "John Silva", "date_of_birth": "2020-03-15", "parent_id": "uuid", "referral_source": "Educator" } Response: { "child_id": "uuid", "status": "Registered", "next_action": "Schedule Screening" } 2. GET /oracle/children/{child_id} Returns: Full child master profile + assessment history + current plan 3. POST /oracle/assessments/{child_id} Request: Assessment results (scores, dates, assessor_id) Response: Stored record + risk_classification 4. POST /oracle/plans/{child_id} Request: Intervention plan (phases, activities, approvals) Response: Plan stored + approval_status 5. POST /oracle/progress/{plan_id} Request: Weekly/monthly progress (WPM, adherence, notes) Response: Progress logged + reclassification_flag (if needed) 6. GET /oracle/cases?status=HighRisk&amp;days_since_assessment&lt;30 Returns: All high-risk cases pending specialist review (for Service Board) 7. POST /oracle/consent/{child_id}/revoke Request: LGPD right to deletion Response: Data anonymized + audit trail + confirmation 8. GET /oracle/audit-trail/{child_id} Returns: Complete audit log (who accessed, when, what changed)
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. ServiceNow -->
+        <section id="2-servicenow-workflow-orchestration" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">SERVICENOW (WORKFLOW ORCHESTRATION)</h2>
+
+            <h3 id="primary-role-process-automation-sla-management-ticketing" class="text-xl font-bold text-aeblack-800 mb-4">Primary Role: <strong>Process Automation + SLA Management + Ticketing</strong></h3>
+
+            <h4 id="servicenow-module-structure" class="text-lg font-bold text-aeblack-700 mb-3">ServiceNow Module Structure</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <h3 class="text-lg font-bold text-aeblack-800 mb-2">SERVICENOW PLATFORM (Single Instance) ITSM (IT Service Management)</h3>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Incident Management (escalations, SLA track)</li>
+                <li>Problem Management (root cause analysis)</li>
+                <li>Change Management (approvals for updates)</li>
+                <li>Known Error Database (common issues) ITBM (IT Business Management)</li>
+                <li>Portfolio Management (service offerings)</li>
+                <li>Project Portfolio Management (programs)</li>
+                <li>Resource Management (staffing, allocation)</li>
+                <li>Financial Management (cost tracking) Workflow Engine (Custom Flows) Flow 1: Intake &rarr; Screening &rarr; Assessment</li>
+                <li>Create ticket for new referral</li>
+                <li>Auto-assign to screening specialist</li>
+                <li>Track SLA (24h intake, 48h screening)</li>
+                <li>Auto-escalate if &gt;48h</li>
+                <li>Route to assessment specialist when ready Flow 2: High-Risk Cases &rarr; Specialist Review</li>
+                <li>Detect score &gt;70 (from Oracle)</li>
+                <li>Create specialist review ticket</li>
+                <li>Auto-assign to available specialist</li>
+                <li>Track 48h SLA</li>
+                <li>Auto-escalate to ONG coordinator if &gt;48h</li>
+                <li>Notify system when review complete Flow 3: Plan Approval Workflow</li>
+                <li>AI generates plan</li>
+                <li>Route for psychopedagogue review</li>
+                <li>Collect approval (e-signature)</li>
+                <li>2h SLA for approval</li>
+                <li>If rejected: route back to AI for revisions</li>
+                <li>Once approved: send to communication flow Flow 4: Multi-Channel Communication</li>
+                <li>Generate SMS for parent (via Twilio)</li>
+                <li>Generate Email for educator</li>
+                <li>Generate Email for specialist (if ref)</li>
+                <li>Update dashboard for ONG coordinator</li>
+                <li>Log all communications (audit trail)</li>
+                <li>Track delivery confirmation Flow 5: Reclassification Check</li>
+                <li>Weekly: check score change (+/-10 points)</li>
+                <li>If change detected: create re-assessment</li>
+                <li>Route to assessment specialist</li>
+                <li>Update intervention plan (if tier changed)</li>
+                <li>Notify stakeholders of new classification Flow 6: SLA Escalation Management</li>
+                <li>Detect any SLA approaching threshold (75%)</li>
+                <li>Escalate to supervisor</li>
+                <li>Auto-assign escalation team</li>
+                <li>Generate executive report</li>
+                <li>Track escalation resolution Flow 7: Incident/Issue Reporting</li>
+                <li>Create ticket from user feedback</li>
+                <li>Classify severity (Low/Med/High/Critical)</li>
+                <li>Auto-route to appropriate team</li>
+                <li>SLA based on severity</li>
+                <li>Track resolution</li>
+                <li>Notify user of status updates</li>
+                <li>Reports &amp; Dashboards</li>
+                <li>Intake SLA Dashboard (% &lt;24h)</li>
+                <li>Specialist Review SLA (% &lt;48h)</li>
+                <li>Plan Approval SLA (% &lt;2h + 2h specialist)</li>
+                <li>Reclassification Tracking (# per month)</li>
+                <li>Escalation Report (reasons, resolution time)</li>
+                <li>Trend Analysis (improving/declining)</li>
+              </ul>
+            </div>
+
+            <h4 id="servicenow-ticket-schema" class="text-lg font-bold text-aeblack-700 mb-3">ServiceNow Ticket Schema</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <h3 class="text-lg font-bold text-aeblack-800 mb-2">INTAKE_TICKET Table:</h3>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>ticket_id (auto-generated)</li>
+                <li>child_id (from Oracle)</li>
+                <li>created_date</li>
+                <li>referral_source (Educator | Parent | ONG | Specialist)</li>
+                <li>priority (Low | Medium | High)</li>
+                <li>status (New | In Progress | Waiting | Resolved)</li>
+                <li>assigned_to (Intake Coordinator user ID)</li>
+                <li>sla_target_date (24h from creation)</li>
+                <li>sla_status (On Track | At Risk | Overdue)</li>
+                <li>completion_date</li>
+                <li>time_to_resolution</li>
+                <li>notes (validation results, missing data items)</li>
+                <li>activity_log (who did what, when) SPECIALIST_REVIEW_TICKET Table:</li>
+                <li>ticket_id</li>
+                <li>child_id (from Oracle)</li>
+                <li>assessment_id (which assessment being reviewed)</li>
+                <li>created_date</li>
+                <li>score (composite score, reason for review)</li>
+                <li>assigned_to (Specialist user ID)</li>
+                <li>sla_target_date (48h from creation)</li>
+                <li>sla_status (On Track | At Risk | Overdue)</li>
+                <li>review_completed_date</li>
+                <li>specialist_decision (Confirmed | Denied | Referred)</li>
+                <li>specialist_notes</li>
+                <li>differential_diagnosis (if considered)</li>
+                <li>follow-up_actions</li>
+                <li>approval_signature (digital) ESCALATION_TICKET Table:</li>
+                <li>ticket_id</li>
+                <li>parent_ticket_id (what triggered escalation)</li>
+                <li>escalation_reason (SLA breach | Quality issue | Safety concern)</li>
+                <li>escalated_date</li>
+                <li>escalation_level (ONG Coordinator | Service Board | Executive)</li>
+                <li>assigned_to (escalation owner)</li>
+                <li>priority (High | Critical)</li>
+                <li>resolution_target_date</li>
+                <li>mitigation_actions</li>
+                <li>resolved_date</li>
+                <li>root_cause_analysis</li>
+              </ul>
+            </div>
+
+            <h4 id="servicenow-api-integrations" class="text-lg font-bold text-aeblack-700 mb-3">ServiceNow API Integrations</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed">
+                Inbound APIs (from Oracle/Azure): 1. POST /servicenow/tickets/intake When: New referral in Oracle Data: child_id, referral_date, referral_source Action: Create intake ticket, assign, set SLA 2. POST /servicenow/tickets/specialist-review When: Assessment score &gt;70 detected Data: child_id, assessment_id, composite_score Action: Create review ticket, assign specialist 3. POST /servicenow/tickets/reclassification When: Reclassification needed (score +/-10) Data: child_id, old_score, new_score, reason Action: Create re-assessment ticket Outbound APIs (to Oracle/Azure): 1. GET /servicenow/tickets?status=overdue&amp;sla_target Fetch: All overdue tickets for escalation 2. POST /servicenow/{ticket_id}/resolution Update: completion_date, resolution_time, outcomes 3. GET /servicenow/sla-compliance?period=weekly Generate: SLA metrics by team and process
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. Microsoft Platform -->
+        <section id="3-microsoft-platform-analytics-automation" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">MICROSOFT PLATFORM (ANALYTICS &amp; AUTOMATION)</h2>
+
+            <h3 id="primary-role-dashboards-power-automations-data-analytics" class="text-xl font-bold text-aeblack-800 mb-4">Primary Role: <strong>Dashboards, Power Automations, Data Analytics</strong></h3>
+
+            <h4 id="microsoft-stack-components" class="text-lg font-bold text-aeblack-700 mb-3">Microsoft Stack Components</h4>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <h3 class="text-lg font-bold text-aeblack-800 mb-2">MICROSOFT POWER PLATFORM Power Apps (Portals &amp; Forms) 1. Educator Referral Portal</h3>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Intake form (pre-populated from school)</li>
+                <li>LGPD consent collection (digital sig)</li>
+                <li>Submit &rarr; Creates Oracle record + ServiceNow ticket</li>
+                <li>Real-time status (pending/submitted) 2. Parent Self-Service Portal</li>
+                <li>Register child</li>
+                <li>View assessment results</li>
+                <li>See intervention plan</li>
+                <li>Track progress (WPM trends)</li>
+                <li>Message educators/specialists</li>
+                <li>Request data deletion (LGPD) 3. Screening Questionnaire Form</li>
+                <li>Multiple choice (behavioral indicators)</li>
+                <li>Auto-scoring (client-side)</li>
+                <li>Risk level output (immediate feedback)</li>
+                <li>Submit &rarr; Trigger triage in ServiceNow 4. Assessment Specialist Dashboard</li>
+                <li>View scheduled assessments</li>
+                <li>Enter test results (forms)</li>
+                <li>See quality checks (data validation)</li>
+                <li>View WPM scoring guide (reference)</li>
+                <li>Bulk operations (export results) 5. Intervention Plan Approval Form</li>
+                <li>Display AI-generated plan</li>
+                <li>Reviewer (psychopedagogue) can edit</li>
+                <li>Digital signature / approval</li>
+                <li>Submit &rarr; Trigger communication workflow</li>
+                <li>Power Automate (Workflow Automation) Automation 1: Assessment Completion Flow</li>
+                <li>When: Assessment data submitted (from App)</li>
+                <li>Then: Call scoring API (Azure Function)</li>
+                <li>Then: Update Oracle case</li>
+                <li>If score &gt;70: Create specialist ticket</li>
+                <li>Send confirmation SMS (Twilio)</li>
+                <li>Log activity (audit trail) Automation 2: Plan Approval Notification</li>
+                <li>When: Plan approved in ServiceNow</li>
+                <li>Then: Generate multi-channel notifications</li>
+                <li>SMS to parent (via Twilio)</li>
+                <li>Email to educator</li>
+                <li>Email to specialist (if referred)</li>
+                <li>Update Oracle case status</li>
+                <li>Log communications (audit) Automation 3: Weekly Progress Collection</li>
+                <li>When: Monday at 8am (scheduled)</li>
+                <li>Then: Query Oracle for active plans</li>
+                <li>Then: Send SMS reminder to educator</li>
+                <li>Then: Create form link (Power App)</li>
+                <li>When: Form submitted &rarr; Update Oracle</li>
+                <li>Then: Check for reclassification (+/-10)</li>
+                <li>If triggered: Create new assessment ticket</li>
+                <li>Log progress metrics Automation 4: SLA Escalation Alert</li>
+                <li>When: Hourly check (scheduled)</li>
+                <li>Then: Query ServiceNow for SLA breaches</li>
+                <li>Then: Send email to coordinator</li>
+                <li>Then: Update escalation ticket (severity)</li>
+                <li>Then: Notify executive (if critical)</li>
+                <li>Power BI (Analytics &amp; Reporting) Dashboard 1: ONG Coordinator Dashboard</li>
+                <li>Current caseload (total children, by tier)</li>
+                <li>SLA compliance (% on target, response time)</li>
+                <li>Intake queue (pending assignments)</li>
+                <li>Assessment schedule (completed vs. pending)</li>
+                <li>High-risk cases (pending specialist review)</li>
+                <li>Intervention plans (active, pending approval)</li>
+                <li>Escalations (current, unresolved)</li>
+                <li>KPI metrics (targets vs. actual) Dashboard 2: Educator Dashboard</li>
+                <li>My referred children (status tracking)</li>
+                <li>Assessment results (when available)</li>
+                <li>Intervention plans &amp; strategies</li>
+                <li>Child progress (WPM trends, improvement %)</li>
+                <li>Recommended accommodations</li>
+                <li>Resource materials (strategies, tools) Dashboard 3: Service Oversight Dashboard</li>
+                <li>Program metrics (children served per state)</li>
+                <li>Service maturity (% following standard process)</li>
+                <li>Quality metrics (accuracy, equity, outcomes)</li>
+                <li>Compliance status (LGPD, SLA, audit)</li>
+                <li>Specialist capacity (supply vs. demand)</li>
+                <li>Budget tracking (cost per child)</li>
+                <li>Impact metrics (improvement rate, ROI) Dashboard 4: Operational Health</li>
+                <li>System uptime (99.5% target)</li>
+                <li>API response times (latency)</li>
+                <li>Data quality scores (completeness, accuracy)</li>
+                <li>Error rates (failures, retries)</li>
+                <li>User activity (logins, actions)</li>
+                <li>Help desk tickets (volume, resolution time)</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. Azure Data Platform -->
+        <section id="4-azure-data-platform" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">AZURE DATA PLATFORM</h2>
+
+            <h3 id="primary-role-centralized-data-lake-analytics-aiml" class="text-xl font-bold text-aeblack-800 mb-4">Primary Role: <strong>Centralized Data Lake + Analytics + AI/ML</strong></h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <h3 class="text-lg font-bold text-aeblack-800 mb-2">AZURE DATA PLATFORM Azure Data Lake Storage (Gen 2)</h3>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Raw data zone (all assessments, progress)</li>
+                <li>Processed zone (cleaned, validated data)</li>
+                <li>Analytics zone (aggregated metrics)</li>
+                <li>Audit zone (compliance, access logs)</li>
+                <li>Archive zone (historical data &gt;2 years) Storage by Entity:</li>
+                <li>/child_assessments/ (1M+ records)</li>
+                <li>/progress_tracking/ (weekly updates)</li>
+                <li>/intervention_plans/ (structured)</li>
+                <li>/communications/ (SMS/email logs)</li>
+                <li>/audit_logs/ (every action logged)</li>
+                <li>/reference_data/ (norms, thresholds)</li>
+                <li>/ml_features/ (extracted for models)</li>
+                <li>Azure Synapse Analytics (SQL + Spark)</li>
+                <li>Data warehouse (DW schema)</li>
+                <li>Fact table: FACT_ASSESSMENT</li>
+                <li>child_id, assessment_date, scores</li>
+                <li>Dimension tables: DIM_CHILD, DIM_DATE...</li>
+                <li>Fact table: FACT_PROGRESS</li>
+                <li>child_id, week, wpm, adherence</li>
+                <li>Spark notebooks: ML feature engineering</li>
+                <li>SQL queries: Generate Power BI datasets</li>
+                <li>Azure Machine Learning (Predictive Models) Model 1: Reclassification Predictor</li>
+                <li>Input: Assessment profile, intervention</li>
+                <li>Output: Predicted score at 3/6 months</li>
+                <li>Training: History assessment data</li>
+                <li>Use: Proactive plan adjustment</li>
+                <li>Monitoring: Monthly retraining Model 2: Dropout Prediction</li>
+                <li>Input: Engagement metrics, adherence</li>
+                <li>Output: Probability of program dropout</li>
+                <li>Use: Early intervention (if risk high)</li>
+                <li>Monitoring: Weekly model performance Model 3: Assessment Accuracy Validator</li>
+                <li>Input: Assessment scores, follow-up outcome</li>
+                <li>Output: Confidence in classification</li>
+                <li>Use: Flag potentially false positives</li>
+                <li>Monitoring: Quarterly validation</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Integration Flows -->
+        <section id="integration-flows-key-workflows" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">INTEGRATION FLOWS (Key Workflows)</h2>
+
+            <h3 id="flow-1-complete-child-journey" class="text-xl font-bold text-aeblack-800 mb-4">Flow 1: Complete Child Journey</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <h3 class="text-lg font-bold text-aeblack-800 mb-2">Parent Referral (Web Portal) &rarr; Create Oracle CHILD_PROFILE record &rarr; ServiceNow creates INTAKE_TICKET (24h SLA) &rarr; Intake Coordinator validates data &rarr; Route to Screening Specialist &rarr; Screening questionnaire (Power App) &rarr; Triage decision (automated) &rarr; If High Risk:</h3>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Create ServiceNow SPECIALIST_REVIEW_TICKET</li>
+                <li>Route to specialist</li>
+                <li>48h SLA tracking &rarr; Assessment scheduled &rarr; 3 sessions (Power App for data entry) &rarr; Auto-scoring (Azure Function API) &rarr; Update Oracle ASSESSMENT_RECORD &rarr; If score &gt;70:</li>
+                <li>Power Automate triggers specialist review</li>
+                <li>Specialist reviews in Power App</li>
+                <li>Approval creates ServiceNow approval ticket</li>
+                <li>E-signature captured &rarr; AI generates plan (Hermes Agent) &rarr; Psychopedagogue reviews in Power App &rarr; Approval &rarr; Power Automate triggers communications</li>
+                <li>SMS to parent (Twilio)</li>
+                <li>Email to educator</li>
+                <li>Email to specialist (if referred)</li>
+                <li>Update ONG dashboard &rarr; Intervention begins &rarr; Weekly progress collection (Power App) &rarr; Data synced to Oracle PROGRESS_TRACKING &rarr; Power BI dashboards updated (real-time) &rarr; Monthly reclassification check (Azure Logic)</li>
+                <li>If +/-10 points: Create new assessment</li>
+                <li>Power Automate notifies stakeholders &rarr; 6-month exit assessment &rarr; Impact report generation (Power BI + Synapse) &rarr; Program closeout (Oracle case archived)</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- License & Cost Model -->
+        <section id="technology-stack-license-cost-model" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">Technology Stack: License &amp; Cost Model</h2>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed">
+                Component Annual License Cost (10k children/year) Oracle Service Cloud R$ 500,000 (enterprise tier) ServiceNow Platform R$ 450,000 (enterprise tier + workflows) Microsoft Power Platform R$ 200,000 (500 users, Power Apps/Automate) Azure Cloud (Data Lake + Synapse) R$ 300,000 (compute + storage) Azure AI/ML Services R$ 100,000 (model training + inference) Twilio Communications R$ 50,000 (SMS/WhatsApp at scale) SendGrid Email Service R$ 20,000 (email at scale) TOTAL ANNUAL R$ 1,620,000 (~$324k USD) Cost per Child/Year: R$ 162 (or ~$32 USD) Note: Technology costs are 14% of total cost of service (R$1,156/child) Rest goes to people (assessors, specialists, coordinators)
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Implementation Roadmap -->
+        <section id="implementation-roadmap" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">Implementation Roadmap</h2>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <h3 class="text-lg font-bold text-aeblack-800 mb-2">Phase 1: Foundation (Month 1-2)</h3>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Provision Oracle Cloud tenant</li>
+                <li>Deploy ServiceNow instance</li>
+                <li>Set up Azure subscriptions</li>
+                <li>Establish data governance policies</li>
+                <li>Initial infrastructure testing Phase 2: Integration (Month 3-4)</li>
+                <li>Build Oracle &harr; ServiceNow APIs</li>
+                <li>Build Oracle &harr; Azure Data Lake connectors</li>
+                <li>Develop Power Apps (intake, screening, assessment)</li>
+                <li>Build Power Automate workflows</li>
+                <li>Test end-to-end data flows Phase 3: Pilot (Month 5-6)</li>
+                <li>Deploy to 2 pilot ONGs</li>
+                <li>Real-world testing with 500 children</li>
+                <li>Collect feedback + refine</li>
+                <li>Validate data quality</li>
+                <li>Stress-test performance Phase 4: Scale (Month 7-12)</li>
+                <li>Deploy to all 20 partner ONGs</li>
+                <li>Full training program</li>
+                <li>24/7 support setup</li>
+                <li>Performance monitoring</li>
+                <li>Continuous optimization</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Document footer note -->
+        <div class="mb-10 text-center">
+          <p class="text-base text-aeblack-600"><strong>Document prepared for enterprise architecture &amp; technology governance</strong><br/>
+          <em>Demonstrates: Enterprise system integration, data architecture, automation strategy, technology governance readiness</em></p>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-aeblack-900 text-whitely-100">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">Core Documents</h4>
+          <ul class="space-y-2.5">
+            <li><a href="service-card-dyslexia.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Service Card</a></li>
+            <li><a href="child-monitoring-dyslexia-bpmn-detailed.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">BPMN Diagram</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">Governance</h4>
+          <ul class="space-y-2.5">
+            <li><a href="as-is-to-be-analysis.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">AS-IS / TO-BE</a></li>
+            <li><a href="target-operating-model.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Operating Model</a></li>
+            <li><a href="raci-governance-matrix.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">RACI Matrix</a></li>
+            <li><a href="risk-register.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Risk Register</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">Process &amp; Tech</h4>
+          <ul class="space-y-2.5">
+            <li><a href="spec-process-dyslexia-monitoring.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Process Spec</a></li>
+            <li><a href="technology-stack-mapping.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Technology Stack</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">About</h4>
+          <p class="text-sm text-aeblack-300 leading-relaxed">UAE Dyslexia Service Platform documentation portal. Part of the Ministry of Education digital transformation initiative.</p>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-aeblack-700">
+      <div class="max-w-screen-xl mx-auto px-6 lg:px-8 py-5 text-center">
+        <p class="text-sm text-aeblack-400">&copy; 2026 UAE Dyslexia Service Platform &middot; Ministry of Education</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 z-50 w-12 h-12 bg-primary-600 hover:bg-primary-500 text-whitely-50 rounded-full shadow-lg flex items-center justify-center transition-all opacity-0 pointer-events-none" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,165.66a8,8,0,0,1-11.32,0L128,99.31,61.66,165.66a8,8,0,0,1-11.32-11.32l72-72a8,8,0,0,1,11.32,0l72,72A8,8,0,0,1,205.66,165.66Z"/></svg>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/@aegov/design-system@latest/dist/aegov.js" defer></script>
+  <script>
+    const topBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      const show = window.pageYOffset > 400;
+      topBtn.style.opacity = show ? '1' : '0';
+      topBtn.style.pointerEvents = show ? 'auto' : 'none';
+    });
+    topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden'));
+    });
+  </script>
+
+</body>
+</html>

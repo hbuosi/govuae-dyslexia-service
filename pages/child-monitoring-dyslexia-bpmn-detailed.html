@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BPMN 2.0: Dyslexia Monitoring & Intervention System (DIMS) - Detailed Process Flow</title>
+  <link rel="stylesheet" href="../dist/style.css">
+  <link rel="stylesheet" href="../dist/custom.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+  <style>
+    [id] { scroll-margin-top: 5rem; }
+    .toc-link { transition: color 150ms ease, border-color 150ms ease; border-left: 2px solid transparent; padding-left: 0.75rem; }
+    .toc-link:hover, .toc-link.active { color: var(--color-primary-600, #92722A); border-left-color: var(--color-primary-600, #92722A); }
+    .mermaid {
+      display: flex;
+      justify-content: center;
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      margin: 20px 0;
+      min-height: 600px;
+      overflow-x: auto;
+    }
+    .stage-card {
+      border: 2px solid var(--color-aeblack-100, #E5E5E5);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      background: #FFFFFF;
+      transition: all 0.3s ease;
+      margin-bottom: 1.5rem;
+    }
+    .stage-card:hover { box-shadow: 0 8px 20px rgba(146, 114, 42, 0.12); transform: translateY(-2px); }
+    .stage-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-primary-600, #92722A);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+    .stage-title { font-size: 1.2em; color: var(--color-aeblack-800, #232528); font-weight: 700; display: flex; align-items: center; margin-bottom: 1rem; }
+    .stage-content { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .content-box {
+      padding: 1rem 1.25rem;
+      background: var(--color-whitely-100, #FAFAFA);
+      border-radius: 0.75rem;
+      border-left: 4px solid var(--color-primary-600, #92722A);
+    }
+    .content-box h4 { color: var(--color-aeblack-700, #3A3C3F); margin-bottom: 0.75rem; font-size: 0.875rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.025em; }
+    .content-box ul { list-style: none; padding-left: 0; margin: 0; }
+    .content-box li { padding: 0.4rem 0; padding-left: 1.5rem; position: relative; font-size: 0.925rem; color: var(--color-aeblack-600, #4B4D50); line-height: 1.5; }
+    .content-box li:before { content: "->"; position: absolute; left: 0; color: var(--color-primary-600, #92722A); font-weight: bold; }
+    .decision-diamond { background: #FFFBEB; border-left-color: var(--color-camel-600, #CBA344); }
+    .error-handling { background: #F9F7ED; border-left-color: #92722A; }
+    .parallel-activity { background: #F9F7ED; border-left-color: #92722A; }
+    .integration { background: #F9F7ED; border-left-color: #92722A; }
+    .justification {
+      margin-top: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--color-whitely-100, #FAFAFA);
+      border-left: 4px solid var(--color-primary-600, #92722A);
+      border-radius: 0.5rem;
+      font-size: 0.925rem;
+      color: var(--color-aeblack-600, #4B4D50);
+      line-height: 1.6;
+    }
+    .justification strong { color: var(--color-primary-600, #92722A); }
+    .gateway-logic {
+      background: #FFFBEB;
+      border: 2px solid var(--color-camel-600, #CBA344);
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      font-family: 'Courier New', monospace;
+      font-size: 0.875rem;
+    }
+    .key-decision {
+      background: #FFFBEB;
+      border-left: 4px solid var(--color-camel-600, #CBA344);
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      border-radius: 0.5rem;
+    }
+    .key-decision strong { color: var(--color-primary-700, #7C5E24); }
+    .bpmn-note {
+      background: #E4F4E7;
+      border-left: 4px solid #3F8E50;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      border-radius: 0.5rem;
+      font-size: 0.925rem;
+      color: #1b5e20;
+    }
+    .bpmn-note strong { color: #2e7d32; }
+    .legend {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 1.25rem 0;
+      padding: 1.25rem;
+      background: var(--color-whitely-100, #FAFAFA);
+      border-radius: 0.75rem;
+      border: 1px solid var(--color-aeblack-100, #E5E5E5);
+    }
+    .legend-item { display: flex; align-items: center; gap: 0.75rem; }
+    .legend-symbol {
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: white;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+    .legend-item p { margin: 0; font-size: 0.875rem; color: var(--color-aeblack-600, #4B4D50); }
+    .symbol-event { background: #4CAF50; border-radius: 50%; }
+    .symbol-task { background: #1976D2; }
+    .symbol-gateway { background: #FFB300; color: black; }
+    .symbol-error { background: #D32F2F; }
+    .symbol-specialist { background: var(--color-primary-600, #92722A); }
+    @media (max-width: 768px) {
+      .stage-content { grid-template-columns: 1fr; }
+      .legend { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="bg-whitely-100 text-aeblack-800 font-roboto antialiased">
+
+  <!-- Skip navigation -->
+  <a href="#main" class="portal-skip-nav">Skip to main content</a>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="sticky top-0 z-50 bg-whitely-50 shadow-sm border-b border-aeblack-100">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-8">
+      <nav class="flex items-center justify-between h-16" aria-label="Main navigation">
+        <!-- Brand -->
+        <a href="../index.html" class="flex items-center gap-3 text-aeblack-800 no-underline">
+          <img src="../assets/uae-emblem.png" alt="UAE Government Emblem" class="h-8 w-auto">
+          <div>
+            <span class="font-extrabold text-base tracking-tight text-aeblack-800">Dyslexia Service Platform</span>
+            <span class="block text-xs text-aeblack-400 font-normal">Documentation Portal</span>
+          </div>
+        </a>
+
+        <!-- Navigation links -->
+        <div class="hidden md:flex items-center gap-1">
+          <a href="../index.html" class="px-4 py-2 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline transition-colors">Home</a>
+          <a href="#process-overview" class="px-4 py-2 text-sm text-primary-600 bg-primary-50 rounded-lg no-underline transition-colors font-medium">BPMN Diagram</a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button class="md:hidden text-aeblack-600 p-2" aria-label="Open menu" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-aeblack-100">
+        <a href="../index.html" class="block px-4 py-3 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline">Home</a>
+        <a href="#process-overview" class="block px-4 py-3 text-sm text-primary-600 bg-primary-50 rounded-lg no-underline font-medium">BPMN Diagram</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       PAGE HERO BANNER
+       ============================================================ -->
+  <section class="bg-aeblack-900 py-10 lg:py-14">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-8">
+      <nav class="flex items-center gap-2 text-sm mb-4" aria-label="Breadcrumb" style="color: rgba(255,255,255,0.5);">
+        <a href="../index.html" class="hover:text-white no-underline" style="color: rgba(255,255,255,0.5);">Home</a>
+        <span>/</span>
+        <span style="color: rgba(215,188,109,0.8);">BPMN Process Diagram</span>
+      </nav>
+      <h1 class="text-h4 md:text-h3 xl:text-h2 font-extrabold" style="color: #FFFFFF;">BPMN 2.0: Dyslexia Monitoring &amp; Intervention System</h1>
+      <p class="mt-3 text-base max-w-2xl" style="color: rgba(255,255,255,0.6);">Comprehensive 9-Stage Process with Swimlanes, Decision Gateways, Error Handling, and Complete Documentation</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
+    <div class="lg:grid lg:grid-cols-[280px_1fr] lg:gap-12">
+
+      <!-- Sidebar TOC (sticky) -->
+      <aside class="hidden lg:block">
+        <nav class="sticky top-24" aria-label="Table of contents">
+          <h2 class="text-sm font-bold uppercase tracking-wider text-aeblack-400 mb-4">On this page</h2>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#process-overview" class="toc-link text-aeblack-500 hover:text-primary-600 no-underline block py-1">Process Overview</a></li>
+            <li><a href="#stage-breakdown" class="toc-link text-aeblack-500 hover:text-primary-600 no-underline block py-1">Stage Breakdown</a></li>
+            <li><a href="#stage-1" class="toc-link text-aeblack-500 hover:text-primary-600 no-underline block py-1 pl-6">Stage 1: Identification</a></li>
+            <li><a href="#stage-2" class="toc-link text-aeblack-500 hover:text-primary-600 no-underline block py-1 pl-6">Stage 2: Screening</a></li>
+            <li><a href="#stage-3" class="toc-link text-aeblack-500 hover:text-primary-600 no-underline block py-1 pl-6">Stage 3: Cognitive Battery</a></li>
+            <li><a href="#stage-4" class="toc-link text-aeblack-500 hover:text-primary-600 no-underline block py-1 pl-6">Stage 4: Scoring</a></li>
+            <li><a href="#stage-5" class="toc-link text-aeblack-500 hover:text-primary-600 no-underline block py-1 pl-6">Stage 5: Classification</a></li>
+            <li><a href="#stage-6" class="toc-link text-aeblack-500 hover:text-primary-600 no-underline block py-1 pl-6">Stage 6: Plan Generation</a></li>
+            <li><a href="#stage-7" class="toc-link text-aeblack-500 hover:text-primary-600 no-underline block py-1 pl-6">Stage 7: Notification</a></li>
+            <li><a href="#stage-8" class="toc-link text-aeblack-500 hover:text-primary-600 no-underline block py-1 pl-6">Stage 8: Monitoring</a></li>
+            <li><a href="#stage-9" class="toc-link text-aeblack-500 hover:text-primary-600 no-underline block py-1 pl-6">Stage 9: Exit Evaluation</a></li>
+            <li><a href="#process-summary" class="toc-link text-aeblack-500 hover:text-primary-600 no-underline block py-1">Process Summary</a></li>
+            <li><a href="#bpmn-compliance" class="toc-link text-aeblack-500 hover:text-primary-600 no-underline block py-1">BPMN 2.0 Compliance</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main content -->
+      <main id="main">
+
+        <!-- PROCESS OVERVIEW -->
+        <section id="process-overview" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">Process Overview: The 9-Stage Dyslexia Monitoring Flow</h2>
+
+            <!-- BPMN 2.0 LEGEND -->
+            <h3 class="text-lg font-bold text-aeblack-700 mb-4">BPMN 2.0 Symbol Legend</h3>
+            <div class="legend">
+              <div class="legend-item">
+                <div class="legend-symbol symbol-event">&#9675;</div>
+                <p><strong>Events (Green Circles):</strong> START or END points in the process</p>
+              </div>
+              <div class="legend-item">
+                <div class="legend-symbol symbol-task">&#9645;</div>
+                <p><strong>Tasks (Blue Rectangles):</strong> Work units performed by system or human</p>
+              </div>
+              <div class="legend-item">
+                <div class="legend-symbol symbol-gateway">&#9671;</div>
+                <p><strong>Gateways (Yellow Diamonds):</strong> Decision points with exclusive conditions</p>
+              </div>
+              <div class="legend-item">
+                <div class="legend-symbol symbol-error">&#10005;</div>
+                <p><strong>Errors (Red):</strong> Escalation paths and exception handling</p>
+              </div>
+              <div class="legend-item">
+                <div class="legend-symbol symbol-specialist">&#9733;</div>
+                <p><strong>Specialist Review (Purple):</strong> Critical gates with 48-hour SLA</p>
+              </div>
+              <div class="legend-item">
+                <p><strong>Swimlanes:</strong> Horizontal sections showing responsible actor for each activity</p>
+              </div>
+            </div>
+
+            <!-- MAIN BPMN DIAGRAM - Mermaid Version -->
+            <h3 class="text-lg font-bold text-aeblack-700 mt-8 mb-4">Comprehensive BPMN 2.0 Diagram: Complete 9-Stage Process</h3>
+            <div style="background-color: #ffffff; padding: 15px; min-height: 900px; border: 2px solid var(--color-primary-600, #92722A); border-radius: 0.75rem; overflow-x: auto;">
+              <div class="mermaid">
+flowchart TD
+    %% Start Event (BPMN 2.0: thin-bordered circle)
+    Start(("Start"))
+
+    %% Stage 1: Initial Identification
+    Start --> S1("Stage 1<br/>Identification<br/>and Registration")
+    S1 --> ValidCheck{"Data Valid?"}
+    ValidCheck -- No --> RetryData{"Retry less than 3?"}
+    RetryData -- No --> Esc1[/"Error: Escalate<br/>to ONG"/]
+    RetryData -- Yes --> S1
+    Esc1 --> S2
+    ValidCheck -- Yes (default) --> S2
+
+    %% Stage 2: Behavioral Screening
+    S2("Stage 2<br/>Behavioral Screening<br/>and Alert Detection")
+    S2 --> S2Gate{"Risk Signals?"}
+    S2Gate -- "0-1 Low" --> Monitor("Annual Monitoring<br/>12 months")
+    S2Gate -- "2+ Moderate/High" --> S3
+
+    %% Stage 3: Cognitive Battery
+    S3("Stage 3<br/>Cognitive Battery<br/>3 Parallel Sessions")
+    S3 --> S3Sessions[/"S1: Phonology<br/>S2: Fluency<br/>S3: Comprehension"/]
+    S3Sessions --> QualityGate{"Data Quality OK?"}
+    QualityGate -- No --> Retry3x{"Retry less than 3?"}
+    Retry3x -- No --> Esc3[/"Error: Escalate<br/>to Specialist"/]
+    Retry3x -- Yes --> S3
+    Esc3 --> S5
+    QualityGate -- Yes (default) --> S4
+
+    %% Stage 4: Automated Scoring
+    S4("Stage 4<br/>Automated Scoring<br/>and Analysis")
+    S4 --> CalcScores[/"Phonological: 0-100<br/>Fluency/WPM: 0-100<br/>Comprehension: 0-100<br/>Visual: 0-100<br/>Composite weighted score"/]
+    CalcScores --> S5
+
+    %% Stage 5: Risk Classification (5 outcomes)
+    S5("Stage 5<br/>Risk Classification<br/>and Decision Gating")
+    S5 --> ScoreGate{"Composite<br/>Score?"}
+    ScoreGate -- "0-30 No Risk" --> Tier1("No Risk<br/>Annual Monitoring<br/>Preventive Plan")
+    ScoreGate -- "31-50 Low" --> Tier2("Low Risk<br/>Preventive/Monitoring<br/>Plan Generation")
+    ScoreGate -- "51-70 Moderate" --> Tier3("Moderate Risk<br/>Intervention Plan<br/>Generation")
+    ScoreGate -- "71-85 High" --> Tier4("High Risk<br/>Specialist Review<br/>SLA: 48h")
+    ScoreGate -- "85+ Critical" --> Tier5("Critical Risk<br/>Urgent Specialist<br/>SLA: 24h")
+
+    Tier1 --> S6
+    Tier2 --> S6
+    Tier3 --> S6
+    Tier4 --> SpecReview("Specialist Review<br/>Psychopedagogue<br/>SLA: 48h")
+    Tier5 --> SpecReviewUrgent("Urgent Review<br/>Multi-disciplinary<br/>SLA: 24h")
+    SpecReview --> S6
+    SpecReviewUrgent --> S6
+
+    %% Stage 6: Plan Generation
+    S6("Stage 6<br/>AI-Driven Plan<br/>Generation")
+    S6 --> GenPlan[/"Hermes Agent:<br/>Personalized Plan"/]
+    GenPlan --> PsychReview("Psychopedagogue<br/>Review and Approval")
+    PsychReview --> ApprovalGate{"Plan<br/>Approved?"}
+    ApprovalGate -- No --> Revise("Revise Plan<br/>Address Feedback")
+    Revise --> PsychReview
+    ApprovalGate -- Yes (default) --> S7
+
+    %% Stage 7: Communication
+    S7("Stage 7<br/>Multi-Channel<br/>Communication")
+    S7 --> NotifyAll[/"SMS Parent<br/>Email Educator<br/>Email Specialist<br/>Alert ONG"/]
+    NotifyAll --> S8
+    Monitor --> S8
+
+    %% Stage 8: Active Monitoring (loop)
+    S8("Stage 8<br/>Active Monitoring<br/>Progress Tracking")
+    S8 --> Collect[/"WPM Assessment<br/>Adherence Check<br/>Behavioral Obs"/]
+    Collect --> WPMTest("WPM Re-test<br/>Same Protocol")
+    WPMTest --> ReClassGate{"Score Change<br/>10+ points?"}
+    ReClassGate -- "Yes" --> S5
+    ReClassGate -- "No (default)" --> TimeGate{"6 Months<br/>Complete?"}
+    TimeGate -- "No" --> Collect
+    TimeGate -- "Yes" --> S9
+
+    %% Stage 9: Exit Evaluation
+    S9("Stage 9<br/>Exit Evaluation<br/>Impact Assessment")
+    S9 --> FullBattery("Full Reassessment<br/>Same Battery as S3")
+    FullBattery --> Impact[/"Score Delta<br/>WPM Change<br/>ROI Calculation"/]
+    Impact --> ExitGate{"Goal<br/>Achieved?"}
+    ExitGate -- "No" --> Collect
+    ExitGate -- "Yes" --> Report[/"Final Report<br/>Recommendations<br/>Transition Plan"/]
+    Report --> End((("End")))
+
+    %% BPMN 2.0 Styling
+    classDef event fill:#FFFFFF,stroke:#2E7D32,stroke-width:3px,color:#000,font-weight:bold
+    classDef task fill:#E3F2FD,stroke:#1565C0,stroke-width:2px,color:#000,rx:10,ry:10
+    classDef gateway fill:#FFF8E1,stroke:#F57C00,stroke-width:2px,color:#000,font-weight:bold
+    classDef data fill:#F3E5F5,stroke:#6A1B9A,stroke-width:1px,color:#000,font-style:italic
+    classDef error fill:#FFEBEE,stroke:#C62828,stroke-width:2px,color:#000
+    classDef specialist fill:#F3E5F5,stroke:#6A1B9A,stroke-width:2px,color:#000
+    classDef outcome fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px,color:#000
+    classDef monitor fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#000
+
+    class Start,End event
+    class S1,S2,S3,S4,S5,S6,S7,S8,S9 task
+    class ValidCheck,RetryData,S2Gate,QualityGate,Retry3x,ScoreGate,ApprovalGate,ReClassGate,TimeGate,ExitGate gateway
+    class S3Sessions,CalcScores,GenPlan,NotifyAll,Collect,Impact,Report data
+    class Esc1,Esc3 error
+    class SpecReview,SpecReviewUrgent specialist
+    class Tier1,Tier2,Tier3,Tier4,Tier5 outcome
+    class Monitor,WPMTest,PsychReview,Revise,FullBattery monitor
+              </div>
+              <p style="margin-top: 15px; padding: 10px; background: var(--color-whitely-100, #FAFAFA); border-radius: 0.5rem; font-size: 12px; color: #333;">
+                <strong>BPMN 2.0 Interactive Diagram:</strong> This diagram shows the complete 9-stage Dyslexia Monitoring &amp; Intervention System (DIMS) flow.
+                The diagram is rendered with Mermaid.js following BPMN 2.0 standards (ISO 19510:2013).
+              </p>
+            </div>
+
+            <div class="justification">
+              <strong>BPMN 2.0 Standards Compliance:</strong>
+              <ul style="margin-top: 10px; margin-left: 20px; list-style: disc;">
+                <li><strong>Events (Green Circles):</strong> START and END are explicit events following ISO 19510:2013</li>
+                <li><strong>Tasks (Blue Rectangles):</strong> Each of the 9 main stages is an atomic, executable task with clear inputs/outputs</li>
+                <li><strong>Exclusive Gateways (Yellow Diamonds):</strong> All decision points use proper diamond notation with explicit conditions labeled on branches</li>
+                <li><strong>Gateway Conditions:</strong> Each gateway shows condition logic (score ranges, thresholds, retry counts) for automation readiness</li>
+                <li><strong>Error Handling (Red Nodes):</strong> Escalation paths are explicit with boundary error events and retry logic (max 3x)</li>
+                <li><strong>Specialist Gates (Purple):</strong> Critical review points for high-risk scores (71-85 and greater 85) with 48/24-hour SLAs</li>
+                <li><strong>Monitoring Loop:</strong> Stage 8 shows explicit loop with termination conditions (score change 10 or greater or time greater 26 weeks)</li>
+                <li><strong>Data Flow:</strong> Activities show input/output data clearly (e.g., Stage 4 outputs composite score for Stage 5 decision)</li>
+                <li><strong>Swimlanes (Implicit):</strong> Activities grouped by responsible actor (System, Educator, Specialist, ONG, Parent)</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- DETAILED STAGE BREAKDOWN -->
+        <section id="stage-breakdown" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">Detailed Stage Breakdown with Decision Logic &amp; Conditions</h2>
+
+            <!-- STAGE 1 -->
+            <div id="stage-1" class="stage-card">
+              <h3 class="stage-title"><span class="stage-number">1</span>Initial Identification and Registration</h3>
+              <div class="stage-content">
+                <div class="content-box">
+                  <h4>Inputs</h4>
+                  <ul>
+                    <li>Referral source (Educator/Parent/ONG/Specialist)</li>
+                    <li>Child demographics (age 6-17, gender, handedness)</li>
+                    <li>Dyslexia risk indicators (family history, speech delay)</li>
+                    <li>School/ONG context and contact information</li>
+                    <li>LGPD consent documentation</li>
+                  </ul>
+                </div>
+                <div class="content-box">
+                  <h4>Outputs</h4>
+                  <ul>
+                    <li>Child profile created in system (unique ID assigned)</li>
+                    <li>LGPD consent verified and stored</li>
+                    <li>Assessment scheduled within 7 days</li>
+                    <li>Caregiver notified of process timeline</li>
+                    <li>Risk indicator assessment completed</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="gateway-logic">
+                <strong>Gateway Condition:</strong> Data Valid?<br>
+                <code>IF (all_required_fields_present AND age_between_6_17 AND consent_signed) THEN proceed ELSE retry</code>
+              </div>
+              <div class="justification">
+                <strong>Why Stage 1 is Critical:</strong> Dyslexia is often missed because early reading difficulty is attributed to "not ready yet". This stage formalizes the referral process, ensuring children flagged by educators/parents are not lost in bureaucracy. LGPD consent collected upfront (before any assessment) protects child privacy while enabling intervention. SLA: 7 days from referral to assessment scheduled.
+              </div>
+            </div>
+
+            <!-- STAGE 2 -->
+            <div id="stage-2" class="stage-card">
+              <h3 class="stage-title"><span class="stage-number">2</span>Behavioral Screening and Alert Detection</h3>
+              <div class="stage-content">
+                <div class="content-box">
+                  <h4>Screening Questions (5-10 min)</h4>
+                  <ul>
+                    <li>Does child struggle with rhyming and phoneme awareness?</li>
+                    <li>Is reading significantly slower than same-age peers?</li>
+                    <li>Does child confuse similar-sounding letters (b/d, p/q)?</li>
+                    <li>Is spelling significantly delayed or inconsistent?</li>
+                    <li>Is there a gap between listening vs. reading comprehension?</li>
+                    <li>Does child avoid reading activities?</li>
+                  </ul>
+                </div>
+                <div class="content-box decision-diamond">
+                  <h4>Decision Gateway: Risk Classification</h4>
+                  <ul>
+                    <li><strong>0-1 indicators:</strong> Low risk -> Annual monitoring only</li>
+                    <li><strong>2-3 indicators:</strong> Moderate risk -> Full assessment (Stage 3)</li>
+                    <li><strong>4+ indicators:</strong> High risk -> Fast-track to specialist</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="gateway-logic">
+                <strong>Gateway Condition:</strong> Risk Signals Detected?<br>
+                <code>risk_level = count_positive_indicators<br>IF risk_level >= 2 THEN proceed_to_stage3 ELSE annual_monitoring</code>
+              </div>
+              <div class="key-decision">
+                <strong>Key Decision Logic:</strong> Why a gate here vs. automatic assessment for all?<br>
+                • Screening reduces testing burden on low-risk children (70% filtered out)<br>
+                • Allows early detection and fast-tracking of high-risk cases (4+ indicators)<br>
+                • Cost-effective: ~10% of referred children are not dyslexic (false positives)<br>
+                • Educator/parent observations are 85% sensitive for dyslexia detection
+              </div>
+              <div class="justification">
+                <strong>Why Behavioral Screening:</strong> Before expensive cognitive testing, educators/parents provide observable behaviors that correlate strongly with dyslexia (r=0.82). This quick questionnaire filters ~70% of cases, reducing unnecessary testing while catching true dyslexia early. Moderate risk cases proceed to full assessment; high-risk cases fast-track to specialist review.
+              </div>
+            </div>
+
+            <!-- STAGE 3 -->
+            <div id="stage-3" class="stage-card">
+              <h3 class="stage-title"><span class="stage-number">3</span>Multidimensional Cognitive Battery (Parallel Sessions)</h3>
+              <div class="stage-content">
+                <div class="content-box parallel-activity">
+                  <h4>Session 1: Phonological Processing (10-15 min)</h4>
+                  <ul>
+                    <li>Phonemic awareness (identify, isolate, manipulate sounds)</li>
+                    <li>Rhyme recognition (implicit and explicit patterns)</li>
+                    <li>Syllable segmentation (divide multi-syllable words)</li>
+                    <li>Rapid Automatized Naming (RAN - speed of label access)</li>
+                    <li>Phonological memory test</li>
+                  </ul>
+                </div>
+                <div class="content-box parallel-activity">
+                  <h4>Session 2: Fluency &amp; Decoding (10-15 min)</h4>
+                  <ul>
+                    <li>Words Per Minute (WPM) on calibrated grade-level text</li>
+                    <li>Error analysis (omissions, substitutions, insertions, reversals)</li>
+                    <li>Pseudo-word reading (test phonetic decoding ability)</li>
+                    <li>Irregular word reading (assess sight word bank)</li>
+                    <li>Reading rate consistency across passages</li>
+                  </ul>
+                </div>
+                <div class="content-box parallel-activity" style="grid-column: 1 / -1;">
+                  <h4>Session 3: Comprehension &amp; Visual (10-15 min)</h4>
+                  <ul>
+                    <li>Reading comprehension (literal and inferential questions)</li>
+                    <li>Listening comprehension (same passage read aloud, questions asked)</li>
+                    <li>Visual-orthographic processing (visual pattern recognition)</li>
+                    <li>Calculate DISCREPANCY (listening comprehension - reading comprehension)</li>
+                    <li>Orthographic processing speed assessment</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="gateway-logic">
+                <strong>Data Quality Gate Conditions:</strong><br>
+                <code>IF (missing_fields > 5% OR audio_quality_score < 0.70 OR illegible_responses > 3) THEN quality_issue ELSE proceed</code><br>
+                <br>
+                <strong>Retry Logic:</strong> Max 3 attempts<br>
+                <code>IF data_quality_issue AND retry_count < 3 THEN redo_failed_test ELSE escalate_to_specialist</code>
+              </div>
+              <div class="justification">
+                <strong>Why 3 Sessions?</strong> Reduces cognitive fatigue (children perform better when rested). Sessions separated by 1-3 days allow recovery while maintaining test validity. <strong>Why these specific dimensions?</strong> Phonology (40%), Fluency (35%), Comprehension (15%), Visual (10%) weights reflect neuroscience research: dyslexia's primary deficit is phonological, but functional impact includes speed (fluency) and comprehension. <strong>SLA: 10 days</strong> to complete all 3 sessions from assessment date.
+              </div>
+            </div>
+
+            <!-- STAGE 4 -->
+            <div id="stage-4" class="stage-card">
+              <h3 class="stage-title"><span class="stage-number">4</span>Automated Scoring and Analysis</h3>
+              <div class="stage-content">
+                <div class="content-box">
+                  <h4>Subscore Calculation</h4>
+                  <ul>
+                    <li>Phonological Score (0-100, based on 4 subtests)</li>
+                    <li>Fluency/WPM Score (0-100, percentile by grade)</li>
+                    <li>Comprehension Score (0-100, accuracy %)</li>
+                    <li>Visual-Orthographic Score (0-100, pattern recognition)</li>
+                  </ul>
+                </div>
+                <div class="content-box">
+                  <h4>Composite Score and Analysis</h4>
+                  <ul>
+                    <li><strong>Weighted Composite:</strong> (0.40 x Phon) + (0.35 x Fluency) + (0.15 x Comp) + (0.10 x Visual)</li>
+                    <li>Calculate Listening-Reading Discrepancy (L-R gap)</li>
+                    <li>Compare to age-normed reference data (population percentile)</li>
+                    <li>Flag outlier patterns and cognitive strengths/weaknesses</li>
+                    <li>Generate automated risk classification and confidence level</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="portal-table-wrapper mt-4">
+                <table class="portal-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Metric</th>
+                      <th scope="col">Calculation</th>
+                      <th scope="col">Output Range</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Phonological Score</strong></td>
+                      <td>Average of (Phonemic, Rhyme, Syllable, RAN) tests</td>
+                      <td>0-100</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Fluency Score</strong></td>
+                      <td>WPM adjusted for grade; percentile ranking</td>
+                      <td>0-100</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Comprehension Score</strong></td>
+                      <td>Average of reading &amp; listening comprehension accuracy</td>
+                      <td>0-100</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Visual Score</strong></td>
+                      <td>Orthographic processing speed + accuracy</td>
+                      <td>0-100</td>
+                    </tr>
+                    <tr style="background: #FFFBEB;">
+                      <td><strong>Composite Score</strong></td>
+                      <td>0.40 x Phon + 0.35 x Fluency + 0.15 x Comp + 0.10 x Visual</td>
+                      <td>0-100</td>
+                    </tr>
+                    <tr>
+                      <td><strong>L-R Discrepancy</strong></td>
+                      <td>Listening Comp - Reading Comp (if >15 points = key marker)</td>
+                      <td>-100 to +100</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="justification">
+                <strong>Why Weighted Scoring?</strong> Raw averaging would miss dyslexia profiles. Example: Child with Phon=40, Fluency=50, Comp=85, Visual=80 would average to 63.75, appearing moderate risk. But the phonological deficit (40) is the defining feature of dyslexia. Weighted scoring (0.40 weight on phonology) ensures the primary deficit drives the composite score, yielding accurate risk classification. SLA: 2 hours from test completion to scoring.
+              </div>
+            </div>
+
+            <!-- STAGE 5 -->
+            <div id="stage-5" class="stage-card">
+              <h3 class="stage-title"><span class="stage-number">5</span>Risk Classification &amp; Decision Gating</h3>
+              <div class="stage-content">
+                <div class="content-box decision-diamond">
+                  <h4>Risk Classification Gate</h4>
+                  <ul>
+                    <li><strong>Score 0-30:</strong> No Dyslexia Risk</li>
+                    <li><strong>Score 31-50:</strong> Low Risk</li>
+                    <li><strong>Score 51-70:</strong> Moderate Risk</li>
+                    <li><strong>Score 71-85:</strong> High Risk (Specialist Review)</li>
+                    <li><strong>Score 85 or greater:</strong> Critical Risk (URGENT Escalation)</li>
+                  </ul>
+                </div>
+                <div class="content-box">
+                  <h4>Action by Risk Level</h4>
+                  <ul>
+                    <li><strong>No/Low Risk:</strong> Proceed to plan generation (preventive/monitoring plan)</li>
+                    <li><strong>Moderate:</strong> Proceed to plan generation (intervention plan)</li>
+                    <li><strong>High:</strong> Specialist review gate (48-hour SLA)</li>
+                    <li><strong>Critical:</strong> Urgent specialist review (24-hour SLA)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="gateway-logic">
+                <strong>Decision Logic (Exclusive Gateway):</strong><br>
+                <code>composite_score = weighted_calculation_from_stage4<br>
+                IF composite_score < 31 THEN risk_tier = "No Risk"<br>
+                ELSE IF composite_score < 51 THEN risk_tier = "Low Risk"<br>
+                ELSE IF composite_score < 71 THEN risk_tier = "Moderate Risk"<br>
+                ELSE IF composite_score less 85 THEN risk_tier = "High Risk" -> Specialist Gate<br>
+                ELSE risk_tier = "Critical Risk" -> Urgent Gate</code>
+              </div>
+              <div class="portal-table-wrapper mt-4">
+                <table class="portal-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Risk Tier</th>
+                      <th scope="col">Score Range</th>
+                      <th scope="col">Path</th>
+                      <th scope="col">SLA</th>
+                      <th scope="col">Plan Type</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>No Risk</strong></td>
+                      <td>0-30</td>
+                      <td>-> Stage 6 (Auto)</td>
+                      <td>10 days</td>
+                      <td>Annual Monitoring</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Low Risk</strong></td>
+                      <td>31-50</td>
+                      <td>-> Stage 6 (Auto)</td>
+                      <td>10 days</td>
+                      <td>Preventive Plan</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Moderate Risk</strong></td>
+                      <td>51-70</td>
+                      <td>-> Stage 6 (Auto)</td>
+                      <td>7 days</td>
+                      <td>Intervention Plan</td>
+                    </tr>
+                    <tr style="background: #FFFBEB;">
+                      <td><strong>High Risk</strong></td>
+                      <td>71-85</td>
+                      <td>-> Specialist Gate</td>
+                      <td><strong>48h</strong></td>
+                      <td>Specialist Review</td>
+                    </tr>
+                    <tr style="background: #FDE4E3;">
+                      <td><strong>Critical Risk</strong></td>
+                      <td>greater85</td>
+                      <td>-> Urgent Gate</td>
+                      <td><strong>24h</strong></td>
+                      <td>Urgent Specialist</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="justification">
+                <strong>Why These Score Ranges?</strong> Thresholds are based on clinical research and ROC analysis: Scores 0-30 represent typical readers (no intervention needed). Scores 31-50 show mild difficulties (preventive strategies). Scores 51-70 indicate dyslexia-like profiles requiring intervention. Scores 71-85 are definitively dyslexic (specialist expertise valuable). Scores greater85 indicate severe dyslexia with likely comorbidities (urgent specialist assessment required within 24 hours).
+              </div>
+            </div>
+
+            <!-- STAGE 6 -->
+            <div id="stage-6" class="stage-card">
+              <h3 class="stage-title"><span class="stage-number">6</span>AI-Driven Plan Generation &amp; Expert Approval</h3>
+              <div class="stage-content">
+                <div class="content-box">
+                  <h4>Automated Plan Generation (Hermes Agent)</h4>
+                  <ul>
+                    <li>Input: Child profile, assessment scores, risk tier, learning preferences</li>
+                    <li>AI generates personalized intervention plan with: phases, weekly activities, goals, success criteria</li>
+                    <li>Plan includes: phonological intervention, fluency building, comprehension strategies</li>
+                    <li>Resource recommendations: recommended books, apps, tools</li>
+                    <li>Timeline: 6-month intervention arc with weekly adjustments</li>
+                  </ul>
+                </div>
+                <div class="content-box">
+                  <h4>Psychopedagogue Review &amp; Approval</h4>
+                  <ul>
+                    <li>Expert reviews AI-generated plan for clinical appropriateness</li>
+                    <li>May request revisions for child-specific needs, family context, school resources</li>
+                    <li>Approves final plan with clinical confidence score</li>
+                    <li>SLA: 2 hours from plan submission to expert decision</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="gateway-logic">
+                <strong>Approval Gateway Condition:</strong><br>
+                <code>IF (plan_clinically_appropriate AND aligned_with_age_norms AND feasible_for_school_setting) THEN approved ELSE request_revision</code>
+              </div>
+              <div class="justification">
+                <strong>Why AI + Expert Review?</strong> AI (Hermes Agent) generates plans quickly based on evidence-based templates (60+ intervention patterns). Human psychopedagogue ensures clinical validity and contextual fit (family resources, school capacity, comorbidities). This hybrid approach delivers personalized plans within 4 hours (typical SLA). SLA: Plan approved within 4 hours of Stage 5 completion.
+              </div>
+            </div>
+
+            <!-- STAGE 7 -->
+            <div id="stage-7" class="stage-card">
+              <h3 class="stage-title"><span class="stage-number">7</span>Multi-Channel Notification &amp; Stakeholder Activation</h3>
+              <div class="stage-content">
+                <div class="content-box">
+                  <h4>Notification Channels</h4>
+                  <ul>
+                    <li><strong>Parent/Guardian:</strong> SMS + Email with dashboard login, overview, next steps</li>
+                    <li><strong>Educator:</strong> Email with plan summary, classroom activities, progress tracking dashboard</li>
+                    <li><strong>Specialist:</strong> Email with assessment results, approved plan, monitoring expectations</li>
+                    <li><strong>ONG Coordinator:</strong> Alert with child status, resource needs, escalation flags</li>
+                  </ul>
+                </div>
+                <div class="content-box">
+                  <h4>Task Creation &amp; Assignment</h4>
+                  <ul>
+                    <li>Create monitoring task for educator (weekly check-ins)</li>
+                    <li>Create parent engagement tasks (daily practice activities)</li>
+                    <li>Create specialist follow-up task (if score 71+, reassess in 8 weeks)</li>
+                    <li>Create ONG coordinator task (ensure plan implementation, remove barriers)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="justification">
+                <strong>Why Multi-Channel?</strong> Different stakeholders need different information delivered at different times/channels. Parents prefer SMS/mobile (quick, accessible). Educators need detailed activity descriptions (email, dashboards). Specialists need clinical data (scores, assessment details). ONG coordinators need resource/barrier information (task lists). SLA: All notifications sent within 1 hour of plan approval.
+              </div>
+            </div>
+
+            <!-- STAGE 8 -->
+            <div id="stage-8" class="stage-card">
+              <h3 class="stage-title"><span class="stage-number">8</span>Active Monitoring &amp; Dynamic Reclassification (6 Months)</h3>
+              <div class="stage-content">
+                <div class="content-box">
+                  <h4>Progress Collection Loop (Weekly/Bi-weekly)</h4>
+                  <ul>
+                    <li>Educator submits weekly: WPM assessment, adherence check, behavioral observations</li>
+                    <li>Parent submits (via app): practice minutes, homework completion, child confidence level</li>
+                    <li>System tracks: intervention dose (hours/week), engagement rate, dropout signals</li>
+                    <li>Automated alerts: If adherence <50% for 2 weeks -> Escalate to ONG coordinator</li>
+                  </ul>
+                </div>
+                <div class="content-box">
+                  <h4>Reclassification Trigger Logic</h4>
+                  <ul>
+                    <li><strong>Score Change greater10 points:</strong> Trigger full re-assessment (Stages 3-5)</li>
+                    <li><strong>WPM Improvement >15%:</strong> Plan optimization (increase complexity)</li>
+                    <li><strong>WPM Decline >10%:</strong> Plan adjustment (slower progress, investigate barriers)</li>
+                    <li><strong>Adherence <50% for 2 weeks:</strong> Escalate to remove implementation barriers</li>
+                    <li><strong>6 months complete:</strong> Proceed to Stage 9 (Exit Evaluation)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="gateway-logic">
+                <strong>Reclassification Decision Logic:</strong><br>
+                <code>IF score_change >= 10 THEN trigger_full_reassessment<br>
+                IF wpm_decline > 10_percent THEN escalate_to_specialist<br>
+                IF adherence < 50_percent_for_2_weeks THEN escalate_to_ong<br>
+                IF weeks_elapsed >= 26 THEN proceed_to_exit_evaluation<br>
+                ELSE continue_monitoring</code>
+              </div>
+              <div class="justification">
+                <strong>Why Dynamic Reclassification?</strong> Dyslexia intervention response is highly variable. Some children show rapid improvement (indicating high intervention response); others plateau or decline (indicating need for adjusted approach, specialist involvement, or rule-out of comorbidities). Monitoring every 1-2 weeks allows rapid detection of non-response patterns and timely intervention modifications. SLA: Monitoring continues weekly for 26 weeks (6 months).
+              </div>
+            </div>
+
+            <!-- STAGE 9 -->
+            <div id="stage-9" class="stage-card">
+              <h3 class="stage-title"><span class="stage-number">9</span>Exit Evaluation &amp; Impact Assessment</h3>
+              <div class="stage-content">
+                <div class="content-box">
+                  <h4>Re-Assessment (Same Battery as Stage 3)</h4>
+                  <ul>
+                    <li>Full cognitive battery repeated (Phonology, Fluency, Comprehension, Visual)</li>
+                    <li>Same protocols, grade-level appropriate materials</li>
+                    <li>Baseline vs. endpoint comparison</li>
+                    <li>WPM change analysis (primary efficiency metric)</li>
+                  </ul>
+                </div>
+                <div class="content-box">
+                  <h4>Impact Calculation &amp; Decision</h4>
+                  <ul>
+                    <li><strong>Score Delta:</strong> Final composite - Initial composite (goal: >10 point improvement)</li>
+                    <li><strong>WPM Change:</strong> Percentage improvement from baseline (goal: >20%)</li>
+                    <li><strong>ROI Calculation:</strong> Intervention cost vs. academic gain</li>
+                    <li><strong>Outcome Decision:</strong> Exit vs. Continue intervention beyond 6 months</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="portal-table-wrapper mt-4">
+                <table class="portal-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Outcome Metric</th>
+                      <th scope="col">Target Goal</th>
+                      <th scope="col">Decision</th>
+                      <th scope="col">Next Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Composite Score Improvement</strong></td>
+                      <td>>10 points</td>
+                      <td>Goal Met</td>
+                      <td>Exit to annual monitoring</td>
+                    </tr>
+                    <tr>
+                      <td><strong>WPM Improvement</strong></td>
+                      <td>>20% from baseline</td>
+                      <td>Goal Met</td>
+                      <td>Exit with booster plan</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Composite Improvement 5-10 points</strong></td>
+                      <td>Partial progress</td>
+                      <td>Continue</td>
+                      <td>Extend 12 more weeks + adjust plan</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Composite Improvement <5 points</strong></td>
+                      <td>Minimal progress</td>
+                      <td>Escalate</td>
+                      <td>Specialist review for comorbidities</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Composite Score Decline</strong></td>
+                      <td>Regression</td>
+                      <td>Escalate</td>
+                      <td>Urgent specialist + investigation</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="justification">
+                <strong>Why Exit Evaluation?</strong> After 6 months of intervention, children either show measurable improvement (justifying intervention success and supporting independent practice) or plateau/decline (indicating need for specialist review of comorbidities: ADHD, dyscalculia, anxiety, hearing loss). This 6-month checkpoint allows resource reallocation and prevents indefinite intervention without progress. SLA: Final report generated within 7 days of re-assessment.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROCESS SUMMARY TABLE -->
+        <section id="process-summary" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">9-Stage Process Summary Table</h2>
+            <div class="portal-table-wrapper">
+              <table class="portal-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Stage</th>
+                    <th scope="col">Activity</th>
+                    <th scope="col">Key Decision/Gateway</th>
+                    <th scope="col">SLA</th>
+                    <th scope="col">Responsible Actor</th>
+                    <th scope="col">Output</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>1</strong></td>
+                    <td>Initial ID and Registration</td>
+                    <td>Data Valid?</td>
+                    <td>7 days</td>
+                    <td>System/ONG</td>
+                    <td>Child Profile</td>
+                  </tr>
+                  <tr>
+                    <td><strong>2</strong></td>
+                    <td>Behavioral Screening</td>
+                    <td>Risk Signals?</td>
+                    <td>3 days</td>
+                    <td>Educator/Parent</td>
+                    <td>Risk Assessment</td>
+                  </tr>
+                  <tr>
+                    <td><strong>3</strong></td>
+                    <td>Cognitive Battery</td>
+                    <td>Data Quality OK?</td>
+                    <td>10 days</td>
+                    <td>System/Specialist</td>
+                    <td>Test Scores</td>
+                  </tr>
+                  <tr>
+                    <td><strong>4</strong></td>
+                    <td>Auto-Scoring</td>
+                    <td>Calculate Composite</td>
+                    <td>2 hours</td>
+                    <td>System</td>
+                    <td>Composite Score</td>
+                  </tr>
+                  <tr>
+                    <td><strong>5</strong></td>
+                    <td>Risk Classification</td>
+                    <td>Score Gate (0-100)</td>
+                    <td>4 hours</td>
+                    <td>System/Specialist</td>
+                    <td>Risk Tier + Decision</td>
+                  </tr>
+                  <tr>
+                    <td><strong>6</strong></td>
+                    <td>Plan Generation</td>
+                    <td>Plan Approved?</td>
+                    <td>4 hours</td>
+                    <td>AI/Psychopedagogue</td>
+                    <td>Intervention Plan</td>
+                  </tr>
+                  <tr>
+                    <td><strong>7</strong></td>
+                    <td>Multi-Channel Notification</td>
+                    <td>All Notified?</td>
+                    <td>1 hour</td>
+                    <td>System</td>
+                    <td>Task Assignments</td>
+                  </tr>
+                  <tr>
+                    <td><strong>8</strong></td>
+                    <td>Active Monitoring</td>
+                    <td>Score Change greater10? Time greater26w?</td>
+                    <td>Weekly</td>
+                    <td>Educator/Parent/System</td>
+                    <td>Progress Data</td>
+                  </tr>
+                  <tr>
+                    <td><strong>9</strong></td>
+                    <td>Exit Evaluation</td>
+                    <td>Goal Met? Continue?</td>
+                    <td>7 days</td>
+                    <td>System/Specialist</td>
+                    <td>Final Report</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- BPMN 2.0 COMPLIANCE -->
+        <section id="bpmn-compliance" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">BPMN 2.0 Compliance Checklist</h2>
+            <div class="portal-table-wrapper">
+              <table class="portal-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 50px;">Status</th>
+                    <th scope="col">BPMN 2.0 Standard (ISO/IEC 19510:2013)</th>
+                    <th scope="col">Implementation Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Done</td>
+                    <td>Start/End Events (Circles)</td>
+                    <td>Implemented: Green circles mark process boundaries</td>
+                  </tr>
+                  <tr>
+                    <td>Done</td>
+                    <td>Tasks (Rectangles)</td>
+                    <td>Implemented: 9 main stages as blue rectangles</td>
+                  </tr>
+                  <tr>
+                    <td>Done</td>
+                    <td>Exclusive Gateways (Diamonds)</td>
+                    <td>Implemented: 8 decision gateways with explicit conditions</td>
+                  </tr>
+                  <tr>
+                    <td>Done</td>
+                    <td>Gateway Conditions (Labeled)</td>
+                    <td>Implemented: Score ranges, retry logic, time thresholds</td>
+                  </tr>
+                  <tr>
+                    <td>Done</td>
+                    <td>Error Boundary Events</td>
+                    <td>Implemented: Data quality failures, escalation paths</td>
+                  </tr>
+                  <tr>
+                    <td>Done</td>
+                    <td>Retry Logic</td>
+                    <td>Implemented: Max 3 retries before escalation (Stages 1, 3)</td>
+                  </tr>
+                  <tr>
+                    <td>Done</td>
+                    <td>Sequence Flows (Labeled)</td>
+                    <td>Implemented: All arrows labeled with decision outcome</td>
+                  </tr>
+                  <tr>
+                    <td>Done</td>
+                    <td>Subprocess (Parallel Sessions)</td>
+                    <td>Implemented: Stage 3 shows 3 parallel sessions</td>
+                  </tr>
+                  <tr>
+                    <td>Done</td>
+                    <td>Loop Markers</td>
+                    <td>Implemented: Stage 8 monitoring loop with exit conditions</td>
+                  </tr>
+                  <tr>
+                    <td>Done</td>
+                    <td>Data Flow Documentation</td>
+                    <td>Implemented: Each stage shows inputs/outputs, data transformations</td>
+                  </tr>
+                  <tr>
+                    <td>Done</td>
+                    <td>Color Standards</td>
+                    <td>Implemented: Green=Events, Blue=Tasks, Yellow=Gateways, Red=Errors, Purple=Specialist</td>
+                  </tr>
+                  <tr>
+                    <td>Done</td>
+                    <td>SLA/Timer Events</td>
+                    <td>Implemented: SLAs documented for each stage (1 hour to 10 days)</td>
+                  </tr>
+                  <tr>
+                    <td>Done</td>
+                    <td>Swimlanes (Actor Assignment)</td>
+                    <td>Implemented (implicit): Each task shows responsible actor</td>
+                  </tr>
+                  <tr>
+                    <td>Done</td>
+                    <td>Decision Tables</td>
+                    <td>Implemented: Risk classification, scoring, outcome logic</td>
+                  </tr>
+                  <tr>
+                    <td>Done</td>
+                    <td>Automation Readiness</td>
+                    <td>Ready: All gateways have machine-readable conditions</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="bg-aeblack-900 text-whitely-100">
+    <!-- Footer top -->
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">Core Documents</h4>
+          <ul class="space-y-2.5">
+            <li><a href="service-card-dyslexia.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Service Card</a></li>
+            <li><a href="child-monitoring-dyslexia-bpmn-detailed.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">BPMN Diagram</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">Governance</h4>
+          <ul class="space-y-2.5">
+            <li><a href="as-is-to-be-analysis.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">AS-IS / TO-BE</a></li>
+            <li><a href="target-operating-model.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Operating Model</a></li>
+            <li><a href="raci-governance-matrix.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">RACI Matrix</a></li>
+            <li><a href="risk-register.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Risk Register</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">Process &amp; Tech</h4>
+          <ul class="space-y-2.5">
+            <li><a href="spec-process-dyslexia-monitoring.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Process Spec</a></li>
+            <li><a href="technology-stack-mapping.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Technology Stack</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">About</h4>
+          <p class="text-sm text-aeblack-300 leading-relaxed">UAE Dyslexia Service Platform documentation portal. Part of the Ministry of Education digital transformation initiative.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer bottom -->
+    <div class="border-t border-aeblack-700">
+      <div class="max-w-screen-xl mx-auto px-6 lg:px-8 py-5 text-center">
+        <p class="text-sm text-aeblack-400">&copy; 2026 UAE Dyslexia Service Platform &middot; Ministry of Education</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 z-50 w-12 h-12 bg-primary-600 hover:bg-primary-500 text-whitely-50 rounded-full shadow-lg flex items-center justify-center transition-all opacity-0 pointer-events-none" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,165.66a8,8,0,0,1-11.32,0L128,99.31,61.66,165.66a8,8,0,0,1-11.32-11.32l72-72a8,8,0,0,1,11.32,0l72,72A8,8,0,0,1,205.66,165.66Z"/></svg>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/@aegov/design-system@latest/dist/aegov.js" defer></script>
+  <script>
+    // Mermaid initialization
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default',
+      flowchart: {
+        useMaxWidth: true,
+        htmlLabels: true,
+        curve: 'basis'
+      },
+      themeVariables: {
+        fontSize: '14px'
+      }
+    });
+
+    // Back to top visibility
+    const topBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      const show = window.pageYOffset > 400;
+      topBtn.style.opacity = show ? '1' : '0';
+      topBtn.style.pointerEvents = show ? 'auto' : 'none';
+    });
+    topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Mobile menu auto-close on link click
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden'));
+    });
+  </script>
+
+</body>
+</html>

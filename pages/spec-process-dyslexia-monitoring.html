@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="author" content="Dyslexia Service Platform - Dyslexia Monitoring Service"/>
+  <meta name="created" content="2026-05-06T14:24:16.075201"/>
+  <title>Process Specification - Dyslexia Service Platform</title>
+  <meta name="description" content="Dyslexia Monitoring &amp; Intervention Service Documentation"/>
+  <link rel="stylesheet" href="../dist/style.css">
+  <link rel="stylesheet" href="../dist/custom.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    [id] { scroll-margin-top: 5rem; }
+  </style>
+</head>
+<body class="bg-whitely-100 text-aeblack-800 font-roboto antialiased">
+
+  <a href="#main" class="portal-skip-nav">Skip to main content</a>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-whitely-50 shadow-sm border-b border-aeblack-100">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-8">
+      <nav class="flex items-center justify-between h-16" aria-label="Main navigation">
+        <a href="../index.html" class="flex items-center gap-3 text-aeblack-800 no-underline">
+          <img src="../assets/uae-emblem.png" alt="UAE Government Emblem" class="h-8 w-auto">
+          <div>
+            <span class="font-extrabold text-base tracking-tight text-aeblack-800">Dyslexia Service Platform</span>
+            <span class="block text-xs text-aeblack-400 font-normal">Documentation Portal</span>
+          </div>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="../index.html" class="px-4 py-2 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline transition-colors">Home</a>
+          <a href="#3-requirements-constraints-guidelines" class="px-4 py-2 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline transition-colors">Requirements</a>
+          <a href="#4-interfaces-data-contracts" class="px-4 py-2 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline transition-colors">Interfaces</a>
+          <a href="#5-acceptance-criteria" class="px-4 py-2 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline transition-colors">Acceptance</a>
+        </div>
+        <button class="md:hidden text-aeblack-600 p-2" aria-label="Open menu" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </nav>
+      <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-aeblack-100">
+        <a href="../index.html" class="block px-4 py-3 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline">Home</a>
+        <a href="#3-requirements-constraints-guidelines" class="block px-4 py-3 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline">Requirements</a>
+        <a href="#4-interfaces-data-contracts" class="block px-4 py-3 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline">Interfaces</a>
+        <a href="#5-acceptance-criteria" class="block px-4 py-3 text-sm text-aeblack-600 hover:text-primary-600 hover:bg-primary-50 rounded-lg no-underline">Acceptance</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="bg-aeblack-900 py-10 lg:py-14">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-8">
+      <nav class="flex items-center gap-2 text-sm mb-4" aria-label="Breadcrumb" style="color: rgba(255,255,255,0.5);">
+        <a href="../index.html" class="hover:text-white no-underline" style="color: rgba(255,255,255,0.5);">Home</a>
+        <span>/</span>
+        <span style="color: rgba(215,188,109,0.8);">Process Specification</span>
+      </nav>
+      <h1 class="text-h4 md:text-h3 xl:text-h2 font-extrabold" style="color: #FFFFFF;">Process Specification</h1>
+      <p class="mt-3 text-base max-w-2xl" style="color: rgba(255,255,255,0.6);">Detailed BPMN 2.0 process specification with requirements, constraints, interfaces and acceptance criteria for the Dyslexia Monitoring &amp; Intervention System</p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
+    <div class="lg:grid lg:grid-cols-[280px_1fr] lg:gap-12">
+
+      <!-- Sidebar TOC -->
+      <aside class="hidden lg:block">
+        <nav class="sticky top-24" aria-label="Table of contents">
+          <h2 class="text-sm font-bold uppercase tracking-wider text-aeblack-400 mb-4">On this page</h2>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#1-purpose-scope" class="text-aeblack-500 hover:text-primary-600 no-underline">1. Purpose &amp; Scope</a></li>
+            <li><a href="#2-definitions" class="text-aeblack-500 hover:text-primary-600 no-underline">2. Definitions</a></li>
+            <li><a href="#3-requirements-constraints-guidelines" class="text-aeblack-500 hover:text-primary-600 no-underline">3. Requirements</a></li>
+            <li><a href="#4-interfaces-data-contracts" class="text-aeblack-500 hover:text-primary-600 no-underline">4. Interfaces &amp; Data</a></li>
+            <li><a href="#5-acceptance-criteria" class="text-aeblack-500 hover:text-primary-600 no-underline">5. Acceptance Criteria</a></li>
+            <li><a href="#6-test-automation-strategy" class="text-aeblack-500 hover:text-primary-600 no-underline">6. Test Strategy</a></li>
+            <li><a href="#7-rationale-context" class="text-aeblack-500 hover:text-primary-600 no-underline">7. Rationale &amp; Context</a></li>
+            <li><a href="#8-dependencies-external-integrations" class="text-aeblack-500 hover:text-primary-600 no-underline">8. Dependencies</a></li>
+            <li><a href="#9-examples-edge-cases" class="text-aeblack-500 hover:text-primary-600 no-underline">9. Examples &amp; Edge Cases</a></li>
+            <li><a href="#10-validation-criteria" class="text-aeblack-500 hover:text-primary-600 no-underline">10. Validation Criteria</a></li>
+            <li><a href="#11-related-specifications" class="text-aeblack-500 hover:text-primary-600 no-underline">11. Related Specs</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main content -->
+      <main id="main">
+
+        <!-- Title -->
+        <section id="specification-dyslexia-monitoring-intervention-process-dims" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-4">Specification: Dyslexia Monitoring &amp; Intervention Process (DIMS)</h2>
+          </div>
+        </section>
+
+        <!-- 1. Purpose & Scope -->
+        <section id="1-purpose-scope" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">1. Purpose &amp; Scope</h2>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4">
+              This specification defines the end-to-end process for the Dyslexia Intelligence Monitoring System (DIMS), a 9-stage automated workflow for identifying, monitoring, and intervening in children (6-17 years) with dyslexia. The process encompasses:
+            </p>
+            <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed mb-4">
+              <li><strong>Initial identification</strong> through educator referrals or parental concerns</li>
+              <li><strong>Cognitive assessment</strong> via multidimensional battery of dyslexia-specific tests</li>
+              <li><strong>Automated diagnosis</strong> using weighted scoring and AI-driven pattern analysis</li>
+              <li><strong>Personalized intervention planning</strong> using Claude API (Hermes Agent)</li>
+              <li><strong>Continuous monitoring</strong> with dynamic reclassification</li>
+              <li><strong>Impact evaluation</strong> measuring longitudinal progress</li>
+            </ul>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4">
+              <strong>Intended Audience:</strong> Product engineers, clinical advisors, compliance officers, ONG coordinators, educators, specialist referral partners.
+            </p>
+            <p class="text-base text-aeblack-600 leading-relaxed">
+              <strong>Assumptions:</strong><br/>
+              - Children have access to devices with microphone/camera for audio/visual testing<br/>
+              - Internet connectivity sufficient for real-time data transmission<br/>
+              - Educators/parents can engage in brief referral/consent process<br/>
+              - System operates in English, with multi-language extensibility planned
+            </p>
+          </div>
+        </section>
+
+        <!-- 2. Definitions -->
+        <section id="2-definitions" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">2. Definitions</h2>
+            <div class="portal-table-wrapper">
+              <table class="portal-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Term</th>
+                    <th scope="col">Definition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Dyslexia</strong></td><td>Specific learning disability affecting accurate/fluent word recognition, decoding, and spelling despite adequate intelligence and instruction (DSM-5 aligned)</td></tr>
+                  <tr><td><strong>Phonological Processing</strong></td><td>Ability to manipulate and perceive sounds in language; primary deficit in phonological dyslexia</td></tr>
+                  <tr><td><strong>WPM</strong></td><td>Words Per Minute; fluency metric measured via 1-minute reading passages</td></tr>
+                  <tr><td><strong>RAN</strong></td><td>Rapid Automatized Naming; speed of accessing phonological labels (rapid naming of colors, objects)</td></tr>
+                  <tr><td><strong>Discrepancy Model</strong></td><td>Comparing listening comprehension vs. reading comprehension; gap &gt;15 points suggests specific reading disorder</td></tr>
+                  <tr><td><strong>Pseudowords</strong></td><td>Non-words following phonotactic rules (e.g., "balt", "kif") to test phonetic decoding ability</td></tr>
+                  <tr><td><strong>Phonemic Awareness</strong></td><td>Conscious awareness of individual phonemes (sounds); prerequisite for alphabetic decoding</td></tr>
+                  <tr><td><strong>Accommodations</strong></td><td>Classroom modifications (extra time, font changes, alternative formats) to reduce impact of dyslexia without lowering academic standards</td></tr>
+                  <tr><td><strong>LGPD</strong></td><td>Lei Geral de Protecao de Dados (Brazil's General Data Protection Law); requires explicit consent for processing children's personal data</td></tr>
+                  <tr><td><strong>Hermes Agent</strong></td><td>Claude API-based reasoning agent for generating personalized intervention recommendations</td></tr>
+                  <tr><td><strong>Reclassification</strong></td><td>Dynamic reassignment to new risk tier based on updated assessment scores</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. Requirements -->
+        <section id="3-requirements-constraints-guidelines" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">3. Requirements, Constraints &amp; Guidelines</h2>
+
+            <h3 id="functional-requirements" class="text-lg font-bold text-aeblack-800 mb-4">FUNCTIONAL REQUIREMENTS</h3>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>REQ-001: Multi-Stage Process Flow</strong><br/>- System SHALL execute 9 sequential and/or parallel stages<br/>- Each stage SHALL have explicit entry/exit criteria<br/>- Each stage SHALL generate timestamped logs for audit trail</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>REQ-002: Multidimensional Assessment</strong><br/>- System SHALL administer minimum 4 cognitive dimensions:<br/>- Phonological processing (40% weight)<br/>- Reading fluency/WPM (35% weight)<br/>- Reading comprehension (15% weight)<br/>- Visual-orthographic processing (10% weight)<br/>- System SHALL measure and flag discrepancy between listening vs. reading comprehension<br/>- Composite score SHALL range 0-100 with &gt;3 decimal places for sensitivity</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>REQ-003: Automated Risk Classification</strong><br/>- System SHALL classify children into 5 tiers: No Risk (0-30), Low Risk (31-50), Moderate Risk (51-70), High Risk (71-85), Critical/Confirmed (&gt;85)<br/>- Classification logic SHALL be transparent and auditable<br/>- System SHALL flag required actions for each tier (monitoring vs. intervention vs. specialist referral)</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>REQ-004: Dynamic Reclassification</strong><br/>- System SHALL reclassify child if score changes &gt;10 points<br/>- System SHALL reclassify if 3+ weeks pass without progress data<br/>- System SHALL trigger alerts if reclassification changes intervention intensity</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>REQ-005: AI-Driven Intervention Planning</strong><br/>- System SHALL generate personalized intervention plans within 5 minutes using Hermes Agent<br/>- Plans SHALL include:<br/>- Phase-based structure (consciousness, decoding, fluency, comprehension)<br/>- Specific activity recommendations tied to observed deficits<br/>- Frequency and duration targets<br/>- Clear responsibility assignment (educator, specialist, parent)<br/>- Weekly progress milestones<br/>- Plans SHALL be reviewed by human psychopedagogue before delivery</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>REQ-006: Continuous Monitoring Loop</strong><br/>- System SHALL collect progress data weekly or bi-weekly (configurable)<br/>- Progress checks SHALL include: WPM re-measurement, targeted sub-skill assessment, adherence tracking<br/>- System SHALL detect regression (WPM decline, score increase) and trigger escalation</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>REQ-007: Multi-Channel Notifications</strong><br/>- System SHALL deliver:<br/>- SMS/WhatsApp to caregivers (progress, motivation, reminders)<br/>- Email to educators (strategies, recommendations, performance reports)<br/>- Email to specialists (if referral required, with full assessment data)<br/>- Dashboard notifications to ONG coordinator (caseload health, escalations)<br/>- Notifications SHALL be templated and personalizable</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-6"><strong>REQ-008: Longitudinal Reporting</strong><br/>- System SHALL generate comparison reports:<br/>- Baseline vs. current scores (absolute and relative change)<br/>- WPM progression trend (linear regression)<br/>- Comorbidity indicators (ADHD, ASD screening flags)<br/>- Adherence metrics (% of scheduled sessions attended)<br/>- ROI estimation (cost of intervention vs. social impact)</p>
+
+            <h3 id="non-functional-requirements" class="text-lg font-bold text-aeblack-800 mb-4">NON-FUNCTIONAL REQUIREMENTS</h3>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>NFR-001: Performance</strong><br/>- Stage 3 (cognitive battery) SHALL complete in 40-45 minutes total<br/>- Stage 5 (scoring/analysis) SHALL complete in &lt;2 seconds<br/>- Stage 6 (plan generation) SHALL complete in &lt;5 minutes<br/>- All user-facing actions SHALL have &lt;2 second response time (95th percentile)</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>NFR-002: Availability</strong><br/>- System SHALL maintain 99.5% uptime SLA<br/>- Real-time data collection SHALL have automatic retry logic (exponential backoff, max 3 attempts)<br/>- If stage fails, system SHALL escalate to human reviewer within 1 hour</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>NFR-003: Security</strong><br/>- All PII (child name, test data, audio) SHALL be encrypted AES-256 at rest<br/>- All data transmission SHALL use TLS 1.3<br/>- Access SHALL be role-based (educator, specialist, ONG admin)<br/>- Audio recordings SHALL be deleted after scoring (retain only anonymized features)<br/>- System SHALL NOT expose individual child identifiers to third-party services</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>NFR-004: Compliance</strong><br/>- System SHALL obtain explicit LGPD consent before any assessment<br/>- System SHALL allow data subject (parent/guardian) to request deletion of their child's data (right to be forgotten)<br/>- System SHALL maintain audit log of all data access (who, when, what)<br/>- System SHALL NOT share data with external specialists without explicit parental consent<br/>- System SHALL include safeguarding protocols: if abuse indicators detected in free-text responses, SHALL escalate to trained social worker</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-6"><strong>NFR-005: Usability</strong><br/>- Interface SHALL be accessible (WCAG 2.1 AA) for children 6-17 with diverse literacy levels<br/>- Reading level of instructions SHALL not exceed 4th grade (Flesch-Kincaid)<br/>- System SHALL support both keyboard and voice input<br/>- System SHALL provide real-time feedback (progress bars, encouragement) to maintain engagement</p>
+
+            <h3 id="design-constraints" class="text-lg font-bold text-aeblack-800 mb-4">DESIGN CONSTRAINTS</h3>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>CON-001: Single Point of Truth for Assessment</strong><br/>- Child may NOT complete the same test stage twice within 3 days (avoid practice effects)<br/>- Exception: If technical failure occurs, automatic retry allowed within 24 hours<br/>- If child fails 3+ times, escalate to specialist</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>CON-002: Specialist Review Gate</strong><br/>- Any child classified &gt;70 (High Risk/Critical) SHALL be reviewed by psychopedagogue before notifying family<br/>- Specialist review SHALL include: score verification, pattern analysis, differential diagnosis considerations</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>CON-003: Accommodations Consistency</strong><br/>- Once accommodations are assigned (e.g., extra time, dyslexia-friendly font), SHALL be applied consistently across all assessments<br/>- Any change to accommodations SHALL be documented with rationale</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed"><strong>CON-004: Intervention Intensity Thresholds</strong><br/>- Moderate Risk (51-70): 2-3 sessions/week, 3-6 month duration<br/>- High Risk (71-85): 4-5 sessions/week, 6-12 month duration<br/>- Critical (&gt;85): Daily + specialist involvement, 12+ months<br/>- Deviations from these require specialist approval</p>
+          </div>
+        </section>
+
+        <!-- 4. Interfaces & Data Contracts -->
+        <section id="4-interfaces-data-contracts" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">4. Interfaces &amp; Data Contracts</h2>
+
+            <h3 id="41-input-data-contract-stage-1-child-registration" class="text-lg font-bold text-aeblack-800 mb-3">4.1 Input Data Contract (Stage 1: Child Registration)</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <p class="text-base text-aeblack-600 leading-relaxed" style="white-space: pre-wrap; font-family: monospace; font-size: 0.875rem;">{ "registration": { "child_id": "UUID", "full_name": "string (max 100 chars)", "date_of_birth": "YYYY-MM-DD", "age_group": "6-8 | 9-11 | 12-14 | 15-17", "gender": "M | F | Other", "handedness": "Right | Left | Ambidextrous", "native_language": "string", "secondary_languages": "string[]", "school_name": "string", "grade_level": "1-12", "referral_source": "Educator | Parent | ONG | Specialist", "referral_date": "YYYY-MM-DD", "dyslexia_risk_indicators": { "family_history_dyslexia": "Yes | No | Unknown", "history_speech_delay": "Yes | No", "history_otitis_media": "Yes | No", "current_reading_difficulty": "Yes | No" }, "caregiver": { "name": "string", "email": "string", "phone": "string (E.164 format)", "relationship": "Parent | Guardian | Other" }, "consent": { "lgpd_accepted": "boolean (required)", "consent_date": "YYYY-MM-DDTHH:MM:SSZ", "consent_version": "1.0" } } }</p>
+            </div>
+
+            <h3 id="42-cognitive-assessment-data-contract-stage-3-test-results" class="text-lg font-bold text-aeblack-800 mb-3">4.2 Cognitive Assessment Data Contract (Stage 3: Test Results)</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <p class="text-base text-aeblack-600 leading-relaxed" style="white-space: pre-wrap; font-family: monospace; font-size: 0.875rem;">{ "assessment_battery": { "assessment_id": "UUID", "child_id": "UUID", "test_date": "YYYY-MM-DDTHH:MM:SSZ", "session_number": "1 | 2 | 3", "assessor_id": "UUID (educator/facilitator)", "environment": "Home | School | ONG", "tests": { "phonological_processing": { "phonemic_awareness_score": "0-100", "rhyme_implicit_score": "0-100", "syllable_segmentation_score": "0-100", "syllable_reversal_score": "0-100", "composite_phonological": "0-100" }, "fluency_and_speed": { "wpm_reading_passage_1": "number (words per minute)", "wpm_reading_passage_2": "number", "wpm_average": "number", "error_count": "number (omissions, insertions, substitutions)", "pseudoword_reading_score": "0-100", "irregular_word_reading_score": "0-100", "ran_naming_speed": "seconds (time to name 40 stimuli)", "composite_fluency": "0-100" }, "reading_comprehension": { "multiple_choice_correct": "number of correct / total questions", "inference_score": "0-100", "detail_retention_score": "0-100", "composite_reading_comprehension": "0-100" }, "visual_orthographic": { "visual_choice_score": "0-100", "visual_sequence_memory": "0-100", "letter_orientation_symmetry": "0-100", "composite_visual": "0-100" }, "listening_comprehension": { "passage_auditory": "string (20-30 word passage read aloud)", "questions_correct": "number / total", "composite_listening": "0-100" } }, "metadata": { "completion_time_minutes": "number", "child_engagement": "1-5 (Likert)", "technical_issues": "string (if any)", "assessor_notes": "string (observations, behaviors)" } } }</p>
+            </div>
+
+            <h3 id="43-diagnostic-output-contract-stage-5-risk-classification" class="text-lg font-bold text-aeblack-800 mb-3">4.3 Diagnostic Output Contract (Stage 5: Risk Classification)</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <p class="text-base text-aeblack-600 leading-relaxed" style="white-space: pre-wrap; font-family: monospace; font-size: 0.875rem;">{ "diagnosis": { "assessment_id": "UUID", "child_id": "UUID", "generated_timestamp": "YYYY-MM-DDTHH:MM:SSZ", "overall_risk_score": "0-100 (floating point)", "risk_classification": "No Risk | Low Risk | Moderate Risk | High Risk | Critical", "dimension_scores": { "phonological": "0-100", "fluency": "0-100", "comprehension": "0-100", "visual_orthographic": "0-100" }, "audiovisual_discrepancy": "number (listening_score - reading_score)", "indicators": { "strong_phonological_deficit": "boolean", "significant_fluency_lag": "boolean", "comprehension_preserved": "boolean", "comorbidity_flags": ["ADHD_risk", "ASD_risk"] (empty if none) }, "recommended_action": "Monitor | Preventive Intervention | Targeted Intervention | Specialist Referral | Critical Escalation", "specialist_referral_required": "boolean", "confidence_score": "0-100 (model confidence)" } }</p>
+            </div>
+
+            <h3 id="44-intervention-plan-contract-stage-6-personalized-recommendation" class="text-lg font-bold text-aeblack-800 mb-3">4.4 Intervention Plan Contract (Stage 6: Personalized Recommendation)</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <p class="text-base text-aeblack-600 leading-relaxed" style="white-space: pre-wrap; font-family: monospace; font-size: 0.875rem;">{ "intervention_plan": { "plan_id": "UUID", "child_id": "UUID", "generated_by": "hermes_agent | psychopedagogue", "plan_date": "YYYY-MM-DD", "goal_statement": "string", "phases": [ { "phase_number": 1, "phase_name": "Phonemic Awareness", "duration_weeks": "4", "frequency": "3x per week", "duration_per_session": "15 minutes", "activities": [ { "activity_id": "string", "name": "Rhyme Matching Game", "objective": "Strengthen phoneme discrimination", "instructions": "string", "materials_required": "string", "expected_difficulty": "Beginner" } ], "responsible_party": "Educator" } ], "immediate_accommodations": [ "Dyslexia-friendly font (OpenDyslexic)", "Extra time on tests (50% additional)", "Oral reading permitted", "Increased spacing on paper" ], "monitoring_schedule": { "wpm_tracking": "weekly (same text)", "phonemic_assessment": "bi-weekly", "full_reevaluation": "every 4 weeks" }, "success_metrics": [ { "metric": "Phonological score increase", "target": "+10 points by week 4" }, { "metric": "WPM improvement", "target": "+20% by week 8" } ], "escalation_triggers": [ "No progress after 4 weeks", "Adherence &lt;50%", "Regression (score increase &gt;5 points)" ] } }</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. Acceptance Criteria -->
+        <section id="5-acceptance-criteria" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">5. Acceptance Criteria</h2>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>AC-001: Child Registration</strong><br/>- Given a valid referral from educator, When parent/guardian submits registration, Then system SHALL create child profile with all mandatory fields, validate LGPD consent, and trigger Stage 2 within 24 hours</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>AC-002: Assessment Battery Completion</strong><br/>- Given Stage 3 initiated, When child completes all 3 sessions (phonology, fluency, comprehension, visual), Then system SHALL store all raw scores, calculate composite metrics, and validate data quality (no missing values) before advancing to Stage 5</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>AC-003: Risk Scoring Accuracy</strong><br/>- Given completed assessment data, When system calculates overall risk score, Then:<br/>- Score SHALL match manual calculation (educator validation) within &plusmn;3 points<br/>- Classification tier SHALL be correctly assigned per thresholds (0-30 = No Risk, etc.)<br/>- Discrepancy flag SHALL trigger specialist review if &gt;70</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>AC-004: Plan Generation &amp; Review</strong><br/>- Given High Risk child (score &gt;65), When Hermes Agent generates intervention plan, Then:<br/>- Plan SHALL be reviewed by psychopedagogue within 2 hours<br/>- Plan SHALL include minimum 3 intervention phases with specific activities<br/>- Plan SHALL assign clear responsibility (Educator/Specialist/Parent)<br/>- Plan SHALL not be delivered to family until reviewed</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>AC-005: Notification Delivery</strong><br/>- Given plan approval, When notifications triggered, Then:<br/>- SMS/WhatsApp to caregiver delivered within 1 hour<br/>- Email to educator delivered within 1 hour<br/>- Delivery confirmation logged in system</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>AC-006: Continuous Monitoring</strong><br/>- Given active intervention (Stages 8-9), When weekly progress collection scheduled, Then:<br/>- System SHALL prompt caregiver/educator for WPM re-test<br/>- System SHALL update score and flag if reclassification required<br/>- System SHALL alert if &gt;3 weeks without data (intervention at risk)</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>AC-007: Longitudinal Impact Report</strong><br/>- Given child at 6-month exit point, When final assessment triggered, Then:<br/>- Report SHALL show baseline vs. exit scores for all dimensions<br/>- Report SHALL calculate WPM delta (absolute and %)<br/>- Report SHALL estimate ROI based on intervention cost and estimated social/economic impact<br/>- Report SHALL recommend continuation, step-down, or specialist follow-up</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed"><strong>AC-008: Data Privacy &amp; Security</strong><br/>- Given any child assessment in system, When data access requested, Then:<br/>- System SHALL verify requestor role (educator/specialist/parent)<br/>- Audio recordings SHALL be deleted after scoring (retain features only)<br/>- All access SHALL be logged with timestamp, user ID, data accessed<br/>- System SHALL support parent's LGPD right to deletion (anonymize data)</p>
+          </div>
+        </section>
+
+        <!-- 6. Test Automation Strategy -->
+        <section id="6-test-automation-strategy" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">6. Test Automation Strategy</h2>
+
+            <h3 id="test-levels" class="text-lg font-bold text-aeblack-800 mb-3">Test Levels</h3>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>Unit Tests:</strong><br/>- Scoring algorithm: Verify weighted calculation matches expected output for test inputs<br/>- Risk classification logic: Verify tier boundaries (0-30 = No Risk, etc.)<br/>- Data validation: Required fields, email format, date ranges<br/>- Frameworks: Jest/Vitest (JavaScript), unittest/pytest (Python)</p>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>Integration Tests:</strong><br/>- Assessment data ingestion: Upload test battery results &rarr; validate in database &rarr; trigger scoring<br/>- Plan generation: Send assessment data to Hermes Agent &rarr; receive plan &rarr; validate structure<br/>- Notification delivery: Generate notification &rarr; send via Twilio/SendGrid &rarr; confirm delivery log<br/>- Frameworks: Postman/Newman, pytest-flask</p>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-6"><strong>End-to-End Tests:</strong><br/>- Full workflow: Registration &rarr; Assessment (3 sessions) &rarr; Scoring &rarr; Plan Generation &rarr; Notification &rarr; Progress Monitoring<br/>- Regression testing: Ensure child data integrity after updates<br/>- Frameworks: Playwright (browser), custom Python scripts</p>
+
+            <h3 id="cicd-integration" class="text-lg font-bold text-aeblack-800 mb-3">CI/CD Integration</h3>
+            <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed mb-6">
+              <li>Unit tests run on every commit (GitHub Actions)</li>
+              <li>Integration tests run on PR (must pass before merge)</li>
+              <li>E2E tests run nightly against staging environment</li>
+              <li>Coverage minimum: 80% for business logic, 60% overall</li>
+            </ul>
+
+            <h3 id="test-data-management" class="text-lg font-bold text-aeblack-800 mb-3">Test Data Management</h3>
+            <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed mb-6">
+              <li>Mock dyslexia assessment results (high-risk, moderate-risk, no-risk profiles)</li>
+              <li>Mock caregiver/educator personas</li>
+              <li>Mock Hermes Agent responses (deterministic, unseeded LLM calls)</li>
+              <li>Test data cleaned up post-test (PII never retained)</li>
+            </ul>
+
+            <h3 id="performance-testing" class="text-lg font-bold text-aeblack-800 mb-3">Performance Testing</h3>
+            <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+              <li>Load test: 100 concurrent assessment submissions</li>
+              <li>Latency test: Stage 5 scoring completes in &lt;2 seconds</li>
+              <li>Database query optimization: Scoring query &lt;100ms</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 7. Rationale & Context -->
+        <section id="7-rationale-context" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">7. Rationale &amp; Context</h2>
+
+            <h3 id="why-9-stages" class="text-lg font-bold text-aeblack-800 mb-3">Why 9 Stages?</h3>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4">
+              The original 7-stage model was insufficient for dyslexia's complexity:<br/>
+              - <strong>Stages 1-3</strong>: Identification &amp; assessment (same as general child monitoring)<br/>
+              - <strong>Stages 4-7</strong>: Diagnosis, planning, notification, monitoring (specific to dyslexia)<br/>
+              - <strong>Stages 8-9</strong> (new): Continuous progress tracking &amp; longitudinal impact (critical because dyslexia is a developmental trajectory, not a point diagnosis)
+            </p>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-6">
+              Dyslexia requires <strong>longitudinal monitoring</strong> beyond initial diagnosis because:<br/>
+              1. Intervention effectiveness varies by individual<br/>
+              2. Comorbidities (ADHD, ASD) may emerge over time<br/>
+              3. School demands (reading load) increase with age, potentially unmasking deficits
+            </p>
+
+            <h3 id="why-multidimensional-assessment" class="text-lg font-bold text-aeblack-800 mb-3">Why Multidimensional Assessment?</h3>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4">
+              Single-metric approaches (e.g., WPM alone) create false negatives:<br/>
+              - <strong>Phonological dyslexia</strong> (most common): High WPM but poor accuracy (many errors) &rarr; WPM alone misses it<br/>
+              - <strong>Surface dyslexia</strong>: Can decode phonetically but can't recognize irregular words &rarr; different intervention needed<br/>
+              - <strong>Double deficit</strong>: Both phonological AND fluency deficits &rarr; require combined intervention
+            </p>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-6">
+              <strong>Weights chosen:</strong><br/>
+              - Phonological (40%): Primary deficit in ~70% of dyslexia cases<br/>
+              - Fluency (35%): Functional impact (reading speed affects school participation)<br/>
+              - Comprehension (15%): Marker of compensation (some kids decode but don't understand)<br/>
+              - Visual-orthographic (10%): Sub-type identifier
+            </p>
+
+            <h3 id="why-audiovisual-discrepancy-as-key-marker" class="text-lg font-bold text-aeblack-800 mb-3">Why Audiovisual Discrepancy as Key Marker?</h3>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4">
+              Children with dyslexia typically have:<br/>
+              - <strong>Strong listening comprehension</strong> (can understand language when spoken)<br/>
+              - <strong>Weak reading comprehension</strong> (can't access meaning from written text)
+            </p>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-6">
+              A gap &gt;15 points = <strong>specific reading disorder</strong> (vs. general language impairment). This discrepancy distinguishes dyslexia from:<br/>
+              - Intellectual disability (deficits across domains)<br/>
+              - Language disorder (listening &amp; reading both weak)<br/>
+              - ADHD (attention affects both, but no specific phonological deficit)
+            </p>
+
+            <h3 id="why-ai-driven-personalized-planning" class="text-lg font-bold text-aeblack-800 mb-3">Why AI-Driven Personalized Planning?</h3>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4">
+              Standard intervention manuals (one-size-fits-all) are <strong>ineffective for dyslexia heterogeneity</strong>:<br/>
+              - Child A: Pure phonological deficit &rarr; needs explicit phonological intervention<br/>
+              - Child B: Comorbid with ADHD &rarr; needs shorter, more frequent sessions with movement breaks<br/>
+              - Child C: Has compensatory strength in visual memory &rarr; can use multisensory approach
+            </p>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-6">
+              Hermes Agent analyzes the full <strong>assessment profile</strong> and generates targeted recommendations:<br/>
+              - Phase structure adapted to deficit severity<br/>
+              - Activity selection based on observed strengths/weaknesses<br/>
+              - Frequency/duration calibrated to comorbidities<br/>
+              - Materials recommended based on engagement markers
+            </p>
+
+            <h3 id="why-dynamic-reclassification" class="text-lg font-bold text-aeblack-800 mb-3">Why Dynamic Reclassification?</h3>
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4">
+              Dyslexia intervention response varies widely:<br/>
+              - <strong>Fast responders</strong> (40%): Show measurable progress within 4 weeks &rarr; can reduce intervention intensity<br/>
+              - <strong>Slow responders</strong> (40%): Show progress by 8-12 weeks &rarr; maintain or escalate intervention<br/>
+              - <strong>Non-responders</strong> (20%): Minimal progress &rarr; may require specialist evaluation or modified approach
+            </p>
+            <p class="text-base text-aeblack-600 leading-relaxed">
+              System must continuously reassess and <strong>adapt intensity</strong> to actual response, not static initial classification.
+            </p>
+          </div>
+        </section>
+
+        <!-- 8. Dependencies -->
+        <section id="8-dependencies-external-integrations" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">8. Dependencies &amp; External Integrations</h2>
+
+            <h3 id="external-systems" class="text-lg font-bold text-aeblack-800 mb-3">External Systems</h3>
+            <ul class="space-y-4 text-base text-aeblack-600 leading-relaxed mb-6">
+              <li><strong>EXT-001: Claude API (Anthropic Hermes Agent)</strong> -- Purpose: Generate personalized intervention recommendations from assessment profile; Integration type: REST API calls (async queuing); SLA: 95% &lt;20 seconds response time</li>
+              <li><strong>EXT-002: Twilio Communications Platform</strong> -- Purpose: Deliver SMS/WhatsApp notifications to caregivers; Integration type: REST API; SLA: 99.5% delivery rate</li>
+              <li><strong>EXT-003: SendGrid Email Service</strong> -- Purpose: Deliver detailed reports to educators/specialists; Integration type: REST API; SLA: 98% delivery, &lt;30 minute latency</li>
+            </ul>
+
+            <h3 id="third-party-services" class="text-lg font-bold text-aeblack-800 mb-3">Third-Party Services</h3>
+            <ul class="space-y-4 text-base text-aeblack-600 leading-relaxed mb-6">
+              <li><strong>SVC-001: Assessment Validation Service</strong> -- Required capabilities: Verify scoring accuracy against human expert; Frequency: 5% random sampling of high-risk cases; Response time: &lt;24 hours</li>
+              <li><strong>SVC-002: Specialist Referral Network</strong> -- Required capabilities: Directory of dyslexia specialists (speech therapists, neuropsychologists) in geographic area; Feedback on intervention outcomes for model improvement</li>
+            </ul>
+
+            <h3 id="infrastructure-dependencies" class="text-lg font-bold text-aeblack-800 mb-3">Infrastructure Dependencies</h3>
+            <ul class="space-y-4 text-base text-aeblack-600 leading-relaxed mb-6">
+              <li><strong>INF-001: Database (PostgreSQL or equivalent)</strong> -- Requirement: ACID compliance, encrypted backups, minimum 99.5% uptime</li>
+              <li><strong>INF-002: API Gateway &amp; Load Balancer</strong> -- Requirement: Handle 1000+ concurrent assessments, &lt;100ms latency at p95</li>
+              <li><strong>INF-003: Audio/Video Recording Infrastructure</strong> -- Requirement: Encrypted storage, automatic deletion after feature extraction, GDPR compliance for audio data</li>
+            </ul>
+
+            <h3 id="data-dependencies" class="text-lg font-bold text-aeblack-800 mb-3">Data Dependencies</h3>
+            <ul class="space-y-4 text-base text-aeblack-600 leading-relaxed mb-6">
+              <li><strong>DAT-001: Reference Norms by Age/Language</strong> -- Format: CSV with WPM/phonological thresholds per age group (6-17) and language; Frequency: Updated annually; Source: IDA (International Dyslexia Association), academic literature</li>
+              <li><strong>DAT-002: Comorbidity Screening Instruments</strong> -- Format: Validated questionnaires (Conners for ADHD, AQ-10 for ASD); Frequency: Static; Source: Licensed from publishers</li>
+            </ul>
+
+            <h3 id="technology-platform-dependencies" class="text-lg font-bold text-aeblack-800 mb-3">Technology Platform Dependencies</h3>
+            <ul class="space-y-4 text-base text-aeblack-600 leading-relaxed mb-6">
+              <li><strong>PLT-001: JavaScript/Node.js runtime</strong> -- Requirement: Support for async/await, microservices architecture; Critical for real-time assessment processing</li>
+              <li><strong>PLT-002: PostgreSQL 12+</strong> -- Requirement: JSON support for flexible assessment data structures, full-text search for intervention matching</li>
+              <li><strong>PLT-003: Audio processing library</strong> -- Requirement: Extract phonetic features from child speech (formants, voice quality); Constraint: Must be privacy-preserving (process locally, not cloud-based)</li>
+            </ul>
+
+            <h3 id="compliance-dependencies" class="text-lg font-bold text-aeblack-800 mb-3">Compliance Dependencies</h3>
+            <ul class="space-y-4 text-base text-aeblack-600 leading-relaxed">
+              <li><strong>COM-001: LGPD Compliance Framework</strong> -- Impact: Requires explicit consent, right to deletion, data minimization (delete audio after feature extraction)</li>
+              <li><strong>COM-002: Child Safeguarding Protocols</strong> -- Impact: If system detects abuse indicators in free-text responses, must escalate to trained social worker (not automated)</li>
+              <li><strong>COM-003: Educational Standards (BNCC)</strong> -- Impact: Intervention recommendations must align with Brazilian National Curriculum (competency-based, not just deficit-focused)</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 9. Examples & Edge Cases -->
+        <section id="9-examples-edge-cases" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">9. Examples &amp; Edge Cases</h2>
+
+            <h3 id="example-1-high-risk-dyslexia-child-with-adhd-comorbidity" class="text-lg font-bold text-aeblack-800 mb-3">Example 1: High-Risk Dyslexia Child with ADHD Comorbidity</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <p class="text-base font-bold text-aeblack-800 mb-2">INPUT (Assessment Results):</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Phonological Score: 78 (high deficit)</li>
+                <li>WPM: 35 (severely below norm for 9-year-old, who should be ~120)</li>
+                <li>Listening Comprehension: 92</li>
+                <li>Reading Comprehension: 45</li>
+                <li>Audiovisual Discrepancy: 47 points (SEVERE)</li>
+                <li>Behavioral Notes: "Fidgety, trouble staying focused on reading task"</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">SYSTEM PROCESSING:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Overall Risk Score: 82 (HIGH RISK / CRITICAL)</li>
+                <li>Primary Deficit: Phonological dyslexia</li>
+                <li>Comorbidity Flag: ADHD risk (behavioral observation + discrepancy pattern)</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">AI-GENERATED PLAN:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Phase 1: Phonemic Awareness (4 weeks) - Frequency: 3x/week, 10 minute sessions (shorter due to ADHD) - Strategy: Include movement breaks (jumping for syllables, clapping for phonemes) - Engagement: Gamified (earning points for focus)</li>
+                <li>Phase 2: Phonetic Decoding (weeks 5-8) - Frequency: 4x/week, 15 minute sessions - Strategy: Multi-sensory (letter shapes, letter sounds, writing) - Engagement: Story-based progression</li>
+                <li>Phase 3: Fluency (weeks 9-16) - Frequency: 5x/week, 20 minute sessions (gradually increasing) - Strategy: Partner reading - Engagement: Choose own books at reading level</li>
+                <li>Accommodations: Extra time on school tests (50%), Dyslexia-friendly font + increased spacing, Oral responses allowed, Movement breaks during long reading sessions</li>
+                <li>CRITICAL NOTE: "Recommend parallel ADHD evaluation by pediatric neuropsychologist. If ADHD confirmed, address concurrently (short sessions, high engagement, movement integration). Dyslexia intervention alone may not resolve difficulty if attention is the limiting factor."</li>
+                <li>Monitoring: Bi-weekly check-ins (given comorbidity risk, higher supervision). ADHD symptoms to track: On-task time, impulse control during tasks. Dyslexia progress: WPM weekly, phonological bi-weekly. If ADHD medication initiated, adjust phase intensity (may see sudden improvement).</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">OUTPUT (To Stakeholders):</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Parents: "John shows signs of both reading disability and attention challenges. We recommend evaluation by neuropsychologist while starting reading support now. Plan includes short sessions with movement to help focus."</li>
+                <li>Educator: [Detailed plan + accommodations checklist]</li>
+                <li>ONG Coordinator: "Escalate to specialist for ADHD assessment + continue reading intervention"</li>
+              </ul>
+            </div>
+
+            <h3 id="example-2-surface-dyslexia-irregular-word-weakness" class="text-lg font-bold text-aeblack-800 mb-3">Example 2: Surface Dyslexia (Irregular Word Weakness)</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <p class="text-base font-bold text-aeblack-800 mb-2">INPUT:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Phonological Score: 42 (NORMAL)</li>
+                <li>WPM: 85 (NORMAL for 8-year-old, ~90)</li>
+                <li>Pseudo-word Reading: 92 (STRONG phonetic decoding)</li>
+                <li>Irregular Word Reading: 30 (SEVERE weakness)</li>
+                <li>Strategy Observation: Child sounded out "yacht" as "yak-t", couldn't recognize "said"</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">DIAGNOSIS:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Risk Score: 35 (LOW RISK, but not zero)</li>
+                <li>Pattern: Surface dyslexia (strong phonetic decoding, weak visual/memory access)</li>
+                <li>Implication: Child CAN decode but has weak sight word bank</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">AI PLAN:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Focus: NOT phonological intervention (not needed)</li>
+                <li>Focus: Visual memory, whole-word recognition, etymology</li>
+                <li>Activities: Irregular word flashcards with story/image associations; Etymology study (high-frequency irregular words share patterns: said/paid/laid); Contextual reading (meaning aids recognition of irregular words)</li>
+                <li>Frequency: 2x/week, 15 minutes (less intensive than phonological)</li>
+                <li>Expected Progress: +30 WPM, but improvement focused on accuracy, not speed</li>
+              </ul>
+            </div>
+
+            <h3 id="example-3-non-responsive-child-no-progress-after-4-weeks" class="text-lg font-bold text-aeblack-800 mb-3">Example 3: Non-Responsive Child (No Progress After 4 Weeks)</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-6">
+              <p class="text-base font-bold text-aeblack-800 mb-2">TRIGGER:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Child in Moderate Risk intervention for 4 weeks</li>
+                <li>Sessions attended: 8/12 (67% adherence)</li>
+                <li>WPM baseline: 45 &rarr; current: 48 (minimal change)</li>
+                <li>Phonological Score: unchanged</li>
+                <li>ALERT: "No meaningful progress. Escalate."</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">SYSTEM RESPONSE:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Automatic escalation checklist: Review adherence: 67% acceptable, but &lt;75% target. Check implementation fidelity: Were activities done as planned? Assess external factors: School transition? New sibling? Family stress? Verify assessment quality: Was baseline assessment valid? Consider comorbidity: Has ADHD/anxiety/depression emerged?</li>
+                <li>AI Generates Updated Recommendation: "Adherence at 67% may be limiting. Recommend: 1. Assess barriers (too many sessions, distance, motivation) 2. Simplify plan: Reduce to 2x/week to ensure quality 3. Increase engagement: Use gamification, child's interest (sports, music) 4. Screen for ADHD (ADHD + dyslexia may require different approach) 5. If still no progress by week 8, refer to neuropsychologist"</li>
+                <li>Notification: ONG Coordinator: "John's case requires review. Recommend discussion with parents about barriers &amp; potential ADHD screening." Psychopedagogue assigned for strategy consultation.</li>
+              </ul>
+            </div>
+
+            <h3 id="example-4-false-positive-scenario-system-flags-as-risk-but-isnt-dyslexia" class="text-lg font-bold text-aeblack-800 mb-3">Example 4: False Positive Scenario (System Flags as Risk, But Isn't Dyslexia)</h3>
+            <div class="bg-primary-50/50 rounded-xl p-5 border-l-4 border-primary-600 mb-4">
+              <p class="text-base font-bold text-aeblack-800 mb-2">INPUT:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Child: 7-year-old, 2nd month of formal reading instruction</li>
+                <li>Phonological Score: 60</li>
+                <li>WPM: 52 (below norm)</li>
+                <li>BUT: Child still learning letter sounds, high English as second language exposure</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">SPECIALIST REVIEW:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Observation: "Child is still in early reading phase. Phonological score elevated due to not yet knowing all letters, not due to dyslexia deficit."</li>
+                <li>Decision: "Not dyslexia. Developmentally normal progress for early reader. Recommend regular classroom instruction. Retest in 8 weeks."</li>
+              </ul>
+              <p class="text-base font-bold text-aeblack-800 mt-4 mb-2">LEARNING:</p>
+              <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed">
+                <li>Model updated with more features: Time in literacy instruction, Language exposure patterns, Access to early reading intervention</li>
+                <li>Helps distinguish "not yet reading proficient" from "dyslexic"</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 10. Validation Criteria -->
+        <section id="10-validation-criteria" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">10. Validation Criteria</h2>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>Assessment Validity</strong><br/>- External validation: 90%+ agreement between system scoring and manual expert scoring on 50 test cases<br/>- Criterion validity: Score &gt;70 on system correlates with positive specialist diagnosis (r &gt; 0.85)<br/>- Test-retest reliability: Same child tested 6 months later shows stable classification (&gt;80% remain in same tier)</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>Intervention Effectiveness</strong><br/>- Outcome metric: &gt;60% of children improve by &ge;10 points within 6 months<br/>- Average improvement: 20+ WPM by 6 months<br/>- Adherence: &ge;75% session attendance correlates with meaningful progress</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>Plan Relevance</strong><br/>- Educator feedback: &ge;80% report plan activities are "very relevant" to observed deficits<br/>- Implementation fidelity: &ge;80% of planned activities successfully completed</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed mb-4"><strong>Usability</strong><br/>- Assessment completion: &ge;90% of children complete full battery without dropout<br/>- System availability: 99.5% uptime measured monthly</p>
+
+            <p class="text-base text-aeblack-600 leading-relaxed"><strong>Safety &amp; Compliance</strong><br/>- LGPD: 100% of children have documented consent before assessment<br/>- Data security: 0 unauthorized access incidents, 0 data breaches<br/>- Escalation: 100% of abuse indicators escalated to social worker within 1 hour</p>
+          </div>
+        </section>
+
+        <!-- 11. Related Specifications -->
+        <section id="11-related-specifications" class="mb-10">
+          <div class="bg-white rounded-2xl border border-aeblack-100 p-6 lg:p-8 shadow-sm">
+            <h2 class="text-h5 md:text-h4 font-extrabold text-aeblack-800 mb-6">11. Related Specifications</h2>
+            <ul class="space-y-2 text-base text-aeblack-600 leading-relaxed mb-6">
+              <li><a href="./01-Service-Card-Dyslexia.html">Service Card: Dyslexia Monitoring &amp; Intervention</a></li>
+              <li><a href="./Child_Monitoring_Dyslexia_BPMN_Detailed.html">BPMN 2.0 Process Diagram</a></li>
+              <li>Reference: <a href="https://dyslexiaida.org">International Dyslexia Association -- Definition &amp; Types</a></li>
+              <li>Reference: <a href="https://www.psychiatry.org/dsm5">DSM-5 Criteria for Specific Learning Disorder</a></li>
+              <li>Reference: <a href="https://www.planalto.service.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm">LGPD Compliance for Child Data</a></li>
+            </ul>
+
+            <p class="text-base text-aeblack-600 leading-relaxed">
+              <strong>Specification prepared for implementation &amp; clinical validation</strong><br/>
+              <em>Demonstrates: evidence-based assessment, differential diagnosis, personalized intervention, AI-assisted planning, compliance-first design</em>
+            </p>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-aeblack-900 text-whitely-100">
+    <div class="max-w-screen-xl mx-auto px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">Core Documents</h4>
+          <ul class="space-y-2.5">
+            <li><a href="service-card-dyslexia.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Service Card</a></li>
+            <li><a href="child-monitoring-dyslexia-bpmn-detailed.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">BPMN Diagram</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">Governance</h4>
+          <ul class="space-y-2.5">
+            <li><a href="as-is-to-be-analysis.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">AS-IS / TO-BE</a></li>
+            <li><a href="target-operating-model.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Operating Model</a></li>
+            <li><a href="raci-governance-matrix.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">RACI Matrix</a></li>
+            <li><a href="risk-register.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Risk Register</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">Process &amp; Tech</h4>
+          <ul class="space-y-2.5">
+            <li><a href="spec-process-dyslexia-monitoring.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Process Spec</a></li>
+            <li><a href="technology-stack-mapping.html" class="text-sm text-aeblack-200 hover:text-whitely-50 no-underline transition-colors">Technology Stack</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider mb-4" style="color: #D7BC6D;">About</h4>
+          <p class="text-sm text-aeblack-300 leading-relaxed">UAE Dyslexia Service Platform documentation portal. Part of the Ministry of Education digital transformation initiative.</p>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-aeblack-700">
+      <div class="max-w-screen-xl mx-auto px-6 lg:px-8 py-5 text-center">
+        <p class="text-sm text-aeblack-400">&copy; 2026 UAE Dyslexia Service Platform &middot; Ministry of Education</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 z-50 w-12 h-12 bg-primary-600 hover:bg-primary-500 text-whitely-50 rounded-full shadow-lg flex items-center justify-center transition-all opacity-0 pointer-events-none" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,165.66a8,8,0,0,1-11.32,0L128,99.31,61.66,165.66a8,8,0,0,1-11.32-11.32l72-72a8,8,0,0,1,11.32,0l72,72A8,8,0,0,1,205.66,165.66Z"/></svg>
+  </button>
+
+  <script src="https://unpkg.com/@aegov/design-system@latest/dist/aegov.js" defer></script>
+  <script>
+    const topBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      const show = window.pageYOffset > 400;
+      topBtn.style.opacity = show ? '1' : '0';
+      topBtn.style.pointerEvents = show ? 'auto' : 'none';
+    });
+    topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden'));
+    });
+  </script>
+
+</body>
+</html>
